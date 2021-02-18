@@ -1,0 +1,12 @@
+actorType=ActorType
+addActorType=AddActorType
+addAllowedActor=AddAllowedActor
+addAllowedActorType=AddAllowedActorType
+addParentActorType=AddParentActorType
+addProducedArtifactType=AddProducedArtifactType
+addUsedArtifactType=AddUsedArtifactType
+artifactType=ArtifactType
+invalid_parameter=Invalid parameter
+taskType=TaskType
+testIsAuthorized=TestIsAuthorized
+update=Update

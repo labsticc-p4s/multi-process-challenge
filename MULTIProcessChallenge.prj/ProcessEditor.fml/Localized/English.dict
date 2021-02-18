@@ -1,0 +1,12 @@
+AndJoinGR=AndJoinGR
+AndSplitGR=AndSplitGR
+EndGR=EndGR
+TaskTypeGR=TaskTypeGR
+dropAndJoinGRAtTopLevel=DropAndJoinGRAtTopLevel
+dropAndSplitGRAtTopLevel=DropAndSplitGRAtTopLevel
+dropBeginNodeAtTopLevel=DropBeginNodeAtTopLevel
+dropEndGRAtTopLevel=DropEndGRAtTopLevel
+dropTaskTypeGRAtTopLevel=DropTaskTypeGRAtTopLevel
+linkBeginGRToTaskTypeGR=LinkBeginGRToTaskTypeGR
+linkTaskTypeGRToAndSplitGR=LinkTaskTypeGRToAndSplitGR
+processTypeName=ProcessTypeName

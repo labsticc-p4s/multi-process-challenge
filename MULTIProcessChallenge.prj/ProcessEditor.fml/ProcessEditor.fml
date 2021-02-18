@@ -1,0 +1,204 @@
+use org.openflexo.technologyadapter.diagram.TypedDiagramModelSlot;
+use org.openflexo.foundation.fml.rt.FMLRTVirtualModelInstanceModelSlot;
+
+/**
+ * 
+ * @version 0.1
+ */
+@VirtualModel(uri="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml")
+public class ProcessEditor {
+
+  public Diagram diagram;
+  public Model model;
+  public ProcessType processType;
+
+  @CreationScheme  
+  ProcessEditor:init(Model model, String processTypeName) {  
+    diagram = CreateDiagram();    
+    model = parameters.model;    
+    processType = ProcessType.create(parameters.processTypeName);  
+  }  
+
+
+  @FlexoConcept  
+  public class BeginGR {  
+  
+    public DiagramShape shape;  
+    public Begin begin;  
+  
+    @DropScheme    
+    BeginGR:dropBeginNodeAtTopLevel() {    
+      shape = diagram.AddShape();      
+      begin = Begin.create();      
+      processType.setInitialTaskType(begin)    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class TaskTypeGR {  
+  
+    public DiagramShape shape;  
+    public TaskType taskType;  
+  
+    @DropScheme    
+    TaskTypeGR:dropTaskTypeGRAtTopLevel() {    
+      shape = diagram.AddShape();      
+      taskType = TaskType.create("Task");      
+      processType.addToTaskTypes(taskType)    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class StartSequencingGR {  
+  
+    public DiagramConnector connector;  
+    public Sequencing sequencing;  
+  
+    @LinkScheme    
+    StartSequencingGR:linkBeginGRToTaskTypeGR() {    
+      connector = diagram.AddConnector();      
+      sequencing = Sequencing.create();      
+      processType.addToGateways(sequencing)      
+      sequencing.in = fromTarget.begin;      
+      sequencing.out = toTarget.taskType;    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class EndGR {  
+  
+    public DiagramShape shape;  
+    public DiagramShape inside;  
+    public End end;  
+  
+    @DropScheme    
+    EndGR:dropEndGRAtTopLevel() {    
+      shape = diagram.AddShape();      
+      inside = diagram.AddShape();      
+      end = End.create();      
+      processType.addToTaskTypes(end)      
+      processType.addToFinalTaskTypes(end)    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class SequencingGR {  
+  
+    public DiagramConnector connector;  
+    public Sequencing sequencing;  
+  
+    @LinkScheme    
+    SequencingGR:linkBeginGRToTaskTypeGR() {    
+      connector = diagram.AddConnector();      
+      sequencing = Sequencing.create();      
+      processType.addToGateways(sequencing)      
+      sequencing.in = fromTarget.taskType;      
+      sequencing.out = toTarget.taskType;    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class EndSequencingGR {  
+  
+    public DiagramConnector connector;  
+    public Sequencing sequencing;  
+  
+    @LinkScheme    
+    EndSequencingGR:linkBeginGRToTaskTypeGR() {    
+      connector = diagram.AddConnector();      
+      sequencing = Sequencing.create();      
+      processType.addToGateways(sequencing)      
+      sequencing.in = fromTarget.taskType;      
+      sequencing.out = toTarget.end;    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class AndSplitGR {  
+  
+    public DiagramShape shape;  
+    public AndSplit andSplit;  
+  
+    @DropScheme    
+    AndSplitGR:dropAndSplitGRAtTopLevel() {    
+      shape = diagram.AddShape();      
+      andSplit = AndSplit.create();      
+      processType.addToGateways(andSplit)    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class InAndSplitGR {  
+  
+    public DiagramConnector connector;  
+  
+    @LinkScheme    
+    InAndSplitGR:linkTaskTypeGRToAndSplitGR() {    
+      connector = diagram.AddConnector();      
+      toTarget.andSplit.in = fromTarget.taskType;    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class OutAndSplitGR {  
+  
+    public DiagramConnector connector;  
+  
+    @LinkScheme    
+    OutAndSplitGR:linkTaskTypeGRToAndSplitGR() {    
+      connector = diagram.AddConnector();      
+      fromTarget.andSplit.out.add(toTarget.taskType)    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class AndJoinGR {  
+  
+    public DiagramShape shape;  
+    public AndJoin andJoin;  
+  
+    @DropScheme    
+    AndJoinGR:dropAndJoinGRAtTopLevel() {    
+      shape = diagram.AddShape();      
+      andJoin = AndJoin.create();      
+      processType.addToGateways(andJoin)    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class OutAndJoinGR {  
+  
+    public DiagramConnector connector;  
+  
+    @LinkScheme    
+    OutAndJoinGR:linkTaskTypeGRToAndSplitGR() {    
+      connector = diagram.AddConnector();      
+      fromTarget.andJoin.out = toTarget.taskType;    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class InAndJoinGR {  
+  
+    public DiagramConnector connector;  
+  
+    @LinkScheme    
+    InAndJoinGR:linkTaskTypeGRToAndSplitGR() {    
+      connector = diagram.AddConnector();      
+      toTarget.andJoin.in.add(fromTarget.taskType)    
+    }    
+  
+  }  
+
+}
