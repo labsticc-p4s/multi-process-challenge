@@ -97,8 +97,8 @@ public class MetaModel {
   public class Gateway extends Type  {  
   
     @CreationScheme    
-    Gateway:create() {    
-      
+    Gateway:create(String name) {    
+      super.create(parameters.name)    
     }    
   
     @DeletionScheme    
@@ -116,7 +116,7 @@ public class MetaModel {
   
     @CreationScheme    
     Sequencing:create() {    
-      
+      super.create("Sequence")    
     }    
   
     @DeletionScheme    
@@ -134,7 +134,7 @@ public class MetaModel {
   
     @CreationScheme    
     AndSplit:create() {    
-      
+      super.create("AndSplit")    
     }    
   
     @DeletionScheme    
@@ -152,7 +152,7 @@ public class MetaModel {
   
     @CreationScheme    
     OrSplit:create() {    
-      
+      super.create("OrSplit")    
     }    
   
     @DeletionScheme    
@@ -170,7 +170,7 @@ public class MetaModel {
   
     @CreationScheme    
     AndJoin:create() {    
-      
+      super.create("AndJoin")    
     }    
   
     @DeletionScheme    
@@ -188,7 +188,7 @@ public class MetaModel {
   
     @CreationScheme    
     OrJoin:create() {    
-      
+      super.create("OrJoin")    
     }    
   
     @DeletionScheme    

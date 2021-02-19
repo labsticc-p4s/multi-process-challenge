@@ -93,7 +93,8 @@
   <FlexoConcept id="SYL-25" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Type" name="Gateway" author="sylvain" userID="SYL" flexoID="25">
     <Inspector id="SYL-67" inspectorTitle="Gateway" userID="SYL" flexoID="67" />
     <CreationScheme id="SYL-68" label="create" name="create" width="800" height="600" userID="SYL" flexoID="68">
-      <BehaviourControlGraph_EmptyControlGraph id="SYL-69" userID="SYL" flexoID="69" />
+      <BehaviourControlGraph_ExpressionAction id="SYL-971" expression="super.create(parameters.name)" userID="SYL" flexoID="971" />
+      <GenericBehaviourParameter id="SYL-976" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="SYL" flexoID="976" />
     </CreationScheme>
     <DeletionScheme id="SYL-70" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="70">
       <BehaviourControlGraph_EmptyControlGraph id="SYL-71" userID="SYL" flexoID="71" />
@@ -104,7 +105,7 @@
     <FlexoConceptInstanceRole id="SYL-33" virtualModelInstance="container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#TaskType" cloningStrategy="Reference" cardinality="ZeroOne" name="in" userID="SYL" flexoID="33" />
     <FlexoConceptInstanceRole id="SYL-34" virtualModelInstance="container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#TaskType" cloningStrategy="Reference" cardinality="ZeroOne" name="out" userID="SYL" flexoID="34" />
     <CreationScheme id="SYL-31" label="create" name="create" width="800" height="600" userID="SYL" flexoID="31">
-      <BehaviourControlGraph_EmptyControlGraph id="SYL-72" userID="SYL" flexoID="72" />
+      <BehaviourControlGraph_ExpressionAction id="SYL-970" expression="super.create(&quot;Sequence&quot;)" userID="SYL" flexoID="970" />
     </CreationScheme>
     <DeletionScheme id="SYL-32" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="32">
       <BehaviourControlGraph_EmptyControlGraph id="SYL-73" userID="SYL" flexoID="73" />
@@ -115,7 +116,7 @@
     <FlexoConceptInstanceRole id="SYL-42" virtualModelInstance="container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#TaskType" cloningStrategy="Reference" cardinality="ZeroOne" name="in" userID="SYL" flexoID="42" />
     <FlexoConceptInstanceRole id="SYL-82" virtualModelInstance="container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#TaskType" cloningStrategy="Reference" cardinality="OneMany" name="out" userID="SYL" flexoID="82" />
     <CreationScheme id="SYL-40" label="create" name="create" width="800" height="600" userID="SYL" flexoID="40">
-      <BehaviourControlGraph_EmptyControlGraph id="SYL-74" userID="SYL" flexoID="74" />
+      <BehaviourControlGraph_ExpressionAction id="SYL-972" expression="super.create(&quot;AndSplit&quot;)" userID="SYL" flexoID="972" />
     </CreationScheme>
     <DeletionScheme id="SYL-41" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="41">
       <BehaviourControlGraph_EmptyControlGraph id="SYL-75" userID="SYL" flexoID="75" />
@@ -126,7 +127,7 @@
     <FlexoConceptInstanceRole id="SYL-50" virtualModelInstance="container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#TaskType" cloningStrategy="Reference" cardinality="ZeroOne" name="in" userID="SYL" flexoID="50" />
     <FlexoConceptInstanceRole id="SYL-83" virtualModelInstance="container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#TaskType" cloningStrategy="Reference" cardinality="OneMany" name="out" userID="SYL" flexoID="83" />
     <CreationScheme id="SYL-48" label="create" name="create" width="800" height="600" userID="SYL" flexoID="48">
-      <BehaviourControlGraph_EmptyControlGraph id="SYL-76" userID="SYL" flexoID="76" />
+      <BehaviourControlGraph_ExpressionAction id="SYL-973" expression="super.create(&quot;OrSplit&quot;)" userID="SYL" flexoID="973" />
     </CreationScheme>
     <DeletionScheme id="SYL-49" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="49">
       <BehaviourControlGraph_EmptyControlGraph id="SYL-77" userID="SYL" flexoID="77" />
@@ -137,7 +138,7 @@
     <FlexoConceptInstanceRole id="SYL-58" virtualModelInstance="container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#TaskType" cloningStrategy="Reference" cardinality="ZeroOne" name="out" userID="SYL" flexoID="58" />
     <FlexoConceptInstanceRole id="SYL-84" virtualModelInstance="container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#TaskType" cloningStrategy="Reference" cardinality="OneMany" name="in" userID="SYL" flexoID="84" />
     <CreationScheme id="SYL-56" label="create" name="create" width="800" height="600" userID="SYL" flexoID="56">
-      <BehaviourControlGraph_EmptyControlGraph id="SYL-78" userID="SYL" flexoID="78" />
+      <BehaviourControlGraph_ExpressionAction id="SYL-974" expression="super.create(&quot;AndJoin&quot;)" userID="SYL" flexoID="974" />
     </CreationScheme>
     <DeletionScheme id="SYL-57" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="57">
       <BehaviourControlGraph_EmptyControlGraph id="SYL-79" userID="SYL" flexoID="79" />
@@ -148,7 +149,7 @@
     <FlexoConceptInstanceRole id="SYL-66" virtualModelInstance="container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#TaskType" cloningStrategy="Reference" cardinality="ZeroOne" name="out" userID="SYL" flexoID="66" />
     <FlexoConceptInstanceRole id="SYL-85" virtualModelInstance="container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#TaskType" cloningStrategy="Reference" cardinality="OneMany" name="in" userID="SYL" flexoID="85" />
     <CreationScheme id="SYL-64" label="create" name="create" width="800" height="600" userID="SYL" flexoID="64">
-      <BehaviourControlGraph_EmptyControlGraph id="SYL-80" userID="SYL" flexoID="80" />
+      <BehaviourControlGraph_ExpressionAction id="SYL-975" expression="super.create(&quot;OrJoin&quot;)" userID="SYL" flexoID="975" />
     </CreationScheme>
     <DeletionScheme id="SYL-65" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="65">
       <BehaviourControlGraph_EmptyControlGraph id="SYL-81" userID="SYL" flexoID="81" />

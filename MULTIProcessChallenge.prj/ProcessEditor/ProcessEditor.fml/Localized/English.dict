@@ -9,4 +9,5 @@ dropEndGRAtTopLevel=DropEndGRAtTopLevel
 dropTaskTypeGRAtTopLevel=DropTaskTypeGRAtTopLevel
 linkBeginGRToTaskTypeGR=LinkBeginGRToTaskTypeGR
 linkTaskTypeGRToAndSplitGR=LinkTaskTypeGRToAndSplitGR
+model=Model
 processTypeName=ProcessTypeName

@@ -92,7 +92,7 @@ public class ProcessEditor {
     public Sequencing sequencing;  
   
     @LinkScheme    
-    SequencingGR:linkBeginGRToTaskTypeGR() {    
+    SequencingGR:linkTaskTypeGRToTaskTypeGR() {    
       connector = diagram.AddConnector();      
       sequencing = Sequencing.create();      
       processType.addToGateways(sequencing)      
@@ -109,7 +109,7 @@ public class ProcessEditor {
     public Sequencing sequencing;  
   
     @LinkScheme    
-    EndSequencingGR:linkBeginGRToTaskTypeGR() {    
+    EndSequencingGR:linkTaskTypeGRtoEndGR() {    
       connector = diagram.AddConnector();      
       sequencing = Sequencing.create();      
       processType.addToGateways(sequencing)      
