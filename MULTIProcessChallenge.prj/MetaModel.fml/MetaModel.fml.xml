@@ -377,7 +377,7 @@
   <FlexoConcept id="SYL-751" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#TaskType" name="Begin" userID="SYL" flexoID="751">
     <Inspector id="SYL-752" inspectorTitle="Begin" userID="SYL" flexoID="752" />
     <CreationScheme id="SYL-753" label="create" name="create" width="800" height="600" userID="SYL" flexoID="753">
-      <BehaviourControlGraph_EmptyControlGraph id="SYL-754" userID="SYL" flexoID="754" />
+      <BehaviourControlGraph_ExpressionAction id="SYL-905" expression="super.create(&quot;Begin&quot;)" userID="SYL" flexoID="905" />
     </CreationScheme>
     <DeletionScheme id="SYL-755" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="755">
       <BehaviourControlGraph_EmptyControlGraph id="SYL-756" userID="SYL" flexoID="756" />
@@ -386,7 +386,7 @@
   <FlexoConcept id="SYL-757" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#TaskType" name="End" userID="SYL" flexoID="757">
     <Inspector id="SYL-758" inspectorTitle="End" userID="SYL" flexoID="758" />
     <CreationScheme id="SYL-759" label="create" name="create" width="800" height="600" userID="SYL" flexoID="759">
-      <BehaviourControlGraph_EmptyControlGraph id="SYL-760" userID="SYL" flexoID="760" />
+      <BehaviourControlGraph_ExpressionAction id="SYL-906" expression="super.create(&quot;End&quot;)" userID="SYL" flexoID="906" />
     </CreationScheme>
     <DeletionScheme id="SYL-761" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="761">
       <BehaviourControlGraph_EmptyControlGraph id="SYL-762" userID="SYL" flexoID="762" />

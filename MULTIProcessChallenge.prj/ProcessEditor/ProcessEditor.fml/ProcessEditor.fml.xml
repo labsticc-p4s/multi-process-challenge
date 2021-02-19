@@ -21,7 +21,7 @@
   <FlexoConcept id="SYL-45" name="TaskTypeGR" userID="SYL" flexoID="45">
     <Inspector id="SYL-41" inspectorTitle="TaskTypeGR" userID="SYL" flexoID="41" />
     <ShapeRole id="SYL-58" previewY="80.0" previewX="57.089552238805965" previewWidth="135.82089552238807" exampleLabel="Task" metamodelElementReference="http://www.openflexo.org/test/ProcessSpec/ExampleDiagram.diagram#SYL_3" cloningStrategy="Clone" cardinality="ZeroOne" name="shape" userID="SYL" flexoID="58">
-      <GRSpec id="SYL-394" featureName="label" value="taskType.name" userID="SYL" flexoID="394" />
+      <GRSpec id="SYL-434" featureName="label" value="taskType.name" userID="SYL" flexoID="434" />
     </ShapeRole>
     <FlexoConceptInstanceRole id="SYL-67" virtualModelInstance="model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#TaskType" cloningStrategy="Reference" cardinality="ZeroOne" name="taskType" userID="SYL" flexoID="67" />
     <DropScheme id="SYL-46" target="top" label="dropTaskTypeGRAtTopLevel" name="dropTaskTypeGRAtTopLevel" width="800" height="600" userID="SYL" flexoID="46">
@@ -280,7 +280,7 @@
         </ControlGraph1_AssignationAction>
       </ControlGraph2_Sequence>
       <ControlGraph1_AssignationAction id="SYL-8" assign="diagram" ownerContext="controlGraph1" userID="SYL" flexoID="8">
-        <AssignableAction_CreateDiagram id="SYL-9" diagramSpecificationURI="http://www.openflexo.org/test/ProcessSpec" diagramName="&quot;diagram&quot;" resourceCenter="this.resourceCenter" relativePath="/Diagrams" dynamicRelativePath="&quot;/Diagrams&quot;" resourceName="&quot;diagram&quot;" userID="SYL" flexoID="9" />
+        <AssignableAction_CreateDiagram id="SYL-9" diagramSpecificationURI="http://www.openflexo.org/test/ProcessSpec" diagramName="(parameters.processTypeName + &quot;Diagram&quot;)" resourceCenter="this.resourceCenter" relativePath="/Diagrams" dynamicRelativePath="&quot;/Diagrams&quot;" resourceName="(parameters.processTypeName + &quot;Diagram&quot;)" userID="SYL" flexoID="9" />
       </ControlGraph1_AssignationAction>
     </BehaviourControlGraph_Sequence>
     <GenericBehaviourParameter id="SYL-20" widget="CUSTOM_WIDGET" name="model" type="org.openflexo.foundation.fml.VirtualModelInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml&gt;" userID="SYL" flexoID="20" />
