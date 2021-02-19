@@ -9,11 +9,11 @@ use org.openflexo.foundation.fml.rt.FMLRTVirtualModelInstanceModelSlot;
 public class ProcessEditor {
 
   public Diagram diagram;
-  public Model model;
+  public MetaModel model;
   public ProcessType processType;
 
   @CreationScheme  
-  ProcessEditor:init(Model model, String processTypeName) {  
+  ProcessEditor:init(MetaModel model, String processTypeName) {  
     diagram = CreateDiagram();    
     model = parameters.model;    
     processType = ProcessType.create(parameters.processTypeName);  

@@ -181,8 +181,8 @@
       <TextStyle id="95" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
     </ShapeGraphicalRepresentation>
   </Shape>
-  <Shape id="110" name="Task" text="" userID="SYL" flexoID="14">
-    <ShapeGraphicalRepresentation id="111" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="138.0" y="233.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="64.15631844264213" height="32.857142857142854" identifier="37b33b98" layer="1" text="">
+  <Shape id="110" name="Task" text="Last Task" userID="SYL" flexoID="14">
+    <ShapeGraphicalRepresentation id="111" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="124.53561474789288" y="233.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="92.85782932487676" height="32.857142857142854" identifier="37b33b98" layer="1" text="Last Task">
       <SelectedColorBackgroundStyle id="112" color="254,247,217" transparencyLevel="0.5" />
       <ForegroundStyle id="113" color="204,0,0" joinStyle="JOIN_MITER" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" lineWidth="0.999999998509884" />
       <FocusedColorBackgroundStyle id="114" color="254,247,217" transparencyLevel="0.5" />
@@ -194,7 +194,7 @@
       <TextStyle id="120" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
     </ShapeGraphicalRepresentation>
   </Shape>
-  <DrawingGraphicalRepresentation id="149" backgroundColor="255,255,255" drawWorkingArea="false" focusColor="255,0,0" selectionColor="0,0,255" rectangleSelectingSelectionColor="0,0,255" dimensionConstraints="UNRESIZABLE" identifier="141645e1">
+  <DrawingGraphicalRepresentation id="149" drawWorkingArea="false" backgroundColor="255,255,255" focusColor="255,0,0" selectionColor="0,0,255" rectangleSelectingSelectionColor="0,0,255" dimensionConstraints="UNRESIZABLE" identifier="141645e1">
     <TextStyle id="150" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
   </DrawingGraphicalRepresentation>
 </Diagram>
