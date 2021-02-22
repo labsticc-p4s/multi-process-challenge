@@ -40,7 +40,7 @@
       <BehaviourControlGraph_EmptyControlGraph id="SYL-47" userID="SYL" flexoID="47" />
     </DeletionScheme>
   </FlexoConcept>
-  <FlexoConcept id="SYL-57" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ArtifactType" name="Code" userID="SYL" flexoID="57">
+  <FlexoConcept id="SYL-57" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#SoftwareEngineeringArtifactType" name="Code" userID="SYL" flexoID="57">
     <Inspector id="SYL-58" inspectorTitle="Code" userID="SYL" flexoID="58" />
     <FlexoConceptInstanceRole id="SYL-82" virtualModelInstance="container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#ProgrammingLanguage" cloningStrategy="Reference" cardinality="One" name="programmingLanguage" userID="SYL" flexoID="82" />
     <CreationScheme id="SYL-62" label="create" name="create" width="800" height="600" userID="SYL" flexoID="62">
@@ -70,6 +70,46 @@
     </CreationScheme>
     <DeletionScheme id="SYL-89" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="89">
       <BehaviourControlGraph_EmptyControlGraph id="SYL-91" userID="SYL" flexoID="91" />
+    </DeletionScheme>
+  </FlexoConcept>
+  <FlexoConcept id="SYL-110" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ArtifactType" name="SoftwareEngineeringArtifactType" userID="SYL" flexoID="110">
+    <Inspector id="SYL-111" inspectorTitle="SoftwareEngineeringArtifactType" userID="SYL" flexoID="111" />
+    <CreationScheme id="SYL-115" label="create" name="create" width="800" height="600" userID="SYL" flexoID="115">
+      <BehaviourControlGraph_ExpressionAction id="SYL-117" expression="super.create(parameters.name)" userID="SYL" flexoID="117" />
+      <GenericBehaviourParameter id="SYL-118" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="SYL" flexoID="118" />
+    </CreationScheme>
+    <DeletionScheme id="SYL-116" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="116">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-146" userID="SYL" flexoID="146" />
+    </DeletionScheme>
+  </FlexoConcept>
+  <FlexoConcept id="SYL-119" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#SoftwareEngineeringArtifactType" name="RequirementsSpecification" userID="SYL" flexoID="119">
+    <Inspector id="SYL-120" inspectorTitle="RequirementsSpecification" userID="SYL" flexoID="120" />
+    <CreationScheme id="SYL-124" label="create" name="create" width="800" height="600" userID="SYL" flexoID="124">
+      <BehaviourControlGraph_ExpressionAction id="SYL-127" expression="super.create(parameters.name)" userID="SYL" flexoID="127" />
+      <GenericBehaviourParameter id="SYL-147" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="SYL" flexoID="147" />
+    </CreationScheme>
+    <DeletionScheme id="SYL-125" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="125">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-148" userID="SYL" flexoID="148" />
+    </DeletionScheme>
+  </FlexoConcept>
+  <FlexoConcept id="SYL-128" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#SoftwareEngineeringArtifactType" name="TestCase" userID="SYL" flexoID="128">
+    <Inspector id="SYL-129" inspectorTitle="TestCase" userID="SYL" flexoID="129" />
+    <CreationScheme id="SYL-133" label="create" name="create" width="800" height="600" userID="SYL" flexoID="133">
+      <BehaviourControlGraph_ExpressionAction id="SYL-136" expression="super.create(parameters.name)" userID="SYL" flexoID="136" />
+      <GenericBehaviourParameter id="SYL-149" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="SYL" flexoID="149" />
+    </CreationScheme>
+    <DeletionScheme id="SYL-134" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="134">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-150" userID="SYL" flexoID="150" />
+    </DeletionScheme>
+  </FlexoConcept>
+  <FlexoConcept id="SYL-137" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#SoftwareEngineeringArtifactType" name="TestReport" userID="SYL" flexoID="137">
+    <Inspector id="SYL-138" inspectorTitle="TestReport" userID="SYL" flexoID="138" />
+    <CreationScheme id="SYL-142" label="create" name="create" width="800" height="600" userID="SYL" flexoID="142">
+      <BehaviourControlGraph_ExpressionAction id="SYL-145" expression="super.create(parameters.name)" userID="SYL" flexoID="145" />
+      <GenericBehaviourParameter id="SYL-151" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="SYL" flexoID="151" />
+    </CreationScheme>
+    <DeletionScheme id="SYL-143" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="143">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-152" userID="SYL" flexoID="152" />
     </DeletionScheme>
   </FlexoConcept>
   <Inspector id="SYL-2" inspectorTitle="AcmeMetaModel" userID="SYL" flexoID="2" />

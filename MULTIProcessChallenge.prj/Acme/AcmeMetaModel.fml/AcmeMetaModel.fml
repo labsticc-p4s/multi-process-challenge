@@ -56,7 +56,7 @@ public class AcmeMetaModel extends MetaModel  {
   }  
 
   @FlexoConcept  
-  public class Code extends ArtifactType  {  
+  public class Code extends SoftwareEngineeringArtifactType  {  
   
     public ProgrammingLanguage programmingLanguage;  
   
@@ -82,6 +82,66 @@ public class AcmeMetaModel extends MetaModel  {
     @CreationScheme    
     COBOLCode:create() {    
       
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class SoftwareEngineeringArtifactType extends ArtifactType  {  
+  
+    @CreationScheme    
+    SoftwareEngineeringArtifactType:create(String name) {    
+      super.create(parameters.name)    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class RequirementsSpecification extends SoftwareEngineeringArtifactType  {  
+  
+    @CreationScheme    
+    RequirementsSpecification:create(String name) {    
+      super.create(parameters.name)    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class TestCase extends SoftwareEngineeringArtifactType  {  
+  
+    @CreationScheme    
+    TestCase:create(String name) {    
+      super.create(parameters.name)    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class TestReport extends SoftwareEngineeringArtifactType  {  
+  
+    @CreationScheme    
+    TestReport:create(String name) {    
+      super.create(parameters.name)    
     }    
   
     @DeletionScheme    
