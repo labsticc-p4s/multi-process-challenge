@@ -6,4 +6,89 @@
  */
 @VirtualModel(uri="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml")
 public class AcmeMetaModel extends MetaModel  {
+
+  @FlexoConcept  
+  public class Coding extends TaskType  {  
+  
+    @CreationScheme    
+    Coding:create(String name) {    
+      super.create(parameters.name)    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+    @ActionScheme    
+    Void addAllowedActorType(ActorType actorType) {    
+      log "TODO : Check that this is a Developer"      
+      super.addAllowedActorType(parameters.actorType)    
+    }    
+  
+    @ActionScheme    
+    public Void addAllowedActor(Actor actor) {    
+      log "TODO : Check that this is a Developer"      
+      super.addAllowedActor(parameters.actor)    
+    }    
+  
+    @ActionScheme    
+    public Void addProducedArtifactType(ArtifactType artifactType) {    
+      log "TODO : Check that this is Code"      
+      super.addProducedArtifactType(parameters.artifactType)    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class Developer extends ActorType  {  
+  
+    @CreationScheme    
+    Developer:create() {    
+      
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class Code extends ArtifactType  {  
+  
+    public ProgrammingLanguage programmingLanguage;  
+  
+    @CreationScheme    
+    Code:create(String name) {    
+      super.create(parameters.name)    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class ProgrammingLanguage {  
+  }  
+
+  @FlexoConcept  
+  public class COBOLCode extends Code  {  
+  
+    @CreationScheme    
+    COBOLCode:create() {    
+      
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
 }

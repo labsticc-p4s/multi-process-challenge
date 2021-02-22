@@ -1,4 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <VirtualModel id="SYL-1" virtualModelClass="org.openflexo.foundation.fml.VirtualModel" modelVersion="2.0" uri="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml" version="0.1" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml" name="AcmeMetaModel" author="sylvain" userID="SYL" flexoID="1">
+  <FlexoConcept id="SYL-6" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#TaskType" name="Coding" userID="SYL" flexoID="6">
+    <Inspector id="SYL-7" inspectorTitle="Coding" userID="SYL" flexoID="7" />
+    <CreationScheme id="SYL-11" label="create" name="create" width="800" height="600" userID="SYL" flexoID="11">
+      <BehaviourControlGraph_ExpressionAction id="SYL-20" expression="super.create(parameters.name)" userID="SYL" flexoID="20" />
+      <GenericBehaviourParameter id="SYL-21" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="SYL" flexoID="21" />
+    </CreationScheme>
+    <DeletionScheme id="SYL-12" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="12">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-22" userID="SYL" flexoID="22" />
+    </DeletionScheme>
+    <ActionScheme id="SYL-23" label="addAllowedActorType" name="addAllowedActorType" width="800" height="600" userID="SYL" flexoID="23">
+      <BehaviourControlGraph_Sequence id="SYL-44" userID="SYL" flexoID="44">
+        <ControlGraph2_ExpressionAction id="SYL-34" expression="super.addAllowedActorType(parameters.actorType)" ownerContext="controlGraph2" userID="SYL" flexoID="34" />
+        <ControlGraph1_LogAction id="SYL-33" logLevel="INFO" logString="&quot;TODO : Check that this is a Developer&quot;" ownerContext="controlGraph1" userID="SYL" flexoID="33" />
+      </BehaviourControlGraph_Sequence>
+      <GenericBehaviourParameter id="SYL-31" container="container" isRequired="true" widget="CUSTOM_WIDGET" name="actorType" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ActorType&gt;" userID="SYL" flexoID="31" />
+    </ActionScheme>
+    <ActionScheme id="SYL-24" visibility="Public" label="addAllowedActor" name="addAllowedActor" width="800" height="600" userID="SYL" flexoID="24">
+      <BehaviourControlGraph_Sequence id="SYL-45" ownerContext="controlGraph1" userID="SYL" flexoID="45">
+        <ControlGraph2_ExpressionAction id="SYL-43" expression="super.addAllowedActor(parameters.actor)" ownerContext="controlGraph2" userID="SYL" flexoID="43" />
+        <ControlGraph1_LogAction id="SYL-42" logLevel="INFO" logString="&quot;TODO : Check that this is a Developer&quot;" ownerContext="controlGraph1" userID="SYL" flexoID="42" />
+      </BehaviourControlGraph_Sequence>
+      <GenericBehaviourParameter id="SYL-29" container="container" isRequired="true" widget="CUSTOM_WIDGET" name="actor" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor&gt;" userID="SYL" flexoID="29" />
+    </ActionScheme>
+    <ActionScheme id="SYL-48" visibility="Public" label="addProducedArtifactType" name="addProducedArtifactType" width="800" height="600" userID="SYL" flexoID="48">
+      <BehaviourControlGraph_Sequence id="SYL-56" ownerContext="controlGraph2" userID="SYL" flexoID="56">
+        <ControlGraph2_ExpressionAction id="SYL-55" expression="super.addProducedArtifactType(parameters.artifactType)" ownerContext="controlGraph2" userID="SYL" flexoID="55" />
+        <ControlGraph1_LogAction id="SYL-54" logLevel="INFO" logString="&quot;TODO : Check that this is Code&quot;" ownerContext="controlGraph1" userID="SYL" flexoID="54" />
+      </BehaviourControlGraph_Sequence>
+      <GenericBehaviourParameter id="SYL-53" container="container" isRequired="true" widget="CUSTOM_WIDGET" name="artifactType" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ArtifactType&gt;" userID="SYL" flexoID="53" />
+    </ActionScheme>
+  </FlexoConcept>
+  <FlexoConcept id="SYL-13" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ActorType" name="Developer" userID="SYL" flexoID="13">
+    <Inspector id="SYL-14" inspectorTitle="Developer" userID="SYL" flexoID="14" />
+    <CreationScheme id="SYL-18" label="create" name="create" width="800" height="600" userID="SYL" flexoID="18">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-46" userID="SYL" flexoID="46" />
+    </CreationScheme>
+    <DeletionScheme id="SYL-19" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="19">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-47" userID="SYL" flexoID="47" />
+    </DeletionScheme>
+  </FlexoConcept>
+  <FlexoConcept id="SYL-57" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ArtifactType" name="Code" userID="SYL" flexoID="57">
+    <Inspector id="SYL-58" inspectorTitle="Code" userID="SYL" flexoID="58" />
+    <FlexoConceptInstanceRole id="SYL-82" virtualModelInstance="container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#ProgrammingLanguage" cloningStrategy="Reference" cardinality="One" name="programmingLanguage" userID="SYL" flexoID="82" />
+    <CreationScheme id="SYL-62" label="create" name="create" width="800" height="600" userID="SYL" flexoID="62">
+      <BehaviourControlGraph_ExpressionAction id="SYL-64" expression="super.create(parameters.name)" userID="SYL" flexoID="64" />
+      <GenericBehaviourParameter id="SYL-77" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="SYL" flexoID="77" />
+    </CreationScheme>
+    <DeletionScheme id="SYL-63" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="63">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-78" userID="SYL" flexoID="78" />
+    </DeletionScheme>
+  </FlexoConcept>
+  <FlexoEnum id="SYL-65" name="ProgrammingLanguage" userID="SYL" flexoID="65">
+    <Value_FlexoEnumValue id="SYL-79" name="Java" userID="SYL" flexoID="79">
+      <Inspector id="SYL--1" inspectorTitle="Java" userID="SYL" flexoID="-1" />
+    </Value_FlexoEnumValue>
+    <Value_FlexoEnumValue id="SYL-80" name="C" userID="SYL" flexoID="80">
+      <Inspector id="SYL--1" inspectorTitle="C" userID="SYL" flexoID="-1" />
+    </Value_FlexoEnumValue>
+    <Value_FlexoEnumValue id="SYL-81" name="COBOL" userID="SYL" flexoID="81">
+      <Inspector id="SYL--1" inspectorTitle="COBOL" userID="SYL" flexoID="-1" />
+    </Value_FlexoEnumValue>
+    <Inspector id="SYL-66" inspectorTitle="ProgrammingLanguage" userID="SYL" flexoID="66" />
+  </FlexoEnum>
+  <FlexoConcept id="SYL-83" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#Code" name="COBOLCode" userID="SYL" flexoID="83">
+    <Inspector id="SYL-84" inspectorTitle="COBOLCode" userID="SYL" flexoID="84" />
+    <CreationScheme id="SYL-88" label="create" name="create" width="800" height="600" userID="SYL" flexoID="88">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-90" userID="SYL" flexoID="90" />
+    </CreationScheme>
+    <DeletionScheme id="SYL-89" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="89">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-91" userID="SYL" flexoID="91" />
+    </DeletionScheme>
+  </FlexoConcept>
   <Inspector id="SYL-2" inspectorTitle="AcmeMetaModel" userID="SYL" flexoID="2" />
 </VirtualModel>
