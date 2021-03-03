@@ -54,40 +54,81 @@
       <BehaviourControlGraph_EmptyControlGraph id="SYL-23" userID="SYL" flexoID="23" />
     </DeletionScheme>
     <ActionScheme id="SYL-330" visibility="Public" label="addAllowedActorType" name="addAllowedActorType" width="800" height="600" userID="SYL" flexoID="330">
-      <BehaviourControlGraph_Sequence id="SYL-495" userID="SYL" flexoID="495">
-        <ControlGraph2_ExpressionAction id="SYL-491" expression="this.update()" ownerContext="controlGraph2" userID="SYL" flexoID="491" />
-        <ControlGraph1_AddToListAction id="SYL-332" list="allowedActorTypes" ownerContext="controlGraph1" userID="SYL" flexoID="332">
-          <AssignableAction_ExpressionAction id="SYL-331" expression="parameters.actorType" userID="SYL" flexoID="331" />
-        </ControlGraph1_AddToListAction>
-      </BehaviourControlGraph_Sequence>
+      <BehaviourControlGraph_ConditionalAction id="SYL-1157" condition="this.isValidActorType(parameters.actorType)" userID="SYL" flexoID="1157">
+        <ThenControlGraph_Sequence id="SYL-1162" ownerContext="thenControlGraph" userID="SYL" flexoID="1162">
+          <ControlGraph2_ExpressionAction id="SYL-1161" expression="this.update()" ownerContext="controlGraph2" userID="SYL" flexoID="1161" />
+          <ControlGraph1_AddToListAction id="SYL-1159" list="allowedActorTypes" ownerContext="controlGraph1" userID="SYL" flexoID="1159">
+            <AssignableAction_ExpressionAction id="SYL-1158" expression="parameters.actorType" userID="SYL" flexoID="1158" />
+          </ControlGraph1_AddToListAction>
+        </ThenControlGraph_Sequence>
+      </BehaviourControlGraph_ConditionalAction>
       <GenericBehaviourParameter id="SYL-336" container="container" isRequired="true" widget="CUSTOM_WIDGET" name="actorType" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ActorType&gt;" userID="SYL" flexoID="336" />
     </ActionScheme>
     <ActionScheme id="SYL-333" visibility="Public" label="addAllowedActor" name="addAllowedActor" width="800" height="600" userID="SYL" flexoID="333">
-      <BehaviourControlGraph_Sequence id="SYL-496" userID="SYL" flexoID="496">
-        <ControlGraph2_ExpressionAction id="SYL-492" expression="this.update()" ownerContext="controlGraph2" userID="SYL" flexoID="492" />
-        <ControlGraph1_AddToListAction id="SYL-335" list="allowedActors" ownerContext="controlGraph1" userID="SYL" flexoID="335">
-          <AssignableAction_ExpressionAction id="SYL-334" expression="parameters.actor" userID="SYL" flexoID="334" />
-        </ControlGraph1_AddToListAction>
-      </BehaviourControlGraph_Sequence>
+      <BehaviourControlGraph_ConditionalAction id="SYL-1164" condition="this.isValidActor(parameters.actor)" ownerContext="controlGraph2" userID="SYL" flexoID="1164">
+        <ThenControlGraph_Sequence id="SYL-1168" ownerContext="thenControlGraph" userID="SYL" flexoID="1168">
+          <ControlGraph2_ExpressionAction id="SYL-1165" expression="this.update()" ownerContext="controlGraph2" userID="SYL" flexoID="1165" />
+          <ControlGraph1_AddToListAction id="SYL-1167" list="allowedActors" ownerContext="controlGraph1" userID="SYL" flexoID="1167">
+            <AssignableAction_ExpressionAction id="SYL-1166" expression="parameters.actor" userID="SYL" flexoID="1166" />
+          </ControlGraph1_AddToListAction>
+        </ThenControlGraph_Sequence>
+      </BehaviourControlGraph_ConditionalAction>
       <GenericBehaviourParameter id="SYL-337" container="container" isRequired="true" widget="CUSTOM_WIDGET" name="actor" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor&gt;" userID="SYL" flexoID="337" />
     </ActionScheme>
     <ActionScheme id="SYL-426" visibility="Public" label="addUsedArtifactType" name="addUsedArtifactType" width="800" height="600" userID="SYL" flexoID="426">
-      <BehaviourControlGraph_Sequence id="SYL-497" userID="SYL" flexoID="497">
-        <ControlGraph2_ExpressionAction id="SYL-493" expression="this.update()" ownerContext="controlGraph2" userID="SYL" flexoID="493" />
-        <ControlGraph1_AddToListAction id="SYL-428" list="usedArtifactTypes" ownerContext="controlGraph1" userID="SYL" flexoID="428">
-          <AssignableAction_ExpressionAction id="SYL-427" expression="parameters.artifactType" userID="SYL" flexoID="427" />
-        </ControlGraph1_AddToListAction>
-      </BehaviourControlGraph_Sequence>
+      <BehaviourControlGraph_ConditionalAction id="SYL-1169" condition="this.isValidUsedArtifactType(parameters.artifactType)" ownerContext="controlGraph2" userID="SYL" flexoID="1169">
+        <ThenControlGraph_Sequence id="SYL-1173" ownerContext="thenControlGraph" userID="SYL" flexoID="1173">
+          <ControlGraph2_ExpressionAction id="SYL-1170" expression="this.update()" ownerContext="controlGraph2" userID="SYL" flexoID="1170" />
+          <ControlGraph1_AddToListAction id="SYL-1172" list="usedArtifactTypes" ownerContext="controlGraph1" userID="SYL" flexoID="1172">
+            <AssignableAction_ExpressionAction id="SYL-1171" expression="parameters.artifactType" userID="SYL" flexoID="1171" />
+          </ControlGraph1_AddToListAction>
+        </ThenControlGraph_Sequence>
+      </BehaviourControlGraph_ConditionalAction>
       <GenericBehaviourParameter id="SYL-432" container="container" isRequired="true" widget="CUSTOM_WIDGET" name="artifactType" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ArtifactType&gt;" userID="SYL" flexoID="432" />
     </ActionScheme>
     <ActionScheme id="SYL-429" visibility="Public" label="addProducedArtifactType" name="addProducedArtifactType" width="800" height="600" userID="SYL" flexoID="429">
-      <BehaviourControlGraph_Sequence id="SYL-498" userID="SYL" flexoID="498">
-        <ControlGraph2_ExpressionAction id="SYL-494" expression="this.update()" ownerContext="controlGraph2" userID="SYL" flexoID="494" />
-        <ControlGraph1_AddToListAction id="SYL-431" list="producedArtifactTypes" ownerContext="controlGraph1" userID="SYL" flexoID="431">
-          <AssignableAction_ExpressionAction id="SYL-430" expression="parameters.artifactType" userID="SYL" flexoID="430" />
-        </ControlGraph1_AddToListAction>
-      </BehaviourControlGraph_Sequence>
+      <BehaviourControlGraph_ConditionalAction id="SYL-1174" condition="this.isValidProducedArtifactType(parameters.artifactType)" ownerContext="controlGraph2" userID="SYL" flexoID="1174">
+        <ThenControlGraph_Sequence id="SYL-1178" ownerContext="thenControlGraph" userID="SYL" flexoID="1178">
+          <ControlGraph2_ExpressionAction id="SYL-1175" expression="this.update()" ownerContext="controlGraph2" userID="SYL" flexoID="1175" />
+          <ControlGraph1_AddToListAction id="SYL-1177" list="producedArtifactTypes" ownerContext="controlGraph1" userID="SYL" flexoID="1177">
+            <AssignableAction_ExpressionAction id="SYL-1176" expression="parameters.artifactType" userID="SYL" flexoID="1176" />
+          </ControlGraph1_AddToListAction>
+        </ThenControlGraph_Sequence>
+      </BehaviourControlGraph_ConditionalAction>
       <GenericBehaviourParameter id="SYL-433" container="container" isRequired="true" widget="CUSTOM_WIDGET" name="artifactType" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ArtifactType&gt;" userID="SYL" flexoID="433" />
+    </ActionScheme>
+    <ActionScheme id="SYL-1040" label="newTask" name="newTask" width="800" height="600" userID="SYL" flexoID="1040">
+      <BehaviourControlGraph_ReturnStatement id="SYL-1050" userID="SYL" flexoID="1050">
+        <AssignableAction_AddFlexoConceptInstance id="SYL-1047" creationSchemeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Task.create(name,taskType)" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Task" receiver="container" userID="SYL" flexoID="1047">
+          <AddFlexoConceptInstanceParameter id="SYL-1048" paramName="name" value="parameters.name" userID="SYL" flexoID="1048" />
+          <AddFlexoConceptInstanceParameter id="SYL-1049" paramName="taskType" value="this" userID="SYL" flexoID="1049" />
+        </AssignableAction_AddFlexoConceptInstance>
+      </BehaviourControlGraph_ReturnStatement>
+      <GenericBehaviourParameter id="SYL-1051" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="SYL" flexoID="1051" />
+    </ActionScheme>
+    <ActionScheme id="SYL-1139" label="isValidActorType" name="isValidActorType" width="800" height="600" userID="SYL" flexoID="1139">
+      <BehaviourControlGraph_ReturnStatement id="SYL-1143" userID="SYL" flexoID="1143">
+        <AssignableAction_ExpressionAction id="SYL-1142" expression="true" userID="SYL" flexoID="1142" />
+      </BehaviourControlGraph_ReturnStatement>
+      <GenericBehaviourParameter id="SYL-1141" isRequired="true" widget="CUSTOM_WIDGET" name="actorType" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ActorType&gt;" userID="SYL" flexoID="1141" />
+    </ActionScheme>
+    <ActionScheme id="SYL-1144" label="isValidActor" name="isValidActor" width="800" height="600" userID="SYL" flexoID="1144">
+      <BehaviourControlGraph_ReturnStatement id="SYL-1146" userID="SYL" flexoID="1146">
+        <AssignableAction_ExpressionAction id="SYL-1145" expression="true" userID="SYL" flexoID="1145" />
+      </BehaviourControlGraph_ReturnStatement>
+      <GenericBehaviourParameter id="SYL-1147" isRequired="true" widget="CUSTOM_WIDGET" name="actor" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor&gt;" userID="SYL" flexoID="1147" />
+    </ActionScheme>
+    <ActionScheme id="SYL-1148" label="isValidUsedArtifactType" name="isValidUsedArtifactType" width="800" height="600" userID="SYL" flexoID="1148">
+      <BehaviourControlGraph_ReturnStatement id="SYL-1150" userID="SYL" flexoID="1150">
+        <AssignableAction_ExpressionAction id="SYL-1149" expression="true" userID="SYL" flexoID="1149" />
+      </BehaviourControlGraph_ReturnStatement>
+      <GenericBehaviourParameter id="SYL-1151" isRequired="true" widget="CUSTOM_WIDGET" name="artifactType" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ArtifactType&gt;" userID="SYL" flexoID="1151" />
+    </ActionScheme>
+    <ActionScheme id="SYL-1152" label="isValidProducedArtifactType" name="isValidProducedArtifactType" width="800" height="600" userID="SYL" flexoID="1152">
+      <BehaviourControlGraph_ReturnStatement id="SYL-1154" userID="SYL" flexoID="1154">
+        <AssignableAction_ExpressionAction id="SYL-1153" expression="true" userID="SYL" flexoID="1153" />
+      </BehaviourControlGraph_ReturnStatement>
+      <GenericBehaviourParameter id="SYL-1155" isRequired="true" widget="CUSTOM_WIDGET" name="artifactType" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ArtifactType&gt;" userID="SYL" flexoID="1155" />
     </ActionScheme>
   </FlexoConcept>
   <FlexoConcept id="SYL-25" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Type" name="Gateway" author="sylvain" userID="SYL" flexoID="25">
@@ -364,12 +405,31 @@
     <DeletionScheme id="SYL-412" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="412">
       <BehaviourControlGraph_EmptyControlGraph id="SYL-425" userID="SYL" flexoID="425" />
     </DeletionScheme>
+    <ActionScheme id="SYL-1052" label="newArtifact" name="newArtifact" width="800" height="600" userID="SYL" flexoID="1052">
+      <BehaviourControlGraph_Sequence id="SYL-1071" userID="SYL" flexoID="1071">
+        <ControlGraph2_Sequence id="SYL-1070" ownerContext="controlGraph2" userID="SYL" flexoID="1070">
+          <ControlGraph2_ReturnStatement id="SYL-1067" ownerContext="controlGraph2" userID="SYL" flexoID="1067">
+            <AssignableAction_ExpressionAction id="SYL-1066" expression="returned" userID="SYL" flexoID="1066" />
+          </ControlGraph2_ReturnStatement>
+          <ControlGraph1_AddToListAction id="SYL-1069" list="returned.types" ownerContext="controlGraph1" userID="SYL" flexoID="1069">
+            <AssignableAction_ExpressionAction id="SYL-1068" expression="this" userID="SYL" flexoID="1068" />
+          </ControlGraph1_AddToListAction>
+        </ControlGraph2_Sequence>
+        <ControlGraph1_DeclarationAction id="SYL-1065" variable="returned" ownerContext="controlGraph1" userID="SYL" flexoID="1065">
+          <AssignableAction_AddFlexoConceptInstance id="SYL-1063" creationSchemeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Artifact.create(name)" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Artifact" receiver="container" userID="SYL" flexoID="1063">
+            <AddFlexoConceptInstanceParameter id="SYL-1064" paramName="name" value="parameters.name" userID="SYL" flexoID="1064" />
+          </AssignableAction_AddFlexoConceptInstance>
+        </ControlGraph1_DeclarationAction>
+      </BehaviourControlGraph_Sequence>
+      <GenericBehaviourParameter id="SYL-1057" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="SYL" flexoID="1057" />
+    </ActionScheme>
   </FlexoConcept>
   <FlexoConcept id="SYL-503" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#MultiInstance" name="Artifact" author="sylvain" userID="SYL" flexoID="503">
     <Inspector id="SYL-504" inspectorTitle="Artifact" userID="SYL" flexoID="504" />
     <FlexoConceptInstanceRole id="SYL-510" virtualModelInstance="container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ArtifactType" cloningStrategy="Reference" cardinality="ZeroMany" name="types" userID="SYL" flexoID="510" />
     <CreationScheme id="SYL-508" label="create" name="create" width="800" height="600" userID="SYL" flexoID="508">
-      <BehaviourControlGraph_EmptyControlGraph id="SYL-514" userID="SYL" flexoID="514" />
+      <BehaviourControlGraph_ExpressionAction id="SYL-1061" expression="super.create(name)" userID="SYL" flexoID="1061" />
+      <GenericBehaviourParameter id="SYL-1073" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="SYL" flexoID="1073" />
     </CreationScheme>
     <DeletionScheme id="SYL-509" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="509">
       <BehaviourControlGraph_EmptyControlGraph id="SYL-515" userID="SYL" flexoID="515" />

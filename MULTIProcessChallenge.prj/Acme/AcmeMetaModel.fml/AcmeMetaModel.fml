@@ -21,21 +21,18 @@ public class AcmeMetaModel extends MetaModel  {
     }    
   
     @ActionScheme    
-    Void addAllowedActorType(ActorType actorType) {    
-      log "TODO : Check that this is a Developer"      
-      super.addAllowedActorType(parameters.actorType)    
+    Task newTask(String name) {    
+      return Task.create(parameters.name,this);    
     }    
   
     @ActionScheme    
-    public Void addAllowedActor(Actor actor) {    
-      log "TODO : Check that this is a Developer"      
-      super.addAllowedActor(parameters.actor)    
+    Boolean isValidActorType(ActorType actorType) {    
+      return (parameters.actorType.concept.name = "Developer");    
     }    
   
     @ActionScheme    
-    public Void addProducedArtifactType(ArtifactType artifactType) {    
-      log "TODO : Check that this is Code"      
-      super.addProducedArtifactType(parameters.artifactType)    
+    Boolean isValidProducedArtifactType(ArtifactType artifactType) {    
+      return (parameters.artifactType.concept.name = "Code");    
     }    
   
   }  
@@ -104,43 +101,20 @@ public class AcmeMetaModel extends MetaModel  {
       
     }    
   
-  }  
-
-  @FlexoConcept  
-  public class RequirementsSpecification extends SoftwareEngineeringArtifactType  {  
-  
-    @CreationScheme    
-    RequirementsSpecification:create(String name) {    
-      super.create(parameters.name)    
-    }    
-  
-    @DeletionScheme    
-    Void delete() {    
-      
+    @ActionScheme    
+    SoftwareEngineeringArtifact newArtifact(String name) {    
+      SoftwareEngineeringArtifact returned = SoftwareEngineeringArtifact.create();      
+      returned.types.add(this)      
+      return returned;    
     }    
   
   }  
 
   @FlexoConcept  
-  public class TestCase extends SoftwareEngineeringArtifactType  {  
+  public class SoftwareEngineeringArtifact extends Artifact  {  
   
     @CreationScheme    
-    TestCase:create(String name) {    
-      super.create(parameters.name)    
-    }    
-  
-    @DeletionScheme    
-    Void delete() {    
-      
-    }    
-  
-  }  
-
-  @FlexoConcept  
-  public class TestReport extends SoftwareEngineeringArtifactType  {  
-  
-    @CreationScheme    
-    TestReport:create(String name) {    
+    SoftwareEngineeringArtifact:create(String name) {    
       super.create(parameters.name)    
     }    
   

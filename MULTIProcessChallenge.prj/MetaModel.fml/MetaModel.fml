@@ -69,26 +69,59 @@ public class MetaModel {
   
     @ActionScheme    
     public Void addAllowedActorType(ActorType actorType) {    
-      allowedActorTypes.add(parameters.actorType)      
-      this.update()    
+      if this.isValidActorType(parameters.actorType) {      
+        allowedActorTypes.add(parameters.actorType)        
+        this.update()      
+      }    
     }    
   
     @ActionScheme    
     public Void addAllowedActor(Actor actor) {    
-      allowedActors.add(parameters.actor)      
-      this.update()    
+      if this.isValidActor(parameters.actor) {      
+        allowedActors.add(parameters.actor)        
+        this.update()      
+      }    
     }    
   
     @ActionScheme    
     public Void addUsedArtifactType(ArtifactType artifactType) {    
-      usedArtifactTypes.add(parameters.artifactType)      
-      this.update()    
+      if this.isValidUsedArtifactType(parameters.artifactType) {      
+        usedArtifactTypes.add(parameters.artifactType)        
+        this.update()      
+      }    
     }    
   
     @ActionScheme    
     public Void addProducedArtifactType(ArtifactType artifactType) {    
-      producedArtifactTypes.add(parameters.artifactType)      
-      this.update()    
+      if this.isValidProducedArtifactType(parameters.artifactType) {      
+        producedArtifactTypes.add(parameters.artifactType)        
+        this.update()      
+      }    
+    }    
+  
+    @ActionScheme    
+    Task newTask(String name) {    
+      return Task.create(parameters.name,this);    
+    }    
+  
+    @ActionScheme    
+    Boolean isValidActorType(ActorType actorType) {    
+      return true;    
+    }    
+  
+    @ActionScheme    
+    Boolean isValidActor(Actor actor) {    
+      return true;    
+    }    
+  
+    @ActionScheme    
+    Boolean isValidUsedArtifactType(ArtifactType artifactType) {    
+      return true;    
+    }    
+  
+    @ActionScheme    
+    Boolean isValidProducedArtifactType(ArtifactType artifactType) {    
+      return true;    
     }    
   
   }  
@@ -419,6 +452,13 @@ public class MetaModel {
       
     }    
   
+    @ActionScheme    
+    Artifact newArtifact(String name) {    
+      Artifact returned = Artifact.create(parameters.name);      
+      returned.types.add(this)      
+      return returned;    
+    }    
+  
   }  
 
   @FlexoConcept  
@@ -427,8 +467,8 @@ public class MetaModel {
     public List types;  
   
     @CreationScheme    
-    Artifact:create() {    
-      
+    Artifact:create(String name) {    
+      super.create(name)    
     }    
   
     @DeletionScheme    
