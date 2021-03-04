@@ -32,7 +32,7 @@ public class AcmeMetaModel extends MetaModel  {
   
     @ActionScheme    
     Boolean isValidProducedArtifactType(ArtifactType artifactType) {    
-      return (parameters.artifactType.concept.name = "Code");    
+      return (parameters.artifactType.concept.name = "CodeArtifactType");    
     }    
   
   }  
@@ -53,18 +53,23 @@ public class AcmeMetaModel extends MetaModel  {
   }  
 
   @FlexoConcept  
-  public class Code extends SoftwareEngineeringArtifactType  {  
-  
-    public ProgrammingLanguage programmingLanguage;  
+  public class CodeArtifactType extends SoftwareEngineeringArtifactType  {  
   
     @CreationScheme    
-    Code:create(String name) {    
+    CodeArtifactType:create(String name) {    
       super.create(parameters.name)    
     }    
   
     @DeletionScheme    
     Void delete() {    
       
+    }    
+  
+    @ActionScheme    
+    Code newArtifact(String name) {    
+      Code returned = Code.create();      
+      returned.types.add(this)      
+      return returned;    
     }    
   
   }  
@@ -103,7 +108,7 @@ public class AcmeMetaModel extends MetaModel  {
   
     @ActionScheme    
     SoftwareEngineeringArtifact newArtifact(String name) {    
-      SoftwareEngineeringArtifact returned = SoftwareEngineeringArtifact.create();      
+      SoftwareEngineeringArtifact returned = SoftwareEngineeringArtifact.create(parameters.name);      
       returned.types.add(this)      
       return returned;    
     }    
@@ -116,6 +121,21 @@ public class AcmeMetaModel extends MetaModel  {
     @CreationScheme    
     SoftwareEngineeringArtifact:create(String name) {    
       super.create(parameters.name)    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class Code extends SoftwareEngineeringArtifact  {  
+  
+    @CreationScheme    
+    Code:create() {    
+      
     }    
   
     @DeletionScheme    

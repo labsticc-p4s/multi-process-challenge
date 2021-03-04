@@ -21,7 +21,7 @@
   <FlexoConcept id="SYL-45" name="TaskTypeGR" userID="SYL" flexoID="45">
     <Inspector id="SYL-41" inspectorTitle="TaskTypeGR" userID="SYL" flexoID="41" />
     <ShapeRole id="SYL-58" previewY="80.0" previewX="57.089552238805965" previewWidth="135.82089552238807" exampleLabel="Task" metamodelElementReference="http://www.openflexo.org/test/ProcessSpec/ExampleDiagram.diagram#SYL_3" cloningStrategy="Clone" cardinality="ZeroOne" name="shape" userID="SYL" flexoID="58">
-      <GRSpec id="SYL-514" featureName="label" value="taskType.name" userID="SYL" flexoID="514" />
+      <GRSpec id="SYL-554" featureName="label" value="taskType.name" userID="SYL" flexoID="554" />
     </ShapeRole>
     <FlexoConceptInstanceRole id="SYL-67" virtualModelInstance="model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#TaskType" cloningStrategy="Reference" cardinality="ZeroOne" name="taskType" userID="SYL" flexoID="67" />
     <DropScheme id="SYL-46" target="top" label="dropTaskTypeGRAtTopLevel" name="dropTaskTypeGRAtTopLevel" width="800" height="600" userID="SYL" flexoID="46">

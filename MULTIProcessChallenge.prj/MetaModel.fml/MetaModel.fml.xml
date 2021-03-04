@@ -6,7 +6,6 @@
     <FlexoConceptInstanceRole id="SYL-86" virtualModelInstance="container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Gateway" cloningStrategy="Reference" cardinality="ZeroMany" name="gateways" userID="SYL" flexoID="86" />
     <FlexoConceptInstanceRole id="SYL-87" virtualModelInstance="container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Begin" cloningStrategy="Reference" cardinality="ZeroOne" name="initialTaskType" userID="SYL" flexoID="87" />
     <FlexoConceptInstanceRole id="SYL-88" virtualModelInstance="container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#End" cloningStrategy="Reference" cardinality="ZeroMany" name="finalTaskTypes" userID="SYL" flexoID="88" />
-    <PrimitiveRole id="SYL-499" primitiveType="Boolean" cloningStrategy="Clone" defaultValue="true" cardinality="ZeroOne" name="isEnacted" userID="SYL" flexoID="499" />
     <CreationScheme id="SYL-11" label="create" name="create" width="800" height="600" userID="SYL" flexoID="11">
       <BehaviourControlGraph_ExpressionAction id="SYL-185" expression="super.create(parameters.name)" userID="SYL" flexoID="185" />
       <GenericBehaviourParameter id="SYL-201" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="SYL" flexoID="201" />
