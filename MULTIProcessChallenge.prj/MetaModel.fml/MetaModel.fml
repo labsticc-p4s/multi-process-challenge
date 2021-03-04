@@ -123,6 +123,11 @@ public class MetaModel {
       return true;    
     }    
   
+    @ActionScheme    
+    public Void setCreator(Actor creator) {    
+      creator = parameters.creator;    
+    }    
+  
   }  
 
   @FlexoConcept  
@@ -437,6 +442,46 @@ public class MetaModel {
       }    
     }    
   
+    @ActionScheme    
+    Boolean isAuthorizedProducedArtifact(Artifact artifact) {    
+      for (allowedArtifactType : type.producedArtifactTypes) {      
+        if parameters.artifact.hasArtifactType(allowedArtifactType) {        
+          return true;        
+        }      
+      }      
+      return false;    
+    }    
+  
+    @ActionScheme    
+    public Void addToProducedArtifacts(Artifact artifact) {    
+      if this.isAuthorizedProducedArtifact(parameters.artifact) {      
+        log "This produced artifact is AUTHORIZED"        
+        producedArtifacts.add(parameters.artifact)      
+      } else {      
+        log "This produced artifact is NOT AUTHORIZED"      
+      }    
+    }    
+  
+    @ActionScheme    
+    Boolean isAuthorizedUsedArtifact(Artifact artifact) {    
+      for (allowedArtifactType : type.usedArtifactTypes) {      
+        if parameters.artifact.hasArtifactType(allowedArtifactType) {        
+          return true;        
+        }      
+      }      
+      return false;    
+    }    
+  
+    @ActionScheme    
+    public Void addToUsedArtifacts(Artifact artifact) {    
+      if this.isAuthorizedUsedArtifact(parameters.artifact) {      
+        log "This used artifact is AUTHORIZED"        
+        usedArtifacts.add(parameters.artifact)      
+      } else {      
+        log "This used artifact is NOT AUTHORIZED"      
+      }    
+    }    
+  
   }  
 
   @FlexoConcept  
@@ -474,6 +519,16 @@ public class MetaModel {
     @DeletionScheme    
     Void delete() {    
       
+    }    
+  
+    @ActionScheme    
+    Boolean hasArtifactType(ArtifactType artifactType) {    
+      for (type : types) {      
+        if (type = parameters.artifactType) {        
+          return true;        
+        }      
+      }      
+      return false;    
     }    
   
   }  

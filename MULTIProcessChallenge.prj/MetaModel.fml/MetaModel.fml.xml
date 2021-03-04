@@ -129,6 +129,12 @@
       </BehaviourControlGraph_ReturnStatement>
       <GenericBehaviourParameter id="SYL-1155" isRequired="true" widget="CUSTOM_WIDGET" name="artifactType" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ArtifactType&gt;" userID="SYL" flexoID="1155" />
     </ActionScheme>
+    <ActionScheme id="SYL-1297" visibility="Public" label="setCreator" name="setCreator" width="800" height="600" userID="SYL" flexoID="1297">
+      <BehaviourControlGraph_AssignationAction id="SYL-1299" assign="creator" userID="SYL" flexoID="1299">
+        <AssignableAction_ExpressionAction id="SYL-1298" expression="parameters.creator" userID="SYL" flexoID="1298" />
+      </BehaviourControlGraph_AssignationAction>
+      <GenericBehaviourParameter id="SYL-1300" container="container" isRequired="true" widget="CUSTOM_WIDGET" name="creator" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor&gt;" userID="SYL" flexoID="1300" />
+    </ActionScheme>
   </FlexoConcept>
   <FlexoConcept id="SYL-25" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Type" name="Gateway" author="sylvain" userID="SYL" flexoID="25">
     <Inspector id="SYL-67" inspectorTitle="Gateway" userID="SYL" flexoID="67" />
@@ -399,6 +405,62 @@
       </BehaviourControlGraph_ConditionalAction>
       <GenericBehaviourParameter id="SYL-750" isRequired="true" widget="CUSTOM_WIDGET" name="actor" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor&gt;" description="" userID="SYL" flexoID="750" />
     </ActionScheme>
+    <ActionScheme id="SYL-1245" label="isAuthorizedProducedArtifact" name="isAuthorizedProducedArtifact" width="800" height="600" userID="SYL" flexoID="1245">
+      <BehaviourControlGraph_Sequence id="SYL-1259" userID="SYL" flexoID="1259">
+        <ControlGraph2_ReturnStatement id="SYL-1247" ownerContext="controlGraph2" userID="SYL" flexoID="1247">
+          <AssignableAction_ExpressionAction id="SYL-1246" expression="false" userID="SYL" flexoID="1246" />
+        </ControlGraph2_ReturnStatement>
+        <ControlGraph1_IterationAction id="SYL-1258" iteratorName="allowedArtifactType" ownerContext="controlGraph1" userID="SYL" flexoID="1258">
+          <Iteration_ExpressionAction id="SYL-1254" expression="type.producedArtifactTypes" ownerContext="iterationControlGraph" userID="SYL" flexoID="1254" />
+          <ControlGraph_ConditionalAction id="SYL-1257" condition="parameters.artifact.hasArtifactType(allowedArtifactType)" ownerContext="controlGraph" userID="SYL" flexoID="1257">
+            <ThenControlGraph_ReturnStatement id="SYL-1256" ownerContext="thenControlGraph" userID="SYL" flexoID="1256">
+              <AssignableAction_ExpressionAction id="SYL-1255" expression="true" userID="SYL" flexoID="1255" />
+            </ThenControlGraph_ReturnStatement>
+          </ControlGraph_ConditionalAction>
+        </ControlGraph1_IterationAction>
+      </BehaviourControlGraph_Sequence>
+      <GenericBehaviourParameter id="SYL-1260" isRequired="true" widget="CUSTOM_WIDGET" name="artifact" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Artifact&gt;" userID="SYL" flexoID="1260" />
+    </ActionScheme>
+    <ActionScheme id="SYL-1271" visibility="Public" label="addToProducedArtifacts" name="addToProducedArtifacts" width="800" height="600" userID="SYL" flexoID="1271">
+      <BehaviourControlGraph_ConditionalAction id="SYL-1277" condition="this.isAuthorizedProducedArtifact(parameters.artifact)" userID="SYL" flexoID="1277">
+        <ElseControlGraph_LogAction id="SYL-1272" logLevel="INFO" logString="&quot;This produced artifact is NOT AUTHORIZED&quot;" ownerContext="elseControlGraph" userID="SYL" flexoID="1272" />
+        <ThenControlGraph_Sequence id="SYL-1276" ownerContext="thenControlGraph" userID="SYL" flexoID="1276">
+          <ControlGraph2_AddToListAction id="SYL-1274" list="producedArtifacts" ownerContext="controlGraph2" userID="SYL" flexoID="1274">
+            <AssignableAction_ExpressionAction id="SYL-1273" expression="parameters.artifact" userID="SYL" flexoID="1273" />
+          </ControlGraph2_AddToListAction>
+          <ControlGraph1_LogAction id="SYL-1275" logLevel="INFO" logString="&quot;This produced artifact is AUTHORIZED&quot;" ownerContext="controlGraph1" userID="SYL" flexoID="1275" />
+        </ThenControlGraph_Sequence>
+      </BehaviourControlGraph_ConditionalAction>
+      <GenericBehaviourParameter id="SYL-1278" isRequired="true" widget="CUSTOM_WIDGET" name="artifact" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Artifact&gt;" description="" userID="SYL" flexoID="1278" />
+    </ActionScheme>
+    <ActionScheme id="SYL-1279" label="isAuthorizedUsedArtifact" name="isAuthorizedUsedArtifact" width="800" height="600" userID="SYL" flexoID="1279">
+      <BehaviourControlGraph_Sequence id="SYL-1287" userID="SYL" flexoID="1287">
+        <ControlGraph2_ReturnStatement id="SYL-1281" ownerContext="controlGraph2" userID="SYL" flexoID="1281">
+          <AssignableAction_ExpressionAction id="SYL-1280" expression="false" userID="SYL" flexoID="1280" />
+        </ControlGraph2_ReturnStatement>
+        <ControlGraph1_IterationAction id="SYL-1286" iteratorName="allowedArtifactType" ownerContext="controlGraph1" userID="SYL" flexoID="1286">
+          <Iteration_ExpressionAction id="SYL-1282" expression="type.usedArtifactTypes" ownerContext="iterationControlGraph" userID="SYL" flexoID="1282" />
+          <ControlGraph_ConditionalAction id="SYL-1285" condition="parameters.artifact.hasArtifactType(allowedArtifactType)" ownerContext="controlGraph" userID="SYL" flexoID="1285">
+            <ThenControlGraph_ReturnStatement id="SYL-1284" ownerContext="thenControlGraph" userID="SYL" flexoID="1284">
+              <AssignableAction_ExpressionAction id="SYL-1283" expression="true" userID="SYL" flexoID="1283" />
+            </ThenControlGraph_ReturnStatement>
+          </ControlGraph_ConditionalAction>
+        </ControlGraph1_IterationAction>
+      </BehaviourControlGraph_Sequence>
+      <GenericBehaviourParameter id="SYL-1288" isRequired="true" widget="CUSTOM_WIDGET" name="artifact" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Artifact&gt;" userID="SYL" flexoID="1288" />
+    </ActionScheme>
+    <ActionScheme id="SYL-1289" visibility="Public" label="addToUsedArtifacts" name="addToUsedArtifacts" width="800" height="600" userID="SYL" flexoID="1289">
+      <BehaviourControlGraph_ConditionalAction id="SYL-1295" condition="this.isAuthorizedUsedArtifact(parameters.artifact)" userID="SYL" flexoID="1295">
+        <ElseControlGraph_LogAction id="SYL-1290" logLevel="INFO" logString="&quot;This used artifact is NOT AUTHORIZED&quot;" ownerContext="elseControlGraph" userID="SYL" flexoID="1290" />
+        <ThenControlGraph_Sequence id="SYL-1294" ownerContext="thenControlGraph" userID="SYL" flexoID="1294">
+          <ControlGraph2_AddToListAction id="SYL-1292" list="usedArtifacts" ownerContext="controlGraph2" userID="SYL" flexoID="1292">
+            <AssignableAction_ExpressionAction id="SYL-1291" expression="parameters.artifact" userID="SYL" flexoID="1291" />
+          </ControlGraph2_AddToListAction>
+          <ControlGraph1_LogAction id="SYL-1293" logLevel="INFO" logString="&quot;This used artifact is AUTHORIZED&quot;" ownerContext="controlGraph1" userID="SYL" flexoID="1293" />
+        </ThenControlGraph_Sequence>
+      </BehaviourControlGraph_ConditionalAction>
+      <GenericBehaviourParameter id="SYL-1296" isRequired="true" widget="CUSTOM_WIDGET" name="artifact" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Artifact&gt;" description="" userID="SYL" flexoID="1296" />
+    </ActionScheme>
   </FlexoConcept>
   <FlexoConcept id="SYL-406" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Type" name="ArtifactType" author="sylvain" userID="SYL" flexoID="406">
     <Inspector id="SYL-407" renderer="(&quot;ArtifactType:&quot; + this.name)" inspectorTitle="ArtifactType" userID="SYL" flexoID="407" />
@@ -438,6 +500,22 @@
     <DeletionScheme id="SYL-509" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="509">
       <BehaviourControlGraph_EmptyControlGraph id="SYL-515" userID="SYL" flexoID="515" />
     </DeletionScheme>
+    <ActionScheme id="SYL-1261" label="hasArtifactType" name="hasArtifactType" width="800" height="600" userID="SYL" flexoID="1261">
+      <BehaviourControlGraph_Sequence id="SYL-1269" userID="SYL" flexoID="1269">
+        <ControlGraph2_ReturnStatement id="SYL-1263" ownerContext="controlGraph2" userID="SYL" flexoID="1263">
+          <AssignableAction_ExpressionAction id="SYL-1262" expression="false" userID="SYL" flexoID="1262" />
+        </ControlGraph2_ReturnStatement>
+        <ControlGraph1_IterationAction id="SYL-1268" iteratorName="type" ownerContext="controlGraph1" userID="SYL" flexoID="1268">
+          <Iteration_ExpressionAction id="SYL-1264" expression="types" ownerContext="iterationControlGraph" userID="SYL" flexoID="1264" />
+          <ControlGraph_ConditionalAction id="SYL-1267" condition="(type = parameters.artifactType)" ownerContext="controlGraph" userID="SYL" flexoID="1267">
+            <ThenControlGraph_ReturnStatement id="SYL-1266" ownerContext="thenControlGraph" userID="SYL" flexoID="1266">
+              <AssignableAction_ExpressionAction id="SYL-1265" expression="true" userID="SYL" flexoID="1265" />
+            </ThenControlGraph_ReturnStatement>
+          </ControlGraph_ConditionalAction>
+        </ControlGraph1_IterationAction>
+      </BehaviourControlGraph_Sequence>
+      <GenericBehaviourParameter id="SYL-1270" widget="CUSTOM_WIDGET" name="artifactType" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ArtifactType&gt;" userID="SYL" flexoID="1270" />
+    </ActionScheme>
   </FlexoConcept>
   <FlexoConcept id="SYL-751" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#TaskType" name="Begin" userID="SYL" flexoID="751">
     <Inspector id="SYL-752" inspectorTitle="Begin" userID="SYL" flexoID="752" />

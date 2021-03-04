@@ -8,7 +8,7 @@
 public class AcmeMetaModel extends MetaModel  {
 
   @FlexoConcept  
-  public class CodingTaskType extends TaskType  {  
+  public class CodingTaskType extends SoftwareEngineeringTaskType  {  
   
     @CreationScheme    
     CodingTaskType:create(String name) {    
@@ -119,6 +119,9 @@ public class AcmeMetaModel extends MetaModel  {
   @FlexoConcept  
   public class SoftwareEngineeringArtifact extends Artifact  {  
   
+    public Actor responsible;  
+    public int versionNumber;  
+  
     @CreationScheme    
     SoftwareEngineeringArtifact:create(String name) {    
       super.create(parameters.name)    
@@ -155,6 +158,26 @@ public class AcmeMetaModel extends MetaModel  {
   
     @CreationScheme    
     Coding:create(String name) {    
+      super.create(parameters.name)    
+    }    
+  
+    @ActionScheme    
+    Void isAuthorizedProducedArtifact(Artifact artifact) {    
+      Boolean returned = super.isAuthorizedProducedArtifact(parameters.artifact);    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class SoftwareEngineeringTaskType extends TaskType  {  
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+    @CreationScheme    
+    SoftwareEngineeringTaskType:create(String name) {    
       super.create(parameters.name)    
     }    
   
