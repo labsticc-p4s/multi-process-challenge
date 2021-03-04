@@ -292,8 +292,8 @@
       <TextStyle id="224" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
     </ShapeGraphicalRepresentation>
   </Shape>
-  <Shape id="225" name="Shape26" userID="SYL" flexoID="26">
-    <ShapeGraphicalRepresentation id="226" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="452.0" y="508.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="135.82089552238807" height="40.0" identifier="93bb37a" layer="1" text="First Task Type">
+  <Shape id="225" name="Shape26" text="Une tache" userID="SYL" flexoID="26">
+    <ShapeGraphicalRepresentation id="226" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="452.0" y="508.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="135.82089552238807" height="40.0" identifier="93bb37a" layer="1" text="Une tache">
       <SelectedColorBackgroundStyle id="227" color="254,247,217" transparencyLevel="0.5" />
       <ForegroundStyle id="228" color="204,0,0" joinStyle="JOIN_MITER" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" lineWidth="0.999999998509884" />
       <FocusedColorBackgroundStyle id="229" color="254,247,217" transparencyLevel="0.5" />
@@ -318,7 +318,59 @@
       <TextStyle id="246" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
     </ShapeGraphicalRepresentation>
   </Shape>
-  <DrawingGraphicalRepresentation id="247" backgroundColor="255,255,255" drawWorkingArea="false" focusColor="255,0,0" selectionColor="0,0,255" rectangleSelectingSelectionColor="0,0,255" dimensionConstraints="UNRESIZABLE" identifier="7089c0ff">
-    <TextStyle id="248" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
+  <Shape id="247" name="Shape29" text="Une tache normale" userID="SYL" flexoID="29">
+    <ShapeGraphicalRepresentation id="248" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="619.0" y="72.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="135.82089552238807" height="40.0" identifier="f843f68" layer="1" text="Une tache normale">
+      <SelectedColorBackgroundStyle id="249" color="254,247,217" transparencyLevel="0.5" />
+      <ForegroundStyle id="250" color="204,0,0" joinStyle="JOIN_MITER" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" lineWidth="0.999999998509884" />
+      <FocusedColorBackgroundStyle id="251" color="254,247,217" transparencyLevel="0.5" />
+      <ShadowStyle id="252" />
+      <FocusedForegroundStyle id="253" color="0,0,0" joinStyle="JOIN_MITER" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <SelectedForegroundStyle id="254" color="0,0,0" joinStyle="JOIN_MITER" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <ColorBackgroundStyle id="255" color="254,247,217" transparencyLevel="0.5" />
+      <RectangleShape id="256" isRounded="true" arcSize="20.0" />
+      <TextStyle id="257" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
+    </ShapeGraphicalRepresentation>
+  </Shape>
+  <Shape id="258" name="Shape30" text="Un codage" userID="SYL" flexoID="30">
+    <ShapeGraphicalRepresentation id="259" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="670.0" y="175.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="135.82089552238807" height="40.0" identifier="1d9c45b3" layer="1" text="Un codage">
+      <SelectedColorBackgroundStyle id="260" color="254,247,217" transparencyLevel="0.5" />
+      <ForegroundStyle id="261" color="204,0,0" joinStyle="JOIN_MITER" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" lineWidth="0.999999998509884" />
+      <FocusedColorBackgroundStyle id="262" color="254,247,217" transparencyLevel="0.5" />
+      <ShadowStyle id="263" />
+      <FocusedForegroundStyle id="264" color="0,0,0" joinStyle="JOIN_MITER" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <SelectedForegroundStyle id="265" color="0,0,0" joinStyle="JOIN_MITER" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <ColorBackgroundStyle id="266" color="254,247,217" transparencyLevel="0.5" />
+      <RectangleShape id="267" isRounded="true" arcSize="20.0" />
+      <TextStyle id="268" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
+    </ShapeGraphicalRepresentation>
+  </Shape>
+  <Shape id="269" name="Shape31" text="Prout" userID="SYL" flexoID="31">
+    <ShapeGraphicalRepresentation id="270" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="32.0" y="50.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="135.82089552238807" height="40.0" identifier="7a7eb650" layer="1" text="Prout">
+      <SelectedColorBackgroundStyle id="271" color="254,247,217" transparencyLevel="0.5" />
+      <ForegroundStyle id="272" color="204,0,0" joinStyle="JOIN_MITER" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" lineWidth="0.999999998509884" />
+      <FocusedColorBackgroundStyle id="273" color="254,247,217" transparencyLevel="0.5" />
+      <ShadowStyle id="274" />
+      <FocusedForegroundStyle id="275" color="0,0,0" joinStyle="JOIN_MITER" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <SelectedForegroundStyle id="276" color="0,0,0" joinStyle="JOIN_MITER" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <ColorBackgroundStyle id="277" color="254,247,217" transparencyLevel="0.5" />
+      <RectangleShape id="278" isRounded="true" arcSize="20.0" />
+      <TextStyle id="279" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
+    </ShapeGraphicalRepresentation>
+  </Shape>
+  <Shape id="280" name="Shape32" text="Prout codage" userID="SYL" flexoID="32">
+    <ShapeGraphicalRepresentation id="281" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="83.0" y="141.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="135.82089552238807" height="40.0" identifier="79735155" layer="1" text="Prout codage">
+      <SelectedColorBackgroundStyle id="282" color="254,247,217" transparencyLevel="0.5" />
+      <ForegroundStyle id="283" color="204,0,0" joinStyle="JOIN_MITER" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" lineWidth="0.999999998509884" />
+      <FocusedColorBackgroundStyle id="284" color="254,247,217" transparencyLevel="0.5" />
+      <ShadowStyle id="285" />
+      <FocusedForegroundStyle id="286" color="0,0,0" joinStyle="JOIN_MITER" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <SelectedForegroundStyle id="287" color="0,0,0" joinStyle="JOIN_MITER" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <ColorBackgroundStyle id="288" color="254,247,217" transparencyLevel="0.5" />
+      <RectangleShape id="289" isRounded="true" arcSize="20.0" />
+      <TextStyle id="290" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
+    </ShapeGraphicalRepresentation>
+  </Shape>
+  <DrawingGraphicalRepresentation id="291" backgroundColor="255,255,255" drawWorkingArea="false" focusColor="255,0,0" selectionColor="0,0,255" rectangleSelectingSelectionColor="0,0,255" dimensionConstraints="UNRESIZABLE" identifier="7089c0ff">
+    <TextStyle id="292" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
   </DrawingGraphicalRepresentation>
 </Diagram>

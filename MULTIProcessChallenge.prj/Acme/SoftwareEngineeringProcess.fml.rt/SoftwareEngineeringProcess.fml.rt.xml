@@ -95,7 +95,23 @@
     <ModelObjectActorReference id="69" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/SoftwareEngineeringProcessDiagram.diagram#SYL_28" roleName="shape" userID="SYL" flexoID="73" />
     <ModelObjectActorReference id="70" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_94" roleName="taskType" userID="SYL" flexoID="74" />
   </FlexoConceptInstance>
-  <TypeAwareModelSlotInstance id="71" modelURI="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/SoftwareEngineeringProcessDiagram.diagram" modelSlotName="diagram" roleName="diagram" userID="SYL" flexoID="2" />
-  <VirtualModelModelSlotInstance id="72" virtualModelInstanceURI="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt" modelSlotName="model" roleName="model" userID="SYL" flexoID="3" />
-  <ModelObjectActorReference id="73" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_2" roleName="processType" userID="SYL" flexoID="4" />
+  <FlexoConceptInstance id="71" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#TaskTypeGR" userID="SYL" flexoID="75">
+    <ModelObjectActorReference id="72" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/SoftwareEngineeringProcessDiagram.diagram#SYL_29" roleName="shape" userID="SYL" flexoID="77" />
+    <ModelObjectActorReference id="73" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_98" roleName="taskType" userID="SYL" flexoID="78" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="74" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#TaskTypeGR" userID="SYL" flexoID="76">
+    <ModelObjectActorReference id="75" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/SoftwareEngineeringProcessDiagram.diagram#SYL_30" roleName="shape" userID="SYL" flexoID="79" />
+    <ModelObjectActorReference id="76" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_99" roleName="taskType" userID="SYL" flexoID="80" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="77" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#TaskTypeGR" userID="SYL" flexoID="81">
+    <ModelObjectActorReference id="78" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/SoftwareEngineeringProcessDiagram.diagram#SYL_31" roleName="shape" userID="SYL" flexoID="83" />
+    <ModelObjectActorReference id="79" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_106" roleName="taskType" userID="SYL" flexoID="84" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="80" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#TaskTypeGR" userID="SYL" flexoID="82">
+    <ModelObjectActorReference id="81" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/SoftwareEngineeringProcessDiagram.diagram#SYL_32" roleName="shape" userID="SYL" flexoID="85" />
+    <ModelObjectActorReference id="82" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_107" roleName="taskType" userID="SYL" flexoID="86" />
+  </FlexoConceptInstance>
+  <TypeAwareModelSlotInstance id="83" modelURI="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/SoftwareEngineeringProcessDiagram.diagram" modelSlotName="diagram" roleName="diagram" userID="SYL" flexoID="2" />
+  <VirtualModelModelSlotInstance id="84" virtualModelInstanceURI="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt" modelSlotName="model" roleName="model" userID="SYL" flexoID="3" />
+  <ModelObjectActorReference id="85" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_2" roleName="processType" userID="SYL" flexoID="4" />
 </FMLRTVirtualModelInstance>

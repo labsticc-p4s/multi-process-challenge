@@ -413,7 +413,7 @@ public class MetaModel {
     }    
   
     @ActionScheme    
-    Boolean isAuthorized(Actor actor) {    
+    Boolean isAuthorizedActor(Actor actor) {    
       for (allowedActorType : type.allowedActorTypes) {      
         if parameters.actor.hasActorType(allowedActorType) {        
           return true;        
@@ -428,9 +428,10 @@ public class MetaModel {
     }    
   
     @ActionScheme    
-    public Void testIsAuthorized(Actor actor) {    
-      if this.isAuthorized(parameters.actor) {      
-        log "This actor is AUTHORIZED"      
+    public Void addToPerformingActors(Actor actor) {    
+      if this.isAuthorizedActor(parameters.actor) {      
+        log "This actor is AUTHORIZED"        
+        performingActors.add(parameters.actor)      
       } else {      
         log "This actor is NOT AUTHORIZED"      
       }    

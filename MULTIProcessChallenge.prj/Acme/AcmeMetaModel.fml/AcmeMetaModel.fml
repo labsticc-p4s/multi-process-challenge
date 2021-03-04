@@ -8,10 +8,10 @@
 public class AcmeMetaModel extends MetaModel  {
 
   @FlexoConcept  
-  public class Coding extends TaskType  {  
+  public class CodingTaskType extends TaskType  {  
   
     @CreationScheme    
-    Coding:create(String name) {    
+    CodingTaskType:create(String name) {    
       super.create(parameters.name)    
     }    
   
@@ -21,8 +21,8 @@ public class AcmeMetaModel extends MetaModel  {
     }    
   
     @ActionScheme    
-    Task newTask(String name) {    
-      return Task.create(parameters.name,this);    
+    Coding newTask(String name) {    
+      return Coding.create(parameters.name);    
     }    
   
     @ActionScheme    
@@ -67,7 +67,7 @@ public class AcmeMetaModel extends MetaModel  {
   
     @ActionScheme    
     Code newArtifact(String name) {    
-      Code returned = Code.create();      
+      Code returned = Code.create(parameters.name);      
       returned.types.add(this)      
       return returned;    
     }    
@@ -81,14 +81,15 @@ public class AcmeMetaModel extends MetaModel  {
   @FlexoConcept  
   public class COBOLCode extends Code  {  
   
-    @CreationScheme    
-    COBOLCode:create() {    
-      
-    }    
-  
     @DeletionScheme    
     Void delete() {    
       
+    }    
+  
+    @CreationScheme    
+    COBOLCode:create(String name) {    
+      super.create(parameters.name)      
+      programmingLanguage = container.virtualModel;    
     }    
   
   }  
@@ -133,14 +134,28 @@ public class AcmeMetaModel extends MetaModel  {
   @FlexoConcept  
   public class Code extends SoftwareEngineeringArtifact  {  
   
-    @CreationScheme    
-    Code:create() {    
-      
-    }    
+    public ProgrammingLanguage programmingLanguage;  
   
     @DeletionScheme    
     Void delete() {    
       
+    }    
+  
+    @CreationScheme    
+    Code:create(String name) {    
+      super.create(parameters.name)    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class Coding extends Task  {  
+  
+    public List programmingLanguages;  
+  
+    @CreationScheme    
+    Coding:create(String name) {    
+      super.create(parameters.name)    
     }    
   
   }  

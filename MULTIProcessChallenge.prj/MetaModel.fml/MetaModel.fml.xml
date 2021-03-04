@@ -361,7 +361,7 @@
     <DeletionScheme id="SYL-401" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="401">
       <BehaviourControlGraph_EmptyControlGraph id="SYL-423" userID="SYL" flexoID="423" />
     </DeletionScheme>
-    <ActionScheme id="SYL-573" label="isAuthorized" name="isAuthorized" width="800" height="600" userID="SYL" flexoID="573">
+    <ActionScheme id="SYL-573" label="isAuthorizedActor" name="isAuthorizedActor" width="800" height="600" userID="SYL" flexoID="573">
       <BehaviourControlGraph_Sequence id="SYL-596" userID="SYL" flexoID="596">
         <ControlGraph2_Sequence id="SYL-662" ownerContext="controlGraph2" userID="SYL" flexoID="662">
           <ControlGraph2_ReturnStatement id="SYL-661" ownerContext="controlGraph2" userID="SYL" flexoID="661">
@@ -387,10 +387,15 @@
       </BehaviourControlGraph_Sequence>
       <GenericBehaviourParameter id="SYL-598" isRequired="true" widget="CUSTOM_WIDGET" name="actor" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor&gt;" userID="SYL" flexoID="598" />
     </ActionScheme>
-    <ActionScheme id="SYL-742" visibility="Public" label="testIsAuthorized" name="testIsAuthorized" width="800" height="600" userID="SYL" flexoID="742">
-      <BehaviourControlGraph_ConditionalAction id="SYL-744" condition="this.isAuthorized(parameters.actor)" userID="SYL" flexoID="744">
+    <ActionScheme id="SYL-742" visibility="Public" label="addToPerformingActors" name="addToPerformingActors" width="800" height="600" userID="SYL" flexoID="742">
+      <BehaviourControlGraph_ConditionalAction id="SYL-744" condition="this.isAuthorizedActor(parameters.actor)" userID="SYL" flexoID="744">
         <ElseControlGraph_LogAction id="SYL-749" logLevel="INFO" logString="&quot;This actor is NOT AUTHORIZED&quot;" ownerContext="elseControlGraph" userID="SYL" flexoID="749" />
-        <ThenControlGraph_LogAction id="SYL-747" logLevel="INFO" logString="&quot;This actor is AUTHORIZED&quot;" ownerContext="thenControlGraph" userID="SYL" flexoID="747" />
+        <ThenControlGraph_Sequence id="SYL-1244" ownerContext="thenControlGraph" userID="SYL" flexoID="1244">
+          <ControlGraph2_AddToListAction id="SYL-1243" list="performingActors" ownerContext="controlGraph2" userID="SYL" flexoID="1243">
+            <AssignableAction_ExpressionAction id="SYL-1242" expression="parameters.actor" userID="SYL" flexoID="1242" />
+          </ControlGraph2_AddToListAction>
+          <ControlGraph1_LogAction id="SYL-747" logLevel="INFO" logString="&quot;This actor is AUTHORIZED&quot;" ownerContext="controlGraph1" userID="SYL" flexoID="747" />
+        </ThenControlGraph_Sequence>
       </BehaviourControlGraph_ConditionalAction>
       <GenericBehaviourParameter id="SYL-750" isRequired="true" widget="CUSTOM_WIDGET" name="actor" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor&gt;" description="" userID="SYL" flexoID="750" />
     </ActionScheme>
