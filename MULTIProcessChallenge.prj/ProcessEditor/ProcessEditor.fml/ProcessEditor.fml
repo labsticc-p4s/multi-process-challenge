@@ -220,4 +220,30 @@ public class ProcessEditor {
   
   }  
 
+  @FlexoConcept  
+  public class UsedArtefactType {  
+  
+    public DiagramConnector connector;  
+  
+    @LinkScheme    
+    UsedArtefactType:linkArtifactTypeGRToTaskTypeGR() {    
+      connector = diagram.AddConnector();      
+      toTarget.taskType.usedArtifactTypes.add(fromTarget.artifactType)    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class ProducedArtefactType {  
+  
+    public DiagramConnector connector;  
+  
+    @LinkScheme    
+    ProducedArtefactType:linkTaskTypeGRToArtifactTypeGR() {    
+      connector = diagram.AddConnector();      
+      fromTarget.taskType.producedArtifactTypes.add(toTarget.artifactType)    
+    }    
+  
+  }  
+
 }

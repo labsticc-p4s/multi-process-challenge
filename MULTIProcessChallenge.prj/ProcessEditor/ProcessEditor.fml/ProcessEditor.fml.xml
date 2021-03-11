@@ -280,6 +280,38 @@
       <GenericBehaviourParameter id="SYL-721" widget="CUSTOM_WIDGET" name="artefactType" type="org.openflexo.foundation.fml.FlexoConcept" userID="SYL" flexoID="721" />
     </DropScheme>
   </FlexoConcept>
+  <FlexoConcept id="SYL-729" name="UsedArtefactType" userID="SYL" flexoID="729">
+    <Inspector id="SYL-725" inspectorTitle="UsedArtefactType" userID="SYL" flexoID="725" />
+    <ConnectorRole id="SYL-734" exampleLabel="uses" metamodelElementReference="http://www.openflexo.org/test/ProcessSpec/ExampleDiagram.diagram#SYL_21" cloningStrategy="Clone" cardinality="ZeroOne" name="connector" userID="SYL" flexoID="734">
+      <GRSpec id="SYL-731" featureName="label" readOnly="true" value="&quot;uses&quot;" userID="SYL" flexoID="731" />
+    </ConnectorRole>
+    <LinkScheme id="SYL-730" northDirectionSupported="true" eastDirectionSupported="true" fromTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#ArtifactTypeGR" toTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#TaskTypeGR" westDirectionSupported="true" isAvailableWithFloatingPalette="true" southDirectionSupported="true" label="linkArtifactTypeGRToTaskTypeGR" name="linkArtifactTypeGRToTaskTypeGR" width="800" height="600" userID="SYL" flexoID="730">
+      <BehaviourControlGraph_Sequence id="SYL-751" userID="SYL" flexoID="751">
+        <ControlGraph2_AddToListAction id="SYL-737" list="toTarget.taskType.usedArtifactTypes" ownerContext="controlGraph2" userID="SYL" flexoID="737">
+          <AssignableAction_ExpressionAction id="SYL-736" expression="fromTarget.artifactType" userID="SYL" flexoID="736" />
+        </ControlGraph2_AddToListAction>
+        <ControlGraph1_AssignationAction id="SYL-735" assign="connector" ownerContext="controlGraph1" userID="SYL" flexoID="735">
+          <AssignableAction_AddConnector id="SYL-752" fromShape="fromTarget.shape" toShape="toTarget.shape" receiver="diagram" userID="SYL" flexoID="752" />
+        </ControlGraph1_AssignationAction>
+      </BehaviourControlGraph_Sequence>
+    </LinkScheme>
+  </FlexoConcept>
+  <FlexoConcept id="SYL-742" name="ProducedArtefactType" userID="SYL" flexoID="742">
+    <Inspector id="SYL-738" inspectorTitle="ProducedArtefactType" userID="SYL" flexoID="738" />
+    <ConnectorRole id="SYL-747" exampleLabel="produces" metamodelElementReference="http://www.openflexo.org/test/ProcessSpec/ExampleDiagram.diagram#SYL_20" cloningStrategy="Clone" cardinality="ZeroOne" name="connector" userID="SYL" flexoID="747">
+      <GRSpec id="SYL-744" featureName="label" readOnly="true" value="&quot;produces&quot;" userID="SYL" flexoID="744" />
+    </ConnectorRole>
+    <LinkScheme id="SYL-743" northDirectionSupported="true" eastDirectionSupported="true" fromTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#TaskTypeGR" toTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#ArtifactTypeGR" westDirectionSupported="true" isAvailableWithFloatingPalette="true" southDirectionSupported="true" label="linkTaskTypeGRToArtifactTypeGR" name="linkTaskTypeGRToArtifactTypeGR" width="800" height="600" userID="SYL" flexoID="743">
+      <BehaviourControlGraph_Sequence id="SYL-753" userID="SYL" flexoID="753">
+        <ControlGraph2_AddToListAction id="SYL-750" list="fromTarget.taskType.producedArtifactTypes" ownerContext="controlGraph2" userID="SYL" flexoID="750">
+          <AssignableAction_ExpressionAction id="SYL-749" expression="toTarget.artifactType" userID="SYL" flexoID="749" />
+        </ControlGraph2_AddToListAction>
+        <ControlGraph1_AssignationAction id="SYL-748" assign="connector" ownerContext="controlGraph1" userID="SYL" flexoID="748">
+          <AssignableAction_AddConnector id="SYL-754" fromShape="fromTarget.shape" toShape="toTarget.shape" receiver="diagram" userID="SYL" flexoID="754" />
+        </ControlGraph1_AssignationAction>
+      </BehaviourControlGraph_Sequence>
+    </LinkScheme>
+  </FlexoConcept>
   <UseModelSlotDeclaration id="0" modelSlotClass="org.openflexo.technologyadapter.diagram.TypedDiagramModelSlot" userID="SYL" flexoID="-1" />
   <UseModelSlotDeclaration id="1" modelSlotClass="org.openflexo.foundation.fml.rt.FMLRTVirtualModelInstanceModelSlot" userID="SYL" flexoID="-1" />
   <Inspector id="SYL-2" inspectorTitle="ProcessEditor" userID="SYL" flexoID="2" />
