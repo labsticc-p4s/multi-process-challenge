@@ -284,4 +284,30 @@ public class ProcessEditor {
   
   }  
 
+  @FlexoConcept  
+  public class HasActorTypeGR {  
+  
+    public DiagramConnector connector;  
+  
+    @LinkScheme    
+    HasActorTypeGR:linkActorGRToActorTypeGR() {    
+      connector = diagram.AddConnector();      
+      fromTarget.actor.addActorType(toTarget.actorType)    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class ParentActorTypeGR {  
+  
+    public DiagramConnector connector;  
+  
+    @LinkScheme    
+    ParentActorTypeGR:linkActorTypeGRToActorTypeGR() {    
+      connector = diagram.AddConnector();      
+      fromTarget.actorType.addParentActorType(toTarget.actorType)    
+    }    
+  
+  }  
+
 }
