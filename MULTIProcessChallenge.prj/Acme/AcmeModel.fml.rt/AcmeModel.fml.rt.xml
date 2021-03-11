@@ -143,4 +143,15 @@
     <PrimitiveActorReference id="115" valueAsString="dd/MM/yy HH:mm,11/03/21 12:16" roleName="lastUpdated" userID="SYL" flexoID="116" />
     <PrimitiveActorReference id="116" valueAsString="Ma tache de codage" roleName="name" userID="SYL" flexoID="117" />
   </FlexoConceptInstance>
+  <FlexoConceptInstance id="117" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ArtifactType" userID="SYL" flexoID="118">
+    <PrimitiveActorReference id="118" valueAsString="dd/MM/yy HH:mm,11/03/21 15:55" roleName="lastUpdated" userID="SYL" flexoID="119" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="119" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ArtifactType" userID="SYL" flexoID="120">
+    <PrimitiveActorReference id="120" valueAsString="Coucou" roleName="name" userID="SYL" flexoID="122" />
+    <PrimitiveActorReference id="121" valueAsString="dd/MM/yy HH:mm,11/03/21 15:56" roleName="lastUpdated" userID="SYL" flexoID="123" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="122" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ArtifactType" userID="SYL" flexoID="121">
+    <PrimitiveActorReference id="123" valueAsString="Prout" roleName="name" userID="SYL" flexoID="124" />
+    <PrimitiveActorReference id="124" valueAsString="dd/MM/yy HH:mm,11/03/21 15:57" roleName="lastUpdated" userID="SYL" flexoID="125" />
+  </FlexoConceptInstance>
 </FMLRTVirtualModelInstance>

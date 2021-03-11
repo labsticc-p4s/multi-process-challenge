@@ -206,4 +206,18 @@ public class ProcessEditor {
   
   }  
 
+  @FlexoConcept  
+  public class ArtifactTypeGR {  
+  
+    public DiagramShape shape;  
+    public ArtifactType artifactType;  
+  
+    @DropScheme    
+    ArtifactTypeGR:dropArtifactTypeGRAtTopLevel(String name, FlexoConcept artefactType) {    
+      shape = diagram.AddShape();      
+      artifactType = ArtifactType.create(parameters.name);    
+    }    
+  
+  }  
+
 }
