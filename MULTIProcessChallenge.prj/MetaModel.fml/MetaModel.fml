@@ -45,6 +45,18 @@ public class MetaModel {
       gateways.add(parameters.gateway)    
     }    
   
+    @ActionScheme    
+    public Process newProcess(String name) {    
+      Process returned = Process.create(parameters.name,this);      
+      for (taskType : taskTypes) {      
+        Task newTask = taskType.newTask(((returned.name + "-") + taskType.name),returned);        
+        if (taskType = initialTaskType) {        
+          returned.initialTask = newTask;        
+        }      
+      }      
+      return returned;    
+    }    
+  
   }  
 
   @FlexoConcept  
@@ -99,8 +111,8 @@ public class MetaModel {
     }    
   
     @ActionScheme    
-    Task newTask(String name) {    
-      return Task.create(parameters.name,this);    
+    Task newTask(String name, Process process) {    
+      return Task.create(parameters.name,this,parameters.process);    
     }    
   
     @ActionScheme    
@@ -382,6 +394,7 @@ public class MetaModel {
   
     public ProcessType type;  
     public List tasks;  
+    public Task initialTask;  
   
     @CreationScheme    
     Process:create(String name, ProcessType processType) {    
@@ -392,6 +405,11 @@ public class MetaModel {
     @DeletionScheme    
     Void delete() {    
       
+    }    
+  
+    @ActionScheme    
+    public Void start() {    
+      initialTask.startTask()    
     }    
   
   }  
@@ -405,11 +423,15 @@ public class MetaModel {
     public List performingActors;  
     public List usedArtifacts;  
     public List producedArtifacts;  
+    public boolean isActive;  
+    public Process process;  
   
     @CreationScheme    
-    Task:create(String name, TaskType taskType) {    
+    Task:create(String name, TaskType taskType, Process process) {    
       super.create(parameters.name)      
-      type = parameters.taskType;    
+      type = parameters.taskType;      
+      process = parameters.process;      
+      process.tasks.add(this)    
     }    
   
     @DeletionScheme    
@@ -480,6 +502,25 @@ public class MetaModel {
       } else {      
         log "This used artifact is NOT AUTHORIZED"      
       }    
+    }    
+  
+    @ActionScheme    
+    public Void startTask() {    
+      beginDate = new Date();      
+      isActive = true;      
+      if (type.concept.name = "Begin") {      
+        this.finishTask()      
+      }    
+    }    
+  
+    @ActionScheme    
+    public Void finishTask() {    
+      isActive = false;    
+    }    
+  
+    @ActionScheme    
+    Boolean checkConstraints() {    
+      return true;    
     }    
   
   }  

@@ -11,11 +11,14 @@
     </DeletionScheme>
     <ActionScheme id="SYL-1098" label="newTask" name="newTask" width="800" height="600" userID="SYL" flexoID="1098">
       <BehaviourControlGraph_ReturnStatement id="SYL-1100" userID="SYL" flexoID="1100">
-        <AssignableAction_AddFlexoConceptInstance id="SYL-1099" creationSchemeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#Coding.create(name)" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#Coding" receiver="container" userID="SYL" flexoID="1099">
+        <AssignableAction_AddFlexoConceptInstance id="SYL-1099" creationSchemeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#Coding.create(name,taskType,process)" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#Coding" receiver="container" userID="SYL" flexoID="1099">
           <AddFlexoConceptInstanceParameter id="SYL-1232" paramName="name" value="parameters.name" userID="SYL" flexoID="1232" />
+          <AddFlexoConceptInstanceParameter id="SYL-1324" paramName="taskType" value="this" userID="SYL" flexoID="1324" />
+          <AddFlexoConceptInstanceParameter id="SYL-1325" paramName="process" value="parameters.process" userID="SYL" flexoID="1325" />
         </AssignableAction_AddFlexoConceptInstance>
       </BehaviourControlGraph_ReturnStatement>
-      <GenericBehaviourParameter id="SYL-1101" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="SYL" flexoID="1101" />
+      <GenericBehaviourParameter id="SYL-1101" isRequired="true" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="SYL" flexoID="1101" />
+      <GenericBehaviourParameter id="SYL-1326" isRequired="true" widget="CUSTOM_WIDGET" name="process" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Process&gt;" userID="SYL" flexoID="1326" />
     </ActionScheme>
     <ActionScheme id="SYL-1103" label="isValidActorType" name="isValidActorType" width="800" height="600" userID="SYL" flexoID="1103">
       <BehaviourControlGraph_ReturnStatement id="SYL-1105" userID="SYL" flexoID="1105">
@@ -149,8 +152,10 @@
     <Inspector id="SYL-1221" inspectorTitle="Coding" userID="SYL" flexoID="1221" />
     <FlexoConceptInstanceRole id="SYL-1233" virtualModelInstance="container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#ProgrammingLanguage" cloningStrategy="Reference" cardinality="OneMany" name="programmingLanguages" userID="SYL" flexoID="1233" />
     <CreationScheme id="SYL-1227" label="create" name="create" width="800" height="600" userID="SYL" flexoID="1227">
-      <BehaviourControlGraph_ExpressionAction id="SYL-1228" expression="super.create(parameters.name)" userID="SYL" flexoID="1228" />
+      <BehaviourControlGraph_ExpressionAction id="SYL-1228" expression="super.create(parameters.name,parameters.taskType,parameters.process)" userID="SYL" flexoID="1228" />
       <GenericBehaviourParameter id="SYL-1229" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="SYL" flexoID="1229" />
+      <GenericBehaviourParameter id="SYL-1327" widget="CUSTOM_WIDGET" name="taskType" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#TaskType&gt;" userID="SYL" flexoID="1327" />
+      <GenericBehaviourParameter id="SYL-1328" widget="CUSTOM_WIDGET" name="process" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Process&gt;" userID="SYL" flexoID="1328" />
     </CreationScheme>
     <ActionScheme id="SYL-1265" label="isAuthorizedProducedArtifact" name="isAuthorizedProducedArtifact" width="800" height="600" userID="SYL" flexoID="1265">
       <BehaviourControlGraph_DeclarationAction id="SYL-1276" variable="returned" ownerContext="controlGraph2" userID="SYL" flexoID="1276">
