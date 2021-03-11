@@ -215,7 +215,12 @@ public class ProcessEditor {
     @DropScheme    
     ArtifactTypeGR:dropArtifactTypeGRAtTopLevel(String name, FlexoConcept artefactType) {    
       shape = diagram.AddShape();      
-      artifactType = ArtifactType.create(parameters.name);    
+      if (parameters.artefactType != null) {      
+        artifactType = ArtifactType.create(parameters.name);      
+      } else {      
+        artifactType = ArtifactType.create(parameters.name);      
+      }      
+      artifactType.name = parameters.name;    
     }    
   
   }  
@@ -242,6 +247,39 @@ public class ProcessEditor {
     ProducedArtefactType:linkTaskTypeGRToArtifactTypeGR() {    
       connector = diagram.AddConnector();      
       fromTarget.taskType.producedArtifactTypes.add(toTarget.artifactType)    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class ActorTypeGR {  
+  
+    public DiagramShape shape;  
+    public ActorType actorType;  
+  
+    @DropScheme    
+    ActorTypeGR:dropActorTypeGRAtTopLevel(String name, FlexoConcept actorType) {    
+      shape = diagram.AddShape();      
+      if (parameters.actorType != null) {      
+        actorType = ActorType.create(parameters.name);      
+      } else {      
+        actorType = ActorType.create(parameters.name);      
+      }      
+      actorType.name = parameters.name;    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class ActorGR {  
+  
+    public DiagramShape shape;  
+    public Actor actor;  
+  
+    @DropScheme    
+    ActorGR:dropActorGRAtTopLevel(String name) {    
+      shape = diagram.AddShape();      
+      actor = Actor.create(parameters.name);    
     }    
   
   }  
