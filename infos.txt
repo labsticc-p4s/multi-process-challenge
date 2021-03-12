@@ -19,7 +19,7 @@ All responders are expected to conduct a thorough evaluation of their solutions.
 
 Important Dates
 
-15 March 2021: Intent to submit (via email)
+15 March 2021: Intent to submit (via email) ✔ (Fri, 12 Mar 2021 09:52:50)
 17 May 2021: Deadline for article submission
 16 August 2021: Notification of first round of reviews
 18 October 2021: Submission of revisions
