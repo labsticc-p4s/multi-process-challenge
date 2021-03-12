@@ -7,6 +7,7 @@ addProducedArtifactType=addProducedArtifactType
 addUsedArtifactType=addUsedArtifactType
 artifactType=artifactType
 invalid_parameter=invalid_parameter
+newProcess=newProcess
 taskType=taskType
 testIsAuthorized=testIsAuthorized
 update=update

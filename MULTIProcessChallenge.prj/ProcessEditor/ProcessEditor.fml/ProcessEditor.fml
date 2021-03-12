@@ -53,6 +53,11 @@ public class ProcessEditor {
       processType.addToTaskTypes(taskType)    
     }    
   
+    @DeletionScheme    
+    Void delete() {    
+      delete shape;    
+    }    
+  
   }  
 
   @FlexoConcept  
@@ -306,6 +311,37 @@ public class ProcessEditor {
     ParentActorTypeGR:linkActorTypeGRToActorTypeGR() {    
       connector = diagram.AddConnector();      
       fromTarget.actorType.addParentActorType(toTarget.actorType)    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class AllowedActorTypeGR {  
+  
+    public DiagramConnector connector;  
+  
+    @LinkScheme    
+    AllowedActorTypeGR:linkActorTypeGRToTaskTypeGR() {    
+      connector = diagram.AddConnector();      
+      toTarget.taskType.addAllowedActorType(fromTarget.actorType)    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      delete connector;    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class AllowedActorGR {  
+  
+    public DiagramConnector connector;  
+  
+    @LinkScheme    
+    AllowedActorGR:linkActorGRToTaskTypeGR() {    
+      connector = diagram.AddConnector();      
+      toTarget.taskType.addAllowedActor(fromTarget.actor)    
     }    
   
   }  
