@@ -1,0 +1,34 @@
+Annonce : https://www.emisa-journal.org/emisa/announcement/view/33
+
+=====
+
+Expected Contributions
+
+The special issue invites submission responding to a process modeling challenge, which is an updated version of the challenge used in MULTI 2019/2020 [3]. The challenge establishes requirements for a process representation defined at an abstract process-definition level and at various more concrete domain-specific levels, resulting in a multi-level hierarchy of related models. The abstract process-definition level should be reusable across domains and its constraints must be respected by the domain-specific levels. Solutions employing Multi-Level Modeling techniques and/or other process modeling techniques (such as flexible process modeling [5], ontology-based process modeling) are welcome.
+
+Each challenge response will be reviewed against the following criteria:
+
+    Does the response address the established domain as described in the challenge description and demonstrate the use of modeling features?
+    Does it evaluate/discuss its proposed modeling solution against the criteria described in the challenge description?
+    Does it discuss the merits and limitations of the employed modeling technique?
+    Authors are invited to suggest further requirements to demonstrate particular benefits of the approaches they adopt.
+
+All responders are expected to conduct a thorough evaluation of their solutions. Authors of challenge responses to MULTI 2019/2020 are welcome to extend their previous solutions into in-depth challenge response papers (ensuring over 30% of novel material).
+
+=====
+
+Important Dates
+
+15 March 2021: Intent to submit (via email)
+17 May 2021: Deadline for article submission
+16 August 2021: Notification of first round of reviews
+18 October 2021: Submission of revisions
+13 December 2021: Final notification
+
+=====
+
+contact: emisaj-challenge@ecs.vuw.ac.nz
+
+=====
+
+
