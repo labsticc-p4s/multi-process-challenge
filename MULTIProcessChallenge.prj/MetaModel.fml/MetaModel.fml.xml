@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<VirtualModel id="SYL-1" virtualModelClass="org.openflexo.foundation.fml.VirtualModel" modelVersion="2.0" uri="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml" version="0.1" visibility="Public" name="MetaModel" author="sylvain" userID="SYL" flexoID="1">
+<VirtualModel id="SYL-1" virtualModelClass="org.openflexo.foundation.fml.VirtualModel" modelVersion="2.0" version="0.1" uri="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml" visibility="Public" name="MetaModel" author="sylvain" userID="SYL" flexoID="1">
   <FlexoConcept id="SYL-6" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Type" name="ProcessType" author="sylvain" userID="SYL" flexoID="6">
     <Inspector id="SYL-7" renderer="(&quot;ProcessType:&quot; + this.name)" inspectorTitle="ProcessType" userID="SYL" flexoID="7" />
     <FlexoConceptInstanceRole id="SYL-24" virtualModelInstance="container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#TaskType" cloningStrategy="Reference" cardinality="ZeroMany" name="taskTypes" userID="SYL" flexoID="24" />
@@ -68,7 +68,9 @@
     </ActionScheme>
   </FlexoConcept>
   <FlexoConcept id="SYL-15" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Type" name="TaskType" author="sylvain" userID="SYL" flexoID="15">
-    <Inspector id="SYL-16" renderer="(&quot;TaskType:&quot; + this.name)" inspectorTitle="TaskType" userID="SYL" flexoID="16" />
+    <Inspector id="SYL-16" renderer="(&quot;TaskType:&quot; + this.name)" inspectorTitle="TaskType" userID="SYL" flexoID="16">
+      <InspectorEntry id="SYL-1561" container="container" widget="CUSTOM_WIDGET" data="this.creator" name="creator" label="creator" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor&gt;" userID="SYL" flexoID="1561" />
+    </Inspector>
     <FlexoConceptInstanceRole id="SYL-97" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor" cloningStrategy="Reference" cardinality="ZeroOne" name="creator" userID="SYL" flexoID="97" />
     <FlexoConceptInstanceRole id="SYL-327" virtualModelInstance="container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ActorType" cloningStrategy="Reference" cardinality="ZeroMany" name="allowedActorTypes" userID="SYL" flexoID="327" />
     <FlexoConceptInstanceRole id="SYL-328" virtualModelInstance="container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor" cloningStrategy="Reference" cardinality="ZeroMany" name="allowedActors" userID="SYL" flexoID="328" />
@@ -243,7 +245,11 @@
     </DeletionScheme>
   </FlexoConcept>
   <FlexoConcept id="SYL-114" visibility="Public" isAbstract="true" name="ModelingElement" author="sylvain" userID="SYL" flexoID="114">
-    <Inspector id="SYL-115" inspectorTitle="ModelingElement" userID="SYL" flexoID="115" />
+    <Inspector id="SYL-115" inspectorTitle="ModelingElement" userID="SYL" flexoID="115">
+      <InspectorEntry id="SYL-1559" widget="TEXT_FIELD" data="this.name" name="name" label="name" type="java.lang.String" userID="SYL" flexoID="1559" />
+      <InspectorEntry id="SYL-1625" readOnly="true" widget="TEXT_FIELD" data="this.concept.name" name="type" label="type" type="java.lang.String" userID="SYL" flexoID="1625" />
+      <InspectorEntry id="SYL-1560" readOnly="true" widget="TEXT_FIELD" data="lastUpdated.toString" name="last_updated" label="last_updated" type="java.lang.String" userID="SYL" flexoID="1560" />
+    </Inspector>
     <PrimitiveRole id="SYL-122" primitiveType="String" cloningStrategy="Clone" cardinality="ZeroOne" name="name" userID="SYL" flexoID="122" />
     <PrimitiveRole id="SYL-121" primitiveType="Date" cloningStrategy="Clone" cardinality="ZeroOne" name="lastUpdated" userID="SYL" flexoID="121" />
     <CreationScheme id="SYL-119" label="create" name="create" width="800" height="600" userID="SYL" flexoID="119">
@@ -327,7 +333,7 @@
     </DeletionScheme>
   </FlexoConcept>
   <FlexoConcept id="SYL-307" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#MultiInstance" name="Actor" author="sylvain" userID="SYL" flexoID="307">
-    <Inspector id="SYL-308" renderer="(&quot;Actor:&quot; + this.name)" inspectorTitle="Actor" userID="SYL" flexoID="308" />
+    <Inspector id="SYL-308" renderer="this.name" inspectorTitle="Actor" userID="SYL" flexoID="308" />
     <FlexoConceptInstanceRole id="SYL-314" virtualModelInstance="container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ActorType" cloningStrategy="Reference" cardinality="ZeroMany" name="types" userID="SYL" flexoID="314" />
     <CreationScheme id="SYL-312" label="create" name="create" width="800" height="600" userID="SYL" flexoID="312">
       <BehaviourControlGraph_ExpressionAction id="SYL-318" expression="super.create(parameters.name)" userID="SYL" flexoID="318" />
