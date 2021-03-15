@@ -163,7 +163,7 @@ public class ProcessEditor {
     public DiagramConnector connector;  
   
     @LinkScheme    
-    OutAndSplitGR:linkTaskTypeGRToAndSplitGR() {    
+    OutAndSplitGR:linkAndSplitGRToTaskTypeGR() {    
       connector = diagram.AddConnector();      
       fromTarget.andSplit.out.add(toTarget.taskType)    
     }    
@@ -191,7 +191,7 @@ public class ProcessEditor {
     public DiagramConnector connector;  
   
     @LinkScheme    
-    OutAndJoinGR:linkTaskTypeGRToAndSplitGR() {    
+    OutAndJoinGR:linkAndJoinGRToTaskTypeGR() {    
       connector = diagram.AddConnector();      
       fromTarget.andJoin.out = toTarget.taskType;    
     }    
@@ -204,7 +204,7 @@ public class ProcessEditor {
     public DiagramConnector connector;  
   
     @LinkScheme    
-    InAndJoinGR:linkTaskTypeGRToAndSplitGR() {    
+    InAndJoinGR:linkTaskTypeGRToAndJoinGR() {    
       connector = diagram.AddConnector();      
       toTarget.andJoin.in.add(fromTarget.taskType)    
     }    

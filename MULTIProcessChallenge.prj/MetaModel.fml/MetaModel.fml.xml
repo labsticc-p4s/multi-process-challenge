@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<VirtualModel id="SYL-1" virtualModelClass="org.openflexo.foundation.fml.VirtualModel" modelVersion="2.0" version="0.1" uri="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml" visibility="Public" name="MetaModel" author="sylvain" userID="SYL" flexoID="1">
+<VirtualModel id="SYL-1" virtualModelClass="org.openflexo.foundation.fml.VirtualModel" modelVersion="2.0" uri="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml" version="0.1" visibility="Public" name="MetaModel" author="sylvain" userID="SYL" flexoID="1">
   <FlexoConcept id="SYL-6" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Type" name="ProcessType" author="sylvain" userID="SYL" flexoID="6">
     <Inspector id="SYL-7" renderer="(&quot;ProcessType:&quot; + this.name)" inspectorTitle="ProcessType" userID="SYL" flexoID="7" />
     <FlexoConceptInstanceRole id="SYL-24" virtualModelInstance="container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#TaskType" cloningStrategy="Reference" cardinality="ZeroMany" name="taskTypes" userID="SYL" flexoID="24" />
