@@ -1,8 +1,14 @@
+ActorType=ActorType
 ActorTypeGR=ActorTypeGR
+AndJoin=AndJoin
 AndJoinGR=AndJoinGR
+AndSplit=AndSplit
 AndSplitGR=AndSplitGR
+ArtifactType=ArtifactType
 ArtifactTypeGR=ArtifactTypeGR
+End=End
 EndGR=EndGR
+TaskType=TaskType
 TaskTypeGR=TaskTypeGR
 actorType=actorType
 artefactType=artefactType
