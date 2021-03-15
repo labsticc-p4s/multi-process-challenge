@@ -42,7 +42,7 @@ public class ProcessEditor {
     public TaskType taskType;  
   
     @DropScheme    
-    TaskTypeGR:dropTaskTypeGRAtTopLevel(String name, FlexoConcept taskType) {    
+    TaskTypeGR:dropTaskTypeGRAtTopLevel(String name, ? extends TaskType taskType) {    
       shape = diagram.AddShape();      
       if (parameters.taskType != null) {      
         taskType = TaskType.create(parameters.name);      
