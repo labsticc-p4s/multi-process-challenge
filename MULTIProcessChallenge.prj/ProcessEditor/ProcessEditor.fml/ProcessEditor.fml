@@ -10,13 +10,11 @@ public class ProcessEditor {
 
   public Diagram diagram;
   public MetaModel model;
-  public ProcessType processType;
 
   @CreationScheme  
-  ProcessEditor:init(MetaModel model, String processTypeName) {  
+  ProcessEditor:init(MetaModel model, String diagramName) {  
     diagram = CreateDiagram();    
-    model = parameters.model;    
-    processType = ProcessType.create(parameters.processTypeName);  
+    model = parameters.model;  
   }  
 
 

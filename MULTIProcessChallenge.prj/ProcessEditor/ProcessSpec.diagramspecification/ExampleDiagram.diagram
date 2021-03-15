@@ -285,7 +285,7 @@
     </ShapeGraphicalRepresentation>
   </Shape>
   <Shape id="193" name="Shape" text="ActorType" userID="SYL" flexoID="22">
-    <ShapeGraphicalRepresentation id="194" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="58.0" y="153.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="88.05970149253731" height="35.614035087719294" identifier="5682b52d" layer="1" text="ActorType">
+    <ShapeGraphicalRepresentation id="194" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="57.0" y="204.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="88.05970149253731" height="35.614035087719294" identifier="5682b52d" layer="1" text="ActorType">
       <SelectedColorBackgroundStyle id="195" color="254,247,217" transparencyLevel="0.5" />
       <ForegroundStyle id="196" color="0,102,0" joinStyle="JOIN_MITER" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
       <FocusedColorBackgroundStyle id="197" color="254,247,217" transparencyLevel="0.5" />
@@ -298,7 +298,7 @@
     </ShapeGraphicalRepresentation>
   </Shape>
   <Shape id="182" name="Shape" text="Actor" userID="SYL" flexoID="23">
-    <ShapeGraphicalRepresentation id="183" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" allowToLeaveBounds="false" adaptBoundsToContents="false" x="77.0" y="232.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="49.8236092265943" height="52.12680824869191" identifier="206bb22e" absoluteTextY="58.0" absoluteTextX="25.0" layer="1" text="Actor">
+    <ShapeGraphicalRepresentation id="183" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" allowToLeaveBounds="false" adaptBoundsToContents="false" x="76.0" y="275.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="49.8236092265943" height="52.12680824869191" identifier="206bb22e" absoluteTextY="58.0" absoluteTextX="25.0" layer="1" text="Actor">
       <SelectedImageBackgroundStyle id="184" fitToShape="true" imageBackgroundColor="255,255,255" imageBackgroundType="TRANSPARENT" transparencyLevel="0.5" />
       <ForegroundStyle id="185" color="0,0,0" joinStyle="JOIN_MITER" dashStyle="PLAIN_STROKE" noStroke="true" capStyle="CAP_SQUARE" />
       <FocusedImageBackgroundStyle id="186" fitToShape="true" imageBackgroundColor="255,255,255" imageBackgroundType="TRANSPARENT" transparencyLevel="0.5" />
@@ -311,7 +311,7 @@
     </ShapeGraphicalRepresentation>
   </Shape>
   <Shape id="211" name="ActorType" text="ParentActorType" userID="SYL" flexoID="25">
-    <ShapeGraphicalRepresentation id="212" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="47.033404406538736" y="61.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="109.02629708599858" height="38.182354925775975" identifier="6b532fbc" layer="1" text="ParentActorType">
+    <ShapeGraphicalRepresentation id="212" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="45.033404406538736" y="142.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="109.02629708599858" height="38.182354925775975" identifier="6b532fbc" layer="1" text="ParentActorType">
       <SelectedColorBackgroundStyle id="213" color="254,247,217" transparencyLevel="0.5" />
       <ForegroundStyle id="214" color="0,102,0" joinStyle="JOIN_MITER" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
       <FocusedColorBackgroundStyle id="215" color="254,247,217" transparencyLevel="0.5" />
@@ -337,7 +337,7 @@
         <TextStyle id="253" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans Demibold,1,11" />
       </ShapeGraphicalRepresentation>
     </Shape>
-    <ShapeGraphicalRepresentation id="254" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" widthConstraints="" allowToLeaveBounds="false" adaptBoundsToContents="false" x="46.0" y="32.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" height="80.0" identifier="15f9f68e" layer="1" text="">
+    <ShapeGraphicalRepresentation id="254" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="46.0" y="45.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" height="80.0" identifier="15f9f68e" layer="1" text="">
       <SelectedColorBackgroundStyle id="255" color="254,247,217" transparencyLevel="0.5" />
       <ForegroundStyle id="256" color="0,0,0" joinStyle="JOIN_MITER" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
       <FocusedColorBackgroundStyle id="257" color="254,247,217" transparencyLevel="0.5" />
@@ -349,7 +349,7 @@
       <TextStyle id="263" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
     </ShapeGraphicalRepresentation>
   </Shape>
-  <DrawingGraphicalRepresentation id="264" backgroundColor="255,255,255" drawWorkingArea="false" focusColor="255,0,0" selectionColor="0,0,255" rectangleSelectingSelectionColor="0,0,255" dimensionConstraints="UNRESIZABLE" identifier="141645e1">
+  <DrawingGraphicalRepresentation id="264" drawWorkingArea="false" backgroundColor="255,255,255" focusColor="255,0,0" selectionColor="0,0,255" rectangleSelectingSelectionColor="0,0,255" dimensionConstraints="UNRESIZABLE" identifier="141645e1">
     <TextStyle id="265" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
   </DrawingGraphicalRepresentation>
 </Diagram>
