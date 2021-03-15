@@ -346,4 +346,20 @@ public class ProcessEditor {
   
   }  
 
+  @FlexoConcept  
+  public class ProcessTypeGR {  
+  
+    public DiagramShape shape;  
+    public DiagramShape header;  
+    public ProcessType processType;  
+  
+    @DropScheme    
+    ProcessTypeGR:dropProcessTypeGRAtTopLevel(String name) {    
+      shape = diagram.AddShape();      
+      header = diagram.AddShape();      
+      processType = ProcessType.create(parameters.name);    
+    }    
+  
+  }  
+
 }
