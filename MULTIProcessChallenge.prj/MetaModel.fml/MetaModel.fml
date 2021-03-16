@@ -57,6 +57,225 @@ public class MetaModel {
       return returned;    
     }    
   
+  
+    @FlexoConcept    
+    public class TaskType extends Type  {    
+      
+      public Actor creator;    
+      public List allowedActorTypes;    
+      public List allowedActors;    
+      public List usedArtifactTypes;    
+      public List producedArtifactTypes;    
+      
+      @CreationScheme      
+      TaskType:create(String name) {      
+        super.create(parameters.name)      
+      }      
+      
+      @DeletionScheme      
+      Void delete() {      
+          
+      }      
+      
+      @ActionScheme      
+      public Void addAllowedActorType(ActorType actorType) {      
+        if this.isValidActorType(parameters.actorType) {        
+          allowedActorTypes.add(parameters.actorType)          
+          this.update()        
+        }      
+      }      
+      
+      @ActionScheme      
+      public Void addAllowedActor(Actor actor) {      
+        if this.isValidActor(parameters.actor) {        
+          allowedActors.add(parameters.actor)          
+          this.update()        
+        }      
+      }      
+      
+      @ActionScheme      
+      public Void addUsedArtifactType(ArtifactType artifactType) {      
+        if this.isValidUsedArtifactType(parameters.artifactType) {        
+          usedArtifactTypes.add(parameters.artifactType)          
+          this.update()        
+        }      
+      }      
+      
+      @ActionScheme      
+      public Void addProducedArtifactType(ArtifactType artifactType) {      
+        if this.isValidProducedArtifactType(parameters.artifactType) {        
+          producedArtifactTypes.add(parameters.artifactType)          
+          this.update()        
+        }      
+      }      
+      
+      @ActionScheme      
+      Task newTask(String name, Process process) {      
+        return Task.create(parameters.name,this,parameters.process);      
+      }      
+      
+      @ActionScheme      
+      Boolean isValidActorType(ActorType actorType) {      
+        return true;      
+      }      
+      
+      @ActionScheme      
+      Boolean isValidActor(Actor actor) {      
+        return true;      
+      }      
+      
+      @ActionScheme      
+      Boolean isValidUsedArtifactType(ArtifactType artifactType) {      
+        return true;      
+      }      
+      
+      @ActionScheme      
+      Boolean isValidProducedArtifactType(ArtifactType artifactType) {      
+        return true;      
+      }      
+      
+      @ActionScheme      
+      public Void setCreator(Actor creator) {      
+        creator = parameters.creator;      
+      }      
+      
+    }    
+  
+    @FlexoConcept    
+    public class Gateway extends Type  {    
+      
+      @CreationScheme      
+      Gateway:create(String name) {      
+        super.create(parameters.name)      
+      }      
+      
+      @DeletionScheme      
+      Void delete() {      
+          
+      }      
+      
+    }    
+  
+    @FlexoConcept    
+    public class Sequencing extends Gateway  {    
+      
+      public TaskType in;    
+      public TaskType out;    
+      
+      @CreationScheme      
+      Sequencing:create() {      
+        super.create("Sequence")      
+      }      
+      
+      @DeletionScheme      
+      Void delete() {      
+          
+      }      
+      
+    }    
+  
+    @FlexoConcept    
+    public class AndSplit extends Gateway  {    
+      
+      public TaskType in;    
+      public List out;    
+      
+      @CreationScheme      
+      AndSplit:create() {      
+        super.create("AndSplit")      
+      }      
+      
+      @DeletionScheme      
+      Void delete() {      
+          
+      }      
+      
+    }    
+  
+    @FlexoConcept    
+    public class OrSplit extends Gateway  {    
+      
+      public TaskType in;    
+      public List out;    
+      
+      @CreationScheme      
+      OrSplit:create() {      
+        super.create("OrSplit")      
+      }      
+      
+      @DeletionScheme      
+      Void delete() {      
+          
+      }      
+      
+    }    
+  
+    @FlexoConcept    
+    public class AndJoin extends Gateway  {    
+      
+      public TaskType out;    
+      public List in;    
+      
+      @CreationScheme      
+      AndJoin:create() {      
+        super.create("AndJoin")      
+      }      
+      
+      @DeletionScheme      
+      Void delete() {      
+          
+      }      
+      
+    }    
+  
+    @FlexoConcept    
+    public class OrJoin extends Gateway  {    
+      
+      public TaskType out;    
+      public List in;    
+      
+      @CreationScheme      
+      OrJoin:create() {      
+        super.create("OrJoin")      
+      }      
+      
+      @DeletionScheme      
+      Void delete() {      
+          
+      }      
+      
+    }    
+  
+    @FlexoConcept    
+    public class Begin extends TaskType  {    
+      
+      @CreationScheme      
+      Begin:create() {      
+        super.create("Begin")      
+      }      
+      
+      @DeletionScheme      
+      Void delete() {      
+          
+      }      
+      
+    }    
+  
+    @FlexoConcept    
+    public class End extends TaskType  {    
+      
+      @CreationScheme      
+      End:create() {      
+        super.create("End")      
+      }      
+      
+      @DeletionScheme      
+      Void delete() {      
+          
+      }      
+      
+    }    
+  
   }  
 
   @FlexoConcept  
@@ -410,6 +629,118 @@ public class MetaModel {
     @ActionScheme    
     public Void start() {    
       initialTask.startTask()    
+    }    
+  
+  
+    @FlexoConcept    
+    public class Task extends Instance  {    
+      
+      public TaskType type;    
+      public Date beginDate;    
+      public Date endDate;    
+      public List performingActors;    
+      public List usedArtifacts;    
+      public List producedArtifacts;    
+      public boolean isActive;    
+      public Process process;    
+      
+      @CreationScheme      
+      Task:create(String name, TaskType taskType, Process process) {      
+        super.create(parameters.name)        
+        type = parameters.taskType;        
+        process = parameters.process;        
+        process.tasks.add(this)      
+      }      
+      
+      @DeletionScheme      
+      Void delete() {      
+          
+      }      
+      
+      @ActionScheme      
+      Boolean isAuthorizedActor(Actor actor) {      
+        for (allowedActorType : type.allowedActorTypes) {        
+          if parameters.actor.hasActorType(allowedActorType) {          
+            return true;          
+          }        
+        }        
+        for (allowedActor : type.allowedActors) {        
+          if (parameters.actor = allowedActor) {          
+            return true;          
+          }        
+        }        
+        return false;      
+      }      
+      
+      @ActionScheme      
+      public Void addToPerformingActors(Actor actor) {      
+        if this.isAuthorizedActor(parameters.actor) {        
+          log "This actor is AUTHORIZED"          
+          performingActors.add(parameters.actor)        
+        } else {        
+          log "This actor is NOT AUTHORIZED"        
+        }      
+      }      
+      
+      @ActionScheme      
+      Boolean isAuthorizedProducedArtifact(Artifact artifact) {      
+        for (allowedArtifactType : type.producedArtifactTypes) {        
+          if parameters.artifact.hasArtifactType(allowedArtifactType) {          
+            return true;          
+          }        
+        }        
+        return false;      
+      }      
+      
+      @ActionScheme      
+      public Void addToProducedArtifacts(Artifact artifact) {      
+        if this.isAuthorizedProducedArtifact(parameters.artifact) {        
+          log "This produced artifact is AUTHORIZED"          
+          producedArtifacts.add(parameters.artifact)        
+        } else {        
+          log "This produced artifact is NOT AUTHORIZED"        
+        }      
+      }      
+      
+      @ActionScheme      
+      Boolean isAuthorizedUsedArtifact(Artifact artifact) {      
+        for (allowedArtifactType : type.usedArtifactTypes) {        
+          if parameters.artifact.hasArtifactType(allowedArtifactType) {          
+            return true;          
+          }        
+        }        
+        return false;      
+      }      
+      
+      @ActionScheme      
+      public Void addToUsedArtifacts(Artifact artifact) {      
+        if this.isAuthorizedUsedArtifact(parameters.artifact) {        
+          log "This used artifact is AUTHORIZED"          
+          usedArtifacts.add(parameters.artifact)        
+        } else {        
+          log "This used artifact is NOT AUTHORIZED"        
+        }      
+      }      
+      
+      @ActionScheme      
+      public Void startTask() {      
+        beginDate = new Date();        
+        isActive = true;        
+        if (type.concept.name = "Begin") {        
+          this.finishTask()        
+        }      
+      }      
+      
+      @ActionScheme      
+      public Void finishTask() {      
+        isActive = false;      
+      }      
+      
+      @ActionScheme      
+      Boolean checkConstraints() {      
+        return true;      
+      }      
+      
     }    
   
   }  

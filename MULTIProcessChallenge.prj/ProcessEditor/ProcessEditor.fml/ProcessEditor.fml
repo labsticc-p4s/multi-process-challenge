@@ -28,27 +28,7 @@ public class ProcessEditor {
     BeginGR:dropBeginNodeAtTopLevel() {    
       shape = diagram.AddShape();      
       begin = Begin.create();      
-      processType.setInitialTaskType(begin)    
-    }    
-  
-  }  
-
-  @FlexoConcept  
-  public class TaskTypeGR {  
-  
-    public DiagramShape shape;  
-    public TaskType taskType;  
-  
-    @DropScheme    
-    TaskTypeGR:dropTaskTypeGRAtTopLevel(String name, ? extends TaskType taskType) {    
-      shape = diagram.AddShape();      
-      if (parameters.taskType != null) {      
-        taskType = TaskType.create(parameters.name);      
-      } else {      
-        taskType = TaskType.create(parameters.name);      
-      }      
-      taskType.name = parameters.name;      
-      processType.addToTaskTypes(taskType)    
+      target.processType.setInitialTaskType(begin)    
     }    
   
     @DeletionScheme    
@@ -68,7 +48,7 @@ public class ProcessEditor {
     StartSequencingGR:linkBeginGRToTaskTypeGR() {    
       connector = diagram.AddConnector();      
       sequencing = Sequencing.create();      
-      processType.addToGateways(sequencing)      
+      fromTarget.begin.container.addToGateways(sequencing)      
       sequencing.in = fromTarget.begin;      
       sequencing.out = toTarget.taskType;    
     }    
@@ -87,8 +67,14 @@ public class ProcessEditor {
       shape = diagram.AddShape();      
       inside = diagram.AddShape();      
       end = End.create();      
-      processType.addToTaskTypes(end)      
-      processType.addToFinalTaskTypes(end)    
+      target.processType.addToTaskTypes(end)      
+      target.processType.addToFinalTaskTypes(end)    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      delete shape;      
+      delete inside;    
     }    
   
   }  
@@ -103,7 +89,7 @@ public class ProcessEditor {
     SequencingGR:linkTaskTypeGRToTaskTypeGR() {    
       connector = diagram.AddConnector();      
       sequencing = Sequencing.create();      
-      processType.addToGateways(sequencing)      
+      fromTarget.taskType.container.addToGateways(sequencing)      
       sequencing.in = fromTarget.taskType;      
       sequencing.out = toTarget.taskType;    
     }    
@@ -120,7 +106,7 @@ public class ProcessEditor {
     EndSequencingGR:linkTaskTypeGRtoEndGR() {    
       connector = diagram.AddConnector();      
       sequencing = Sequencing.create();      
-      processType.addToGateways(sequencing)      
+      fromTarget.taskType.container.addToGateways(sequencing)      
       sequencing.in = fromTarget.taskType;      
       sequencing.out = toTarget.end;    
     }    
@@ -137,7 +123,7 @@ public class ProcessEditor {
     AndSplitGR:dropAndSplitGRAtTopLevel() {    
       shape = diagram.AddShape();      
       andSplit = AndSplit.create();      
-      processType.addToGateways(andSplit)    
+      target.processType.addToGateways(andSplit)    
     }    
   
   }  
@@ -178,7 +164,7 @@ public class ProcessEditor {
     AndJoinGR:dropAndJoinGRAtTopLevel() {    
       shape = diagram.AddShape();      
       andJoin = AndJoin.create();      
-      processType.addToGateways(andJoin)    
+      target.processType.addToGateways(andJoin)    
     }    
   
   }  
@@ -345,6 +331,27 @@ public class ProcessEditor {
   }  
 
   @FlexoConcept  
+  public class TaskTypeGR {  
+  
+    public DiagramShape shape;  
+    public TaskType taskType;  
+  
+    @DropScheme    
+    TaskTypeGR:dropTaskTypeGRAtTopLevel(String name, ? extends TaskType taskType) {    
+      shape = diagram.AddShape();      
+      taskType = TaskType.create(parameters.name);      
+      taskType.name = parameters.name;      
+      target.processType.addToTaskTypes(taskType)    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      delete shape;    
+    }    
+  
+  }  
+
+  @FlexoConcept  
   public class ProcessTypeGR {  
   
     public DiagramShape shape;  
@@ -356,6 +363,12 @@ public class ProcessEditor {
       shape = diagram.AddShape();      
       header = diagram.AddShape();      
       processType = ProcessType.create(parameters.name);    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      delete shape;      
+      delete header;    
     }    
   
   }  

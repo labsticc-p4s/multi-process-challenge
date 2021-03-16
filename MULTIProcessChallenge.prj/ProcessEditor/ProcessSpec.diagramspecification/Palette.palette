@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DiagramPalette id="0" name="Palette">
   <DiagramPaletteElement id="1" name="BeginNode">
-    <ShapeGraphicalRepresentation id="2" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="28.0" y="22.0" relativeTextX="0.5" dimensionConstraints="UNRESIZABLE" width="20.0" height="20.0" identifier="21faadaa" layer="1">
+    <ShapeGraphicalRepresentation id="2" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="215.0" y="40.0" relativeTextX="0.5" dimensionConstraints="UNRESIZABLE" width="20.0" height="20.0" identifier="21faadaa" layer="1">
       <SelectedColorBackgroundStyle id="3" color="254,247,217" transparencyLevel="0.5" />
       <ForegroundStyle id="4" color="0,0,0" joinStyle="JOIN_MITER" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
       <FocusedColorBackgroundStyle id="5" color="254,247,217" transparencyLevel="0.5" />
@@ -14,7 +14,7 @@
     </ShapeGraphicalRepresentation>
   </DiagramPaletteElement>
   <DiagramPaletteElement id="12" name="TaskTypeGR">
-    <ShapeGraphicalRepresentation id="13" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="71.0" y="18.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="69.76999630637332" height="32.857142857142854" identifier="7d47d98d" layer="1" text="Task">
+    <ShapeGraphicalRepresentation id="13" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="125.0" y="17.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="69.76999630637332" height="32.857142857142854" identifier="7d47d98d" layer="1" text="Task">
       <SelectedColorBackgroundStyle id="14" color="254,247,217" transparencyLevel="0.5" />
       <ForegroundStyle id="15" color="204,0,0" joinStyle="JOIN_MITER" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" lineWidth="0.999999998509884" />
       <FocusedColorBackgroundStyle id="16" color="254,247,217" transparencyLevel="0.5" />
@@ -27,7 +27,7 @@
     </ShapeGraphicalRepresentation>
   </DiagramPaletteElement>
   <DiagramPaletteElement id="23" name="EndGR">
-    <ShapeGraphicalRepresentation id="24" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" adaptBoundsToContents="false" x="159.0" y="21.0" relativeTextX="0.5" dimensionConstraints="UNRESIZABLE" width="22.0" height="22.0" identifier="7569e465" layer="1" text="">
+    <ShapeGraphicalRepresentation id="24" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" adaptBoundsToContents="false" x="215.0" y="6.0" relativeTextX="0.5" dimensionConstraints="UNRESIZABLE" width="22.0" height="22.0" identifier="7569e465" layer="1" text="">
       <SelectedImageBackgroundStyle id="25" imageFile="EndGR.palette-element.png" imageBackgroundColor="255,255,255" imageBackgroundType="TRANSPARENT" transparencyLevel="0.5" />
       <ForegroundStyle id="26" color="0,0,0" joinStyle="JOIN_MITER" dashStyle="PLAIN_STROKE" noStroke="true" capStyle="CAP_SQUARE" />
       <FocusedImageBackgroundStyle id="27" imageFile="EndGR.palette-element.png" imageBackgroundColor="255,255,255" imageBackgroundType="TRANSPARENT" transparencyLevel="0.5" />
@@ -40,7 +40,7 @@
     </ShapeGraphicalRepresentation>
   </DiagramPaletteElement>
   <DiagramPaletteElement id="34" name="AndSplitGR">
-    <ShapeGraphicalRepresentation id="35" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" adaptBoundsToContents="false" x="9.0" y="65.0" relativeTextX="0.5" dimensionConstraints="UNRESIZABLE" width="70.0" height="50.0" identifier="6233f0c4" layer="1" text="">
+    <ShapeGraphicalRepresentation id="35" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" adaptBoundsToContents="false" x="21.0" y="75.0" relativeTextX="0.5" dimensionConstraints="UNRESIZABLE" width="70.0" height="50.0" identifier="6233f0c4" layer="1" text="">
       <SelectedImageBackgroundStyle id="36" imageFile="AndSplitGR.palette-element.png" imageBackgroundColor="255,255,255" imageBackgroundType="TRANSPARENT" transparencyLevel="0.5" />
       <ForegroundStyle id="37" color="0,0,0" joinStyle="JOIN_MITER" dashStyle="PLAIN_STROKE" noStroke="true" capStyle="CAP_SQUARE" />
       <FocusedImageBackgroundStyle id="38" imageFile="AndSplitGR.palette-element.png" imageBackgroundColor="255,255,255" imageBackgroundType="TRANSPARENT" transparencyLevel="0.5" />
@@ -53,7 +53,7 @@
     </ShapeGraphicalRepresentation>
   </DiagramPaletteElement>
   <DiagramPaletteElement id="45" name="AndJoinGR">
-    <ShapeGraphicalRepresentation id="46" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" adaptBoundsToContents="false" x="79.0" y="65.0" relativeTextX="0.5" dimensionConstraints="UNRESIZABLE" width="70.0" height="50.0" identifier="7fa64d07" layer="1" text="">
+    <ShapeGraphicalRepresentation id="46" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" adaptBoundsToContents="false" x="112.0" y="76.0" relativeTextX="0.5" dimensionConstraints="UNRESIZABLE" width="70.0" height="50.0" identifier="7fa64d07" layer="1" text="">
       <SelectedImageBackgroundStyle id="47" imageFile="AndJoinGR.palette-element.png" imageBackgroundColor="255,255,255" imageBackgroundType="TRANSPARENT" transparencyLevel="0.5" />
       <ForegroundStyle id="48" color="0,0,0" joinStyle="JOIN_MITER" dashStyle="PLAIN_STROKE" noStroke="true" capStyle="CAP_SQUARE" />
       <FocusedImageBackgroundStyle id="49" imageFile="AndJoinGR.palette-element.png" imageBackgroundColor="255,255,255" imageBackgroundType="TRANSPARENT" transparencyLevel="0.5" />
@@ -66,7 +66,7 @@
     </ShapeGraphicalRepresentation>
   </DiagramPaletteElement>
   <DiagramPaletteElement id="56" name="ArtifactTypeGR">
-    <ShapeGraphicalRepresentation id="57" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="20.0" y="133.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="90.28173738051316" height="34.3859649122807" identifier="2471d88e" layer="1" text="ArtifactType">
+    <ShapeGraphicalRepresentation id="57" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="26.0" y="145.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="90.28173738051316" height="34.3859649122807" identifier="2471d88e" layer="1" text="ArtifactType">
       <SelectedColorBackgroundStyle id="58" color="254,247,217" transparencyLevel="0.5" />
       <ForegroundStyle id="59" color="0,0,204" joinStyle="JOIN_MITER" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
       <FocusedColorBackgroundStyle id="60" color="254,247,217" transparencyLevel="0.5" />
@@ -79,7 +79,7 @@
     </ShapeGraphicalRepresentation>
   </DiagramPaletteElement>
   <DiagramPaletteElement id="67" name="ActorTypeGR">
-    <ShapeGraphicalRepresentation id="68" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="129.0" y="134.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="88.05970149253731" height="35.614035087719294" identifier="6187e79c" layer="1" text="ActorType">
+    <ShapeGraphicalRepresentation id="68" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="144.0" y="146.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="88.05970149253731" height="35.614035087719294" identifier="6187e79c" layer="1" text="ActorType">
       <SelectedColorBackgroundStyle id="69" color="254,247,217" transparencyLevel="0.5" />
       <ForegroundStyle id="70" color="0,102,0" joinStyle="JOIN_MITER" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
       <FocusedColorBackgroundStyle id="71" color="254,247,217" transparencyLevel="0.5" />
@@ -92,7 +92,7 @@
     </ShapeGraphicalRepresentation>
   </DiagramPaletteElement>
   <DiagramPaletteElement id="78" name="ActorGR">
-    <ShapeGraphicalRepresentation id="79" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" allowToLeaveBounds="false" adaptBoundsToContents="false" x="164.0" y="57.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="49.8236092265943" height="52.12680824869191" identifier="6589da94" absoluteTextY="58.0" absoluteTextX="25.0" layer="1" text="Actor">
+    <ShapeGraphicalRepresentation id="79" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" allowToLeaveBounds="false" adaptBoundsToContents="false" x="201.0" y="69.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="49.8236092265943" height="52.12680824869191" identifier="6589da94" absoluteTextY="58.0" absoluteTextX="25.0" layer="1" text="Actor">
       <SelectedImageBackgroundStyle id="80" fitToShape="true" imageBackgroundColor="255,255,255" imageBackgroundType="TRANSPARENT" transparencyLevel="0.5" />
       <ForegroundStyle id="81" color="0,0,0" joinStyle="JOIN_MITER" dashStyle="PLAIN_STROKE" noStroke="true" capStyle="CAP_SQUARE" />
       <FocusedImageBackgroundStyle id="82" fitToShape="true" imageBackgroundColor="255,255,255" imageBackgroundType="TRANSPARENT" transparencyLevel="0.5" />
@@ -105,7 +105,7 @@
     </ShapeGraphicalRepresentation>
   </DiagramPaletteElement>
   <DiagramPaletteElement id="89" name="ProcessTypeGR">
-    <ShapeGraphicalRepresentation id="90" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" adaptBoundsToContents="false" x="10.0" y="119.0" relativeTextX="0.5" dimensionConstraints="UNRESIZABLE" width="116.0" height="96.0" identifier="26633c" layer="1" text="">
+    <ShapeGraphicalRepresentation id="90" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" adaptBoundsToContents="false" x="14.0" y="9.0" relativeTextX="0.5" dimensionConstraints="UNRESIZABLE" width="105.0" height="55.0" identifier="26633c" layer="1" text="">
       <SelectedImageBackgroundStyle id="91" imageFile="ProcessTypeGR.palette-element.png" imageBackgroundColor="255,255,255" imageBackgroundType="TRANSPARENT" transparencyLevel="0.5" />
       <ForegroundStyle id="92" color="0,0,0" joinStyle="JOIN_MITER" dashStyle="PLAIN_STROKE" noStroke="true" capStyle="CAP_SQUARE" />
       <FocusedImageBackgroundStyle id="93" imageFile="ProcessTypeGR.palette-element.png" imageBackgroundColor="255,255,255" imageBackgroundType="TRANSPARENT" transparencyLevel="0.5" />
@@ -117,7 +117,7 @@
       <TextStyle id="99" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
     </ShapeGraphicalRepresentation>
   </DiagramPaletteElement>
-  <DrawingGraphicalRepresentation id="100" backgroundColor="255,255,255" drawWorkingArea="false" focusColor="255,0,0" selectionColor="0,0,255" rectangleSelectingSelectionColor="0,0,255" dimensionConstraints="FREELY_RESIZABLE" identifier="6b260d9e">
+  <DrawingGraphicalRepresentation id="100" drawWorkingArea="false" backgroundColor="255,255,255" focusColor="255,0,0" selectionColor="0,0,255" rectangleSelectingSelectionColor="0,0,255" dimensionConstraints="FREELY_RESIZABLE" identifier="6b260d9e">
     <TextStyle id="101" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
   </DrawingGraphicalRepresentation>
 </DiagramPalette>
