@@ -1,0 +1,258 @@
+
+/**
+ * Conceptual model for FreeChallenge
+ * 
+ * @version 0.1
+ */
+@VirtualModel(uri="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml")
+public class ConceptualModel {
+
+  @FlexoConcept  
+  public class Start extends Task  {  
+  
+    public String name;  
+    public String description;  
+  
+    @CreationScheme    
+    Start:create(String conceptName) {    
+      name = parameters.conceptName;    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class End extends Task  {  
+  
+    public String name;  
+    public String description;  
+  
+    @CreationScheme    
+    End:create(String conceptName) {    
+      name = parameters.conceptName;    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class Task extends ModelingElement  {  
+  
+    public String name;  
+    public String description;  
+    public FlexoConceptInstance creator;  
+    public List canPerform;  
+    public List possibleActors;  
+    public List produce;  
+    public List use;  
+    public float expectedDuration;  
+    public boolean isCritical;  
+    public boolean isValidation;  
+  
+    @CreationScheme    
+    Task:create(String conceptName) {    
+      name = parameters.conceptName;    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class SplitAnd extends Task  {  
+  
+    public String name;  
+    public String description;  
+  
+    @CreationScheme    
+    SplitAnd:create(String conceptName) {    
+      name = parameters.conceptName;    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class JoinAnd extends Task  {  
+  
+    public String name;  
+    public String description;  
+  
+    @CreationScheme    
+    JoinAnd:create(String conceptName) {    
+      name = parameters.conceptName;    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class Sequence extends ModelingElement  {  
+  
+    public Task sourceConcept;  
+    public Task destinationConcept;  
+  
+    @CreationScheme    
+    Sequence:create(Task sourceConcept, Task destinationConcept) {    
+      sourceConcept = parameters.sourceConcept;      
+      destinationConcept = parameters.destinationConcept;    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class Process extends ModelingElement  {  
+  
+    public String name;  
+    public String description;  
+    public FlexoConceptInstance start;  
+    public List tasks;  
+    public List ends;  
+  
+    @CreationScheme    
+    Process:create(String conceptName) {    
+      name = parameters.conceptName;    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  /**  
+   * Person is not a ModelingElement.  
+  It equivalent to Actor in the SPEC  
+   *   
+   */  
+  @FlexoConcept  
+  public class Person {  
+  
+    public String name;  
+    public String description;  
+    public boolean isSenior;  
+  
+    @CreationScheme    
+    Person:create(String conceptName) {    
+      name = parameters.conceptName;    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  /**  
+   * Person is not a ModelingElement  
+   *   
+   */  
+  @FlexoConcept  
+  public class Company {  
+  
+    public String name;  
+    public String description;  
+  
+    @CreationScheme    
+    Company:create(String conceptName) {    
+      name = parameters.conceptName;    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  /**  
+   * is ActorType in the SPEC  
+   *   
+   */  
+  @FlexoConcept  
+  public class Actor extends ModelingElement  {  
+  
+    public String name;  
+    public String description;  
+  
+    @CreationScheme    
+    Actor:create(String conceptName) {    
+      name = parameters.conceptName;    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  /**  
+   * P19  
+   *   
+   */  
+  @FlexoConcept  
+  public class ModelingElement {  
+  
+    public String name;  
+    public Date lastUpdated;  
+  
+    @CreationScheme    
+    ModelingElement:create() {    
+      
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class Artefact extends ModelingElement  {  
+  
+    public String name;  
+    public String description;  
+    public Task usedBy;  
+    public Task producedBy;  
+  
+    @CreationScheme    
+    Artefact:create(String conceptName) {    
+      name = parameters.conceptName;    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+}

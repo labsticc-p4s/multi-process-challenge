@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FMLRTVirtualModelInstance id="0" virtualModelURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml" modelVersion="1.0" title="SampleData" version="0.1" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml" userID="BEU" flexoID="1">
+  <FlexoConceptInstance id="1" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#Start" userID="BEU" flexoID="2">
+    <PrimitiveActorReference id="2" valueAsString="start" roleName="name" userID="BEU" flexoID="13" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="3" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#End" userID="BEU" flexoID="3">
+    <PrimitiveActorReference id="4" valueAsString="end" roleName="name" userID="BEU" flexoID="14" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="5" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#Task" userID="BEU" flexoID="4">
+    <PrimitiveActorReference id="6" valueAsString="Requirement Analysis" roleName="name" userID="BEU" flexoID="15" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="7" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#Task" userID="BEU" flexoID="5">
+    <PrimitiveActorReference id="8" valueAsString="Design" roleName="name" userID="BEU" flexoID="16" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="9" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#Task" userID="BEU" flexoID="6">
+    <PrimitiveActorReference id="10" valueAsString="Test Case Design" roleName="name" userID="BEU" flexoID="17" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="11" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#Task" userID="BEU" flexoID="7">
+    <PrimitiveActorReference id="12" valueAsString="Coding" roleName="name" userID="BEU" flexoID="18" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="13" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#Task" userID="BEU" flexoID="8">
+    <PrimitiveActorReference id="14" valueAsString="Test Design Review" roleName="name" userID="BEU" flexoID="19" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="15" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#Task" userID="BEU" flexoID="9">
+    <PrimitiveActorReference id="16" valueAsString="Testing" roleName="name" userID="BEU" flexoID="20" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="17" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#SplitAnd" userID="BEU" flexoID="10">
+    <PrimitiveActorReference id="18" valueAsString="split-and" roleName="name" userID="BEU" flexoID="21" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="19" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#JoinAnd" userID="BEU" flexoID="11">
+    <PrimitiveActorReference id="20" valueAsString="join-and" roleName="name" userID="BEU" flexoID="22" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="21" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#Sequence" userID="BEU" flexoID="12">
+    <ModelObjectActorReference id="22" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/SampleData.fml.rt#BEU_5" roleName="sourceConcept" userID="BEU" flexoID="23" />
+    <ModelObjectActorReference id="23" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/SampleData.fml.rt#BEU_7" roleName="destinationConcept" userID="BEU" flexoID="24" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="24" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#Process" userID="BEU" flexoID="25">
+    <PrimitiveActorReference id="25" valueAsString="ACME Software Engineering Process" roleName="name" userID="BEU" flexoID="26" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="26" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#Process" userID="BEU" flexoID="27">
+    <PrimitiveActorReference id="27" valueAsString="Claim Handling" roleName="name" userID="BEU" flexoID="31" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="28" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#Task" userID="BEU" flexoID="28">
+    <PrimitiveActorReference id="29" valueAsString="Receive Claim" roleName="name" userID="BEU" flexoID="32" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="30" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#Task" userID="BEU" flexoID="29">
+    <PrimitiveActorReference id="31" valueAsString="Assess Claim" roleName="name" userID="BEU" flexoID="33" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="32" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#Task" userID="BEU" flexoID="30">
+    <PrimitiveActorReference id="33" valueAsString="Pay Premium" roleName="name" userID="BEU" flexoID="34" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="34" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#Person" userID="BEU" flexoID="35">
+    <PrimitiveActorReference id="35" valueAsString="Ben Boss" roleName="name" userID="BEU" flexoID="36" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="36" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#Company" userID="BEU" flexoID="37">
+    <PrimitiveActorReference id="37" valueAsString="XSure" roleName="name" userID="BEU" flexoID="38" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="38" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#Actor" userID="BEU" flexoID="39">
+    <PrimitiveActorReference id="39" valueAsString="Developper" roleName="name" userID="BEU" flexoID="40" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="40" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#Actor" userID="BEU" flexoID="41">
+    <PrimitiveActorReference id="41" valueAsString="Claim Handling Manager" roleName="name" userID="BEU" flexoID="44" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="42" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#Actor" userID="BEU" flexoID="42">
+    <PrimitiveActorReference id="43" valueAsString="financial officer" roleName="name" userID="BEU" flexoID="45" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="44" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#Actor" userID="BEU" flexoID="43">
+    <PrimitiveActorReference id="45" valueAsString="Tester" roleName="name" userID="BEU" flexoID="46" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="46" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#Task" userID="BEU" flexoID="47">
+    <PrimitiveActorReference id="47" valueAsString="Authorize Payment" roleName="name" userID="BEU" flexoID="48" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="48" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#Person" userID="BEU" flexoID="49">
+    <PrimitiveActorReference id="49" valueAsString="John Smith" roleName="name" userID="BEU" flexoID="53" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="50" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#Person" userID="BEU" flexoID="50">
+    <PrimitiveActorReference id="51" valueAsString="Paul Alter" roleName="name" userID="BEU" flexoID="54" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="52" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#Artefact" userID="BEU" flexoID="51">
+    <PrimitiveActorReference id="53" valueAsString="claim" roleName="name" userID="BEU" flexoID="55" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="54" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#Artefact" userID="BEU" flexoID="52">
+    <PrimitiveActorReference id="55" valueAsString="claim payment decision" roleName="name" userID="BEU" flexoID="56" />
+  </FlexoConceptInstance>
+</FMLRTVirtualModelInstance>
