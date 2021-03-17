@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FMLRTVirtualModelInstance id="0" virtualModelURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeModel.fml" modelVersion="1.0" title="Example" version="0.1" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeModel.fml" userID="BEU" flexoID="1">
+  <FlexoConceptInstance id="1" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeModel.fml#StartGR" userID="BEU" flexoID="18">
+    <PrimitiveActorReference id="2" valueAsString="start" roleName="name" userID="BEU" flexoID="15" />
+    <ModelObjectActorReference id="3" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/Diagram/Example.diagram#BEU_2" roleName="shape" userID="BEU" flexoID="16" />
+    <ModelObjectActorReference id="4" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/SampleData.fml.rt#BEU_2" roleName="fmeConcept" userID="BEU" flexoID="17" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="5" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeModel.fml#EndGR" userID="BEU" flexoID="22">
+    <PrimitiveActorReference id="6" valueAsString="end" roleName="name" userID="BEU" flexoID="19" />
+    <ModelObjectActorReference id="7" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/Diagram/Example.diagram#BEU_3" roleName="shape" userID="BEU" flexoID="20" />
+    <ModelObjectActorReference id="8" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/SampleData.fml.rt#BEU_3" roleName="fmeConcept" userID="BEU" flexoID="21" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="9" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeModel.fml#TaskGR" userID="BEU" flexoID="26">
+    <PrimitiveActorReference id="10" valueAsString="Requirement Analysis" roleName="name" userID="BEU" flexoID="23" />
+    <ModelObjectActorReference id="11" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/Diagram/Example.diagram#BEU_4" roleName="shape" userID="BEU" flexoID="24" />
+    <ModelObjectActorReference id="12" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/SampleData.fml.rt#BEU_4" roleName="fmeConcept" userID="BEU" flexoID="25" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="13" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeModel.fml#TaskGR" userID="BEU" flexoID="29">
+    <ModelObjectActorReference id="14" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/SampleData.fml.rt#BEU_5" roleName="fmeConcept" userID="BEU" flexoID="27" />
+    <ModelObjectActorReference id="15" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/Diagram/Example.diagram#BEU_5" roleName="shape" userID="BEU" flexoID="28" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="16" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeModel.fml#TaskGR" userID="BEU" flexoID="32">
+    <ModelObjectActorReference id="17" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/SampleData.fml.rt#BEU_6" roleName="fmeConcept" userID="BEU" flexoID="30" />
+    <ModelObjectActorReference id="18" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/Diagram/Example.diagram#BEU_6" roleName="shape" userID="BEU" flexoID="31" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="19" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeModel.fml#TaskGR" userID="BEU" flexoID="35">
+    <ModelObjectActorReference id="20" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/SampleData.fml.rt#BEU_7" roleName="fmeConcept" userID="BEU" flexoID="33" />
+    <ModelObjectActorReference id="21" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/Diagram/Example.diagram#BEU_7" roleName="shape" userID="BEU" flexoID="34" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="22" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeModel.fml#TaskGR" userID="BEU" flexoID="38">
+    <ModelObjectActorReference id="23" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/SampleData.fml.rt#BEU_8" roleName="fmeConcept" userID="BEU" flexoID="36" />
+    <ModelObjectActorReference id="24" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/Diagram/Example.diagram#BEU_8" roleName="shape" userID="BEU" flexoID="37" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="25" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeModel.fml#TaskGR" userID="BEU" flexoID="41">
+    <ModelObjectActorReference id="26" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/SampleData.fml.rt#BEU_9" roleName="fmeConcept" userID="BEU" flexoID="39" />
+    <ModelObjectActorReference id="27" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/Diagram/Example.diagram#BEU_9" roleName="shape" userID="BEU" flexoID="40" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="28" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeModel.fml#SplitAndGR" userID="BEU" flexoID="4">
+    <PrimitiveActorReference id="29" valueAsString="split-and" roleName="name" userID="BEU" flexoID="5" />
+    <ModelObjectActorReference id="30" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/Diagram/Example.diagram#BEU_10" roleName="shape" userID="BEU" flexoID="6" />
+    <ModelObjectActorReference id="31" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/SampleData.fml.rt#BEU_10" roleName="fmeConcept" userID="BEU" flexoID="42" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="32" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeModel.fml#JoinAndGR" userID="BEU" flexoID="7">
+    <PrimitiveActorReference id="33" valueAsString="join-and" roleName="name" userID="BEU" flexoID="8" />
+    <ModelObjectActorReference id="34" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/Diagram/Example.diagram#BEU_11" roleName="shape" userID="BEU" flexoID="9" />
+    <ModelObjectActorReference id="35" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/SampleData.fml.rt#BEU_11" roleName="fmeConcept" userID="BEU" flexoID="43" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="36" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeModel.fml#SequenceGR" userID="BEU" flexoID="46">
+    <ModelObjectActorReference id="37" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/Diagram/Example.diagram#BEU_16" roleName="connector" userID="BEU" flexoID="44" />
+    <ModelObjectActorReference id="38" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/SampleData.fml.rt#BEU_12" roleName="fmeConcept" userID="BEU" flexoID="45" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="39" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeModel.fml#ProcessGR" userID="BEU" flexoID="49">
+    <PrimitiveActorReference id="40" valueAsString="ACME Software Engineering Process" roleName="name" userID="BEU" flexoID="47" />
+    <ModelObjectActorReference id="41" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/Diagram/Example.diagram#BEU_22" roleName="shape" userID="BEU" flexoID="48" />
+    <ModelObjectActorReference id="42" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/SampleData.fml.rt#BEU_25" roleName="fmeConcept" userID="BEU" flexoID="50" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="43" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeModel.fml#ProcessGR" userID="BEU" flexoID="53">
+    <ModelObjectActorReference id="44" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/SampleData.fml.rt#BEU_27" roleName="fmeConcept" userID="BEU" flexoID="51" />
+    <ModelObjectActorReference id="45" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/Diagram/Example.diagram#BEU_23" roleName="shape" userID="BEU" flexoID="52" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="46" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeModel.fml#TaskGR" userID="BEU" flexoID="56">
+    <ModelObjectActorReference id="47" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/SampleData.fml.rt#BEU_28" roleName="fmeConcept" userID="BEU" flexoID="54" />
+    <ModelObjectActorReference id="48" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/Diagram/Example.diagram#BEU_24" roleName="shape" userID="BEU" flexoID="55" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="49" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeModel.fml#TaskGR" userID="BEU" flexoID="59">
+    <ModelObjectActorReference id="50" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/SampleData.fml.rt#BEU_29" roleName="fmeConcept" userID="BEU" flexoID="57" />
+    <ModelObjectActorReference id="51" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/Diagram/Example.diagram#BEU_25" roleName="shape" userID="BEU" flexoID="58" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="52" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeModel.fml#TaskGR" userID="BEU" flexoID="62">
+    <ModelObjectActorReference id="53" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/SampleData.fml.rt#BEU_30" roleName="fmeConcept" userID="BEU" flexoID="60" />
+    <ModelObjectActorReference id="54" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/Diagram/Example.diagram#BEU_26" roleName="shape" userID="BEU" flexoID="61" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="55" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeModel.fml#PersonGR" userID="BEU" flexoID="66">
+    <PrimitiveActorReference id="56" valueAsString="Ben Boss" roleName="name" userID="BEU" flexoID="63" />
+    <ModelObjectActorReference id="57" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/Diagram/Example.diagram#BEU_28" roleName="shape" userID="BEU" flexoID="64" />
+    <ModelObjectActorReference id="58" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/SampleData.fml.rt#BEU_35" roleName="fmeConcept" userID="BEU" flexoID="65" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="59" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeModel.fml#ActorGR" userID="BEU" flexoID="69">
+    <PrimitiveActorReference id="60" valueAsString="Developper" roleName="name" userID="BEU" flexoID="67" />
+    <ModelObjectActorReference id="61" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/Diagram/Example.diagram#BEU_29" roleName="shape" userID="BEU" flexoID="68" />
+    <ModelObjectActorReference id="62" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/SampleData.fml.rt#BEU_39" roleName="fmeConcept" userID="BEU" flexoID="74" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="63" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeModel.fml#CompanyGR" userID="BEU" flexoID="73">
+    <PrimitiveActorReference id="64" valueAsString="XSure" roleName="name" userID="BEU" flexoID="70" />
+    <ModelObjectActorReference id="65" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/Diagram/Example.diagram#BEU_31" roleName="shape" userID="BEU" flexoID="71" />
+    <ModelObjectActorReference id="66" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/SampleData.fml.rt#BEU_37" roleName="fmeConcept" userID="BEU" flexoID="72" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="67" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeModel.fml#ActorGR" userID="BEU" flexoID="77">
+    <ModelObjectActorReference id="68" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/SampleData.fml.rt#BEU_41" roleName="fmeConcept" userID="BEU" flexoID="75" />
+    <ModelObjectActorReference id="69" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/Diagram/Example.diagram#BEU_32" roleName="shape" userID="BEU" flexoID="76" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="70" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeModel.fml#ActorGR" userID="BEU" flexoID="80">
+    <ModelObjectActorReference id="71" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/SampleData.fml.rt#BEU_42" roleName="fmeConcept" userID="BEU" flexoID="78" />
+    <ModelObjectActorReference id="72" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/Diagram/Example.diagram#BEU_33" roleName="shape" userID="BEU" flexoID="79" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="73" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeModel.fml#ActorGR" userID="BEU" flexoID="83">
+    <ModelObjectActorReference id="74" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/SampleData.fml.rt#BEU_43" roleName="fmeConcept" userID="BEU" flexoID="81" />
+    <ModelObjectActorReference id="75" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/Diagram/Example.diagram#BEU_34" roleName="shape" userID="BEU" flexoID="82" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="76" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeModel.fml#TaskGR" userID="BEU" flexoID="86">
+    <ModelObjectActorReference id="77" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/SampleData.fml.rt#BEU_47" roleName="fmeConcept" userID="BEU" flexoID="84" />
+    <ModelObjectActorReference id="78" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/Diagram/Example.diagram#BEU_35" roleName="shape" userID="BEU" flexoID="85" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="79" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeModel.fml#PersonGR" userID="BEU" flexoID="89">
+    <ModelObjectActorReference id="80" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/SampleData.fml.rt#BEU_49" roleName="fmeConcept" userID="BEU" flexoID="87" />
+    <ModelObjectActorReference id="81" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/Diagram/Example.diagram#BEU_36" roleName="shape" userID="BEU" flexoID="88" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="82" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeModel.fml#PersonGR" userID="BEU" flexoID="92">
+    <ModelObjectActorReference id="83" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/SampleData.fml.rt#BEU_50" roleName="fmeConcept" userID="BEU" flexoID="90" />
+    <ModelObjectActorReference id="84" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/Diagram/Example.diagram#BEU_37" roleName="shape" userID="BEU" flexoID="91" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="85" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeModel.fml#ArtefactGR" userID="BEU" flexoID="96">
+    <PrimitiveActorReference id="86" valueAsString="claim" roleName="name" userID="BEU" flexoID="93" />
+    <ModelObjectActorReference id="87" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/Diagram/Example.diagram#BEU_43" roleName="shape" userID="BEU" flexoID="94" />
+    <ModelObjectActorReference id="88" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/SampleData.fml.rt#BEU_51" roleName="fmeConcept" userID="BEU" flexoID="95" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="89" flexoConceptURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeModel.fml#ArtefactGR" userID="BEU" flexoID="99">
+    <ModelObjectActorReference id="90" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/SampleData.fml.rt#BEU_52" roleName="fmeConcept" userID="BEU" flexoID="97" />
+    <ModelObjectActorReference id="91" objectReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/Diagram/Example.diagram#BEU_44" roleName="shape" userID="BEU" flexoID="98" />
+  </FlexoConceptInstance>
+  <VirtualModelModelSlotInstance id="92" virtualModelInstanceURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/SampleData.fml.rt" modelSlotName="sampleData" roleName="sampleData" userID="BEU" flexoID="2" />
+  <TypeAwareModelSlotInstance id="93" modelURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/Diagram/Example.diagram" modelSlotName="diagram" roleName="diagram" userID="BEU" flexoID="3" />
+</FMLRTVirtualModelInstance>

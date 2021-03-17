@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram id="0" diagramSpecificationURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeChallenge.prj/DiagramSpecification/FreeModel.diagramspecification" uri="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeChallenge.prj/DiagramSpecification/FreeModel.diagramspecification/Default.diagram" name="Default.diagram" userID="BEU" flexoID="1">
+  <Connector id="1" name="SequenceGR" userID="BEU" flexoID="8">
+    <StartShape idref="2" />
+    <EndShape idref="2" />
+    <ConnectorGraphicalRepresentation id="13" identifier="36a9749b" layer="64" verticalTextAlignment="BOTTOM">
+      <LineConnectorSpecification id="14" lineConnectorType="MINIMAL_LENGTH" middleSymbol="NONE" startSymbol="NONE" endSymbol="FILLED_ARROW" />
+      <ForegroundStyle id="15" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <FocusedForegroundStyle id="16" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <SelectedForegroundStyle id="17" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <TextStyle id="18" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
+    </ConnectorGraphicalRepresentation>
+  </Connector>
+  <Shape id="19" name="NoneGR" userID="BEU" flexoID="2">
+    <ShapeGraphicalRepresentation id="20" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" adaptBoundsToContents="false" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" identifier="3881e954">
+      <RectangleShape id="21" />
+    </ShapeGraphicalRepresentation>
+  </Shape>
+  <Shape id="22" name="StartGR" userID="BEU" flexoID="3">
+    <ShapeGraphicalRepresentation id="23" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="10.0" y="10.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="45.0" height="45.0" identifier="f26fac4" layer="1" text="start">
+      <SelectedColorBackgroundStyle id="24" color="254,247,217" transparencyLevel="0.5" />
+      <ForegroundStyle id="25" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <FocusedColorBackgroundStyle id="26" color="254,247,217" transparencyLevel="0.5" />
+      <ShadowStyle id="27" />
+      <FocusedForegroundStyle id="28" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <SelectedForegroundStyle id="29" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <ColorBackgroundStyle id="30" color="0,0,0" transparencyLevel="0.5" />
+      <OvalShape id="31" />
+      <TextStyle id="32" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
+    </ShapeGraphicalRepresentation>
+  </Shape>
+  <Shape id="33" name="EndGR" userID="BEU" flexoID="4">
+    <ShapeGraphicalRepresentation id="34" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="10.0" y="10.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="45.0" height="45.0" identifier="1f0d03b4" layer="1" text="end">
+      <SelectedColorBackgroundStyle id="35" color="254,247,217" transparencyLevel="0.5" />
+      <ForegroundStyle id="36" joinStyle="JOIN_MITER" color="255,0,51" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" lineWidth="3.000000001490116" />
+      <FocusedColorBackgroundStyle id="37" color="254,247,217" transparencyLevel="0.5" />
+      <ShadowStyle id="38" />
+      <FocusedForegroundStyle id="39" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <SelectedForegroundStyle id="40" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <ColorBackgroundStyle id="41" color="0,0,0" transparencyLevel="0.5" />
+      <OvalShape id="42" />
+      <TextStyle id="43" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
+    </ShapeGraphicalRepresentation>
+  </Shape>
+  <Shape id="2" name="TaskGR" userID="BEU" flexoID="5">
+    <ShapeGraphicalRepresentation id="3" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="10.0" y="10.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="128.3982683982684" height="45.0" identifier="b20c338" layer="1" text="Requirement Analysis">
+      <SelectedColorBackgroundStyle id="4" color="254,247,217" transparencyLevel="0.5" />
+      <ForegroundStyle id="5" joinStyle="JOIN_MITER" color="255,0,51" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <FocusedColorBackgroundStyle id="6" color="254,247,217" transparencyLevel="0.5" />
+      <ShadowStyle id="7" />
+      <FocusedForegroundStyle id="8" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <SelectedForegroundStyle id="9" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <ColorBackgroundStyle id="10" color="254,247,217" transparencyLevel="0.5" />
+      <RectangularOctogonShape id="11" />
+      <TextStyle id="12" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
+    </ShapeGraphicalRepresentation>
+  </Shape>
+  <Shape id="44" name="SplitAndGR" userID="BEU" flexoID="6">
+    <ShapeGraphicalRepresentation id="45" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="10.0" y="10.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="123.89610389610388" height="14.0" identifier="6bf2ad74" layer="1" text="split-and">
+      <SelectedColorBackgroundStyle id="46" color="254,247,217" transparencyLevel="0.5" />
+      <ForegroundStyle id="47" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <FocusedColorBackgroundStyle id="48" color="254,247,217" transparencyLevel="0.5" />
+      <ShadowStyle id="49" />
+      <FocusedForegroundStyle id="50" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <SelectedForegroundStyle id="51" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <ColorBackgroundStyle id="52" color="0,0,0" transparencyLevel="0.5" />
+      <RectangleShape id="53" />
+      <TextStyle id="54" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
+    </ShapeGraphicalRepresentation>
+  </Shape>
+  <Shape id="55" name="JoinAndGR" userID="BEU" flexoID="7">
+    <ShapeGraphicalRepresentation id="56" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="10.0" y="10.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="123.89610389610388" height="14.0" identifier="3597af7a" layer="1" text="join-and">
+      <SelectedColorBackgroundStyle id="57" color="254,247,217" transparencyLevel="0.5" />
+      <ForegroundStyle id="58" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <FocusedColorBackgroundStyle id="59" color="254,247,217" transparencyLevel="0.5" />
+      <ShadowStyle id="60" />
+      <FocusedForegroundStyle id="61" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <SelectedForegroundStyle id="62" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <ColorBackgroundStyle id="63" color="0,0,0" transparencyLevel="0.5" />
+      <RectangleShape id="64" />
+      <TextStyle id="65" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
+    </ShapeGraphicalRepresentation>
+  </Shape>
+  <Shape id="66" name="ProcessGR" userID="BEU" flexoID="9">
+    <ShapeGraphicalRepresentation id="67" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="10.0" y="10.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="390.19480519480516" height="75.48387096774192" identifier="34ad37d2" layer="1" text="ACME Software Engineering Process">
+      <SelectedColorBackgroundStyle id="68" color="254,247,217" transparencyLevel="0.5" />
+      <ForegroundStyle id="69" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <FocusedColorBackgroundStyle id="70" color="254,247,217" transparencyLevel="0.5" />
+      <ShadowStyle id="71" />
+      <FocusedForegroundStyle id="72" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <SelectedForegroundStyle id="73" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <ColorBackgroundStyle id="74" color="254,247,217" transparencyLevel="0.5" />
+      <ChevronShape id="75" />
+      <TextStyle id="76" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
+    </ShapeGraphicalRepresentation>
+  </Shape>
+  <Shape id="77" name="PersonGR" userID="BEU" flexoID="10">
+    <ShapeGraphicalRepresentation id="78" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" allowToLeaveBounds="false" adaptBoundsToContents="false" x="10.0" y="10.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="60.0" height="45.0" identifier="6e65ed61" absoluteTextY="61.0" absoluteTextX="21.0" layer="1" text="Ben Boss">
+      <SelectedImageBackgroundStyle id="79" fitToShape="true" imageBackgroundColor="255,255,255" imageBackgroundType="TRANSPARENT" transparencyLevel="0.5" />
+      <ForegroundStyle id="80" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" noStroke="true" capStyle="CAP_SQUARE" />
+      <FocusedImageBackgroundStyle id="81" fitToShape="true" imageBackgroundColor="255,255,255" imageBackgroundType="TRANSPARENT" transparencyLevel="0.5" />
+      <ShadowStyle id="82" drawShadow="false" />
+      <FocusedForegroundStyle id="83" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" noStroke="true" capStyle="CAP_SQUARE" />
+      <SelectedForegroundStyle id="84" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" noStroke="true" capStyle="CAP_SQUARE" />
+      <ImageBackgroundStyle id="85" imageFile="../../../MULTIProcessChallenge.prj/Diagrams/Actor.gif" imageBackgroundColor="255,255,255" imageBackgroundType="TRANSPARENT" transparencyLevel="0.5" />
+      <RectangleShape id="86" />
+      <TextStyle id="87" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
+    </ShapeGraphicalRepresentation>
+  </Shape>
+  <Shape id="88" name="CompanyGR" userID="BEU" flexoID="11">
+    <ShapeGraphicalRepresentation id="89" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="10.0" y="10.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="60.0" height="45.0" identifier="3ea99e3b" layer="1" text="XSure">
+      <SelectedColorBackgroundStyle id="90" color="254,247,217" transparencyLevel="0.5" />
+      <ForegroundStyle id="91" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <FocusedColorBackgroundStyle id="92" color="254,247,217" transparencyLevel="0.5" />
+      <ShadowStyle id="93" />
+      <FocusedForegroundStyle id="94" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <SelectedForegroundStyle id="95" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <ColorBackgroundStyle id="96" color="204,255,255" transparencyLevel="0.5" />
+      <RectangleShape id="97" />
+      <TextStyle id="98" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
+    </ShapeGraphicalRepresentation>
+  </Shape>
+  <Shape id="99" name="ActorGR" userID="BEU" flexoID="12">
+    <ShapeGraphicalRepresentation id="100" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="10.0" y="10.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="106.75324675324676" height="45.0" identifier="275da4d4" layer="1" text="Developper">
+      <SelectedColorBackgroundStyle id="101" color="254,247,217" transparencyLevel="0.5" />
+      <ForegroundStyle id="102" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <FocusedColorBackgroundStyle id="103" color="254,247,217" transparencyLevel="0.5" />
+      <ShadowStyle id="104" />
+      <FocusedForegroundStyle id="105" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <SelectedForegroundStyle id="106" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <ColorBackgroundStyle id="107" color="204,255,204" transparencyLevel="0.5" />
+      <ParallelogramShape id="108" />
+      <TextStyle id="109" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
+    </ShapeGraphicalRepresentation>
+  </Shape>
+  <Shape id="110" name="ArtefactGR" userID="BEU" flexoID="13">
+    <ShapeGraphicalRepresentation id="111" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="10.0" y="10.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="60.0" height="45.0" identifier="279e6a4c" layer="1" text="claim">
+      <SelectedColorBackgroundStyle id="112" color="254,247,217" transparencyLevel="0.5" />
+      <ForegroundStyle id="113" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <FocusedColorBackgroundStyle id="114" color="254,247,217" transparencyLevel="0.5" />
+      <ShadowStyle id="115" />
+      <FocusedForegroundStyle id="116" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <SelectedForegroundStyle id="117" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <ColorBackgroundStyle id="118" color="255,153,153" transparencyLevel="0.5" />
+      <PlusShape id="119" ratio="0.25" />
+      <TextStyle id="120" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
+    </ShapeGraphicalRepresentation>
+  </Shape>
+</Diagram>

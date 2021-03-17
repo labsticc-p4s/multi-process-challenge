@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlexoProject id="0" creationUserId="BEU" uri="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj" creationDate="dd/MM/yy HH:mm,16/03/21 15:37" userID="BEU" flexoID="1">
+  <FreeModellingProjectNature id="1" userID="BEU" flexoID="2">
+    <FMESampleData id="2" virtualModelInstanceURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/SampleData.fml.rt" userID="BEU" flexoID="4" />
+    <FMEConceptualModel id="3" virtualModelURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml" userID="BEU" flexoID="3" />
+    <FMEDiagramFreeModel id="4" virtualModelURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeModel.fml" userID="BEU" flexoID="5">
+      <FMEDiagramFreeModelInstance id="5" virtualModelInstanceURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/Example.fml.rt" userID="BEU" flexoID="6" />
+      <FMEDiagramFreeModelInstance id="6" virtualModelInstanceURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ACME 1.fml.rt" userID="BEU" flexoID="7" />
+      <FMESampleData idref="2" />
+      <FMEConceptualModel idref="3" />
+    </FMEDiagramFreeModel>
+  </FreeModellingProjectNature>
+</FlexoProject>

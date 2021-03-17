@@ -1,0 +1,260 @@
+use org.openflexo.foundation.fml.rt.FMLRTVirtualModelInstanceModelSlot;
+use org.openflexo.technologyadapter.diagram.TypedDiagramModelSlot;
+
+/**
+ * 
+ * @version 0.1
+ */
+@VirtualModel(uri="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeModel.fml")
+public class FreeModel {
+
+  public ConceptualModel sampleData;
+  public Diagram diagram;
+
+  @CreationScheme  
+  FreeModel:create(ConceptualModel sampleData, DiagramType<FreeModel> diagram) {  
+    sampleData = parameters.sampleData;    
+    diagram = parameters.diagram;  
+  }  
+
+
+  @FlexoConcept  
+  public class NoneGR {  
+  
+    public String name;  
+    public DiagramShape shape;  
+  
+    @DeletionScheme    
+    public Void delete() {    
+      delete shape;    
+    }    
+  
+    @DropScheme    
+    NoneGR:drop(String conceptName) {    
+      name = parameters.conceptName;      
+      shape = diagram.AddShape();    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class StartGR {  
+  
+    public Start fmeConcept;  
+    public DiagramShape shape;  
+  
+    @DeletionScheme    
+    public Void delete() {    
+      fmeConcept.delete();      
+      delete shape;    
+    }    
+  
+    @DropScheme    
+    StartGR:drop(String conceptName) {    
+      fmeConcept = Start.create(parameters.conceptName);      
+      shape = diagram.AddShape();    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class EndGR {  
+  
+    public End fmeConcept;  
+    public DiagramShape shape;  
+  
+    @DeletionScheme    
+    public Void delete() {    
+      fmeConcept.delete();      
+      delete shape;    
+    }    
+  
+    @DropScheme    
+    EndGR:drop(String conceptName) {    
+      fmeConcept = End.create(parameters.conceptName);      
+      shape = diagram.AddShape();    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class TaskGR {  
+  
+    public Task fmeConcept;  
+    public DiagramShape shape;  
+  
+    @DeletionScheme    
+    public Void delete() {    
+      fmeConcept.delete();      
+      delete shape;    
+    }    
+  
+    @DropScheme    
+    TaskGR:drop(String conceptName) {    
+      fmeConcept = Task.create(parameters.conceptName);      
+      shape = diagram.AddShape();    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class SplitAndGR {  
+  
+    public SplitAnd fmeConcept;  
+    public DiagramShape shape;  
+  
+    @DeletionScheme    
+    public Void delete() {    
+      fmeConcept.delete();      
+      delete shape;    
+    }    
+  
+    @DropScheme    
+    SplitAndGR:drop(String conceptName) {    
+      fmeConcept = SplitAnd.create(parameters.conceptName);      
+      shape = diagram.AddShape();    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class JoinAndGR {  
+  
+    public JoinAnd fmeConcept;  
+    public DiagramShape shape;  
+  
+    @DeletionScheme    
+    public Void delete() {    
+      fmeConcept.delete();      
+      delete shape;    
+    }    
+  
+    @DropScheme    
+    JoinAndGR:drop(String conceptName) {    
+      fmeConcept = JoinAnd.create(parameters.conceptName);      
+      shape = diagram.AddShape();    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class SequenceGR {  
+  
+    public Sequence fmeConcept;  
+    public DiagramConnector connector;  
+  
+    @DeletionScheme    
+    public Void delete() {    
+      fmeConcept.delete();      
+      delete connector;    
+    }    
+  
+    @LinkScheme    
+    SequenceGR:link() {    
+      fmeConcept = Sequence.create(fromTarget.fmeConcept,toTarget.fmeConcept);      
+      connector = diagram.AddConnector();    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class ProcessGR {  
+  
+    public Process fmeConcept;  
+    public DiagramShape shape;  
+  
+    @DeletionScheme    
+    public Void delete() {    
+      fmeConcept.delete();      
+      delete shape;    
+    }    
+  
+    @DropScheme    
+    ProcessGR:drop(String conceptName) {    
+      fmeConcept = Process.create(parameters.conceptName);      
+      shape = diagram.AddShape();    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class PersonGR {  
+  
+    public Person fmeConcept;  
+    public DiagramShape shape;  
+  
+    @DeletionScheme    
+    public Void delete() {    
+      fmeConcept.delete();      
+      delete shape;    
+    }    
+  
+    @DropScheme    
+    PersonGR:drop(String conceptName) {    
+      fmeConcept = Person.create(parameters.conceptName);      
+      shape = diagram.AddShape();    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class CompanyGR {  
+  
+    public Company fmeConcept;  
+    public DiagramShape shape;  
+  
+    @DeletionScheme    
+    public Void delete() {    
+      fmeConcept.delete();      
+      delete shape;    
+    }    
+  
+    @DropScheme    
+    CompanyGR:drop(String conceptName) {    
+      fmeConcept = Company.create(parameters.conceptName);      
+      shape = diagram.AddShape();    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class ActorGR {  
+  
+    public Actor fmeConcept;  
+    public DiagramShape shape;  
+  
+    @DeletionScheme    
+    public Void delete() {    
+      fmeConcept.delete();      
+      delete shape;    
+    }    
+  
+    @DropScheme    
+    ActorGR:drop(String conceptName) {    
+      fmeConcept = Actor.create(parameters.conceptName);      
+      shape = diagram.AddShape();    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class ArtefactGR {  
+  
+    public Artefact fmeConcept;  
+    public DiagramShape shape;  
+  
+    @DeletionScheme    
+    public Void delete() {    
+      fmeConcept.delete();      
+      delete shape;    
+    }    
+  
+    @DropScheme    
+    ArtefactGR:drop(String conceptName) {    
+      fmeConcept = Artefact.create(parameters.conceptName);      
+      shape = diagram.AddShape();    
+    }    
+  
+  }  
+
+}
