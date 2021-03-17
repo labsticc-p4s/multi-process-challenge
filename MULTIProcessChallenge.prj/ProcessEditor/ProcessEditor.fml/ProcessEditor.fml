@@ -354,11 +354,21 @@ public class ProcessEditor {
   public class HasActorTypeGR {  
   
     public DiagramConnector connector;  
+    public Actor actor;  
+    public ActorType actorType;  
   
     @LinkScheme    
     HasActorTypeGR:linkActorGRToActorTypeGR() {    
       connector = diagram.AddConnector();      
-      fromTarget.actor.addActorType(toTarget.actorType)    
+      actor = fromTarget.actor;      
+      actorType = toTarget.actorType;      
+      actor.addActorType(actorType)    
+    }    
+  
+    @DeletionScheme    
+    public Void delete() {    
+      delete connector;      
+      actor.removeActorType(actorType)    
     }    
   
   }  

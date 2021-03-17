@@ -409,6 +409,10 @@
       </BehaviourControlGraph_Sequence>
       <GenericBehaviourParameter id="SYL-595" widget="CUSTOM_WIDGET" name="actorType" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ActorType&gt;" userID="SYL" flexoID="595" />
     </ActionScheme>
+    <ActionScheme id="SYL-1772" label="removeActorType" name="removeActorType" width="800" height="600" userID="SYL" flexoID="1772">
+      <BehaviourControlGraph_ExpressionAction id="SYL-1773" expression="types.remove(parameters.actorType)" userID="SYL" flexoID="1773" />
+      <GenericBehaviourParameter id="SYL-1774" isRequired="true" widget="CUSTOM_WIDGET" name="actorType" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ActorType&gt;" userID="SYL" flexoID="1774" />
+    </ActionScheme>
   </FlexoConcept>
   <FlexoConcept id="SYL-384" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Instance" name="Process" author="sylvain" userID="SYL" flexoID="384">
     <Inspector id="SYL-385" inspectorTitle="Process" userID="SYL" flexoID="385" />

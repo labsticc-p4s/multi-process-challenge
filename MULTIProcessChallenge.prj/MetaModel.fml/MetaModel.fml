@@ -629,6 +629,11 @@ public class MetaModel {
       return false;    
     }    
   
+    @ActionScheme    
+    Void removeActorType(ActorType actorType) {    
+      types.remove(parameters.actorType)    
+    }    
+  
   }  
 
   @FlexoConcept  
