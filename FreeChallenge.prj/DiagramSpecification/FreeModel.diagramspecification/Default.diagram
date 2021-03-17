@@ -146,4 +146,43 @@
       <TextStyle id="120" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
     </ShapeGraphicalRepresentation>
   </Shape>
+  <Shape id="121" name="LanguageGR" userID="BEU" flexoID="14">
+    <ShapeGraphicalRepresentation id="122" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="10.0" y="10.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="60.0" height="45.0" identifier="6cc2372f" layer="1" text="COBOL">
+      <SelectedColorBackgroundStyle id="123" color="254,247,217" transparencyLevel="0.5" />
+      <ForegroundStyle id="124" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <FocusedColorBackgroundStyle id="125" color="254,247,217" transparencyLevel="0.5" />
+      <ShadowStyle id="126" />
+      <FocusedForegroundStyle id="127" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <SelectedForegroundStyle id="128" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <ColorBackgroundStyle id="129" color="255,153,204" transparencyLevel="0.5" />
+      <TriangleShape id="130" nPoints="3" y="0.1" />
+      <TextStyle id="131" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
+    </ShapeGraphicalRepresentation>
+  </Shape>
+  <Shape id="132" name="EnactedTaskGR" userID="BEU" flexoID="15">
+    <ShapeGraphicalRepresentation id="133" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="10.0" y="10.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="129.56521739130434" height="47.410714285714285" identifier="7d286810" layer="1" text="Req.Analysis">
+      <SelectedColorBackgroundStyle id="134" color="254,247,217" transparencyLevel="0.5" />
+      <ForegroundStyle id="135" joinStyle="JOIN_MITER" color="255,0,51" dashStyle="SMALL_DASHES" capStyle="CAP_SQUARE" lineWidth="5.0" />
+      <FocusedColorBackgroundStyle id="136" color="254,247,217" transparencyLevel="0.5" />
+      <ShadowStyle id="137" />
+      <FocusedForegroundStyle id="138" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <SelectedForegroundStyle id="139" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <ColorBackgroundStyle id="140" color="255,255,204" transparencyLevel="0.5" />
+      <RectangularOctogonShape id="141" />
+      <TextStyle id="142" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
+    </ShapeGraphicalRepresentation>
+  </Shape>
+  <Shape id="143" name="ActualArtefactGR" userID="BEU" flexoID="16">
+    <ShapeGraphicalRepresentation id="144" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="10.0" y="10.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="60.0" height="45.0" identifier="71161515" layer="1" text="prog.COBOL">
+      <SelectedColorBackgroundStyle id="145" color="254,247,217" transparencyLevel="0.5" />
+      <ForegroundStyle id="146" joinStyle="JOIN_MITER" color="255,51,102" dashStyle="SMALL_DASHES" capStyle="CAP_SQUARE" lineWidth="5.0" />
+      <FocusedColorBackgroundStyle id="147" color="254,247,217" transparencyLevel="0.5" />
+      <ShadowStyle id="148" />
+      <FocusedForegroundStyle id="149" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <SelectedForegroundStyle id="150" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <ColorBackgroundStyle id="151" color="255,153,255" transparencyLevel="0.5" />
+      <PlusShape id="152" ratio="0.25" />
+      <TextStyle id="153" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
+    </ShapeGraphicalRepresentation>
+  </Shape>
 </Diagram>

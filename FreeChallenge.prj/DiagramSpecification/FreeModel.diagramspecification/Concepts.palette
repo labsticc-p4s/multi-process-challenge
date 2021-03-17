@@ -86,7 +86,7 @@
       <ShadowStyle id="72" drawShadow="false" />
       <FocusedForegroundStyle id="73" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" noStroke="true" capStyle="CAP_SQUARE" />
       <SelectedForegroundStyle id="74" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" noStroke="true" capStyle="CAP_SQUARE" />
-      <ImageBackgroundStyle id="75" imageFile="../../../MULTIProcessChallenge.prj/Diagrams/Actor.gif" imageBackgroundColor="255,255,255" imageBackgroundType="TRANSPARENT" transparencyLevel="0.5" />
+      <ImageBackgroundStyle id="75" imageBackgroundColor="255,255,255" imageBackgroundType="TRANSPARENT" transparencyLevel="0.5" />
       <RectangleShape id="76" />
       <TextStyle id="77" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
     </ShapeGraphicalRepresentation>
@@ -128,6 +128,45 @@
       <ColorBackgroundStyle id="108" color="255,153,153" transparencyLevel="0.5" />
       <PlusShape id="109" ratio="0.25" />
       <TextStyle id="110" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
+    </ShapeGraphicalRepresentation>
+  </DiagramPaletteElement>
+  <DiagramPaletteElement id="111" name="Language">
+    <ShapeGraphicalRepresentation id="112" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="60.0" y="130.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="40.0" height="30.0" identifier="58676c5a" layer="1" text="Language">
+      <SelectedColorBackgroundStyle id="113" color="254,247,217" transparencyLevel="0.5" />
+      <ForegroundStyle id="114" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <FocusedColorBackgroundStyle id="115" color="254,247,217" transparencyLevel="0.5" />
+      <ShadowStyle id="116" />
+      <FocusedForegroundStyle id="117" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <SelectedForegroundStyle id="118" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <ColorBackgroundStyle id="119" color="255,153,204" transparencyLevel="0.5" />
+      <TriangleShape id="120" nPoints="3" y="0.1" />
+      <TextStyle id="121" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
+    </ShapeGraphicalRepresentation>
+  </DiagramPaletteElement>
+  <DiagramPaletteElement id="122" name="EnactedTask">
+    <ShapeGraphicalRepresentation id="123" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="110.0" y="130.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="40.0" height="30.0" identifier="66b9a00" layer="1" text="EnactedTask">
+      <SelectedColorBackgroundStyle id="124" color="254,247,217" transparencyLevel="0.5" />
+      <ForegroundStyle id="125" joinStyle="JOIN_MITER" color="255,0,51" dashStyle="SMALL_DASHES" capStyle="CAP_SQUARE" lineWidth="5.0" />
+      <FocusedColorBackgroundStyle id="126" color="254,247,217" transparencyLevel="0.5" />
+      <ShadowStyle id="127" />
+      <FocusedForegroundStyle id="128" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <SelectedForegroundStyle id="129" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <ColorBackgroundStyle id="130" color="255,255,204" transparencyLevel="0.5" />
+      <RectangularOctogonShape id="131" />
+      <TextStyle id="132" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
+    </ShapeGraphicalRepresentation>
+  </DiagramPaletteElement>
+  <DiagramPaletteElement id="133" name="ActualArtefact">
+    <ShapeGraphicalRepresentation id="134" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="10.0" y="170.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="40.0" height="30.0" identifier="7359f9ee" layer="1" text="ActualArtefact">
+      <SelectedColorBackgroundStyle id="135" color="254,247,217" transparencyLevel="0.5" />
+      <ForegroundStyle id="136" joinStyle="JOIN_MITER" color="255,51,102" dashStyle="SMALL_DASHES" capStyle="CAP_SQUARE" lineWidth="5.0" />
+      <FocusedColorBackgroundStyle id="137" color="254,247,217" transparencyLevel="0.5" />
+      <ShadowStyle id="138" />
+      <FocusedForegroundStyle id="139" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <SelectedForegroundStyle id="140" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <ColorBackgroundStyle id="141" color="255,153,255" transparencyLevel="0.5" />
+      <PlusShape id="142" ratio="0.25" />
+      <TextStyle id="143" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
     </ShapeGraphicalRepresentation>
   </DiagramPaletteElement>
 </DiagramPalette>
