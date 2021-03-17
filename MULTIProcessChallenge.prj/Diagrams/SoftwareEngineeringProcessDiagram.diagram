@@ -267,7 +267,7 @@
         <TextStyle id="186" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
       </ShapeGraphicalRepresentation>
     </Shape>
-    <ShapeGraphicalRepresentation id="204" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="192.0" y="37.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="335.86697237082836" height="527.0828192912427" identifier="3ad91919" layer="1" text="">
+    <ShapeGraphicalRepresentation id="204" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="255.0" y="31.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="335.86697237082836" height="527.0828192912427" identifier="3ad91919" layer="1" text="">
       <SelectedColorBackgroundStyle id="205" color="254,247,217" transparencyLevel="0.5" />
       <ForegroundStyle id="206" color="0,0,0" joinStyle="JOIN_MITER" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
       <FocusedColorBackgroundStyle id="207" color="254,247,217" transparencyLevel="0.5" />
