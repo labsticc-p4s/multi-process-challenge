@@ -257,12 +257,14 @@ public class ProcessEditor {
     @DropScheme    
     ArtifactTypeGR:dropArtifactTypeGRAtTopLevel(String name, ? extends ArtifactType artefactType) {    
       shape = diagram.AddShape();      
-      if (parameters.artefactType != null) {      
-        artifactType = ArtifactType.create(parameters.name);      
-      } else {      
-        artifactType = ArtifactType.create(parameters.name);      
-      }      
+      artifactType = ArtifactType.create(parameters.name);      
       artifactType.name = parameters.name;    
+    }    
+  
+    @DeletionScheme    
+    public Void delete() {    
+      delete shape;      
+      artifactType.delete();    
     }    
   
   }  
@@ -271,11 +273,21 @@ public class ProcessEditor {
   public class UsedArtefactType {  
   
     public DiagramConnector connector;  
+    public TaskType taskType;  
+    public ArtifactType artefactType;  
   
     @LinkScheme    
     UsedArtefactType:linkArtifactTypeGRToTaskTypeGR() {    
       connector = diagram.AddConnector();      
-      toTarget.taskType.usedArtifactTypes.add(fromTarget.artifactType)    
+      taskType = toTarget.taskType;      
+      artefactType = fromTarget.artifactType;      
+      taskType.usedArtifactTypes.add(artefactType)    
+    }    
+  
+    @DeletionScheme    
+    public Void delete() {    
+      delete connector;      
+      taskType.usedArtifactTypes.remove(artefactType)    
     }    
   
   }  
@@ -284,11 +296,21 @@ public class ProcessEditor {
   public class ProducedArtefactType {  
   
     public DiagramConnector connector;  
+    public TaskType taskType;  
+    public ArtifactType artefactType;  
   
     @LinkScheme    
     ProducedArtefactType:linkTaskTypeGRToArtifactTypeGR() {    
       connector = diagram.AddConnector();      
-      fromTarget.taskType.producedArtifactTypes.add(toTarget.artifactType)    
+      taskType = fromTarget.taskType;      
+      artefactType = toTarget.artifactType;      
+      taskType.producedArtifactTypes.add(artefactType)    
+    }    
+  
+    @DeletionScheme    
+    public Void delete() {    
+      delete connector;      
+      taskType.producedArtifactTypes.remove(artefactType)    
     }    
   
   }  
@@ -302,17 +324,14 @@ public class ProcessEditor {
     @DropScheme    
     ActorTypeGR:dropActorTypeGRAtTopLevel(String name, ? extends ActorType actorType) {    
       shape = diagram.AddShape();      
-      if (parameters.actorType != null) {      
-        actorType = ActorType.create(parameters.name);      
-      } else {      
-        actorType = ActorType.create(parameters.name);      
-      }      
+      actorType = ActorType.create(parameters.name);      
       actorType.name = parameters.name;    
     }    
   
     @DeletionScheme    
-    Void delete() {    
-      delete shape;    
+    public Void delete() {    
+      delete shape;      
+      actorType.delete();    
     }    
   
   }  
