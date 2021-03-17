@@ -4,6 +4,78 @@
     <ModelObjectActorReference id="2" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/Diagram1.diagram#SYL_33" roleName="connector" userID="SYL" flexoID="125" />
     <ModelObjectActorReference id="3" objectReference="http://www.openflexo.org/MULTIProcessChallenge/TestModel.fml.rt#SYL_93" roleName="sequencing" userID="SYL" flexoID="126" />
   </FlexoConceptInstance>
-  <TypeAwareModelSlotInstance id="4" modelURI="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/Diagram1.diagram" modelSlotName="diagram" roleName="diagram" userID="SYL" flexoID="2" />
-  <VirtualModelModelSlotInstance id="5" virtualModelInstanceURI="http://www.openflexo.org/MULTIProcessChallenge/TestModel.fml.rt" modelSlotName="model" roleName="model" userID="SYL" flexoID="3" />
+  <FlexoConceptInstance id="4" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#ProcessTypeGR" userID="SYL" flexoID="127">
+    <ModelObjectActorReference id="5" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/Diagram1.diagram#SYL_34" roleName="shape" userID="SYL" flexoID="145" />
+    <ModelObjectActorReference id="6" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/Diagram1.diagram#SYL_35" roleName="header" userID="SYL" flexoID="146" />
+    <ModelObjectActorReference id="7" objectReference="http://www.openflexo.org/MULTIProcessChallenge/TestModel.fml.rt#SYL_98" roleName="processType" userID="SYL" flexoID="147" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="8" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#TaskTypeGR" userID="SYL" flexoID="128">
+    <ModelObjectActorReference id="9" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/Diagram1.diagram#SYL_36" roleName="shape" userID="SYL" flexoID="148" />
+    <ModelObjectActorReference id="10" objectReference="http://www.openflexo.org/MULTIProcessChallenge/TestModel.fml.rt#SYL_99" roleName="taskType" userID="SYL" flexoID="149" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="11" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#TaskTypeGR" userID="SYL" flexoID="129">
+    <ModelObjectActorReference id="12" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/Diagram1.diagram#SYL_37" roleName="shape" userID="SYL" flexoID="150" />
+    <ModelObjectActorReference id="13" objectReference="http://www.openflexo.org/MULTIProcessChallenge/TestModel.fml.rt#SYL_100" roleName="taskType" userID="SYL" flexoID="151" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="14" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#SequencingGR" userID="SYL" flexoID="130">
+    <ModelObjectActorReference id="15" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/Diagram1.diagram#SYL_38" roleName="connector" userID="SYL" flexoID="152" />
+    <ModelObjectActorReference id="16" objectReference="http://www.openflexo.org/MULTIProcessChallenge/TestModel.fml.rt#SYL_101" roleName="sequencing" userID="SYL" flexoID="153" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="17" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#BeginGR" userID="SYL" flexoID="131">
+    <ModelObjectActorReference id="18" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/Diagram1.diagram#SYL_39" roleName="shape" userID="SYL" flexoID="154" />
+    <ModelObjectActorReference id="19" objectReference="http://www.openflexo.org/MULTIProcessChallenge/TestModel.fml.rt#SYL_102" roleName="begin" userID="SYL" flexoID="155" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="20" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#StartSequencingGR" userID="SYL" flexoID="132">
+    <ModelObjectActorReference id="21" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/Diagram1.diagram#SYL_40" roleName="connector" userID="SYL" flexoID="156" />
+    <ModelObjectActorReference id="22" objectReference="http://www.openflexo.org/MULTIProcessChallenge/TestModel.fml.rt#SYL_103" roleName="sequencing" userID="SYL" flexoID="157" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="23" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#EndGR" userID="SYL" flexoID="133">
+    <ModelObjectActorReference id="24" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/Diagram1.diagram#SYL_41" roleName="shape" userID="SYL" flexoID="158" />
+    <ModelObjectActorReference id="25" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/Diagram1.diagram#SYL_42" roleName="inside" userID="SYL" flexoID="159" />
+    <ModelObjectActorReference id="26" objectReference="http://www.openflexo.org/MULTIProcessChallenge/TestModel.fml.rt#SYL_104" roleName="end" userID="SYL" flexoID="160" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="27" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#EndSequencingGR" userID="SYL" flexoID="134">
+    <ModelObjectActorReference id="28" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/Diagram1.diagram#SYL_43" roleName="connector" userID="SYL" flexoID="161" />
+    <ModelObjectActorReference id="29" objectReference="http://www.openflexo.org/MULTIProcessChallenge/TestModel.fml.rt#SYL_105" roleName="sequencing" userID="SYL" flexoID="162" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="30" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#AndSplitGR" userID="SYL" flexoID="135">
+    <ModelObjectActorReference id="31" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/Diagram1.diagram#SYL_44" roleName="shape" userID="SYL" flexoID="163" />
+    <ModelObjectActorReference id="32" objectReference="http://www.openflexo.org/MULTIProcessChallenge/TestModel.fml.rt#SYL_106" roleName="andSplit" userID="SYL" flexoID="164" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="33" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#InAndSplitGR" userID="SYL" flexoID="136">
+    <ModelObjectActorReference id="34" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/Diagram1.diagram#SYL_45" roleName="connector" userID="SYL" flexoID="165" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="35" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#TaskTypeGR" userID="SYL" flexoID="137">
+    <ModelObjectActorReference id="36" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/Diagram1.diagram#SYL_46" roleName="shape" userID="SYL" flexoID="166" />
+    <ModelObjectActorReference id="37" objectReference="http://www.openflexo.org/MULTIProcessChallenge/TestModel.fml.rt#SYL_107" roleName="taskType" userID="SYL" flexoID="167" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="38" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#OutAndSplitGR" userID="SYL" flexoID="138">
+    <ModelObjectActorReference id="39" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/Diagram1.diagram#SYL_47" roleName="connector" userID="SYL" flexoID="168" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="40" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#TaskTypeGR" userID="SYL" flexoID="139">
+    <ModelObjectActorReference id="41" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/Diagram1.diagram#SYL_48" roleName="shape" userID="SYL" flexoID="169" />
+    <ModelObjectActorReference id="42" objectReference="http://www.openflexo.org/MULTIProcessChallenge/TestModel.fml.rt#SYL_108" roleName="taskType" userID="SYL" flexoID="170" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="43" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#OutAndSplitGR" userID="SYL" flexoID="140">
+    <ModelObjectActorReference id="44" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/Diagram1.diagram#SYL_49" roleName="connector" userID="SYL" flexoID="171" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="45" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#BeginGR" userID="SYL" flexoID="141">
+    <ModelObjectActorReference id="46" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/Diagram1.diagram#SYL_50" roleName="shape" userID="SYL" flexoID="172" />
+    <ModelObjectActorReference id="47" objectReference="http://www.openflexo.org/MULTIProcessChallenge/TestModel.fml.rt#SYL_109" roleName="begin" userID="SYL" flexoID="173" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="48" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#TaskTypeGR" userID="SYL" flexoID="142">
+    <ModelObjectActorReference id="49" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/Diagram1.diagram#SYL_51" roleName="shape" userID="SYL" flexoID="174" />
+    <ModelObjectActorReference id="50" objectReference="http://www.openflexo.org/MULTIProcessChallenge/TestModel.fml.rt#SYL_110" roleName="taskType" userID="SYL" flexoID="175" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="51" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#EndGR" userID="SYL" flexoID="143">
+    <ModelObjectActorReference id="52" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/Diagram1.diagram#SYL_52" roleName="shape" userID="SYL" flexoID="176" />
+    <ModelObjectActorReference id="53" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/Diagram1.diagram#SYL_53" roleName="inside" userID="SYL" flexoID="177" />
+    <ModelObjectActorReference id="54" objectReference="http://www.openflexo.org/MULTIProcessChallenge/TestModel.fml.rt#SYL_111" roleName="end" userID="SYL" flexoID="178" />
+  </FlexoConceptInstance>
+  <FlexoConceptInstance id="55" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#EndSequencingGR" userID="SYL" flexoID="144">
+    <ModelObjectActorReference id="56" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/Diagram1.diagram#SYL_54" roleName="connector" userID="SYL" flexoID="179" />
+    <ModelObjectActorReference id="57" objectReference="http://www.openflexo.org/MULTIProcessChallenge/TestModel.fml.rt#SYL_112" roleName="sequencing" userID="SYL" flexoID="180" />
+  </FlexoConceptInstance>
+  <TypeAwareModelSlotInstance id="58" modelURI="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/Diagram1.diagram" modelSlotName="diagram" roleName="diagram" userID="SYL" flexoID="2" />
+  <VirtualModelModelSlotInstance id="59" virtualModelInstanceURI="http://www.openflexo.org/MULTIProcessChallenge/TestModel.fml.rt" modelSlotName="model" roleName="model" userID="SYL" flexoID="3" />
 </FMLRTVirtualModelInstance>

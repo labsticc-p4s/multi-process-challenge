@@ -32,8 +32,9 @@ public class ProcessEditor {
     }    
   
     @DeletionScheme    
-    Void delete() {    
-      delete shape;    
+    public Void delete() {    
+      delete shape;      
+      begin.delete();    
     }    
   
   }  
@@ -51,6 +52,12 @@ public class ProcessEditor {
       fromTarget.begin.container.addToGateways(sequencing)      
       sequencing.in = fromTarget.begin;      
       sequencing.out = toTarget.taskType;    
+    }    
+  
+    @DeletionScheme    
+    public Void delete() {    
+      delete connector;      
+      sequencing.delete();    
     }    
   
   }  
@@ -72,9 +79,10 @@ public class ProcessEditor {
     }    
   
     @DeletionScheme    
-    Void delete() {    
+    public Void delete() {    
       delete shape;      
-      delete inside;    
+      delete inside;      
+      end.delete();    
     }    
   
   }  
@@ -124,6 +132,11 @@ public class ProcessEditor {
       shape = diagram.AddShape();      
       andSplit = AndSplit.create();      
       target.processType.addToGateways(andSplit)    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      delete shape;    
     }    
   
   }  
@@ -257,6 +270,11 @@ public class ProcessEditor {
       actorType.name = parameters.name;    
     }    
   
+    @DeletionScheme    
+    Void delete() {    
+      delete shape;    
+    }    
+  
   }  
 
   @FlexoConcept  
@@ -345,8 +363,9 @@ public class ProcessEditor {
     }    
   
     @DeletionScheme    
-    Void delete() {    
-      delete shape;    
+    public Void delete() {    
+      delete shape;      
+      taskType.delete();    
     }    
   
   }  

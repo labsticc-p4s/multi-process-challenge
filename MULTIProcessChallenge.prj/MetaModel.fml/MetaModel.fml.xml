@@ -16,7 +16,9 @@
         <GenericBehaviourParameter id="SYL-205" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="SYL" flexoID="205" />
       </CreationScheme>
       <DeletionScheme id="SYL-21" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="21">
-        <BehaviourControlGraph_EmptyControlGraph id="SYL-23" userID="SYL" flexoID="23" />
+        <BehaviourControlGraph_ConditionalAction id="SYL-1701" condition="(container != null)" userID="SYL" flexoID="1701">
+          <ThenControlGraph_ExpressionAction id="SYL-1702" expression="container.taskTypes.remove(this)" ownerContext="thenControlGraph" userID="SYL" flexoID="1702" />
+        </BehaviourControlGraph_ConditionalAction>
       </DeletionScheme>
       <ActionScheme id="SYL-330" visibility="Public" label="addAllowedActorType" name="addAllowedActorType" width="800" height="600" userID="SYL" flexoID="330">
         <BehaviourControlGraph_ConditionalAction id="SYL-1157" condition="this.isValidActorType(parameters.actorType)" userID="SYL" flexoID="1157">
@@ -175,7 +177,11 @@
         <BehaviourControlGraph_ExpressionAction id="SYL-905" expression="super.create(&quot;Begin&quot;)" userID="SYL" flexoID="905" />
       </CreationScheme>
       <DeletionScheme id="SYL-755" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="755">
-        <BehaviourControlGraph_EmptyControlGraph id="SYL-756" userID="SYL" flexoID="756" />
+        <BehaviourControlGraph_ConditionalAction id="SYL-1703" condition="(((container != null) &amp; container.initialTaskType) = this)" userID="SYL" flexoID="1703">
+          <ThenControlGraph_AssignationAction id="SYL-1708" assign="container.initialTaskType" ownerContext="thenControlGraph" userID="SYL" flexoID="1708">
+            <AssignableAction_ExpressionAction id="SYL-1707" expression="null" userID="SYL" flexoID="1707" />
+          </ThenControlGraph_AssignationAction>
+        </BehaviourControlGraph_ConditionalAction>
       </DeletionScheme>
     </EmbeddedFlexoConcept>
     <EmbeddedFlexoConcept id="SYL-757" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#TaskType" name="End" userID="SYL" flexoID="757">
@@ -184,7 +190,9 @@
         <BehaviourControlGraph_ExpressionAction id="SYL-906" expression="super.create(&quot;End&quot;)" userID="SYL" flexoID="906" />
       </CreationScheme>
       <DeletionScheme id="SYL-761" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="761">
-        <BehaviourControlGraph_EmptyControlGraph id="SYL-762" userID="SYL" flexoID="762" />
+        <BehaviourControlGraph_ConditionalAction id="SYL-1705" condition="(container != null)" userID="SYL" flexoID="1705">
+          <ThenControlGraph_ExpressionAction id="SYL-1706" expression="container.finalTaskTypes.remove(this)" ownerContext="thenControlGraph" userID="SYL" flexoID="1706" />
+        </BehaviourControlGraph_ConditionalAction>
       </DeletionScheme>
     </EmbeddedFlexoConcept>
     <FlexoConceptInstanceRole id="SYL-24" virtualModelInstance="container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#TaskType" cloningStrategy="Reference" cardinality="ZeroMany" name="taskTypes" userID="SYL" flexoID="24" />
@@ -250,6 +258,18 @@
         </ControlGraph1_DeclarationAction>
       </BehaviourControlGraph_Sequence>
       <GenericBehaviourParameter id="SYL-1399" isRequired="true" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="SYL" flexoID="1399" />
+    </ActionScheme>
+    <ActionScheme id="SYL-1689" label="removeFromGateways" name="removeFromGateways" width="800" height="600" userID="SYL" flexoID="1689">
+      <BehaviourControlGraph_ExpressionAction id="SYL-1693" expression="gateways.remove(parameters.gateway)" userID="SYL" flexoID="1693" />
+      <GenericBehaviourParameter id="SYL-1692" isRequired="true" widget="CUSTOM_WIDGET" name="gateway" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Gateway&gt;" userID="SYL" flexoID="1692" />
+    </ActionScheme>
+    <ActionScheme id="SYL-1694" label="removeFromTaskTypes" name="removeFromTaskTypes" width="800" height="600" userID="SYL" flexoID="1694">
+      <BehaviourControlGraph_ExpressionAction id="SYL-1695" expression="taskTypes.remove(parameters.taskType)" userID="SYL" flexoID="1695" />
+      <GenericBehaviourParameter id="SYL-1696" isRequired="true" widget="CUSTOM_WIDGET" name="taskType" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Gateway&gt;" userID="SYL" flexoID="1696" />
+    </ActionScheme>
+    <ActionScheme id="SYL-1697" label="removeFromFinalTaskTypes" name="removeFromFinalTaskTypes" width="800" height="600" userID="SYL" flexoID="1697">
+      <BehaviourControlGraph_ExpressionAction id="SYL-1698" expression="finalTaskTypes.remove(parameters.taskType)" userID="SYL" flexoID="1698" />
+      <GenericBehaviourParameter id="SYL-1699" isRequired="true" widget="CUSTOM_WIDGET" name="taskType" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Gateway&gt;" userID="SYL" flexoID="1699" />
     </ActionScheme>
   </FlexoConcept>
   <FlexoConcept idref="SYL-15" />

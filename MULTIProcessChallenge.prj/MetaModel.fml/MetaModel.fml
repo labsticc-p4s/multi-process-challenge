@@ -57,6 +57,21 @@ public class MetaModel {
       return returned;    
     }    
   
+    @ActionScheme    
+    Void removeFromGateways(Gateway gateway) {    
+      gateways.remove(parameters.gateway)    
+    }    
+  
+    @ActionScheme    
+    Void removeFromTaskTypes(Gateway taskType) {    
+      taskTypes.remove(parameters.taskType)    
+    }    
+  
+    @ActionScheme    
+    Void removeFromFinalTaskTypes(Gateway taskType) {    
+      finalTaskTypes.remove(parameters.taskType)    
+    }    
+  
   
     @FlexoConcept    
     public class TaskType extends Type  {    
@@ -74,7 +89,9 @@ public class MetaModel {
       
       @DeletionScheme      
       Void delete() {      
-          
+        if (container != null) {        
+          container.taskTypes.remove(this)        
+        }      
       }      
       
       @ActionScheme      
@@ -256,7 +273,9 @@ public class MetaModel {
       
       @DeletionScheme      
       Void delete() {      
-          
+        if (((container != null) & container.initialTaskType) = this) {        
+          container.initialTaskType = null;        
+        }      
       }      
       
     }    
@@ -271,7 +290,9 @@ public class MetaModel {
       
       @DeletionScheme      
       Void delete() {      
-          
+        if (container != null) {        
+          container.finalTaskTypes.remove(this)        
+        }      
       }      
       
     }    
@@ -294,7 +315,9 @@ public class MetaModel {
   
     @DeletionScheme    
     Void delete() {    
-      
+      if (container != null) {      
+        container.taskTypes.remove(this)      
+      }    
     }    
   
     @ActionScheme    
@@ -915,7 +938,9 @@ public class MetaModel {
   
     @DeletionScheme    
     Void delete() {    
-      
+      if (((container != null) & container.initialTaskType) = this) {      
+        container.initialTaskType = null;      
+      }    
     }    
   
   }  
@@ -930,7 +955,9 @@ public class MetaModel {
   
     @DeletionScheme    
     Void delete() {    
-      
+      if (container != null) {      
+        container.finalTaskTypes.remove(this)      
+      }    
     }    
   
   }  
