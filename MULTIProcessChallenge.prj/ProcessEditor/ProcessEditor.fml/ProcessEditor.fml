@@ -145,11 +145,21 @@ public class ProcessEditor {
   public class InAndSplitGR {  
   
     public DiagramConnector connector;  
+    public TaskType taskType;  
+    public AndSplit andSplit;  
   
     @LinkScheme    
     InAndSplitGR:linkTaskTypeGRToAndSplitGR() {    
       connector = diagram.AddConnector();      
-      toTarget.andSplit.in = fromTarget.taskType;    
+      taskType = fromTarget.taskType;      
+      andSplit = toTarget.andSplit;      
+      andSplit.in = taskType;    
+    }    
+  
+    @DeletionScheme    
+    public Void delete() {    
+      delete connector;      
+      andSplit.in = null;    
     }    
   
   }  
@@ -158,11 +168,21 @@ public class ProcessEditor {
   public class OutAndSplitGR {  
   
     public DiagramConnector connector;  
+    public AndSplit andSplit;  
+    public TaskType taskType;  
   
     @LinkScheme    
     OutAndSplitGR:linkAndSplitGRToTaskTypeGR() {    
       connector = diagram.AddConnector();      
-      fromTarget.andSplit.out.add(toTarget.taskType)    
+      andSplit = fromTarget.andSplit;      
+      taskType = toTarget.taskType;      
+      andSplit.out.add(taskType)    
+    }    
+  
+    @DeletionScheme    
+    public Void delete() {    
+      delete connector;      
+      andSplit.out.remove(taskType)    
     }    
   
   }  
@@ -186,11 +206,21 @@ public class ProcessEditor {
   public class OutAndJoinGR {  
   
     public DiagramConnector connector;  
+    public AndJoin andJoin;  
+    public TaskType taskType;  
   
     @LinkScheme    
     OutAndJoinGR:linkAndJoinGRToTaskTypeGR() {    
       connector = diagram.AddConnector();      
-      fromTarget.andJoin.out = toTarget.taskType;    
+      andJoin = fromTarget.andJoin;      
+      taskType = toTarget.taskType;      
+      andJoin.out = taskType;    
+    }    
+  
+    @DeletionScheme    
+    public Void delete() {    
+      delete connector;      
+      andJoin.out = null;    
     }    
   
   }  
@@ -199,11 +229,21 @@ public class ProcessEditor {
   public class InAndJoinGR {  
   
     public DiagramConnector connector;  
+    public TaskType taskType;  
+    public AndJoin andJoin;  
   
     @LinkScheme    
     InAndJoinGR:linkTaskTypeGRToAndJoinGR() {    
       connector = diagram.AddConnector();      
-      toTarget.andJoin.in.add(fromTarget.taskType)    
+      taskType = fromTarget.taskType;      
+      andJoin = toTarget.andJoin;      
+      andJoin.in.add(taskType)    
+    }    
+  
+    @DeletionScheme    
+    public Void delete() {    
+      delete connector;      
+      andJoin.in.remove(taskType)    
     }    
   
   }  
