@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <VirtualModel id="SYL-1" virtualModelClass="org.openflexo.foundation.fml.VirtualModel" modelVersion="2.0" uri="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml" version="0.1" visibility="Public" name="MetaModel" author="sylvain" userID="SYL" flexoID="1">
   <FlexoConcept id="SYL-6" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Type" name="ProcessType" author="sylvain" userID="SYL" flexoID="6">
-    <Inspector id="SYL-7" renderer="(&quot;ProcessType:&quot; + this.name)" inspectorTitle="ProcessType" userID="SYL" flexoID="7" />
+    <Inspector id="SYL-7" inspectorTitle="ProcessType" userID="SYL" flexoID="7" />
     <EmbeddedFlexoConcept id="SYL-15" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Type" name="TaskType" author="sylvain" userID="SYL" flexoID="15">
-      <Inspector id="SYL-16" renderer="(&quot;TaskType:&quot; + this.name)" inspectorTitle="TaskType" userID="SYL" flexoID="16">
+      <Inspector id="SYL-16" inspectorTitle="TaskType" userID="SYL" flexoID="16">
         <InspectorEntry id="SYL-1561" container="container" widget="CUSTOM_WIDGET" data="this.creator" name="creator" label="creator" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor&gt;" userID="SYL" flexoID="1561" />
       </Inspector>
       <FlexoConceptInstanceRole id="SYL-97" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor" cloningStrategy="Reference" cardinality="ZeroOne" name="creator" userID="SYL" flexoID="97" />
@@ -290,7 +290,7 @@
     </DeletionScheme>
   </FlexoConcept>
   <FlexoConcept id="SYL-114" visibility="Public" isAbstract="true" name="ModelingElement" author="sylvain" userID="SYL" flexoID="114">
-    <Inspector id="SYL-115" inspectorTitle="ModelingElement" userID="SYL" flexoID="115">
+    <Inspector id="SYL-115" renderer="name" inspectorTitle="ModelingElement" userID="SYL" flexoID="115">
       <InspectorEntry id="SYL-1559" widget="TEXT_FIELD" data="this.name" name="name" label="name" type="java.lang.String" userID="SYL" flexoID="1559" />
       <InspectorEntry id="SYL-1625" readOnly="true" widget="TEXT_FIELD" data="this.concept.name" name="type" label="type" type="java.lang.String" userID="SYL" flexoID="1625" />
       <InspectorEntry id="SYL-1560" readOnly="true" widget="TEXT_FIELD" data="lastUpdated.toString" name="last_updated" label="last_updated" type="java.lang.String" userID="SYL" flexoID="1560" />
@@ -316,7 +316,7 @@
     </ActionScheme>
   </FlexoConcept>
   <FlexoConcept id="SYL-128" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Type" name="ActorType" author="sylvain" userID="SYL" flexoID="128">
-    <Inspector id="SYL-129" renderer="(&quot;ActorType:&quot; + this.name)" inspectorTitle="ActorType" userID="SYL" flexoID="129" />
+    <Inspector id="SYL-129" inspectorTitle="ActorType" userID="SYL" flexoID="129" />
     <FlexoConceptInstanceRole id="SYL-663" virtualModelInstance="container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ActorType" cloningStrategy="Reference" cardinality="ZeroMany" name="parentActorTypes" userID="SYL" flexoID="663" />
     <CreationScheme id="SYL-133" label="create" name="create" width="800" height="600" userID="SYL" flexoID="133">
       <BehaviourControlGraph_ExpressionAction id="SYL-329" expression="super.create(parameters.name)" userID="SYL" flexoID="329" />
@@ -589,7 +589,7 @@
   </FlexoConcept>
   <FlexoConcept idref="SYL-395" />
   <FlexoConcept id="SYL-406" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Type" name="ArtifactType" author="sylvain" userID="SYL" flexoID="406">
-    <Inspector id="SYL-407" renderer="(&quot;ArtifactType:&quot; + this.name)" inspectorTitle="ArtifactType" userID="SYL" flexoID="407" />
+    <Inspector id="SYL-407" inspectorTitle="ArtifactType" userID="SYL" flexoID="407" />
     <CreationScheme id="SYL-411" label="create" name="create" width="800" height="600" userID="SYL" flexoID="411">
       <BehaviourControlGraph_ExpressionAction id="SYL-413" expression="super.create(parameters.name)" userID="SYL" flexoID="413" />
       <GenericBehaviourParameter id="SYL-424" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="SYL" flexoID="424" />
