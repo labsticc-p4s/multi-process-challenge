@@ -21,26 +21,36 @@
         </BehaviourControlGraph_ConditionalAction>
       </DeletionScheme>
       <ActionScheme id="SYL-330" visibility="Public" label="addAllowedActorType" name="addAllowedActorType" width="800" height="600" userID="SYL" flexoID="330">
-        <BehaviourControlGraph_Sequence id="SYL-1840" userID="SYL" flexoID="1840">
-          <ControlGraph2_Sequence id="SYL-1971" ownerContext="controlGraph2" userID="SYL" flexoID="1971">
-            <ControlGraph2_ConditionalAction id="SYL-1157" condition="this.isValidActorType(parameters.actorType)" ownerContext="controlGraph2" userID="SYL" flexoID="1157">
-              <ThenControlGraph_Sequence id="SYL-1162" ownerContext="thenControlGraph" userID="SYL" flexoID="1162">
-                <ControlGraph2_ExpressionAction id="SYL-1161" expression="this.update()" ownerContext="controlGraph2" userID="SYL" flexoID="1161" />
-                <ControlGraph1_AddToListAction id="SYL-1159" list="allowedActorTypes" ownerContext="controlGraph1" userID="SYL" flexoID="1159">
-                  <AssignableAction_ExpressionAction id="SYL-1158" expression="parameters.actorType" userID="SYL" flexoID="1158" />
-                </ControlGraph1_AddToListAction>
-              </ThenControlGraph_Sequence>
-            </ControlGraph2_ConditionalAction>
-            <ControlGraph1_LogAction id="SYL-1970" logLevel="INFO" logString="(&quot;Et maintenant, actorType=&quot; + parameters.actorType)" ownerContext="controlGraph1" userID="SYL" flexoID="1970" />
-          </ControlGraph2_Sequence>
-          <ControlGraph1_LogAction id="SYL-1839" logLevel="INFO" logString="(((&quot;addAllowedActorType() parameters=&quot; + parameters) + &quot; of &quot;) + parameters.class)" ownerContext="controlGraph1" userID="SYL" flexoID="1839" />
-        </BehaviourControlGraph_Sequence>
+        <BehaviourControlGraph_ConditionalAction id="SYL-1157" condition="this.isValidActorType(parameters.actorType)" ownerContext="controlGraph2" userID="SYL" flexoID="1157">
+          <ElseControlGraph_ReturnStatement id="SYL-2039" ownerContext="elseControlGraph" userID="SYL" flexoID="2039">
+            <AssignableAction_ExpressionAction id="SYL-2038" expression="false" userID="SYL" flexoID="2038" />
+          </ElseControlGraph_ReturnStatement>
+          <ThenControlGraph_Sequence id="SYL-1162" ownerContext="thenControlGraph" userID="SYL" flexoID="1162">
+            <ControlGraph2_Sequence id="SYL-2055" ownerContext="controlGraph2" userID="SYL" flexoID="2055">
+              <ControlGraph2_ReturnStatement id="SYL-2037" ownerContext="controlGraph2" userID="SYL" flexoID="2037">
+                <AssignableAction_ExpressionAction id="SYL-2036" expression="true" userID="SYL" flexoID="2036" />
+              </ControlGraph2_ReturnStatement>
+              <ControlGraph1_ExpressionAction id="SYL-1161" expression="this.update()" ownerContext="controlGraph1" userID="SYL" flexoID="1161" />
+            </ControlGraph2_Sequence>
+            <ControlGraph1_AddToListAction id="SYL-1159" list="allowedActorTypes" ownerContext="controlGraph1" userID="SYL" flexoID="1159">
+              <AssignableAction_ExpressionAction id="SYL-1158" expression="parameters.actorType" userID="SYL" flexoID="1158" />
+            </ControlGraph1_AddToListAction>
+          </ThenControlGraph_Sequence>
+        </BehaviourControlGraph_ConditionalAction>
         <GenericBehaviourParameter id="SYL-336" container="container.container" isRequired="true" widget="CUSTOM_WIDGET" name="actorType" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ActorType&gt;" userID="SYL" flexoID="336" />
       </ActionScheme>
       <ActionScheme id="SYL-333" visibility="Public" label="addAllowedActor" name="addAllowedActor" width="800" height="600" userID="SYL" flexoID="333">
         <BehaviourControlGraph_ConditionalAction id="SYL-1164" condition="this.isValidActor(parameters.actor)" ownerContext="controlGraph2" userID="SYL" flexoID="1164">
+          <ElseControlGraph_ReturnStatement id="SYL-2044" ownerContext="elseControlGraph" userID="SYL" flexoID="2044">
+            <AssignableAction_ExpressionAction id="SYL-2043" expression="false" userID="SYL" flexoID="2043" />
+          </ElseControlGraph_ReturnStatement>
           <ThenControlGraph_Sequence id="SYL-1168" ownerContext="thenControlGraph" userID="SYL" flexoID="1168">
-            <ControlGraph2_ExpressionAction id="SYL-1165" expression="this.update()" ownerContext="controlGraph2" userID="SYL" flexoID="1165" />
+            <ControlGraph2_Sequence id="SYL-2042" ownerContext="controlGraph2" userID="SYL" flexoID="2042">
+              <ControlGraph2_ReturnStatement id="SYL-2041" ownerContext="controlGraph2" userID="SYL" flexoID="2041">
+                <AssignableAction_ExpressionAction id="SYL-2040" expression="true" userID="SYL" flexoID="2040" />
+              </ControlGraph2_ReturnStatement>
+              <ControlGraph1_ExpressionAction id="SYL-1165" expression="this.update()" ownerContext="controlGraph1" userID="SYL" flexoID="1165" />
+            </ControlGraph2_Sequence>
             <ControlGraph1_AddToListAction id="SYL-1167" list="allowedActors" ownerContext="controlGraph1" userID="SYL" flexoID="1167">
               <AssignableAction_ExpressionAction id="SYL-1166" expression="parameters.actor" userID="SYL" flexoID="1166" />
             </ControlGraph1_AddToListAction>
@@ -50,8 +60,16 @@
       </ActionScheme>
       <ActionScheme id="SYL-426" visibility="Public" label="addUsedArtifactType" name="addUsedArtifactType" width="800" height="600" userID="SYL" flexoID="426">
         <BehaviourControlGraph_ConditionalAction id="SYL-1169" condition="this.isValidUsedArtifactType(parameters.artifactType)" ownerContext="controlGraph2" userID="SYL" flexoID="1169">
+          <ElseControlGraph_ReturnStatement id="SYL-2049" ownerContext="elseControlGraph" userID="SYL" flexoID="2049">
+            <AssignableAction_ExpressionAction id="SYL-2048" expression="false" userID="SYL" flexoID="2048" />
+          </ElseControlGraph_ReturnStatement>
           <ThenControlGraph_Sequence id="SYL-1173" ownerContext="thenControlGraph" userID="SYL" flexoID="1173">
-            <ControlGraph2_ExpressionAction id="SYL-1170" expression="this.update()" ownerContext="controlGraph2" userID="SYL" flexoID="1170" />
+            <ControlGraph2_Sequence id="SYL-2047" ownerContext="controlGraph2" userID="SYL" flexoID="2047">
+              <ControlGraph2_ReturnStatement id="SYL-2046" ownerContext="controlGraph2" userID="SYL" flexoID="2046">
+                <AssignableAction_ExpressionAction id="SYL-2045" expression="true" userID="SYL" flexoID="2045" />
+              </ControlGraph2_ReturnStatement>
+              <ControlGraph1_ExpressionAction id="SYL-1170" expression="this.update()" ownerContext="controlGraph1" userID="SYL" flexoID="1170" />
+            </ControlGraph2_Sequence>
             <ControlGraph1_AddToListAction id="SYL-1172" list="usedArtifactTypes" ownerContext="controlGraph1" userID="SYL" flexoID="1172">
               <AssignableAction_ExpressionAction id="SYL-1171" expression="parameters.artifactType" userID="SYL" flexoID="1171" />
             </ControlGraph1_AddToListAction>
@@ -61,8 +79,16 @@
       </ActionScheme>
       <ActionScheme id="SYL-429" visibility="Public" label="addProducedArtifactType" name="addProducedArtifactType" width="800" height="600" userID="SYL" flexoID="429">
         <BehaviourControlGraph_ConditionalAction id="SYL-1174" condition="this.isValidProducedArtifactType(parameters.artifactType)" ownerContext="controlGraph2" userID="SYL" flexoID="1174">
+          <ElseControlGraph_ReturnStatement id="SYL-2054" ownerContext="elseControlGraph" userID="SYL" flexoID="2054">
+            <AssignableAction_ExpressionAction id="SYL-2053" expression="false" userID="SYL" flexoID="2053" />
+          </ElseControlGraph_ReturnStatement>
           <ThenControlGraph_Sequence id="SYL-1178" ownerContext="thenControlGraph" userID="SYL" flexoID="1178">
-            <ControlGraph2_ExpressionAction id="SYL-1175" expression="this.update()" ownerContext="controlGraph2" userID="SYL" flexoID="1175" />
+            <ControlGraph2_Sequence id="SYL-2052" ownerContext="controlGraph2" userID="SYL" flexoID="2052">
+              <ControlGraph2_ReturnStatement id="SYL-2051" ownerContext="controlGraph2" userID="SYL" flexoID="2051">
+                <AssignableAction_ExpressionAction id="SYL-2050" expression="true" userID="SYL" flexoID="2050" />
+              </ControlGraph2_ReturnStatement>
+              <ControlGraph1_ExpressionAction id="SYL-1175" expression="this.update()" ownerContext="controlGraph1" userID="SYL" flexoID="1175" />
+            </ControlGraph2_Sequence>
             <ControlGraph1_AddToListAction id="SYL-1177" list="producedArtifactTypes" ownerContext="controlGraph1" userID="SYL" flexoID="1177">
               <AssignableAction_ExpressionAction id="SYL-1176" expression="parameters.artifactType" userID="SYL" flexoID="1176" />
             </ControlGraph1_AddToListAction>

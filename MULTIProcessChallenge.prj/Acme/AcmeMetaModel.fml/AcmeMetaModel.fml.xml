@@ -21,18 +21,9 @@
       <GenericBehaviourParameter id="SYL-1326" isRequired="true" widget="CUSTOM_WIDGET" name="process" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Process&gt;" userID="SYL" flexoID="1326" />
     </ActionScheme>
     <ActionScheme id="SYL-1103" label="isValidActorType" name="isValidActorType" width="800" height="600" userID="SYL" flexoID="1103">
-      <BehaviourControlGraph_Sequence id="SYL-1402" userID="SYL" flexoID="1402">
-        <ControlGraph2_Sequence id="SYL-1403" ownerContext="controlGraph2" userID="SYL" flexoID="1403">
-          <ControlGraph2_Sequence id="SYL-1366" ownerContext="controlGraph2" userID="SYL" flexoID="1366">
-            <ControlGraph2_ReturnStatement id="SYL-1105" ownerContext="controlGraph2" userID="SYL" flexoID="1105">
-              <AssignableAction_ExpressionAction id="SYL-1104" expression="(parameters.actorType.concept.name = &quot;Developer&quot;)" userID="SYL" flexoID="1104" />
-            </ControlGraph2_ReturnStatement>
-            <ControlGraph1_LogAction id="SYL-1365" logLevel="INFO" logString="(&quot;Concept2:&quot; + parameters.actorType.concept)" ownerContext="controlGraph1" userID="SYL" flexoID="1365" />
-          </ControlGraph2_Sequence>
-          <ControlGraph1_LogAction id="SYL-1363" logLevel="INFO" logString="(&quot;Concept1:&quot; + parameters.actorType)" ownerContext="controlGraph1" userID="SYL" flexoID="1363" />
-        </ControlGraph2_Sequence>
-        <ControlGraph1_LogAction id="SYL-1401" logLevel="INFO" logString="(&quot;parameters=&quot; + parameters)" ownerContext="controlGraph1" userID="SYL" flexoID="1401" />
-      </BehaviourControlGraph_Sequence>
+      <BehaviourControlGraph_ReturnStatement id="SYL-1105" ownerContext="controlGraph2" userID="SYL" flexoID="1105">
+        <AssignableAction_ExpressionAction id="SYL-1104" expression="(parameters.actorType.concept.name = &quot;Developer&quot;)" userID="SYL" flexoID="1104" />
+      </BehaviourControlGraph_ReturnStatement>
       <GenericBehaviourParameter id="SYL-1106" isRequired="true" widget="CUSTOM_WIDGET" name="actorType" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ActorType&gt;" userID="SYL" flexoID="1106" />
     </ActionScheme>
     <ActionScheme id="SYL-1107" label="isValidProducedArtifactType" name="isValidProducedArtifactType" width="800" height="600" userID="SYL" flexoID="1107">

@@ -95,36 +95,46 @@ public class MetaModel {
       }      
       
       @ActionScheme      
-      public Void addAllowedActorType(ActorType actorType) {      
-        log ((("addAllowedActorType() parameters=" + parameters) + " of ") + parameters.class)        
-        log ("Et maintenant, actorType=" + parameters.actorType)        
+      public Boolean addAllowedActorType(ActorType actorType) {      
         if this.isValidActorType(parameters.actorType) {        
           allowedActorTypes.add(parameters.actorType)          
-          this.update()        
+          this.update()          
+          return true;        
+        } else {        
+          return false;        
         }      
       }      
       
       @ActionScheme      
-      public Void addAllowedActor(Actor actor) {      
+      public Boolean addAllowedActor(Actor actor) {      
         if this.isValidActor(parameters.actor) {        
           allowedActors.add(parameters.actor)          
-          this.update()        
+          this.update()          
+          return true;        
+        } else {        
+          return false;        
         }      
       }      
       
       @ActionScheme      
-      public Void addUsedArtifactType(ArtifactType artifactType) {      
+      public Boolean addUsedArtifactType(ArtifactType artifactType) {      
         if this.isValidUsedArtifactType(parameters.artifactType) {        
           usedArtifactTypes.add(parameters.artifactType)          
-          this.update()        
+          this.update()          
+          return true;        
+        } else {        
+          return false;        
         }      
       }      
       
       @ActionScheme      
-      public Void addProducedArtifactType(ArtifactType artifactType) {      
+      public Boolean addProducedArtifactType(ArtifactType artifactType) {      
         if this.isValidProducedArtifactType(parameters.artifactType) {        
           producedArtifactTypes.add(parameters.artifactType)          
-          this.update()        
+          this.update()          
+          return true;        
+        } else {        
+          return false;        
         }      
       }      
       
@@ -324,36 +334,46 @@ public class MetaModel {
     }    
   
     @ActionScheme    
-    public Void addAllowedActorType(ActorType actorType) {    
-      log ((("addAllowedActorType() parameters=" + parameters) + " of ") + parameters.class)      
-      log ("Et maintenant, actorType=" + parameters.actorType)      
+    public Boolean addAllowedActorType(ActorType actorType) {    
       if this.isValidActorType(parameters.actorType) {      
         allowedActorTypes.add(parameters.actorType)        
-        this.update()      
+        this.update()        
+        return true;      
+      } else {      
+        return false;      
       }    
     }    
   
     @ActionScheme    
-    public Void addAllowedActor(Actor actor) {    
+    public Boolean addAllowedActor(Actor actor) {    
       if this.isValidActor(parameters.actor) {      
         allowedActors.add(parameters.actor)        
-        this.update()      
+        this.update()        
+        return true;      
+      } else {      
+        return false;      
       }    
     }    
   
     @ActionScheme    
-    public Void addUsedArtifactType(ArtifactType artifactType) {    
+    public Boolean addUsedArtifactType(ArtifactType artifactType) {    
       if this.isValidUsedArtifactType(parameters.artifactType) {      
         usedArtifactTypes.add(parameters.artifactType)        
-        this.update()      
+        this.update()        
+        return true;      
+      } else {      
+        return false;      
       }    
     }    
   
     @ActionScheme    
-    public Void addProducedArtifactType(ArtifactType artifactType) {    
+    public Boolean addProducedArtifactType(ArtifactType artifactType) {    
       if this.isValidProducedArtifactType(parameters.artifactType) {      
         producedArtifactTypes.add(parameters.artifactType)        
-        this.update()      
+        this.update()        
+        return true;      
+      } else {      
+        return false;      
       }    
     }    
   

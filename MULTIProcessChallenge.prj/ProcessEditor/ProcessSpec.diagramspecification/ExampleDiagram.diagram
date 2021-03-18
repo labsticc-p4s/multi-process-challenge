@@ -325,7 +325,7 @@
   </Shape>
   <Shape id="242" name="Shape" text="" userID="SYL" flexoID="29">
     <Shape id="243" name="Shape" text="Process" userID="SYL" flexoID="30">
-      <ShapeGraphicalRepresentation id="244" relativeTextY="0.5" locationConstraints="UNMOVABLE" isFloatingLabel="false" widthConstraints="parent.width" allowToLeaveBounds="false" adaptBoundsToContents="false" yConstraints="0" heightConstraints="20" xConstraints="0" y="30.0" relativeTextX="0.5" dimensionConstraints="UNRESIZABLE" height="20.0" identifier="29805e3b" layer="1" text="Process" isSelectable="false" isFocusable="false">
+      <ShapeGraphicalRepresentation id="244" relativeTextY="0.5" locationConstraints="UNMOVABLE" isFloatingLabel="false" widthConstraints="parent.width" allowToLeaveBounds="false" adaptBoundsToContents="false" yConstraints="0" heightConstraints="20" xConstraints="0" relativeTextX="0.5" dimensionConstraints="UNRESIZABLE" height="20.0" identifier="29805e3b" layer="1" text="Process" isSelectable="false" isFocusable="false">
         <SelectedColorBackgroundStyle id="245" color="254,247,217" transparencyLevel="0.5" />
         <ForegroundStyle id="246" color="0,0,0" joinStyle="JOIN_MITER" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
         <FocusedColorBackgroundStyle id="247" color="254,247,217" transparencyLevel="0.5" />
@@ -349,7 +349,7 @@
       <TextStyle id="263" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
     </ShapeGraphicalRepresentation>
   </Shape>
-  <DrawingGraphicalRepresentation id="264" drawWorkingArea="false" backgroundColor="255,255,255" focusColor="255,0,0" selectionColor="0,0,255" rectangleSelectingSelectionColor="0,0,255" dimensionConstraints="UNRESIZABLE" identifier="141645e1">
+  <DrawingGraphicalRepresentation id="264" backgroundColor="255,255,255" drawWorkingArea="false" focusColor="255,0,0" selectionColor="0,0,255" rectangleSelectingSelectionColor="0,0,255" dimensionConstraints="UNRESIZABLE" identifier="141645e1">
     <TextStyle id="265" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
   </DrawingGraphicalRepresentation>
 </Diagram>

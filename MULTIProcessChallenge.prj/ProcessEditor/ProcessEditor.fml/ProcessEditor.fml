@@ -395,11 +395,13 @@ public class ProcessEditor {
   
     @LinkScheme    
     AllowedActorTypeGR:linkActorTypeGRToTaskTypeGR() {    
-      connector = diagram.AddConnector();      
       taskType = toTarget.taskType;      
       actorType = fromTarget.actorType;      
-      log ("Ici actorType=" + actorType)      
-      taskType.addAllowedActorType(actorType)    
+      if taskType.addAllowedActorType(actorType) {      
+        connector = diagram.AddConnector();      
+      } else {      
+        log "Invalid ActorType"      
+      }    
     }    
   
     @DeletionScheme    
