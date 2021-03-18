@@ -354,6 +354,96 @@
       <GenericBehaviourParameter id="BEU-331" widget="TEXT_FIELD" defaultValue="&quot;Artefact&quot;" name="conceptName" type="java.lang.String" userID="BEU" flexoID="331" />
     </DropScheme>
   </FlexoConcept>
+  <FlexoConcept id="BEU-334" visibility="Public" name="LanguageGR" userID="BEU" flexoID="334">
+    <Inspector id="BEU-335" renderer="instance.fmeConcept.name" inspectorTitle="LanguageGR" userID="BEU" flexoID="335">
+      <InspectorEntry id="BEU-336" readOnly="true" widget="TEXT_FIELD" data="fmeConcept.concept.name" name="Type" label="Type" type="java.lang.String" userID="BEU" flexoID="336" />
+      <InspectorEntry id="BEU-337" widget="TEXT_FIELD" data="fmeConcept.name" name="name" label="name" type="java.lang.String" userID="BEU" flexoID="337" />
+      <InspectorEntry id="BEU-338" widget="TEXT_AREA" data="fmeConcept.description" name="description" label="description" type="java.lang.String" userID="BEU" flexoID="338" />
+    </Inspector>
+    <FlexoConceptInstanceRole id="BEU-339" virtualModelInstance="sampleData" flexoConceptTypeURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#Language" cloningStrategy="Reference" cardinality="ZeroOne" name="fmeConcept" userID="BEU" flexoID="339" />
+    <ShapeRole id="BEU-340" metamodelElementReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeChallenge.prj/DiagramSpecification/FreeModel.diagramspecification/Default.diagram#BEU_14" container="diagram" cloningStrategy="Clone" cardinality="ZeroOne" name="shape" userID="BEU" flexoID="340">
+      <GRSpec id="BEU-341" featureName="label" value="fmeConcept.name" userID="BEU" flexoID="341" />
+    </ShapeRole>
+    <DeletionScheme id="BEU-342" visibility="Public" label="delete" name="delete" width="800" height="600" userID="BEU" flexoID="342">
+      <BehaviourControlGraph_Sequence id="BEU-343" userID="BEU" flexoID="343">
+        <ControlGraph2_DeleteAction id="BEU-344" object="shape" ownerContext="controlGraph2" userID="BEU" flexoID="344" />
+        <ControlGraph1_DeleteFlexoConceptInstance id="BEU-345" deletionSchemeURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#Language.delete()" object="fmeConcept" ownerContext="controlGraph1" userID="BEU" flexoID="345" />
+      </BehaviourControlGraph_Sequence>
+    </DeletionScheme>
+    <DropScheme id="BEU-333" target="top" skipConfirmationPanel="false" label="drop" name="drop" width="800" height="600" userID="BEU" flexoID="333">
+      <BehaviourControlGraph_Sequence id="BEU-346" userID="BEU" flexoID="346">
+        <ControlGraph2_AssignationAction id="BEU-347" assign="shape" ownerContext="controlGraph2" userID="BEU" flexoID="347">
+          <AssignableAction_AddShape id="BEU-348" container="diagram" receiver="diagram" userID="BEU" flexoID="348" />
+        </ControlGraph2_AssignationAction>
+        <ControlGraph1_AssignationAction id="BEU-349" assign="fmeConcept" ownerContext="controlGraph1" userID="BEU" flexoID="349">
+          <AssignableAction_AddFlexoConceptInstance id="BEU-350" container="sampleData" creationSchemeURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#Language.create(conceptName)" flexoConceptTypeURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#Language" receiver="sampleData" userID="BEU" flexoID="350">
+            <AddFlexoConceptInstanceParameter id="BEU-351" paramName="conceptName" value="parameters.conceptName" userID="BEU" flexoID="351" />
+          </AssignableAction_AddFlexoConceptInstance>
+        </ControlGraph1_AssignationAction>
+      </BehaviourControlGraph_Sequence>
+      <GenericBehaviourParameter id="BEU-352" widget="TEXT_FIELD" defaultValue="&quot;Language&quot;" name="conceptName" type="java.lang.String" userID="BEU" flexoID="352" />
+    </DropScheme>
+  </FlexoConcept>
+  <FlexoConcept id="BEU-355" visibility="Public" name="EnactedTaskGR" userID="BEU" flexoID="355">
+    <Inspector id="BEU-356" renderer="instance.fmeConcept.name" inspectorTitle="EnactedTaskGR" userID="BEU" flexoID="356">
+      <InspectorEntry id="BEU-357" readOnly="true" widget="TEXT_FIELD" data="fmeConcept.concept.name" name="Type" label="Type" type="java.lang.String" userID="BEU" flexoID="357" />
+      <InspectorEntry id="BEU-358" widget="TEXT_FIELD" data="fmeConcept.name" name="name" label="name" type="java.lang.String" userID="BEU" flexoID="358" />
+      <InspectorEntry id="BEU-359" widget="TEXT_AREA" data="fmeConcept.description" name="description" label="description" type="java.lang.String" userID="BEU" flexoID="359" />
+    </Inspector>
+    <FlexoConceptInstanceRole id="BEU-360" virtualModelInstance="sampleData" flexoConceptTypeURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#EnactedTask" cloningStrategy="Reference" cardinality="ZeroOne" name="fmeConcept" userID="BEU" flexoID="360" />
+    <ShapeRole id="BEU-361" metamodelElementReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeChallenge.prj/DiagramSpecification/FreeModel.diagramspecification/Default.diagram#BEU_15" container="diagram" cloningStrategy="Clone" cardinality="ZeroOne" name="shape" userID="BEU" flexoID="361">
+      <GRSpec id="BEU-362" featureName="label" value="fmeConcept.name" userID="BEU" flexoID="362" />
+    </ShapeRole>
+    <DeletionScheme id="BEU-363" visibility="Public" label="delete" name="delete" width="800" height="600" userID="BEU" flexoID="363">
+      <BehaviourControlGraph_Sequence id="BEU-364" userID="BEU" flexoID="364">
+        <ControlGraph2_DeleteAction id="BEU-365" object="shape" ownerContext="controlGraph2" userID="BEU" flexoID="365" />
+        <ControlGraph1_DeleteFlexoConceptInstance id="BEU-366" deletionSchemeURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#EnactedTask.delete()" object="fmeConcept" ownerContext="controlGraph1" userID="BEU" flexoID="366" />
+      </BehaviourControlGraph_Sequence>
+    </DeletionScheme>
+    <DropScheme id="BEU-354" target="top" skipConfirmationPanel="false" label="drop" name="drop" width="800" height="600" userID="BEU" flexoID="354">
+      <BehaviourControlGraph_Sequence id="BEU-367" userID="BEU" flexoID="367">
+        <ControlGraph2_AssignationAction id="BEU-368" assign="shape" ownerContext="controlGraph2" userID="BEU" flexoID="368">
+          <AssignableAction_AddShape id="BEU-369" container="diagram" receiver="diagram" userID="BEU" flexoID="369" />
+        </ControlGraph2_AssignationAction>
+        <ControlGraph1_AssignationAction id="BEU-370" assign="fmeConcept" ownerContext="controlGraph1" userID="BEU" flexoID="370">
+          <AssignableAction_AddFlexoConceptInstance id="BEU-371" container="sampleData" creationSchemeURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#EnactedTask.create(conceptName)" flexoConceptTypeURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#EnactedTask" receiver="sampleData" userID="BEU" flexoID="371">
+            <AddFlexoConceptInstanceParameter id="BEU-372" paramName="conceptName" value="parameters.conceptName" userID="BEU" flexoID="372" />
+          </AssignableAction_AddFlexoConceptInstance>
+        </ControlGraph1_AssignationAction>
+      </BehaviourControlGraph_Sequence>
+      <GenericBehaviourParameter id="BEU-373" widget="TEXT_FIELD" defaultValue="&quot;EnactedTask&quot;" name="conceptName" type="java.lang.String" userID="BEU" flexoID="373" />
+    </DropScheme>
+  </FlexoConcept>
+  <FlexoConcept id="BEU-376" visibility="Public" name="ActualArtefactGR" userID="BEU" flexoID="376">
+    <Inspector id="BEU-377" renderer="instance.fmeConcept.name" inspectorTitle="ActualArtefactGR" userID="BEU" flexoID="377">
+      <InspectorEntry id="BEU-378" readOnly="true" widget="TEXT_FIELD" data="fmeConcept.concept.name" name="Type" label="Type" type="java.lang.String" userID="BEU" flexoID="378" />
+      <InspectorEntry id="BEU-379" widget="TEXT_FIELD" data="fmeConcept.name" name="name" label="name" type="java.lang.String" userID="BEU" flexoID="379" />
+      <InspectorEntry id="BEU-380" widget="TEXT_AREA" data="fmeConcept.description" name="description" label="description" type="java.lang.String" userID="BEU" flexoID="380" />
+    </Inspector>
+    <FlexoConceptInstanceRole id="BEU-381" virtualModelInstance="sampleData" flexoConceptTypeURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#ActualArtefact" cloningStrategy="Reference" cardinality="ZeroOne" name="fmeConcept" userID="BEU" flexoID="381" />
+    <ShapeRole id="BEU-382" metamodelElementReference="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeChallenge.prj/DiagramSpecification/FreeModel.diagramspecification/Default.diagram#BEU_16" container="diagram" cloningStrategy="Clone" cardinality="ZeroOne" name="shape" userID="BEU" flexoID="382">
+      <GRSpec id="BEU-383" featureName="label" value="fmeConcept.name" userID="BEU" flexoID="383" />
+    </ShapeRole>
+    <DeletionScheme id="BEU-384" visibility="Public" label="delete" name="delete" width="800" height="600" userID="BEU" flexoID="384">
+      <BehaviourControlGraph_Sequence id="BEU-385" userID="BEU" flexoID="385">
+        <ControlGraph2_DeleteAction id="BEU-386" object="shape" ownerContext="controlGraph2" userID="BEU" flexoID="386" />
+        <ControlGraph1_DeleteFlexoConceptInstance id="BEU-387" deletionSchemeURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#ActualArtefact.delete()" object="fmeConcept" ownerContext="controlGraph1" userID="BEU" flexoID="387" />
+      </BehaviourControlGraph_Sequence>
+    </DeletionScheme>
+    <DropScheme id="BEU-375" target="top" skipConfirmationPanel="false" label="drop" name="drop" width="800" height="600" userID="BEU" flexoID="375">
+      <BehaviourControlGraph_Sequence id="BEU-388" userID="BEU" flexoID="388">
+        <ControlGraph2_AssignationAction id="BEU-389" assign="shape" ownerContext="controlGraph2" userID="BEU" flexoID="389">
+          <AssignableAction_AddShape id="BEU-390" container="diagram" receiver="diagram" userID="BEU" flexoID="390" />
+        </ControlGraph2_AssignationAction>
+        <ControlGraph1_AssignationAction id="BEU-391" assign="fmeConcept" ownerContext="controlGraph1" userID="BEU" flexoID="391">
+          <AssignableAction_AddFlexoConceptInstance id="BEU-392" container="sampleData" creationSchemeURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#ActualArtefact.create(conceptName)" flexoConceptTypeURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#ActualArtefact" receiver="sampleData" userID="BEU" flexoID="392">
+            <AddFlexoConceptInstanceParameter id="BEU-393" paramName="conceptName" value="parameters.conceptName" userID="BEU" flexoID="393" />
+          </AssignableAction_AddFlexoConceptInstance>
+        </ControlGraph1_AssignationAction>
+      </BehaviourControlGraph_Sequence>
+      <GenericBehaviourParameter id="BEU-394" widget="TEXT_FIELD" defaultValue="&quot;ActualArtefact&quot;" name="conceptName" type="java.lang.String" userID="BEU" flexoID="394" />
+    </DropScheme>
+  </FlexoConcept>
   <UseModelSlotDeclaration id="0" modelSlotClass="org.openflexo.foundation.fml.rt.FMLRTVirtualModelInstanceModelSlot" userID="BEU" flexoID="-1" />
   <UseModelSlotDeclaration id="1" modelSlotClass="org.openflexo.technologyadapter.diagram.TypedDiagramModelSlot" userID="BEU" flexoID="-1" />
   <Inspector id="BEU-2" inspectorTitle="FreeModel" userID="BEU" flexoID="2" />
@@ -389,6 +479,15 @@
     <FMLDiagramPaletteElementBinding id="BEU-332" paletteElementId="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeChallenge.prj/DiagramSpecification/FreeModel.diagramspecification/Concepts.palette#Artefact" userID="BEU" flexoID="332">
       <DropScheme idref="BEU-312" />
     </FMLDiagramPaletteElementBinding>
+    <FMLDiagramPaletteElementBinding id="BEU-353" paletteElementId="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeChallenge.prj/DiagramSpecification/FreeModel.diagramspecification/Concepts.palette#Language" userID="BEU" flexoID="353">
+      <DropScheme idref="BEU-333" />
+    </FMLDiagramPaletteElementBinding>
+    <FMLDiagramPaletteElementBinding id="BEU-374" paletteElementId="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeChallenge.prj/DiagramSpecification/FreeModel.diagramspecification/Concepts.palette#EnactedTask" userID="BEU" flexoID="374">
+      <DropScheme idref="BEU-354" />
+    </FMLDiagramPaletteElementBinding>
+    <FMLDiagramPaletteElementBinding id="BEU-395" paletteElementId="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeChallenge.prj/DiagramSpecification/FreeModel.diagramspecification/Concepts.palette#ActualArtefact" userID="BEU" flexoID="395">
+      <DropScheme idref="BEU-375" />
+    </FMLDiagramPaletteElementBinding>
   </TypedDiagramModelSlot>
   <CreationScheme id="BEU-5" label="create" name="create" width="800" height="600" userID="BEU" flexoID="5">
     <BehaviourControlGraph_Sequence id="BEU-6" userID="BEU" flexoID="6">
@@ -402,4 +501,7 @@
     <GenericBehaviourParameter id="BEU-11" widget="CUSTOM_WIDGET" name="sampleData" type="org.openflexo.foundation.fml.VirtualModelInstanceType&lt;http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml&gt;" userID="BEU" flexoID="11" />
     <GenericBehaviourParameter id="BEU-12" widget="CUSTOM_WIDGET" name="diagram" type="org.openflexo.technologyadapter.diagram.model.DiagramType&lt;http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeChallenge.prj/DiagramSpecification/FreeModel.diagramspecification&gt;" userID="BEU" flexoID="12" />
   </CreationScheme>
+  <DeletionScheme id="BEU-396" label="delete" name="delete" width="800" height="600" userID="BEU" flexoID="396">
+    <BehaviourControlGraph_EmptyControlGraph id="BEU-397" userID="BEU" flexoID="397" />
+  </DeletionScheme>
 </VirtualModel>

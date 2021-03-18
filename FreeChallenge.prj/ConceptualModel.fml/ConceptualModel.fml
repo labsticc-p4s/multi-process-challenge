@@ -56,6 +56,7 @@ public class ConceptualModel {
     public float expectedDuration;  
     public boolean isCritical;  
     public boolean isValidation;  
+    public List languagesUsed;  
   
     @CreationScheme    
     Task:create(String conceptName) {    
@@ -242,9 +243,81 @@ public class ConceptualModel {
     public String description;  
     public Task usedBy;  
     public Task producedBy;  
+    public List role;  
+    public Language languages;  
+    public List associated;  
   
     @CreationScheme    
     Artefact:create(String conceptName) {    
+      name = parameters.conceptName;    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  /**  
+   * S3  
+   *   
+   */  
+  @FlexoConcept  
+  public class Language {  
+  
+    public String name;  
+    public String description;  
+    public boolean isProgramming;  
+  
+    @CreationScheme    
+    Language:create(String conceptName) {    
+      name = parameters.conceptName;    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  /**  
+   * S3  
+   *   
+   */  
+  @FlexoConcept  
+  public class ProgrammingLanguage {  
+  }  
+
+  @FlexoConcept  
+  public class EnactedTask extends ModelingElement  {  
+  
+    public String name;  
+    public String description;  
+    public Task task;  
+    public Date startingDate;  
+  
+    @CreationScheme    
+    EnactedTask:create(String conceptName) {    
+      name = parameters.conceptName;    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class ActualArtefact extends ModelingElement  {  
+  
+    public String name;  
+    public String description;  
+  
+    @CreationScheme    
+    ActualArtefact:create(String conceptName) {    
       name = parameters.conceptName;    
     }    
   

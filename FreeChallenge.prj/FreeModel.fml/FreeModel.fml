@@ -17,6 +17,11 @@ public class FreeModel {
     diagram = parameters.diagram;  
   }  
 
+  @DeletionScheme  
+  Void delete() {  
+  
+  }  
+
 
   @FlexoConcept  
   public class NoneGR {  
@@ -252,6 +257,66 @@ public class FreeModel {
     @DropScheme    
     ArtefactGR:drop(String conceptName) {    
       fmeConcept = Artefact.create(parameters.conceptName);      
+      shape = diagram.AddShape();    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class LanguageGR {  
+  
+    public Language fmeConcept;  
+    public DiagramShape shape;  
+  
+    @DeletionScheme    
+    public Void delete() {    
+      fmeConcept.delete();      
+      delete shape;    
+    }    
+  
+    @DropScheme    
+    LanguageGR:drop(String conceptName) {    
+      fmeConcept = Language.create(parameters.conceptName);      
+      shape = diagram.AddShape();    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class EnactedTaskGR {  
+  
+    public EnactedTask fmeConcept;  
+    public DiagramShape shape;  
+  
+    @DeletionScheme    
+    public Void delete() {    
+      fmeConcept.delete();      
+      delete shape;    
+    }    
+  
+    @DropScheme    
+    EnactedTaskGR:drop(String conceptName) {    
+      fmeConcept = EnactedTask.create(parameters.conceptName);      
+      shape = diagram.AddShape();    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class ActualArtefactGR {  
+  
+    public ActualArtefact fmeConcept;  
+    public DiagramShape shape;  
+  
+    @DeletionScheme    
+    public Void delete() {    
+      fmeConcept.delete();      
+      delete shape;    
+    }    
+  
+    @DropScheme    
+    ActualArtefactGR:drop(String conceptName) {    
+      fmeConcept = ActualArtefact.create(parameters.conceptName);      
       shape = diagram.AddShape();    
     }    
   
