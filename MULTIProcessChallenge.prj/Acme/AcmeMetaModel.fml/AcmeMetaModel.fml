@@ -27,6 +27,9 @@ public class AcmeMetaModel extends MetaModel  {
   
     @ActionScheme    
     Boolean isValidActorType(ActorType actorType) {    
+      log ("parameters=" + parameters)      
+      log ("Concept1:" + parameters.actorType)      
+      log ("Concept2:" + parameters.actorType.concept)      
       return (parameters.actorType.concept.name = "Developer");    
     }    
   

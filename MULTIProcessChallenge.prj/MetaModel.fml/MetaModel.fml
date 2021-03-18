@@ -96,6 +96,8 @@ public class MetaModel {
       
       @ActionScheme      
       public Void addAllowedActorType(ActorType actorType) {      
+        log ((("addAllowedActorType() parameters=" + parameters) + " of ") + parameters.class)        
+        log ("Et maintenant, actorType=" + parameters.actorType)        
         if this.isValidActorType(parameters.actorType) {        
           allowedActorTypes.add(parameters.actorType)          
           this.update()        
@@ -133,6 +135,7 @@ public class MetaModel {
       
       @ActionScheme      
       Boolean isValidActorType(ActorType actorType) {      
+        log ("ici parameters=" + parameters)        
         return true;      
       }      
       
@@ -322,6 +325,8 @@ public class MetaModel {
   
     @ActionScheme    
     public Void addAllowedActorType(ActorType actorType) {    
+      log ((("addAllowedActorType() parameters=" + parameters) + " of ") + parameters.class)      
+      log ("Et maintenant, actorType=" + parameters.actorType)      
       if this.isValidActorType(parameters.actorType) {      
         allowedActorTypes.add(parameters.actorType)        
         this.update()      
@@ -359,6 +364,7 @@ public class MetaModel {
   
     @ActionScheme    
     Boolean isValidActorType(ActorType actorType) {    
+      log ("ici parameters=" + parameters)      
       return true;    
     }    
   

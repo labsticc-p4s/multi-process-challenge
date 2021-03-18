@@ -390,16 +390,22 @@ public class ProcessEditor {
   public class AllowedActorTypeGR {  
   
     public DiagramConnector connector;  
+    public TaskType taskType;  
+    public ActorType actorType;  
   
     @LinkScheme    
     AllowedActorTypeGR:linkActorTypeGRToTaskTypeGR() {    
       connector = diagram.AddConnector();      
-      toTarget.taskType.addAllowedActorType(fromTarget.actorType)    
+      taskType = toTarget.taskType;      
+      actorType = fromTarget.actorType;      
+      log ("Ici actorType=" + actorType)      
+      taskType.addAllowedActorType(actorType)    
     }    
   
     @DeletionScheme    
-    Void delete() {    
-      delete connector;    
+    public Void delete() {    
+      delete connector;      
+      taskType.allowedActorTypes.remove(actorType)    
     }    
   
   }  
