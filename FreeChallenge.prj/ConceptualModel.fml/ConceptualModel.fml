@@ -291,7 +291,7 @@ public class ConceptualModel {
   }  
 
   @FlexoConcept  
-  public class EnactedTask extends ModelingElement  {  
+  public class EnactedTask extends EnactedElement  {  
   
     public String name;  
     public String description;  
@@ -311,7 +311,7 @@ public class ConceptualModel {
   }  
 
   @FlexoConcept  
-  public class ActualArtefact extends ModelingElement  {  
+  public class ActualArtefact extends EnactedElement  {  
   
     public String name;  
     public String description;  
@@ -319,6 +319,58 @@ public class ConceptualModel {
     @CreationScheme    
     ActualArtefact:create(String conceptName) {    
       name = parameters.conceptName;    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class ProcessEnactment extends EnactedElement  {  
+  
+    public String name;  
+    public String description;  
+  
+    @CreationScheme    
+    ProcessEnactment:create(String conceptName) {    
+      name = parameters.conceptName;    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class EnactedElement extends ModelingElement  {  
+  
+    @CreationScheme    
+    EnactedElement:create() {    
+      
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  /**  
+   * S10  
+   *   
+   */  
+  @FlexoConcept  
+  public class SoftwareEngineeringArtefact extends Artefact  {  
+  
+    @CreationScheme    
+    SoftwareEngineeringArtefact:create() {    
+      
     }    
   
     @DeletionScheme    

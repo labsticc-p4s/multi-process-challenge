@@ -5,6 +5,8 @@
     <FMEConceptualModel id="3" virtualModelURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml" userID="BEU" flexoID="3" />
     <FMEDiagramFreeModel id="4" virtualModelURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeModel.fml" userID="BEU" flexoID="5">
       <FMEDiagramFreeModelInstance id="5" virtualModelInstanceURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/Example.fml.rt" userID="BEU" flexoID="6" />
+      <FMEDiagramFreeModelInstance id="6" virtualModelInstanceURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/Example2.fml.rt" userID="BEU" flexoID="7" />
+      <FMEDiagramFreeModelInstance id="7" virtualModelInstanceURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ACME SE Process.fml.rt" userID="BEU" flexoID="8" />
       <FMESampleData idref="2" />
       <FMEConceptualModel idref="3" />
     </FMEDiagramFreeModel>
