@@ -182,10 +182,10 @@
     <ModelObjectActorReference id="140" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_71" roleName="taskType" userID="SYL" flexoID="203" />
     <ModelObjectActorReference id="141" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_119" roleName="actorType" userID="SYL" flexoID="204" />
   </FlexoConceptInstance>
-  <FlexoConceptInstance id="142" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#AllowedActorTypeGR" userID="SYL" flexoID="238">
-    <ModelObjectActorReference id="143" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_66" roleName="taskType" userID="SYL" flexoID="239" />
-    <ModelObjectActorReference id="144" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_120" roleName="actorType" userID="SYL" flexoID="240" />
-    <ModelObjectActorReference id="145" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/SoftwareEngineeringProcessDiagram.diagram#SYL_69" roleName="connector" userID="SYL" flexoID="241" />
+  <FlexoConceptInstance id="142" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#AllowedActorTypeGR" userID="SYL" flexoID="242">
+    <ModelObjectActorReference id="143" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_66" roleName="taskType" userID="SYL" flexoID="243" />
+    <ModelObjectActorReference id="144" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_120" roleName="actorType" userID="SYL" flexoID="244" />
+    <ModelObjectActorReference id="145" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/SoftwareEngineeringProcessDiagram.diagram#SYL_70" roleName="connector" userID="SYL" flexoID="245" />
   </FlexoConceptInstance>
   <TypeAwareModelSlotInstance id="146" modelURI="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/SoftwareEngineeringProcessDiagram.diagram" modelSlotName="diagram" roleName="diagram" userID="SYL" flexoID="2" />
   <VirtualModelModelSlotInstance id="147" virtualModelInstanceURI="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt" modelSlotName="model" roleName="model" userID="SYL" flexoID="3" />
