@@ -22,7 +22,7 @@ public class AcmeMetaModel extends MetaModel  {
   
     @ActionScheme    
     Coding newTask(String name, Process process) {    
-      return Coding.create(parameters.name,this,parameters.process);    
+      return Coding.create(parameters.name,this);    
     }    
   
     @ActionScheme    
@@ -157,8 +157,8 @@ public class AcmeMetaModel extends MetaModel  {
     public List programmingLanguages;  
   
     @CreationScheme    
-    Coding:create(String name, TaskType taskType, Process process) {    
-      super.create(parameters.name,parameters.taskType,parameters.process)    
+    Coding:create(String name, TaskType taskType) {    
+      super.create(parameters.name,parameters.taskType)    
     }    
   
     @ActionScheme    

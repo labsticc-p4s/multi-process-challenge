@@ -49,7 +49,9 @@ public class MetaModel {
     public Process newProcess(String name) {    
       Process returned = Process.create(parameters.name,this);      
       for (taskType : taskTypes) {      
+        log ("Creating new Task for " + taskType)        
         Task newTask = taskType.newTask(((returned.name + "-") + taskType.name),returned);        
+        log ((("Created new Task for " + taskType) + " --> ") + newTask)        
         if (taskType = initialTaskType) {        
           returned.initialTask = newTask;        
         }      
@@ -140,7 +142,10 @@ public class MetaModel {
       
       @ActionScheme      
       Task newTask(String name, Process process) {      
-        return Task.create(parameters.name,this,parameters.process);      
+        log ((("Creating new Task " + parameters.name) + " process=") + parameters.process)        
+        log ("container=" + container)        
+        log ("container.container=" + container.container)        
+        return Task.create(parameters.name,this);      
       }      
       
       @ActionScheme      
@@ -379,7 +384,10 @@ public class MetaModel {
   
     @ActionScheme    
     Task newTask(String name, Process process) {    
-      return Task.create(parameters.name,this,parameters.process);    
+      log ((("Creating new Task " + parameters.name) + " process=") + parameters.process)      
+      log ("container=" + container)      
+      log ("container.container=" + container.container)      
+      return Task.create(parameters.name,this);    
     }    
   
     @ActionScheme    
@@ -696,14 +704,11 @@ public class MetaModel {
       public List usedArtifacts;    
       public List producedArtifacts;    
       public boolean isActive;    
-      public Process process;    
       
       @CreationScheme      
-      Task:create(String name, TaskType taskType, Process process) {      
+      Task:create(String name, TaskType taskType) {      
         super.create(parameters.name)        
-        type = parameters.taskType;        
-        process = parameters.process;        
-        process.tasks.add(this)      
+        type = parameters.taskType;      
       }      
       
       @DeletionScheme      
@@ -809,14 +814,11 @@ public class MetaModel {
     public List usedArtifacts;  
     public List producedArtifacts;  
     public boolean isActive;  
-    public Process process;  
   
     @CreationScheme    
-    Task:create(String name, TaskType taskType, Process process) {    
+    Task:create(String name, TaskType taskType) {    
       super.create(parameters.name)      
-      type = parameters.taskType;      
-      process = parameters.process;      
-      process.tasks.add(this)    
+      type = parameters.taskType;    
     }    
   
     @DeletionScheme    
