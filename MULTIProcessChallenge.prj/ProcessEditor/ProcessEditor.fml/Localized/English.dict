@@ -10,6 +10,7 @@ End=End
 EndGR=EndGR
 TaskType=TaskType
 TaskTypeGR=TaskTypeGR
+aVirer=AVirer
 actorType=ActorType
 andSplit=AndSplit
 artefactType=ArtefactType

@@ -15,6 +15,7 @@ finishTask=FinishTask
 invalid_parameter=Invalid parameter
 last_updated=Last updated
 newProcess=NewProcess
+performingActors=PerformingActors
 start=Start
 startTask=StartTask
 taskType=TaskType

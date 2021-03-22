@@ -28,6 +28,7 @@ public class ProcessEditor {
     BeginGR:dropBeginNodeAtTopLevel() {    
       shape = diagram.AddShape();      
       begin = Begin.create();      
+      target.processType.taskTypes.add(begin)      
       target.processType.setInitialTaskType(begin)    
     }    
   
@@ -465,6 +466,11 @@ public class ProcessEditor {
     Void delete() {    
       delete shape;      
       delete header;    
+    }    
+  
+    @ActionScheme    
+    public Void newProcess(String processName) {    
+      
     }    
   
   }  
