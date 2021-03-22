@@ -41,7 +41,7 @@
     </Inspector>
     <PrimitiveRole id="BEU-31" primitiveType="String" cloningStrategy="Clone" cardinality="ZeroOne" name="name" userID="BEU" flexoID="31" />
     <PrimitiveRole id="BEU-32" primitiveType="String" cloningStrategy="Clone" cardinality="ZeroOne" name="description" userID="BEU" flexoID="32" />
-    <FlexoConceptInstanceRole id="BEU-228" virtualModelInstance="" cloningStrategy="Reference" cardinality="One" author="" name="creator" userID="BEU" flexoID="228" />
+    <FlexoConceptInstanceRole id="BEU-228" cloningStrategy="Reference" cardinality="One" author="" name="creator" userID="BEU" flexoID="228" />
     <FlexoConceptInstanceRole id="BEU-229" cloningStrategy="Reference" cardinality="OneMany" name="canPerform" userID="BEU" flexoID="229" />
     <FlexoConceptInstanceRole id="BEU-232" cloningStrategy="Reference" cardinality="ZeroMany" name="possibleActors" userID="BEU" flexoID="232" />
     <FlexoConceptInstanceRole id="BEU-248" cloningStrategy="Reference" cardinality="ZeroMany" name="produce" userID="BEU" flexoID="248" />
@@ -249,7 +249,7 @@
     </Value_FlexoEnumValue>
     <Inspector id="BEU-271" inspectorTitle="ProgrammingLanguage" userID="BEU" flexoID="271" />
   </FlexoEnum>
-  <FlexoConcept id="BEU-282" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#ModelingElement" name="EnactedTask" userID="BEU" flexoID="282">
+  <FlexoConcept id="BEU-282" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#EnactedElement" name="EnactedTask" userID="BEU" flexoID="282">
     <Inspector id="BEU-283" renderer="instance.name" inspectorTitle="EnactedTask" userID="BEU" flexoID="283">
       <InspectorEntry id="BEU-289" widget="TEXT_FIELD" data="name" name="name" label="name" type="java.lang.String" userID="BEU" flexoID="289" />
       <InspectorEntry id="BEU-290" widget="TEXT_AREA" data="description" name="description" label="description" type="java.lang.String" userID="BEU" flexoID="290" />
@@ -268,7 +268,7 @@
       <BehaviourControlGraph_EmptyControlGraph id="BEU-296" userID="BEU" flexoID="296" />
     </DeletionScheme>
   </FlexoConcept>
-  <FlexoConcept id="BEU-311" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#ModelingElement" name="ActualArtefact" userID="BEU" flexoID="311">
+  <FlexoConcept id="BEU-311" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#EnactedElement" name="ActualArtefact" userID="BEU" flexoID="311">
     <Inspector id="BEU-302" renderer="instance.name" inspectorTitle="ActualArtefact" userID="BEU" flexoID="302">
       <InspectorEntry id="BEU-300" widget="TEXT_FIELD" data="name" name="name" label="name" type="java.lang.String" userID="BEU" flexoID="300" />
       <InspectorEntry id="BEU-301" widget="TEXT_AREA" data="description" name="description" label="description" type="java.lang.String" userID="BEU" flexoID="301" />
@@ -283,6 +283,41 @@
     </CreationScheme>
     <DeletionScheme id="BEU-310" label="delete" name="delete" width="800" height="600" userID="BEU" flexoID="310">
       <BehaviourControlGraph_EmptyControlGraph id="BEU-309" userID="BEU" flexoID="309" />
+    </DeletionScheme>
+  </FlexoConcept>
+  <FlexoConcept id="BEU-363" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#EnactedElement" name="ProcessEnactment" userID="BEU" flexoID="363">
+    <Inspector id="BEU-364" renderer="instance.name" inspectorTitle="ProcessEnactment" userID="BEU" flexoID="364">
+      <InspectorEntry id="BEU-365" widget="TEXT_FIELD" data="name" name="name" label="name" type="java.lang.String" userID="BEU" flexoID="365" />
+      <InspectorEntry id="BEU-366" widget="TEXT_AREA" data="description" name="description" label="description" type="java.lang.String" userID="BEU" flexoID="366" />
+    </Inspector>
+    <PrimitiveRole id="BEU-367" primitiveType="String" cloningStrategy="Clone" cardinality="ZeroOne" name="name" userID="BEU" flexoID="367" />
+    <PrimitiveRole id="BEU-368" primitiveType="String" cloningStrategy="Clone" cardinality="ZeroOne" name="description" userID="BEU" flexoID="368" />
+    <CreationScheme id="BEU-369" label="create" name="create" width="800" height="600" userID="BEU" flexoID="369">
+      <BehaviourControlGraph_AssignationAction id="BEU-370" assign="name" userID="BEU" flexoID="370">
+        <AssignableAction_ExpressionAction id="BEU-371" expression="parameters.conceptName" userID="BEU" flexoID="371" />
+      </BehaviourControlGraph_AssignationAction>
+      <GenericBehaviourParameter id="BEU-372" widget="TEXT_FIELD" name="conceptName" type="java.lang.String" userID="BEU" flexoID="372" />
+    </CreationScheme>
+    <DeletionScheme id="BEU-373" label="delete" name="delete" width="800" height="600" userID="BEU" flexoID="373">
+      <BehaviourControlGraph_EmptyControlGraph id="BEU-374" userID="BEU" flexoID="374" />
+    </DeletionScheme>
+  </FlexoConcept>
+  <FlexoConcept id="BEU-378" visibility="Public" isAbstract="true" parentFlexoConceptsList="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#ModelingElement" name="EnactedElement" userID="BEU" flexoID="378">
+    <Inspector id="BEU-379" inspectorTitle="EnactedElement" userID="BEU" flexoID="379" />
+    <CreationScheme id="BEU-380" label="create" name="create" width="800" height="600" userID="BEU" flexoID="380">
+      <BehaviourControlGraph_EmptyControlGraph id="BEU-381" userID="BEU" flexoID="381" />
+    </CreationScheme>
+    <DeletionScheme id="BEU-382" label="delete" name="delete" width="800" height="600" userID="BEU" flexoID="382">
+      <BehaviourControlGraph_EmptyControlGraph id="BEU-383" userID="BEU" flexoID="383" />
+    </DeletionScheme>
+  </FlexoConcept>
+  <FlexoConcept id="BEU-384" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml#Artefact" name="SoftwareEngineeringArtefact" description="S10" userID="BEU" flexoID="384">
+    <Inspector id="BEU-385" inspectorTitle="SoftwareEngineeringArtefact" userID="BEU" flexoID="385" />
+    <CreationScheme id="BEU-386" label="create" name="create" width="800" height="600" userID="BEU" flexoID="386">
+      <BehaviourControlGraph_EmptyControlGraph id="BEU-387" userID="BEU" flexoID="387" />
+    </CreationScheme>
+    <DeletionScheme id="BEU-388" label="delete" name="delete" width="800" height="600" userID="BEU" flexoID="388">
+      <BehaviourControlGraph_EmptyControlGraph id="BEU-389" userID="BEU" flexoID="389" />
     </DeletionScheme>
   </FlexoConcept>
   <Inspector id="BEU-2" inspectorTitle="ConceptualModel" userID="BEU" flexoID="2" />

@@ -12,7 +12,7 @@ public class FreeModel {
   public Diagram diagram;
 
   @CreationScheme  
-  FreeModel:create(ConceptualModel sampleData, DiagramType<FreeModel> diagram) {  
+  FreeModel:create(ConceptualModel sampleData, DiagramType<NotFound:http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/FreeChallenge.prj/DiagramSpecification/FreeModel.diagramspecification> diagram) {  
     sampleData = parameters.sampleData;    
     diagram = parameters.diagram;  
   }  
@@ -317,6 +317,26 @@ public class FreeModel {
     @DropScheme    
     ActualArtefactGR:drop(String conceptName) {    
       fmeConcept = ActualArtefact.create(parameters.conceptName);      
+      shape = diagram.AddShape();    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class ProcessEnactmentGR {  
+  
+    public ProcessEnactment fmeConcept;  
+    public DiagramShape shape;  
+  
+    @DeletionScheme    
+    public Void delete() {    
+      fmeConcept.delete();      
+      delete shape;    
+    }    
+  
+    @DropScheme    
+    ProcessEnactmentGR:drop(String conceptName) {    
+      fmeConcept = ProcessEnactment.create(parameters.conceptName);      
       shape = diagram.AddShape();    
     }    
   

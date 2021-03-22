@@ -185,4 +185,17 @@
       <TextStyle id="153" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
     </ShapeGraphicalRepresentation>
   </Shape>
+  <Shape id="154" name="ProcessEnactmentGR" userID="BEU" flexoID="17">
+    <ShapeGraphicalRepresentation id="155" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="10.0" y="10.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="309.35064935064935" height="72.58064516129032" identifier="4a5635bd" layer="1" text="Claim Process Enactment (P10)">
+      <SelectedColorBackgroundStyle id="156" color="254,247,217" transparencyLevel="0.5" />
+      <ForegroundStyle id="157" joinStyle="JOIN_MITER" color="255,51,51" dashStyle="SMALL_DASHES" capStyle="CAP_SQUARE" lineWidth="5.0" />
+      <FocusedColorBackgroundStyle id="158" color="254,247,217" transparencyLevel="0.5" />
+      <ShadowStyle id="159" />
+      <FocusedForegroundStyle id="160" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <SelectedForegroundStyle id="161" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <ColorBackgroundStyle id="162" color="254,247,217" transparencyLevel="0.5" />
+      <ChevronShape id="163" />
+      <TextStyle id="164" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
+    </ShapeGraphicalRepresentation>
+  </Shape>
 </Diagram>

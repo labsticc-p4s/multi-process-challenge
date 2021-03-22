@@ -169,4 +169,17 @@
       <TextStyle id="143" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
     </ShapeGraphicalRepresentation>
   </DiagramPaletteElement>
+  <DiagramPaletteElement id="144" name="ProcessEnactment">
+    <ShapeGraphicalRepresentation id="145" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="60.0" y="170.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="40.0" height="30.0" identifier="68eeb748" layer="1" text="ProcessEnactment">
+      <SelectedColorBackgroundStyle id="146" color="254,247,217" transparencyLevel="0.5" />
+      <ForegroundStyle id="147" joinStyle="JOIN_MITER" color="255,51,51" dashStyle="SMALL_DASHES" capStyle="CAP_SQUARE" lineWidth="5.0" />
+      <FocusedColorBackgroundStyle id="148" color="254,247,217" transparencyLevel="0.5" />
+      <ShadowStyle id="149" />
+      <FocusedForegroundStyle id="150" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <SelectedForegroundStyle id="151" joinStyle="JOIN_MITER" color="0,0,0" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" />
+      <ColorBackgroundStyle id="152" color="254,247,217" transparencyLevel="0.5" />
+      <ChevronShape id="153" />
+      <TextStyle id="154" backgroundColor="255,255,255" color="0,0,0" font="Lucida Sans,0,11" />
+    </ShapeGraphicalRepresentation>
+  </DiagramPaletteElement>
 </DiagramPalette>
