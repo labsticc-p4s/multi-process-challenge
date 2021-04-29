@@ -5,14 +5,14 @@ use org.openflexo.foundation.fml.rt.FMLRTVirtualModelInstanceModelSlot;
  * 
  * @version 0.1
  */
-@VirtualModel(uri="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml")
-public class ProcessEditor {
+@VirtualModel(uri="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml")
+public class ProcessTypeEditor {
 
   public Diagram diagram;
   public MetaModel model;
 
   @CreationScheme  
-  ProcessEditor:init(MetaModel model, String diagramName) {  
+  ProcessTypeEditor:init(MetaModel model, String diagramName) {  
     diagram = CreateDiagram();    
     model = parameters.model;  
   }  

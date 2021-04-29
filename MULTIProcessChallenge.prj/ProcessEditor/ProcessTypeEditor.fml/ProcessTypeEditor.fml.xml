@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<VirtualModel id="SYL-1" virtualModelClass="org.openflexo.foundation.fml.VirtualModel" modelVersion="2.0" uri="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml" version="0.1" name="ProcessEditor" userID="SYL" flexoID="1">
+<VirtualModel id="SYL-1" virtualModelClass="org.openflexo.foundation.fml.VirtualModel" modelVersion="2.0" uri="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml" version="0.1" name="ProcessTypeEditor" userID="SYL" flexoID="1">
   <FlexoConcept id="SYL-29" name="BeginGR" userID="SYL" flexoID="29">
     <Inspector id="SYL-25" inspectorTitle="BeginNode" delegateConceptInstance="begin" userID="SYL" flexoID="25" />
     <ShapeRole id="SYL-33" previewHeight="20.0" previewY="90.0" previewX="115.0" previewWidth="20.0" exampleLabel="Shape" metamodelElementReference="http://www.openflexo.org/test/ProcessSpec/ExampleDiagram.diagram#SYL_2" cloningStrategy="Clone" cardinality="ZeroOne" name="shape" userID="SYL" flexoID="33" />
     <FlexoConceptInstanceRole id="SYL-34" virtualModelInstance="model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Begin" cloningStrategy="Reference" cardinality="ZeroOne" name="begin" userID="SYL" flexoID="34" />
-    <DropScheme id="SYL-30" target="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#ProcessTypeGR" label="dropBeginNodeAtTopLevel" name="dropBeginNodeAtTopLevel" width="800" height="600" userID="SYL" flexoID="30">
+    <DropScheme id="SYL-30" target="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#ProcessTypeGR" label="dropBeginNodeAtTopLevel" name="dropBeginNodeAtTopLevel" width="800" height="600" userID="SYL" flexoID="30">
       <ShapeRole idref="SYL-1942" />
       <BehaviourControlGraph_Sequence id="SYL-35" userID="SYL" flexoID="35">
         <ControlGraph2_Sequence id="SYL-40" ownerContext="controlGraph2" userID="SYL" flexoID="40">
@@ -34,7 +34,7 @@
     <Inspector id="SYL-71" inspectorTitle="StartSequencingGR" delegateConceptInstance="sequencing" userID="SYL" flexoID="71" />
     <ConnectorRole id="SYL-80" exampleLabel="" metamodelElementReference="http://www.openflexo.org/test/ProcessSpec/ExampleDiagram.diagram#SYL_5" cloningStrategy="Clone" cardinality="ZeroOne" name="connector" userID="SYL" flexoID="80" />
     <FlexoConceptInstanceRole id="SYL-81" virtualModelInstance="model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Sequencing" cloningStrategy="Reference" cardinality="ZeroOne" name="sequencing" userID="SYL" flexoID="81" />
-    <LinkScheme id="SYL-76" northDirectionSupported="true" eastDirectionSupported="true" fromTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#BeginGR" toTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#TaskTypeGR" westDirectionSupported="true" isAvailableWithFloatingPalette="true" southDirectionSupported="true" label="linkBeginGRToTaskTypeGR" name="linkBeginGRToTaskTypeGR" width="800" height="600" userID="SYL" flexoID="76">
+    <LinkScheme id="SYL-76" northDirectionSupported="true" eastDirectionSupported="true" fromTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#BeginGR" toTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#TaskTypeGR" westDirectionSupported="true" isAvailableWithFloatingPalette="true" southDirectionSupported="true" label="linkBeginGRToTaskTypeGR" name="linkBeginGRToTaskTypeGR" width="800" height="600" userID="SYL" flexoID="76">
       <BehaviourControlGraph_Sequence id="SYL-90" userID="SYL" flexoID="90">
         <ControlGraph2_Sequence id="SYL-91" ownerContext="controlGraph2" userID="SYL" flexoID="91">
           <ControlGraph2_Sequence id="SYL-95" ownerContext="controlGraph2" userID="SYL" flexoID="95">
@@ -71,7 +71,7 @@
       <ParentShapeRole idref="SYL-137" />
     </ShapeRole>
     <FlexoConceptInstanceRole id="SYL-147" virtualModelInstance="model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#End" cloningStrategy="Reference" cardinality="ZeroOne" name="end" userID="SYL" flexoID="147" />
-    <DropScheme id="SYL-113" target="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#ProcessTypeGR" label="dropEndGRAtTopLevel" name="dropEndGRAtTopLevel" width="800" height="600" userID="SYL" flexoID="113">
+    <DropScheme id="SYL-113" target="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#ProcessTypeGR" label="dropEndGRAtTopLevel" name="dropEndGRAtTopLevel" width="800" height="600" userID="SYL" flexoID="113">
       <BehaviourControlGraph_Sequence id="SYL-148" userID="SYL" flexoID="148">
         <ControlGraph2_Sequence id="SYL-149" ownerContext="controlGraph2" userID="SYL" flexoID="149">
           <ControlGraph2_Sequence id="SYL-150" ownerContext="controlGraph2" userID="SYL" flexoID="150">
@@ -106,7 +106,7 @@
     <Inspector id="SYL-153" inspectorTitle="StartSequencingGR" delegateConceptInstance="sequencing" userID="SYL" flexoID="153" />
     <ConnectorRole id="SYL-156" exampleLabel="" metamodelElementReference="http://www.openflexo.org/test/ProcessSpec/ExampleDiagram.diagram#SYL_5" cloningStrategy="Clone" cardinality="ZeroOne" name="connector" userID="SYL" flexoID="156" />
     <FlexoConceptInstanceRole id="SYL-157" virtualModelInstance="model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Sequencing" cloningStrategy="Reference" cardinality="ZeroOne" name="sequencing" userID="SYL" flexoID="157" />
-    <LinkScheme id="SYL-170" northDirectionSupported="true" eastDirectionSupported="true" fromTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#TaskTypeGR" toTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#TaskTypeGR" westDirectionSupported="true" isAvailableWithFloatingPalette="true" southDirectionSupported="true" label="linkTaskTypeGRToTaskTypeGR" name="linkTaskTypeGRToTaskTypeGR" width="800" height="600" userID="SYL" flexoID="170">
+    <LinkScheme id="SYL-170" northDirectionSupported="true" eastDirectionSupported="true" fromTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#TaskTypeGR" toTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#TaskTypeGR" westDirectionSupported="true" isAvailableWithFloatingPalette="true" southDirectionSupported="true" label="linkTaskTypeGRToTaskTypeGR" name="linkTaskTypeGRToTaskTypeGR" width="800" height="600" userID="SYL" flexoID="170">
       <BehaviourControlGraph_Sequence id="SYL-169" userID="SYL" flexoID="169">
         <ControlGraph2_Sequence id="SYL-166" ownerContext="controlGraph2" userID="SYL" flexoID="166">
           <ControlGraph2_Sequence id="SYL-163" ownerContext="controlGraph2" userID="SYL" flexoID="163">
@@ -134,7 +134,7 @@
     <Inspector id="SYL-176" inspectorTitle="StartSequencingGR" delegateConceptInstance="sequencing" userID="SYL" flexoID="176" />
     <ConnectorRole id="SYL-177" exampleLabel="" metamodelElementReference="http://www.openflexo.org/test/ProcessSpec/ExampleDiagram.diagram#SYL_5" cloningStrategy="Clone" cardinality="ZeroOne" name="connector" userID="SYL" flexoID="177" />
     <FlexoConceptInstanceRole id="SYL-178" virtualModelInstance="model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Sequencing" cloningStrategy="Reference" cardinality="ZeroOne" name="sequencing" userID="SYL" flexoID="178" />
-    <LinkScheme id="SYL-191" northDirectionSupported="true" eastDirectionSupported="true" fromTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#TaskTypeGR" toTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#EndGR" westDirectionSupported="true" isAvailableWithFloatingPalette="true" southDirectionSupported="true" label="linkTaskTypeGRtoEndGR" name="linkTaskTypeGRtoEndGR" width="800" height="600" userID="SYL" flexoID="191">
+    <LinkScheme id="SYL-191" northDirectionSupported="true" eastDirectionSupported="true" fromTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#TaskTypeGR" toTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#EndGR" westDirectionSupported="true" isAvailableWithFloatingPalette="true" southDirectionSupported="true" label="linkTaskTypeGRtoEndGR" name="linkTaskTypeGRtoEndGR" width="800" height="600" userID="SYL" flexoID="191">
       <BehaviourControlGraph_Sequence id="SYL-190" userID="SYL" flexoID="190">
         <ControlGraph2_Sequence id="SYL-187" ownerContext="controlGraph2" userID="SYL" flexoID="187">
           <ControlGraph2_Sequence id="SYL-184" ownerContext="controlGraph2" userID="SYL" flexoID="184">
@@ -162,7 +162,7 @@
     <Inspector id="SYL-204" inspectorTitle="AndSplitGR" delegateConceptInstance="andSplit" userID="SYL" flexoID="204" />
     <ShapeRole id="SYL-225" previewHeight="5.0" previewY="97.5" previewX="100.0" exampleLabel="" metamodelElementReference="http://www.openflexo.org/test/ProcessSpec/ExampleDiagram.diagram#SYL_4" cloningStrategy="Clone" cardinality="ZeroOne" name="shape" userID="SYL" flexoID="225" />
     <FlexoConceptInstanceRole id="SYL-226" virtualModelInstance="model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#AndSplit" cloningStrategy="Reference" cardinality="ZeroOne" name="andSplit" userID="SYL" flexoID="226" />
-    <DropScheme id="SYL-209" target="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#ProcessTypeGR" label="dropAndSplitGRAtTopLevel" name="dropAndSplitGRAtTopLevel" width="800" height="600" userID="SYL" flexoID="209">
+    <DropScheme id="SYL-209" target="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#ProcessTypeGR" label="dropAndSplitGRAtTopLevel" name="dropAndSplitGRAtTopLevel" width="800" height="600" userID="SYL" flexoID="209">
       <BehaviourControlGraph_Sequence id="SYL-227" userID="SYL" flexoID="227">
         <ControlGraph2_Sequence id="SYL-228" ownerContext="controlGraph2" userID="SYL" flexoID="228">
           <ControlGraph2_ExpressionAction id="SYL-213" expression="target.processType.addToGateways(andSplit)" ownerContext="controlGraph2" userID="SYL" flexoID="213" />
@@ -187,7 +187,7 @@
     <ConnectorRole id="SYL-240" exampleLabel="" metamodelElementReference="http://www.openflexo.org/test/ProcessSpec/ExampleDiagram.diagram#SYL_8" cloningStrategy="Clone" cardinality="ZeroOne" name="connector" userID="SYL" flexoID="240" />
     <FlexoConceptInstanceRole id="SYL-2389" virtualModelInstance="container.model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#TaskType" cloningStrategy="Reference" cardinality="One" name="taskType" userID="SYL" flexoID="2389" />
     <FlexoConceptInstanceRole id="SYL-2390" virtualModelInstance="container.model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#AndSplit" cloningStrategy="Reference" cardinality="One" name="andSplit" userID="SYL" flexoID="2390" />
-    <LinkScheme id="SYL-236" northDirectionSupported="true" eastDirectionSupported="true" fromTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#TaskTypeGR" toTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#AndSplitGR" westDirectionSupported="true" isAvailableWithFloatingPalette="true" southDirectionSupported="true" label="linkTaskTypeGRToAndSplitGR" name="linkTaskTypeGRToAndSplitGR" width="800" height="600" userID="SYL" flexoID="236">
+    <LinkScheme id="SYL-236" northDirectionSupported="true" eastDirectionSupported="true" fromTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#TaskTypeGR" toTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#AndSplitGR" westDirectionSupported="true" isAvailableWithFloatingPalette="true" southDirectionSupported="true" label="linkTaskTypeGRToAndSplitGR" name="linkTaskTypeGRToAndSplitGR" width="800" height="600" userID="SYL" flexoID="236">
       <BehaviourControlGraph_Sequence id="SYL-244" userID="SYL" flexoID="244">
         <ControlGraph2_Sequence id="SYL-2408" ownerContext="controlGraph2" userID="SYL" flexoID="2408">
           <ControlGraph2_Sequence id="SYL-2409" ownerContext="controlGraph2" userID="SYL" flexoID="2409">
@@ -224,7 +224,7 @@
     <ConnectorRole id="SYL-249" exampleLabel="" metamodelElementReference="http://www.openflexo.org/test/ProcessSpec/ExampleDiagram.diagram#SYL_8" cloningStrategy="Clone" cardinality="ZeroOne" name="connector" userID="SYL" flexoID="249" />
     <FlexoConceptInstanceRole id="SYL-2399" virtualModelInstance="container.model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#AndSplit" cloningStrategy="Reference" cardinality="One" name="andSplit" userID="SYL" flexoID="2399" />
     <FlexoConceptInstanceRole id="SYL-2400" virtualModelInstance="container.model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#TaskType" cloningStrategy="Reference" cardinality="One" name="taskType" userID="SYL" flexoID="2400" />
-    <LinkScheme id="SYL-254" northDirectionSupported="true" eastDirectionSupported="true" fromTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#AndSplitGR" toTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#TaskTypeGR" westDirectionSupported="true" isAvailableWithFloatingPalette="true" southDirectionSupported="true" label="linkTaskTypeGRToAndSplitGR" name="linkAndSplitGRToTaskTypeGR" width="800" height="600" userID="SYL" flexoID="254">
+    <LinkScheme id="SYL-254" northDirectionSupported="true" eastDirectionSupported="true" fromTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#AndSplitGR" toTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#TaskTypeGR" westDirectionSupported="true" isAvailableWithFloatingPalette="true" southDirectionSupported="true" label="linkTaskTypeGRToAndSplitGR" name="linkAndSplitGRToTaskTypeGR" width="800" height="600" userID="SYL" flexoID="254">
       <BehaviourControlGraph_Sequence id="SYL-253" userID="SYL" flexoID="253">
         <ControlGraph2_Sequence id="SYL-2411" ownerContext="controlGraph2" userID="SYL" flexoID="2411">
           <ControlGraph2_Sequence id="SYL-2412" ownerContext="controlGraph2" userID="SYL" flexoID="2412">
@@ -255,7 +255,7 @@
     <Inspector id="SYL-264" inspectorTitle="AndJoinGR" delegateConceptInstance="andJoin" userID="SYL" flexoID="264" />
     <ShapeRole id="SYL-281" previewHeight="5.0" previewY="97.5" previewX="100.0" exampleLabel="" metamodelElementReference="http://www.openflexo.org/test/ProcessSpec/ExampleDiagram.diagram#SYL_13" cloningStrategy="Clone" cardinality="ZeroOne" name="shape" userID="SYL" flexoID="281" />
     <FlexoConceptInstanceRole id="SYL-287" virtualModelInstance="model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#AndJoin" cloningStrategy="Reference" cardinality="ZeroOne" name="andJoin" userID="SYL" flexoID="287" />
-    <DropScheme id="SYL-269" target="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#ProcessTypeGR" label="dropAndJoinGRAtTopLevel" name="dropAndJoinGRAtTopLevel" width="800" height="600" userID="SYL" flexoID="269">
+    <DropScheme id="SYL-269" target="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#ProcessTypeGR" label="dropAndJoinGRAtTopLevel" name="dropAndJoinGRAtTopLevel" width="800" height="600" userID="SYL" flexoID="269">
       <BehaviourControlGraph_Sequence id="SYL-288" userID="SYL" flexoID="288">
         <ControlGraph2_Sequence id="SYL-289" ownerContext="controlGraph2" userID="SYL" flexoID="289">
           <ControlGraph2_ExpressionAction id="SYL-286" expression="target.processType.addToGateways(andJoin)" ownerContext="controlGraph2" userID="SYL" flexoID="286" />
@@ -277,7 +277,7 @@
     <ConnectorRole id="SYL-294" exampleLabel="" metamodelElementReference="http://www.openflexo.org/test/ProcessSpec/ExampleDiagram.diagram#SYL_8" cloningStrategy="Clone" cardinality="ZeroOne" name="connector" userID="SYL" flexoID="294" />
     <FlexoConceptInstanceRole id="SYL-2414" virtualModelInstance="container.model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#AndJoin" cloningStrategy="Reference" cardinality="One" name="andJoin" userID="SYL" flexoID="2414" />
     <FlexoConceptInstanceRole id="SYL-2415" virtualModelInstance="container.model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#TaskType" cloningStrategy="Reference" cardinality="One" name="taskType" userID="SYL" flexoID="2415" />
-    <LinkScheme id="SYL-299" northDirectionSupported="true" eastDirectionSupported="true" fromTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#AndJoinGR" toTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#TaskTypeGR" westDirectionSupported="true" isAvailableWithFloatingPalette="true" southDirectionSupported="true" label="linkAndJoinGRToTaskTypeGR" name="linkAndJoinGRToTaskTypeGR" width="800" height="600" userID="SYL" flexoID="299">
+    <LinkScheme id="SYL-299" northDirectionSupported="true" eastDirectionSupported="true" fromTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#AndJoinGR" toTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#TaskTypeGR" westDirectionSupported="true" isAvailableWithFloatingPalette="true" southDirectionSupported="true" label="linkAndJoinGRToTaskTypeGR" name="linkAndJoinGRToTaskTypeGR" width="800" height="600" userID="SYL" flexoID="299">
       <BehaviourControlGraph_Sequence id="SYL-298" userID="SYL" flexoID="298">
         <ControlGraph2_Sequence id="SYL-2444" ownerContext="controlGraph2" userID="SYL" flexoID="2444">
           <ControlGraph2_Sequence id="SYL-2445" ownerContext="controlGraph2" userID="SYL" flexoID="2445">
@@ -314,7 +314,7 @@
     <ConnectorRole id="SYL-309" exampleLabel="" metamodelElementReference="http://www.openflexo.org/test/ProcessSpec/ExampleDiagram.diagram#SYL_8" cloningStrategy="Clone" cardinality="ZeroOne" name="connector" userID="SYL" flexoID="309" />
     <FlexoConceptInstanceRole id="SYL-2423" virtualModelInstance="container.model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#TaskType" cloningStrategy="Reference" cardinality="One" name="taskType" userID="SYL" flexoID="2423" />
     <FlexoConceptInstanceRole id="SYL-2424" virtualModelInstance="container.model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#AndJoin" cloningStrategy="Reference" cardinality="One" name="andJoin" userID="SYL" flexoID="2424" />
-    <LinkScheme id="SYL-314" northDirectionSupported="true" eastDirectionSupported="true" fromTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#TaskTypeGR" toTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#AndJoinGR" westDirectionSupported="true" isAvailableWithFloatingPalette="true" southDirectionSupported="true" label="linkTaskTypeGRToAndJoinGR" name="linkTaskTypeGRToAndJoinGR" width="800" height="600" userID="SYL" flexoID="314">
+    <LinkScheme id="SYL-314" northDirectionSupported="true" eastDirectionSupported="true" fromTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#TaskTypeGR" toTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#AndJoinGR" westDirectionSupported="true" isAvailableWithFloatingPalette="true" southDirectionSupported="true" label="linkTaskTypeGRToAndJoinGR" name="linkTaskTypeGRToAndJoinGR" width="800" height="600" userID="SYL" flexoID="314">
       <BehaviourControlGraph_Sequence id="SYL-313" userID="SYL" flexoID="313">
         <ControlGraph2_Sequence id="SYL-2438" ownerContext="controlGraph2" userID="SYL" flexoID="2438">
           <ControlGraph2_Sequence id="SYL-2439" ownerContext="controlGraph2" userID="SYL" flexoID="2439">
@@ -344,7 +344,7 @@
   <FlexoConcept id="SYL-699" name="ArtifactTypeGR" userID="SYL" flexoID="699">
     <Inspector id="SYL-695" inspectorTitle="ArtifactTypeGR" delegateConceptInstance="artifactType" userID="SYL" flexoID="695" />
     <ShapeRole id="SYL-713" previewHeight="34.3859649122807" previewY="82.80701754385964" previewX="79.85913130974342" previewWidth="90.28173738051316" exampleLabel="ArtefactType" metamodelElementReference="http://www.openflexo.org/test/ProcessSpec/ExampleDiagram.diagram#SYL_19" cloningStrategy="Clone" cardinality="ZeroOne" name="shape" userID="SYL" flexoID="713">
-      <GRSpec id="SYL-3071" featureName="label" value="artifactType.name" userID="SYL" flexoID="3071" />
+      <GRSpec id="SYL-3157" featureName="label" value="artifactType.name" userID="SYL" flexoID="3157" />
     </ShapeRole>
     <FlexoConceptInstanceRole id="SYL-701" virtualModelInstance="model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ArtifactType" cloningStrategy="Reference" cardinality="ZeroOne" name="artifactType" userID="SYL" flexoID="701" />
     <DropScheme id="SYL-700" target="top" label="dropArtifactTypeGRAtTopLevel" name="dropArtifactTypeGRAtTopLevel" width="800" height="600" userID="SYL" flexoID="700">
@@ -379,11 +379,11 @@
       <InspectorEntry id="SYL-2563" widget="CUSTOM_WIDGET" data="artefactType" name="artefactType" label="artefactType" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ArtifactType&gt;" userID="SYL" flexoID="2563" />
     </Inspector>
     <ConnectorRole id="SYL-734" exampleLabel="uses" metamodelElementReference="http://www.openflexo.org/test/ProcessSpec/ExampleDiagram.diagram#SYL_21" cloningStrategy="Clone" cardinality="ZeroOne" name="connector" userID="SYL" flexoID="734">
-      <GRSpec id="SYL-3072" featureName="label" readOnly="true" value="&quot;uses&quot;" userID="SYL" flexoID="3072" />
+      <GRSpec id="SYL-3158" featureName="label" readOnly="true" value="&quot;uses&quot;" userID="SYL" flexoID="3158" />
     </ConnectorRole>
     <FlexoConceptInstanceRole id="SYL-2542" virtualModelInstance="container.model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#TaskType" cloningStrategy="Reference" cardinality="One" name="taskType" userID="SYL" flexoID="2542" />
     <FlexoConceptInstanceRole id="SYL-2543" virtualModelInstance="container.model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ArtifactType" cloningStrategy="Reference" cardinality="One" name="artefactType" userID="SYL" flexoID="2543" />
-    <LinkScheme id="SYL-730" northDirectionSupported="true" eastDirectionSupported="true" fromTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#ArtifactTypeGR" toTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#TaskTypeGR" westDirectionSupported="true" isAvailableWithFloatingPalette="true" southDirectionSupported="true" label="linkArtifactTypeGRToTaskTypeGR" name="linkArtifactTypeGRToTaskTypeGR" width="800" height="600" userID="SYL" flexoID="730">
+    <LinkScheme id="SYL-730" northDirectionSupported="true" eastDirectionSupported="true" fromTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#ArtifactTypeGR" toTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#TaskTypeGR" westDirectionSupported="true" isAvailableWithFloatingPalette="true" southDirectionSupported="true" label="linkArtifactTypeGRToTaskTypeGR" name="linkArtifactTypeGRToTaskTypeGR" width="800" height="600" userID="SYL" flexoID="730">
       <BehaviourControlGraph_Sequence id="SYL-751" userID="SYL" flexoID="751">
         <ControlGraph2_Sequence id="SYL-2552" ownerContext="controlGraph2" userID="SYL" flexoID="2552">
           <ControlGraph2_Sequence id="SYL-2553" ownerContext="controlGraph2" userID="SYL" flexoID="2553">
@@ -416,11 +416,11 @@
       <InspectorEntry id="SYL-2561" widget="CUSTOM_WIDGET" data="artefactType" name="artefactType" label="artefactType" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ArtifactType&gt;" userID="SYL" flexoID="2561" />
     </Inspector>
     <ConnectorRole id="SYL-747" exampleLabel="produces" metamodelElementReference="http://www.openflexo.org/test/ProcessSpec/ExampleDiagram.diagram#SYL_20" cloningStrategy="Clone" cardinality="ZeroOne" name="connector" userID="SYL" flexoID="747">
-      <GRSpec id="SYL-3073" featureName="label" readOnly="true" value="&quot;produces&quot;" userID="SYL" flexoID="3073" />
+      <GRSpec id="SYL-3159" featureName="label" readOnly="true" value="&quot;produces&quot;" userID="SYL" flexoID="3159" />
     </ConnectorRole>
     <FlexoConceptInstanceRole id="SYL-2564" virtualModelInstance="container.model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#TaskType" cloningStrategy="Reference" cardinality="One" name="taskType" userID="SYL" flexoID="2564" />
     <FlexoConceptInstanceRole id="SYL-2555" virtualModelInstance="container.model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ArtifactType" cloningStrategy="Reference" cardinality="One" name="artefactType" userID="SYL" flexoID="2555" />
-    <LinkScheme id="SYL-743" northDirectionSupported="true" eastDirectionSupported="true" fromTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#TaskTypeGR" toTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#ArtifactTypeGR" westDirectionSupported="true" isAvailableWithFloatingPalette="true" southDirectionSupported="true" label="linkTaskTypeGRToArtifactTypeGR" name="linkTaskTypeGRToArtifactTypeGR" width="800" height="600" userID="SYL" flexoID="743">
+    <LinkScheme id="SYL-743" northDirectionSupported="true" eastDirectionSupported="true" fromTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#TaskTypeGR" toTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#ArtifactTypeGR" westDirectionSupported="true" isAvailableWithFloatingPalette="true" southDirectionSupported="true" label="linkTaskTypeGRToArtifactTypeGR" name="linkTaskTypeGRToArtifactTypeGR" width="800" height="600" userID="SYL" flexoID="743">
       <BehaviourControlGraph_Sequence id="SYL-753" userID="SYL" flexoID="753">
         <ControlGraph2_Sequence id="SYL-2565" ownerContext="controlGraph2" userID="SYL" flexoID="2565">
           <ControlGraph2_Sequence id="SYL-2566" ownerContext="controlGraph2" userID="SYL" flexoID="2566">
@@ -450,7 +450,7 @@
   <FlexoConcept id="SYL-816" name="ActorTypeGR" userID="SYL" flexoID="816">
     <Inspector id="SYL-812" inspectorTitle="ActorTypeGR" delegateConceptInstance="actorType" userID="SYL" flexoID="812" />
     <ShapeRole id="SYL-829" previewHeight="35.614035087719294" previewY="82.19298245614036" previewX="80.97014925373134" previewWidth="88.05970149253731" exampleLabel="ActorType" metamodelElementReference="http://www.openflexo.org/test/ProcessSpec/ExampleDiagram.diagram#SYL_22" cloningStrategy="Clone" cardinality="ZeroOne" name="shape" userID="SYL" flexoID="829">
-      <GRSpec id="SYL-3074" featureName="label" value="actorType.name" userID="SYL" flexoID="3074" />
+      <GRSpec id="SYL-3160" featureName="label" value="actorType.name" userID="SYL" flexoID="3160" />
     </ShapeRole>
     <FlexoConceptInstanceRole id="SYL-845" virtualModelInstance="model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ActorType" cloningStrategy="Reference" cardinality="ZeroOne" name="actorType" userID="SYL" flexoID="845" />
     <DropScheme id="SYL-817" target="top" label="dropActorTypeGRAtTopLevel" name="dropActorTypeGRAtTopLevel" width="800" height="600" userID="SYL" flexoID="817">
@@ -482,7 +482,7 @@
   <FlexoConcept id="SYL-872" name="ActorGR" userID="SYL" flexoID="872">
     <Inspector id="SYL-868" inspectorTitle="ActorGR" delegateConceptInstance="actor" userID="SYL" flexoID="868" />
     <ShapeRole id="SYL-885" previewHeight="52.12680824869191" previewY="73.93659587565405" previewX="100.08819538670285" previewWidth="49.8236092265943" exampleLabel="Actor" metamodelElementReference="http://www.openflexo.org/test/ProcessSpec/ExampleDiagram.diagram#SYL_23" cloningStrategy="Clone" cardinality="ZeroOne" name="shape" userID="SYL" flexoID="885">
-      <GRSpec id="SYL-3075" featureName="label" value="actor.name" userID="SYL" flexoID="3075" />
+      <GRSpec id="SYL-3161" featureName="label" value="actor.name" userID="SYL" flexoID="3161" />
     </ShapeRole>
     <FlexoConceptInstanceRole id="SYL-886" virtualModelInstance="model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor" cloningStrategy="Reference" cardinality="ZeroOne" name="actor" userID="SYL" flexoID="886" />
     <DropScheme id="SYL-873" target="top" label="dropActorGRAtTopLevel" name="dropActorGRAtTopLevel" width="800" height="600" userID="SYL" flexoID="873">
@@ -505,11 +505,11 @@
       <InspectorEntry id="SYL-2658" widget="CUSTOM_WIDGET" data="actorType" name="actorType" label="actorType" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ActorType&gt;" userID="SYL" flexoID="2658" />
     </Inspector>
     <ConnectorRole id="SYL-904" exampleLabel="" metamodelElementReference="http://www.openflexo.org/test/ProcessSpec/ExampleDiagram.diagram#SYL_24" cloningStrategy="Clone" cardinality="ZeroOne" name="connector" userID="SYL" flexoID="904">
-      <GRSpec id="SYL-3076" featureName="label" readOnly="true" value="&quot;&quot;" userID="SYL" flexoID="3076" />
+      <GRSpec id="SYL-3162" featureName="label" readOnly="true" value="&quot;&quot;" userID="SYL" flexoID="3162" />
     </ConnectorRole>
     <FlexoConceptInstanceRole id="SYL-2649" virtualModelInstance="container.model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor" cloningStrategy="Reference" cardinality="One" name="actor" userID="SYL" flexoID="2649" />
     <FlexoConceptInstanceRole id="SYL-2650" virtualModelInstance="container.model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ActorType" cloningStrategy="Reference" cardinality="One" name="actorType" userID="SYL" flexoID="2650" />
-    <LinkScheme id="SYL-900" northDirectionSupported="true" eastDirectionSupported="true" fromTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#ActorGR" toTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#ActorTypeGR" westDirectionSupported="true" isAvailableWithFloatingPalette="true" southDirectionSupported="true" label="linkActorGRToActorTypeGR" name="linkActorGRToActorTypeGR" width="800" height="600" userID="SYL" flexoID="900">
+    <LinkScheme id="SYL-900" northDirectionSupported="true" eastDirectionSupported="true" fromTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#ActorGR" toTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#ActorTypeGR" westDirectionSupported="true" isAvailableWithFloatingPalette="true" southDirectionSupported="true" label="linkActorGRToActorTypeGR" name="linkActorGRToActorTypeGR" width="800" height="600" userID="SYL" flexoID="900">
       <BehaviourControlGraph_Sequence id="SYL-919" userID="SYL" flexoID="919">
         <ControlGraph2_Sequence id="SYL-2655" ownerContext="controlGraph2" userID="SYL" flexoID="2655">
           <ControlGraph2_Sequence id="SYL-2656" ownerContext="controlGraph2" userID="SYL" flexoID="2656">
@@ -537,7 +537,7 @@
   <FlexoConcept id="SYL-911" name="ParentActorTypeGR" userID="SYL" flexoID="911">
     <Inspector id="SYL-907" inspectorTitle="ParentActorTypeGR" userID="SYL" flexoID="907" />
     <ConnectorRole id="SYL-918" exampleLabel="" metamodelElementReference="http://www.openflexo.org/test/ProcessSpec/ExampleDiagram.diagram#SYL_26" cloningStrategy="Clone" cardinality="ZeroOne" name="connector" userID="SYL" flexoID="918" />
-    <LinkScheme id="SYL-912" northDirectionSupported="true" eastDirectionSupported="true" fromTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#ActorTypeGR" toTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#ActorTypeGR" westDirectionSupported="true" isAvailableWithFloatingPalette="true" southDirectionSupported="true" label="linkActorTypeGRToActorTypeGR" name="linkActorTypeGRToActorTypeGR" width="800" height="600" userID="SYL" flexoID="912">
+    <LinkScheme id="SYL-912" northDirectionSupported="true" eastDirectionSupported="true" fromTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#ActorTypeGR" toTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#ActorTypeGR" westDirectionSupported="true" isAvailableWithFloatingPalette="true" southDirectionSupported="true" label="linkActorTypeGRToActorTypeGR" name="linkActorTypeGRToActorTypeGR" width="800" height="600" userID="SYL" flexoID="912">
       <BehaviourControlGraph_Sequence id="SYL-921" userID="SYL" flexoID="921">
         <ControlGraph2_ExpressionAction id="SYL-914" expression="fromTarget.actorType.addParentActorType(toTarget.actorType)" ownerContext="controlGraph2" userID="SYL" flexoID="914" />
         <ControlGraph1_AssignationAction id="SYL-913" assign="connector" ownerContext="controlGraph1" userID="SYL" flexoID="913">
@@ -554,7 +554,7 @@
     <ConnectorRole id="SYL-993" exampleLabel="" metamodelElementReference="http://www.openflexo.org/test/ProcessSpec/ExampleDiagram.diagram#SYL_27" cloningStrategy="Clone" cardinality="ZeroOne" name="connector" userID="SYL" flexoID="993" />
     <FlexoConceptInstanceRole id="SYL-2734" virtualModelInstance="container.model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#TaskType" cloningStrategy="Reference" cardinality="One" name="taskType" userID="SYL" flexoID="2734" />
     <FlexoConceptInstanceRole id="SYL-2735" virtualModelInstance="container.model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ActorType" cloningStrategy="Reference" cardinality="One" name="actorType" userID="SYL" flexoID="2735" />
-    <LinkScheme id="SYL-988" northDirectionSupported="true" eastDirectionSupported="true" fromTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#ActorTypeGR" toTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#TaskTypeGR" westDirectionSupported="true" isAvailableWithFloatingPalette="true" southDirectionSupported="true" label="linkActorTypeGRToTaskTypeGR" name="linkActorTypeGRToTaskTypeGR" width="800" height="600" userID="SYL" flexoID="988">
+    <LinkScheme id="SYL-988" northDirectionSupported="true" eastDirectionSupported="true" fromTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#ActorTypeGR" toTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#TaskTypeGR" westDirectionSupported="true" isAvailableWithFloatingPalette="true" southDirectionSupported="true" label="linkActorTypeGRToTaskTypeGR" name="linkActorTypeGRToTaskTypeGR" width="800" height="600" userID="SYL" flexoID="988">
       <BehaviourControlGraph_Sequence id="SYL-2749" ownerContext="controlGraph2" userID="SYL" flexoID="2749">
         <ControlGraph2_Sequence id="SYL-2750" ownerContext="controlGraph2" userID="SYL" flexoID="2750">
           <ControlGraph2_ConditionalAction id="SYL-2981" condition="taskType.addAllowedActorType(actorType)" ownerContext="controlGraph2" userID="SYL" flexoID="2981">
@@ -582,7 +582,7 @@
   <FlexoConcept id="SYL-1000" name="AllowedActorGR" userID="SYL" flexoID="1000">
     <Inspector id="SYL-996" inspectorTitle="AllowedActorGR" userID="SYL" flexoID="996" />
     <ConnectorRole id="SYL-1005" exampleLabel="" metamodelElementReference="http://www.openflexo.org/test/ProcessSpec/ExampleDiagram.diagram#SYL_28" cloningStrategy="Clone" cardinality="ZeroOne" name="connector" userID="SYL" flexoID="1005" />
-    <LinkScheme id="SYL-1001" northDirectionSupported="true" eastDirectionSupported="true" fromTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#ActorGR" toTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#TaskTypeGR" westDirectionSupported="true" isAvailableWithFloatingPalette="true" southDirectionSupported="true" label="linkActorGRToTaskTypeGR" name="linkActorGRToTaskTypeGR" width="800" height="600" userID="SYL" flexoID="1001">
+    <LinkScheme id="SYL-1001" northDirectionSupported="true" eastDirectionSupported="true" fromTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#ActorGR" toTarget="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#TaskTypeGR" westDirectionSupported="true" isAvailableWithFloatingPalette="true" southDirectionSupported="true" label="linkActorGRToTaskTypeGR" name="linkActorGRToTaskTypeGR" width="800" height="600" userID="SYL" flexoID="1001">
       <BehaviourControlGraph_Sequence id="SYL-1017" userID="SYL" flexoID="1017">
         <ControlGraph2_ExpressionAction id="SYL-1007" expression="toTarget.taskType.addAllowedActor(fromTarget.actor)" ownerContext="controlGraph2" userID="SYL" flexoID="1007" />
         <ControlGraph1_AssignationAction id="SYL-1006" assign="connector" ownerContext="controlGraph1" userID="SYL" flexoID="1006">
@@ -594,10 +594,10 @@
   <FlexoConcept id="SYL-45" name="TaskTypeGR" userID="SYL" flexoID="45">
     <Inspector id="SYL-41" inspectorTitle="TaskTypeGR" delegateConceptInstance="taskType" userID="SYL" flexoID="41" />
     <ShapeRole id="SYL-58" previewY="80.0" previewX="57.089552238805965" previewWidth="135.82089552238807" exampleLabel="TaskType" metamodelElementReference="http://www.openflexo.org/test/ProcessSpec/ExampleDiagram.diagram#SYL_3" cloningStrategy="Clone" cardinality="ZeroOne" name="shape" userID="SYL" flexoID="58">
-      <GRSpec id="SYL-3077" featureName="label" readOnly="true" value="taskType.name" userID="SYL" flexoID="3077" />
+      <GRSpec id="SYL-3163" featureName="label" readOnly="true" value="taskType.name" userID="SYL" flexoID="3163" />
     </ShapeRole>
     <FlexoConceptInstanceRole id="SYL-67" virtualModelInstance="model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#TaskType" cloningStrategy="Reference" cardinality="ZeroOne" name="taskType" userID="SYL" flexoID="67" />
-    <DropScheme id="SYL-46" target="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml#ProcessTypeGR" label="dropTaskTypeGRAtTopLevel" name="dropTaskTypeGRAtTopLevel" width="800" height="600" userID="SYL" flexoID="46">
+    <DropScheme id="SYL-46" target="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#ProcessTypeGR" label="dropTaskTypeGRAtTopLevel" name="dropTaskTypeGRAtTopLevel" width="800" height="600" userID="SYL" flexoID="46">
       <ShapeRole idref="SYL-1942" />
       <BehaviourControlGraph_Sequence id="SYL-68" userID="SYL" flexoID="68">
         <ControlGraph2_Sequence id="SYL-2049" ownerContext="controlGraph2" userID="SYL" flexoID="2049">
@@ -632,7 +632,7 @@
     <ShapeRole id="SYL-1942" previewHeight="80.0" previewY="32.0" previewX="46.0" previewWidth="100.0" exampleLabel="" metamodelElementReference="http://www.openflexo.org/test/ProcessSpec/ExampleDiagram.diagram#SYL_29" cloningStrategy="Clone" cardinality="ZeroOne" name="shape" userID="SYL" flexoID="1942" />
     <ShapeRole id="SYL-1930" previewHeight="20.0" previewY="0.0" previewX="0.0" previewWidth="100.0" exampleLabel="Process" metamodelElementReference="http://www.openflexo.org/test/ProcessSpec/ExampleDiagram.diagram#SYL_30" cloningStrategy="Clone" cardinality="ZeroOne" name="header" userID="SYL" flexoID="1930">
       <ParentShapeRole idref="SYL-1942" />
-      <GRSpec id="SYL-3078" featureName="label" value="processType.name" userID="SYL" flexoID="3078" />
+      <GRSpec id="SYL-3164" featureName="label" value="processType.name" userID="SYL" flexoID="3164" />
     </ShapeRole>
     <FlexoConceptInstanceRole id="SYL-1958" virtualModelInstance="model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ProcessType" cloningStrategy="Reference" cardinality="ZeroOne" name="processType" userID="SYL" flexoID="1958" />
     <DropScheme id="SYL-1918" target="top" label="dropProcessTypeGRAtTopLevel" name="dropProcessTypeGRAtTopLevel" width="800" height="600" userID="SYL" flexoID="1918">
@@ -666,7 +666,7 @@
   </FlexoConcept>
   <UseModelSlotDeclaration id="0" modelSlotClass="org.openflexo.technologyadapter.diagram.TypedDiagramModelSlot" userID="SYL" flexoID="-1" />
   <UseModelSlotDeclaration id="1" modelSlotClass="org.openflexo.foundation.fml.rt.FMLRTVirtualModelInstanceModelSlot" userID="SYL" flexoID="-1" />
-  <Inspector id="SYL-2" inspectorTitle="ProcessEditor" delegateConceptInstance="processType" userID="SYL" flexoID="2" />
+  <Inspector id="SYL-2" inspectorTitle="ProcessTypeEditor" delegateConceptInstance="processType" userID="SYL" flexoID="2" />
   <TypedDiagramModelSlot id="SYL-7" templateDiagramReference="http://www.openflexo.org/test/ProcessSpec/ExampleDiagram.diagram#SYL_1" metaModelURI="http://www.openflexo.org/test/ProcessSpec" isRequired="true" cloningStrategy="Reference" cardinality="ZeroOne" name="diagram" userID="SYL" flexoID="7">
     <FMLDiagramPaletteElementBinding id="SYL-38" paletteElementId="http://www.openflexo.org/test/ProcessSpec/Palette.palette#BeginNode" userID="SYL" flexoID="38">
       <DropScheme idref="SYL-30" />
