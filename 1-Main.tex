@@ -14,7 +14,7 @@
 \usepackage{hyperref}
 \usepackage{tikz-uml}
 
-\usepackage{amsmath,amssymb,mathtools}
+\usepackage{amsmath,mathtools}%amssymb,
 \usepackage{algorithmic,algorithm}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
@@ -35,13 +35,16 @@
 %\author{Sylvain Guérin, Joel Champeau}
 %\address{ENSTA Bretagne}
 
-%\author{Jean-Christophe Bach, Salvador Martinez, Antoine Beugnard}
+%\author{Jean-Christophe Bach, Salvador Martinez, Antoine Beugnard, Fabien Dagnat}
 %\address{IMT Atlantique}
 
 %% or include affiliations in footnotes:
 \author*{Sylvain Guérin}{firstname.lastname@ensta-bretagne.fr}
 \address{ENSTA Bretagne, Lab-STICC, UMR 6285, Brest, France}
 %\ead{firstname.lastname@ensta-bretagne.fr}
+
+\author{Joel Champeau}
+\address[a]{}
 
 \author{Jean-Christophe Bach}
 \address{IMT Atlantique, Lab-STICC, UMR 6285, F-29238 Brest, France}
@@ -102,11 +105,14 @@
 \input{10-Conclusions.tex}
 
 
-%%
+
 %% The next two lines define the bibliography style to be used, and
 %% the bibliography file.
-\bibliographystyle{ACM-Reference-Format}
+%\bibliographystyle{ACM-Reference-Format}
 \bibliography{biblio}
+
+% à utiliser d'après le style (avec biber), voir comment ça fonctionne sous overleaf, sinon CLI et tant pis/mieux
+%\printbibliography
 
 \end{article}
 \end{document}
