@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VirtualModel id="SYL-1" virtualModelClass="org.openflexo.foundation.fml.VirtualModel" modelVersion="2.0" version="0.1" uri="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/ProcessEditor/ProcessEditor.fml" name="ProcessEditor" userID="SYL" flexoID="1">
+  <UseModelSlotDeclaration id="0" modelSlotClass="org.openflexo.technologyadapter.diagram.TypedDiagramModelSlot" userID="SYL" flexoID="-1" />
+  <Inspector id="SYL-2" inspectorTitle="ProcessEditor" userID="SYL" flexoID="2" />
+  <TypedDiagramModelSlot id="SYL-3" metaModelURI="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process" isRequired="true" cloningStrategy="Reference" cardinality="ZeroOne" name="diagram" userID="SYL" flexoID="3" />
+  <CreationScheme id="SYL-5" label="init" name="init" width="800" height="600" userID="SYL" flexoID="5">
+    <BehaviourControlGraph_AssignationAction id="SYL-9" assign="diagram" userID="SYL" flexoID="9">
+      <AssignableAction_CreateDiagram id="SYL-10" diagramSpecificationURI="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process" diagramName="'diagram'" resourceCenter="this.resourceCenter" relativePath="/Diagrams" dynamicRelativePath="'/Diagrams'" resourceName="'diagram'" userID="SYL" flexoID="10" />
+    </BehaviourControlGraph_AssignationAction>
+  </CreationScheme>
+</VirtualModel>

@@ -1,0 +1,17 @@
+use org.openflexo.technologyadapter.diagram.TypedDiagramModelSlot;
+
+/**
+ * 
+ * @version 0.1
+ */
+@VirtualModel(uri="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/ProcessEditor/ProcessEditor.fml")
+public class ProcessEditor {
+
+  public Diagram diagram;
+
+  @CreationScheme  
+  ProcessEditor:init() {  
+    diagram = CreateDiagram();  
+  }  
+
+}
