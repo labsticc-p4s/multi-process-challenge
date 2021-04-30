@@ -18,12 +18,33 @@ public class ProcessEditor {
     diagram = CreateDiagram();    
     model = parameters.model;    
     processTypeEditor = parameters.processTypeEditor;    
-    ProcessGR.instantiateProcess(parameters.processType,parameters.processName)  
+    ProcessGR newProcessGR = ProcessGR.instantiateProcess(parameters.processType,parameters.processName);    
+    log ("Les tasks= " + newProcessGR.process.tasks)    
+    for (task : newProcessGR.process.tasks) {    
+      log ("Task=" + task)      
+      if (task.type.concept.name = "Begin") {      
+        BeginGR.representTask(task)        
+        log "New begin"      
+      } else {      
+        if (task.type.concept.name = "End") {        
+          EndGR.representTask(task)          
+          log "New end"        
+        } else {        
+          TaskGR.representTask(task)          
+          log "New task"        
+        }      
+      }    
+    }  
   }  
 
   @DeletionScheme  
   Void delete() {  
   
+  }  
+
+  @ActionScheme  
+  ProcessGR getProcessGR(Process process) {  
+    return this.SelectUniqueFlexoConceptInstance(type=ProcessGR,where=where=(selected.process = parameters.process));  
   }  
 
 
@@ -44,6 +65,81 @@ public class ProcessEditor {
       shape.y=processTypeGR.shape.graphicalRepresentation.y      
       shape.width=processTypeGR.shape.graphicalRepresentation.width      
       shape.height=processTypeGR.shape.graphicalRepresentation.height    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class BeginGR {  
+  
+    public DiagramShape shape;  
+    public Task task;  
+  
+    @DeletionScheme    
+    public Void delete() {    
+      delete shape;      
+      task.delete();    
+    }    
+  
+    @CreationScheme    
+    BeginGR:representTask(Task task) {    
+      task = parameters.task;      
+      shape = diagram.AddShape();      
+      BeginGR beginTypeGR = processTypeEditor.getBeginGR(parameters.task.type);      
+      shape.x=beginTypeGR.shape.graphicalRepresentation.x      
+      shape.y=beginTypeGR.shape.graphicalRepresentation.y      
+      shape.width=beginTypeGR.shape.graphicalRepresentation.width      
+      shape.height=beginTypeGR.shape.graphicalRepresentation.height    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class TaskGR {  
+  
+    public DiagramShape shape;  
+    public Task task;  
+  
+    @DeletionScheme    
+    public Void delete() {    
+      delete shape;      
+      task.delete();    
+    }    
+  
+    @CreationScheme    
+    TaskGR:representTask(Task task) {    
+      task = parameters.task;      
+      shape = diagram.AddShape();      
+      TaskTypeGR taskTypeGR = processTypeEditor.getTaskTypeGR(parameters.task.type);      
+      shape.x=taskTypeGR.shape.graphicalRepresentation.x      
+      shape.y=taskTypeGR.shape.graphicalRepresentation.y      
+      shape.width=taskTypeGR.shape.graphicalRepresentation.width      
+      shape.height=taskTypeGR.shape.graphicalRepresentation.height    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class EndGR {  
+  
+    public DiagramShape shape;  
+    public Task task;  
+  
+    @DeletionScheme    
+    public Void delete() {    
+      delete shape;      
+      task.delete();    
+    }    
+  
+    @CreationScheme    
+    EndGR:representTask(Task task) {    
+      task = parameters.task;      
+      shape = diagram.AddShape();      
+      BeginGR beginTypeGR = processTypeEditor.getBeginGR(parameters.task.type);      
+      shape.x=beginTypeGR.shape.graphicalRepresentation.x      
+      shape.y=beginTypeGR.shape.graphicalRepresentation.y      
+      shape.width=beginTypeGR.shape.graphicalRepresentation.width      
+      shape.height=beginTypeGR.shape.graphicalRepresentation.height    
     }    
   
   }  

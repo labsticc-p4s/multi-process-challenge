@@ -680,7 +680,12 @@ public class MetaModel {
     @CreationScheme    
     Process:create(String name, ProcessType processType) {    
       super.create(parameters.name)      
-      type = parameters.processType;    
+      type = parameters.processType;      
+      for (taskType : type.taskTypes) {      
+        Task newTask = taskType.newTask(taskType.name,this);        
+        tasks.add(newTask)      
+      }      
+      initialTask = this.getTask(type.initialTaskType);    
     }    
   
     @DeletionScheme    
@@ -691,6 +696,11 @@ public class MetaModel {
     @ActionScheme    
     public Void start() {    
       initialTask.startTask()    
+    }    
+  
+    @ActionScheme    
+    Task getTask(TaskType taskType) {    
+      return container.SelectUniqueFlexoConceptInstance(type=Task,where=where=(selected.type = parameters.taskType));    
     }    
   
   
@@ -796,8 +806,8 @@ public class MetaModel {
       }      
       
       @ActionScheme      
-      Boolean checkConstraints() {      
-        return true;      
+      Boolean isStartable() {      
+        return (performingActors.size > 0);      
       }      
       
     }    
@@ -906,8 +916,8 @@ public class MetaModel {
     }    
   
     @ActionScheme    
-    Boolean checkConstraints() {    
-      return true;    
+    Boolean isStartable() {    
+      return (performingActors.size > 0);    
     }    
   
   }  

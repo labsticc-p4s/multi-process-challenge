@@ -5,7 +5,7 @@
     <ShapeRole id="SYL-40" previewHeight="230.0" previewY="-15.0" previewX="10.0" previewWidth="230.0" exampleLabel="Shape" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_29" cloningStrategy="Clone" cardinality="ZeroOne" name="shape" userID="SYL" flexoID="40" />
     <ShapeRole id="SYL-41" previewHeight="20.0" previewY="0.0" previewX="0.0" previewWidth="246.2094364533389" exampleLabel="Shape" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_30" cloningStrategy="Clone" cardinality="ZeroOne" name="header" userID="SYL" flexoID="41">
       <ParentShapeRole idref="SYL-40" />
-      <GRSpec id="SYL-75" featureName="label" value="process.name" userID="SYL" flexoID="75" />
+      <GRSpec id="SYL-3864" featureName="label" value="process.name" userID="SYL" flexoID="3864" />
     </ShapeRole>
     <FlexoConceptInstanceRole id="SYL-42" virtualModelInstance="model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Process" cloningStrategy="Reference" cardinality="ZeroOne" name="process" userID="SYL" flexoID="42" />
     <CreationScheme id="SYL-54" label="instantiateProcess" name="instantiateProcess" width="800" height="600" userID="SYL" flexoID="54">
@@ -46,12 +46,131 @@
       <GenericBehaviourParameter id="SYL-61" isRequired="true" widget="TEXT_FIELD" name="processName" type="java.lang.String" userID="SYL" flexoID="61" />
     </CreationScheme>
   </FlexoConcept>
+  <FlexoConcept id="SYL-102" name="BeginGR" userID="SYL" flexoID="102">
+    <Inspector id="SYL-3731" inspectorTitle="BeginNode" delegateConceptInstance="begin" userID="SYL" flexoID="3731" />
+    <ShapeRole id="SYL-103" previewHeight="20.0" previewY="90.0" previewX="115.0" previewWidth="20.0" exampleLabel="Shape" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_2" cloningStrategy="Clone" cardinality="ZeroOne" name="shape" userID="SYL" flexoID="103" />
+    <FlexoConceptInstanceRole id="SYL-104" virtualModelInstance="model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Task" cloningStrategy="Reference" cardinality="ZeroOne" name="task" userID="SYL" flexoID="104" />
+    <DeletionScheme id="SYL-119" visibility="Public" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="119">
+      <BehaviourControlGraph_Sequence id="SYL-118" userID="SYL" flexoID="118">
+        <ControlGraph2_DeleteFlexoConceptInstance id="SYL-116" deletionSchemeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Begin.delete()" object="task" ownerContext="controlGraph2" userID="SYL" flexoID="116" />
+        <ControlGraph1_DeleteAction id="SYL-117" object="shape" ownerContext="controlGraph1" userID="SYL" flexoID="117" />
+      </BehaviourControlGraph_Sequence>
+    </DeletionScheme>
+    <CreationScheme id="SYL-3745" label="representTask" name="representTask" width="800" height="600" userID="SYL" flexoID="3745">
+      <BehaviourControlGraph_Sequence id="SYL-3766" userID="SYL" flexoID="3766">
+        <ControlGraph2_Sequence id="SYL-3784" ownerContext="controlGraph2" userID="SYL" flexoID="3784">
+          <ControlGraph2_Sequence id="SYL-3806" ownerContext="controlGraph2" userID="SYL" flexoID="3806">
+            <ControlGraph2_Sequence id="SYL-3805" ownerContext="controlGraph2" userID="SYL" flexoID="3805">
+              <ControlGraph2_Sequence id="SYL-3804" ownerContext="controlGraph2" userID="SYL" flexoID="3804">
+                <ControlGraph2_Sequence id="SYL-3803" ownerContext="controlGraph2" userID="SYL" flexoID="3803">
+                  <ControlGraph2_GraphicalAction id="SYL-3801" subject="shape" value="beginTypeGR.shape.graphicalRepresentation.height" feature="height" receiver="diagram" ownerContext="controlGraph2" userID="SYL" flexoID="3801" />
+                  <ControlGraph1_GraphicalAction id="SYL-3802" subject="shape" value="beginTypeGR.shape.graphicalRepresentation.width" feature="width" receiver="diagram" ownerContext="controlGraph1" userID="SYL" flexoID="3802" />
+                </ControlGraph2_Sequence>
+                <ControlGraph1_GraphicalAction id="SYL-3800" subject="shape" value="beginTypeGR.shape.graphicalRepresentation.y" feature="y" receiver="diagram" ownerContext="controlGraph1" userID="SYL" flexoID="3800" />
+              </ControlGraph2_Sequence>
+              <ControlGraph1_GraphicalAction id="SYL-3799" subject="shape" value="beginTypeGR.shape.graphicalRepresentation.x" feature="x" receiver="diagram" ownerContext="controlGraph1" userID="SYL" flexoID="3799" />
+            </ControlGraph2_Sequence>
+            <ControlGraph1_DeclarationAction id="SYL-3798" variable="beginTypeGR" ownerContext="controlGraph1" userID="SYL" flexoID="3798">
+              <AssignableAction_ExpressionAction id="SYL-3782" expression="processTypeEditor.getBeginGR(parameters.task.type)" ownerContext="controlGraph2" userID="SYL" flexoID="3782" />
+            </ControlGraph1_DeclarationAction>
+          </ControlGraph2_Sequence>
+          <ControlGraph1_AssignationAction id="SYL-3748" assign="shape" ownerContext="controlGraph1" userID="SYL" flexoID="3748">
+            <AssignableAction_AddShape id="SYL-3749" container="container.getProcessGR(task.container).shape" receiver="diagram" userID="SYL" flexoID="3749" />
+          </ControlGraph1_AssignationAction>
+        </ControlGraph2_Sequence>
+        <ControlGraph1_AssignationAction id="SYL-3747" assign="task" ownerContext="controlGraph1" userID="SYL" flexoID="3747">
+          <AssignableAction_ExpressionAction id="SYL-3746" expression="parameters.task" userID="SYL" flexoID="3746" />
+        </ControlGraph1_AssignationAction>
+      </BehaviourControlGraph_Sequence>
+      <GenericBehaviourParameter id="SYL-3768" isRequired="true" widget="CUSTOM_WIDGET" name="task" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Task&gt;" userID="SYL" flexoID="3768" />
+    </CreationScheme>
+  </FlexoConcept>
+  <FlexoConcept id="SYL-123" name="TaskGR" userID="SYL" flexoID="123">
+    <Inspector id="SYL-3732" inspectorTitle="TaskTypeGR" delegateConceptInstance="task" userID="SYL" flexoID="3732" />
+    <ShapeRole id="SYL-124" previewY="80.0" previewX="57.089552238805965" previewWidth="135.82089552238807" exampleLabel="TaskType" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_3" cloningStrategy="Clone" cardinality="ZeroOne" name="shape" userID="SYL" flexoID="124">
+      <GRSpec id="SYL-3825" featureName="label" readOnly="true" value="task.name" userID="SYL" flexoID="3825" />
+    </ShapeRole>
+    <FlexoConceptInstanceRole id="SYL-125" virtualModelInstance="model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Task" cloningStrategy="Reference" cardinality="ZeroOne" name="task" userID="SYL" flexoID="125" />
+    <DeletionScheme id="SYL-143" visibility="Public" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="143">
+      <BehaviourControlGraph_Sequence id="SYL-142" userID="SYL" flexoID="142">
+        <ControlGraph2_DeleteFlexoConceptInstance id="SYL-140" deletionSchemeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#TaskType.delete()" object="task" ownerContext="controlGraph2" userID="SYL" flexoID="140" />
+        <ControlGraph1_DeleteAction id="SYL-141" object="shape" ownerContext="controlGraph1" userID="SYL" flexoID="141" />
+      </BehaviourControlGraph_Sequence>
+    </DeletionScheme>
+    <CreationScheme id="SYL-3807" label="representTask" name="representTask" width="800" height="600" userID="SYL" flexoID="3807">
+      <BehaviourControlGraph_Sequence id="SYL-3823" userID="SYL" flexoID="3823">
+        <ControlGraph2_Sequence id="SYL-3820" ownerContext="controlGraph2" userID="SYL" flexoID="3820">
+          <ControlGraph2_Sequence id="SYL-3817" ownerContext="controlGraph2" userID="SYL" flexoID="3817">
+            <ControlGraph2_Sequence id="SYL-3814" ownerContext="controlGraph2" userID="SYL" flexoID="3814">
+              <ControlGraph2_Sequence id="SYL-3812" ownerContext="controlGraph2" userID="SYL" flexoID="3812">
+                <ControlGraph2_Sequence id="SYL-3810" ownerContext="controlGraph2" userID="SYL" flexoID="3810">
+                  <ControlGraph2_GraphicalAction id="SYL-3808" subject="shape" value="taskTypeGR.shape.graphicalRepresentation.height" feature="height" receiver="diagram" ownerContext="controlGraph2" userID="SYL" flexoID="3808" />
+                  <ControlGraph1_GraphicalAction id="SYL-3809" subject="shape" value="taskTypeGR.shape.graphicalRepresentation.width" feature="width" receiver="diagram" ownerContext="controlGraph1" userID="SYL" flexoID="3809" />
+                </ControlGraph2_Sequence>
+                <ControlGraph1_GraphicalAction id="SYL-3811" subject="shape" value="taskTypeGR.shape.graphicalRepresentation.y" feature="y" receiver="diagram" ownerContext="controlGraph1" userID="SYL" flexoID="3811" />
+              </ControlGraph2_Sequence>
+              <ControlGraph1_GraphicalAction id="SYL-3813" subject="shape" value="taskTypeGR.shape.graphicalRepresentation.x" feature="x" receiver="diagram" ownerContext="controlGraph1" userID="SYL" flexoID="3813" />
+            </ControlGraph2_Sequence>
+            <ControlGraph1_DeclarationAction id="SYL-3816" variable="taskTypeGR" ownerContext="controlGraph1" userID="SYL" flexoID="3816">
+              <AssignableAction_ExpressionAction id="SYL-3815" expression="processTypeEditor.getTaskTypeGR(parameters.task.type)" ownerContext="controlGraph2" userID="SYL" flexoID="3815" />
+            </ControlGraph1_DeclarationAction>
+          </ControlGraph2_Sequence>
+          <ControlGraph1_AssignationAction id="SYL-3819" assign="shape" ownerContext="controlGraph1" userID="SYL" flexoID="3819">
+            <AssignableAction_AddShape id="SYL-3818" container="container.getProcessGR(task.container).shape" receiver="diagram" userID="SYL" flexoID="3818" />
+          </ControlGraph1_AssignationAction>
+        </ControlGraph2_Sequence>
+        <ControlGraph1_AssignationAction id="SYL-3822" assign="task" ownerContext="controlGraph1" userID="SYL" flexoID="3822">
+          <AssignableAction_ExpressionAction id="SYL-3821" expression="parameters.task" userID="SYL" flexoID="3821" />
+        </ControlGraph1_AssignationAction>
+      </BehaviourControlGraph_Sequence>
+      <GenericBehaviourParameter id="SYL-3824" isRequired="true" widget="CUSTOM_WIDGET" name="task" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Task&gt;" userID="SYL" flexoID="3824" />
+    </CreationScheme>
+  </FlexoConcept>
+  <FlexoConcept id="SYL-3870" name="EndGR" userID="SYL" flexoID="3870">
+    <Inspector id="SYL-3871" inspectorTitle="BeginNode" delegateConceptInstance="begin" userID="SYL" flexoID="3871" />
+    <ShapeRole id="SYL-3872" previewHeight="20.0" previewY="90.0" previewX="115.0" previewWidth="20.0" exampleLabel="Shape" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_6" cloningStrategy="Clone" cardinality="ZeroOne" name="shape" userID="SYL" flexoID="3872" />
+    <FlexoConceptInstanceRole id="SYL-3873" virtualModelInstance="model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Task" cloningStrategy="Reference" cardinality="ZeroOne" name="task" userID="SYL" flexoID="3873" />
+    <DeletionScheme id="SYL-3877" visibility="Public" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="3877">
+      <BehaviourControlGraph_Sequence id="SYL-3876" userID="SYL" flexoID="3876">
+        <ControlGraph2_DeleteFlexoConceptInstance id="SYL-3874" deletionSchemeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Begin.delete()" object="task" ownerContext="controlGraph2" userID="SYL" flexoID="3874" />
+        <ControlGraph1_DeleteAction id="SYL-3875" object="shape" ownerContext="controlGraph1" userID="SYL" flexoID="3875" />
+      </BehaviourControlGraph_Sequence>
+    </DeletionScheme>
+    <CreationScheme id="SYL-3895" label="representTask" name="representTask" width="800" height="600" userID="SYL" flexoID="3895">
+      <BehaviourControlGraph_Sequence id="SYL-3893" userID="SYL" flexoID="3893">
+        <ControlGraph2_Sequence id="SYL-3890" ownerContext="controlGraph2" userID="SYL" flexoID="3890">
+          <ControlGraph2_Sequence id="SYL-3887" ownerContext="controlGraph2" userID="SYL" flexoID="3887">
+            <ControlGraph2_Sequence id="SYL-3884" ownerContext="controlGraph2" userID="SYL" flexoID="3884">
+              <ControlGraph2_Sequence id="SYL-3882" ownerContext="controlGraph2" userID="SYL" flexoID="3882">
+                <ControlGraph2_Sequence id="SYL-3880" ownerContext="controlGraph2" userID="SYL" flexoID="3880">
+                  <ControlGraph2_GraphicalAction id="SYL-3878" subject="shape" value="beginTypeGR.shape.graphicalRepresentation.height" feature="height" receiver="diagram" ownerContext="controlGraph2" userID="SYL" flexoID="3878" />
+                  <ControlGraph1_GraphicalAction id="SYL-3879" subject="shape" value="beginTypeGR.shape.graphicalRepresentation.width" feature="width" receiver="diagram" ownerContext="controlGraph1" userID="SYL" flexoID="3879" />
+                </ControlGraph2_Sequence>
+                <ControlGraph1_GraphicalAction id="SYL-3881" subject="shape" value="beginTypeGR.shape.graphicalRepresentation.y" feature="y" receiver="diagram" ownerContext="controlGraph1" userID="SYL" flexoID="3881" />
+              </ControlGraph2_Sequence>
+              <ControlGraph1_GraphicalAction id="SYL-3883" subject="shape" value="beginTypeGR.shape.graphicalRepresentation.x" feature="x" receiver="diagram" ownerContext="controlGraph1" userID="SYL" flexoID="3883" />
+            </ControlGraph2_Sequence>
+            <ControlGraph1_DeclarationAction id="SYL-3886" variable="beginTypeGR" ownerContext="controlGraph1" userID="SYL" flexoID="3886">
+              <AssignableAction_ExpressionAction id="SYL-3885" expression="processTypeEditor.getBeginGR(parameters.task.type)" ownerContext="controlGraph2" userID="SYL" flexoID="3885" />
+            </ControlGraph1_DeclarationAction>
+          </ControlGraph2_Sequence>
+          <ControlGraph1_AssignationAction id="SYL-3889" assign="shape" ownerContext="controlGraph1" userID="SYL" flexoID="3889">
+            <AssignableAction_AddShape id="SYL-3888" container="container.getProcessGR(task.container).shape" receiver="diagram" userID="SYL" flexoID="3888" />
+          </ControlGraph1_AssignationAction>
+        </ControlGraph2_Sequence>
+        <ControlGraph1_AssignationAction id="SYL-3892" assign="task" ownerContext="controlGraph1" userID="SYL" flexoID="3892">
+          <AssignableAction_ExpressionAction id="SYL-3891" expression="parameters.task" userID="SYL" flexoID="3891" />
+        </ControlGraph1_AssignationAction>
+      </BehaviourControlGraph_Sequence>
+      <GenericBehaviourParameter id="SYL-3894" isRequired="true" widget="CUSTOM_WIDGET" name="task" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Task&gt;" userID="SYL" flexoID="3894" />
+    </CreationScheme>
+  </FlexoConcept>
   <UseModelSlotDeclaration id="0" modelSlotClass="org.openflexo.technologyadapter.diagram.TypedDiagramModelSlot" userID="SYL" flexoID="-1" />
   <UseModelSlotDeclaration id="1" modelSlotClass="org.openflexo.foundation.fml.rt.FMLRTVirtualModelInstanceModelSlot" userID="SYL" flexoID="-1" />
   <Inspector id="SYL-2" inspectorTitle="ProcessEditor" userID="SYL" flexoID="2" />
   <TypedDiagramModelSlot id="SYL-3" metaModelURI="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process" isRequired="true" cloningStrategy="Reference" cardinality="ZeroOne" name="diagram" userID="SYL" flexoID="3">
     <FMLDiagramPaletteElementBinding id="SYL-51" userID="SYL" flexoID="51">
-      <DropScheme id="SYL-39" width="800" height="600" userID="SYL" flexoID="39" />
+      <DropScheme id="SYL-39" target="top" width="800" height="600" userID="SYL" flexoID="39" />
     </FMLDiagramPaletteElementBinding>
   </TypedDiagramModelSlot>
   <FMLRTVirtualModelInstanceModelSlot id="SYL-11" virtualModelURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml" isRequired="true" cloningStrategy="Reference" cardinality="ZeroOne" name="model" userID="SYL" flexoID="11" />
@@ -61,10 +180,45 @@
     <BehaviourControlGraph_Sequence id="SYL-23" userID="SYL" flexoID="23">
       <ControlGraph2_Sequence id="SYL-24" ownerContext="controlGraph2" userID="SYL" flexoID="24">
         <ControlGraph2_Sequence id="SYL-52" ownerContext="controlGraph2" userID="SYL" flexoID="52">
-          <ControlGraph2_AddFlexoConceptInstance id="SYL-68" creationSchemeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/ProcessEditor/ProcessEditor.fml#ProcessGR.instantiateProcess(processType,processName)" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/ProcessEditor/ProcessEditor.fml#ProcessGR" receiver="this" ownerContext="controlGraph2" userID="SYL" flexoID="68">
-            <AddFlexoConceptInstanceParameter id="SYL-69" paramName="processType" value="parameters.processType" userID="SYL" flexoID="69" />
-            <AddFlexoConceptInstanceParameter id="SYL-70" paramName="processName" value="parameters.processName" userID="SYL" flexoID="70" />
-          </ControlGraph2_AddFlexoConceptInstance>
+          <ControlGraph2_Sequence id="SYL-3865" ownerContext="controlGraph2" userID="SYL" flexoID="3865">
+            <ControlGraph2_Sequence id="SYL-3915" ownerContext="controlGraph2" userID="SYL" flexoID="3915">
+              <ControlGraph2_IterationAction id="SYL-3838" iteratorName="task" ownerContext="controlGraph2" userID="SYL" flexoID="3838">
+                <Iteration_ExpressionAction id="SYL-3839" expression="newProcessGR.process.tasks" ownerContext="iterationControlGraph" userID="SYL" flexoID="3839" />
+                <ControlGraph_Sequence id="SYL-3909" ownerContext="controlGraph" userID="SYL" flexoID="3909">
+                  <ControlGraph2_ConditionalAction id="SYL-3847" condition="(task.type.concept.name = &quot;Begin&quot;)" ownerContext="controlGraph2" userID="SYL" flexoID="3847">
+                    <ElseControlGraph_ConditionalAction id="SYL-3857" condition="(task.type.concept.name = &quot;End&quot;)" ownerContext="elseControlGraph" userID="SYL" flexoID="3857">
+                      <ElseControlGraph_Sequence id="SYL-3910" ownerContext="elseControlGraph" userID="SYL" flexoID="3910">
+                        <ControlGraph2_LogAction id="SYL-3908" logLevel="INFO" logString="&quot;New task&quot;" ownerContext="controlGraph2" userID="SYL" flexoID="3908" />
+                        <ControlGraph1_AddFlexoConceptInstance id="SYL-3862" creationSchemeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/ProcessEditor/ProcessEditor.fml#TaskGR.representTask(task)" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/ProcessEditor/ProcessEditor.fml#TaskGR" receiver="this" ownerContext="controlGraph1" userID="SYL" flexoID="3862">
+                          <AddFlexoConceptInstanceParameter id="SYL-3863" paramName="task" value="task" userID="SYL" flexoID="3863" />
+                        </ControlGraph1_AddFlexoConceptInstance>
+                      </ElseControlGraph_Sequence>
+                      <ThenControlGraph_Sequence id="SYL-3911" ownerContext="thenControlGraph" userID="SYL" flexoID="3911">
+                        <ControlGraph2_LogAction id="SYL-3906" logLevel="INFO" logString="&quot;New end&quot;" ownerContext="controlGraph2" userID="SYL" flexoID="3906" />
+                        <ControlGraph1_AddFlexoConceptInstance id="SYL-3860" creationSchemeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/ProcessEditor/ProcessEditor.fml#EndGR.representTask(task)" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/ProcessEditor/ProcessEditor.fml#EndGR" receiver="this" ownerContext="controlGraph1" userID="SYL" flexoID="3860">
+                          <AddFlexoConceptInstanceParameter id="SYL-3899" paramName="task" value="task" userID="SYL" flexoID="3899" />
+                        </ControlGraph1_AddFlexoConceptInstance>
+                      </ThenControlGraph_Sequence>
+                    </ElseControlGraph_ConditionalAction>
+                    <ThenControlGraph_Sequence id="SYL-3912" ownerContext="thenControlGraph" userID="SYL" flexoID="3912">
+                      <ControlGraph2_LogAction id="SYL-3904" logLevel="INFO" logString="&quot;New begin&quot;" ownerContext="controlGraph2" userID="SYL" flexoID="3904" />
+                      <ControlGraph1_AddFlexoConceptInstance id="SYL-3849" creationSchemeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/ProcessEditor/ProcessEditor.fml#BeginGR.representTask(task)" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/ProcessEditor/ProcessEditor.fml#BeginGR" receiver="this" ownerContext="controlGraph1" userID="SYL" flexoID="3849">
+                        <AddFlexoConceptInstanceParameter id="SYL-3850" paramName="task" value="task" userID="SYL" flexoID="3850" />
+                      </ControlGraph1_AddFlexoConceptInstance>
+                    </ThenControlGraph_Sequence>
+                  </ControlGraph2_ConditionalAction>
+                  <ControlGraph1_LogAction id="SYL-3901" logLevel="INFO" logString="(&quot;Task=&quot; + task)" ownerContext="controlGraph1" userID="SYL" flexoID="3901" />
+                </ControlGraph_Sequence>
+              </ControlGraph2_IterationAction>
+              <ControlGraph1_LogAction id="SYL-3914" logLevel="INFO" logString="(&quot;Les tasks= &quot; + newProcessGR.process.tasks)" ownerContext="controlGraph1" userID="SYL" flexoID="3914" />
+            </ControlGraph2_Sequence>
+            <ControlGraph1_DeclarationAction id="SYL-3836" variable="newProcessGR" ownerContext="controlGraph1" userID="SYL" flexoID="3836">
+              <AssignableAction_AddFlexoConceptInstance id="SYL-68" creationSchemeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/ProcessEditor/ProcessEditor.fml#ProcessGR.instantiateProcess(processType,processName)" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/ProcessEditor/ProcessEditor.fml#ProcessGR" receiver="this" ownerContext="controlGraph2" userID="SYL" flexoID="68">
+                <AddFlexoConceptInstanceParameter id="SYL-69" paramName="processType" value="parameters.processType" userID="SYL" flexoID="69" />
+                <AddFlexoConceptInstanceParameter id="SYL-70" paramName="processName" value="parameters.processName" userID="SYL" flexoID="70" />
+              </AssignableAction_AddFlexoConceptInstance>
+            </ControlGraph1_DeclarationAction>
+          </ControlGraph2_Sequence>
           <ControlGraph1_AssignationAction id="SYL-33" assign="processTypeEditor" ownerContext="controlGraph1" userID="SYL" flexoID="33">
             <AssignableAction_ExpressionAction id="SYL-32" expression="parameters.processTypeEditor" userID="SYL" flexoID="32" />
           </ControlGraph1_AssignationAction>
@@ -85,4 +239,12 @@
   <DeletionScheme id="SYL-25" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="25">
     <BehaviourControlGraph_EmptyControlGraph id="SYL-26" userID="SYL" flexoID="26" />
   </DeletionScheme>
+  <ActionScheme id="SYL-3750" label="getProcessGR" name="getProcessGR" width="800" height="600" userID="SYL" flexoID="3750">
+    <BehaviourControlGraph_ReturnStatement id="SYL-3754" userID="SYL" flexoID="3754">
+      <AssignableAction_SelectUniqueFlexoConceptInstance id="SYL-3752" container="this" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/ProcessEditor/ProcessEditor.fml#ProcessGR" receiver="this" userID="SYL" flexoID="3752">
+        <Condition id="SYL-3753" condition="(selected.process = parameters.process)" userID="SYL" flexoID="3753" />
+      </AssignableAction_SelectUniqueFlexoConceptInstance>
+    </BehaviourControlGraph_ReturnStatement>
+    <GenericBehaviourParameter id="SYL-3757" isRequired="true" widget="CUSTOM_WIDGET" name="process" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Process&gt;" userID="SYL" flexoID="3757" />
+  </ActionScheme>
 </VirtualModel>

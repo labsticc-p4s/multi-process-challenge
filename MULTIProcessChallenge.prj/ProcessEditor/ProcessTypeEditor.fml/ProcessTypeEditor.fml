@@ -22,6 +22,21 @@ public class ProcessTypeEditor {
     return this.SelectUniqueFlexoConceptInstance(type=ProcessTypeGR,where=where=(selected.processType = parameters.processType));  
   }  
 
+  @ActionScheme  
+  TaskTypeGR getTaskTypeGR(TaskType taskType) {  
+    return this.SelectUniqueFlexoConceptInstance(type=TaskTypeGR,where=where=(selected.taskType = parameters.taskType));  
+  }  
+
+  @ActionScheme  
+  BeginGR getBeginGR(TaskType taskType) {  
+    return this.SelectUniqueFlexoConceptInstance(type=BeginGR,where=where=(selected.begin = parameters.taskType));  
+  }  
+
+  @ActionScheme  
+  EndGR getEndGR(TaskType taskType) {  
+    return this.SelectUniqueFlexoConceptInstance(type=EndGR,where=where=(selected.begin = parameters.taskType));  
+  }  
+
 
   @FlexoConcept  
   public class BeginGR {  
