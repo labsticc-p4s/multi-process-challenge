@@ -111,6 +111,7 @@ public class ProcessEditor {
       task = parameters.task;      
       shape = diagram.AddShape();      
       TaskTypeGR taskTypeGR = processTypeEditor.getTaskTypeGR(parameters.task.type);      
+      log ((("pour " + task) + " taskTypeGR=") + taskTypeGR)      
       shape.x=taskTypeGR.shape.graphicalRepresentation.x      
       shape.y=taskTypeGR.shape.graphicalRepresentation.y      
       shape.width=taskTypeGR.shape.graphicalRepresentation.width      
@@ -135,11 +136,11 @@ public class ProcessEditor {
     EndGR:representTask(Task task) {    
       task = parameters.task;      
       shape = diagram.AddShape();      
-      BeginGR beginTypeGR = processTypeEditor.getBeginGR(parameters.task.type);      
-      shape.x=beginTypeGR.shape.graphicalRepresentation.x      
-      shape.y=beginTypeGR.shape.graphicalRepresentation.y      
-      shape.width=beginTypeGR.shape.graphicalRepresentation.width      
-      shape.height=beginTypeGR.shape.graphicalRepresentation.height    
+      EndGR endTypeGR = processTypeEditor.getEndGR(parameters.task.type);      
+      shape.x=endTypeGR.shape.graphicalRepresentation.x      
+      shape.y=endTypeGR.shape.graphicalRepresentation.y      
+      shape.width=endTypeGR.shape.graphicalRepresentation.width      
+      shape.height=endTypeGR.shape.graphicalRepresentation.height    
     }    
   
   }  

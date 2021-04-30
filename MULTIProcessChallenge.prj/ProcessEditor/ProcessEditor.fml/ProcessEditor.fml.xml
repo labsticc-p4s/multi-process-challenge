@@ -5,7 +5,7 @@
     <ShapeRole id="SYL-40" previewHeight="230.0" previewY="-15.0" previewX="10.0" previewWidth="230.0" exampleLabel="Shape" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_29" cloningStrategy="Clone" cardinality="ZeroOne" name="shape" userID="SYL" flexoID="40" />
     <ShapeRole id="SYL-41" previewHeight="20.0" previewY="0.0" previewX="0.0" previewWidth="246.2094364533389" exampleLabel="Shape" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_30" cloningStrategy="Clone" cardinality="ZeroOne" name="header" userID="SYL" flexoID="41">
       <ParentShapeRole idref="SYL-40" />
-      <GRSpec id="SYL-3864" featureName="label" value="process.name" userID="SYL" flexoID="3864" />
+      <GRSpec id="SYL-3972" featureName="label" value="process.name" userID="SYL" flexoID="3972" />
     </ShapeRole>
     <FlexoConceptInstanceRole id="SYL-42" virtualModelInstance="model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Process" cloningStrategy="Reference" cardinality="ZeroOne" name="process" userID="SYL" flexoID="42" />
     <CreationScheme id="SYL-54" label="instantiateProcess" name="instantiateProcess" width="800" height="600" userID="SYL" flexoID="54">
@@ -48,7 +48,7 @@
   </FlexoConcept>
   <FlexoConcept id="SYL-102" name="BeginGR" userID="SYL" flexoID="102">
     <Inspector id="SYL-3731" inspectorTitle="BeginNode" delegateConceptInstance="begin" userID="SYL" flexoID="3731" />
-    <ShapeRole id="SYL-103" previewHeight="20.0" previewY="90.0" previewX="115.0" previewWidth="20.0" exampleLabel="Shape" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_2" cloningStrategy="Clone" cardinality="ZeroOne" name="shape" userID="SYL" flexoID="103" />
+    <ShapeRole id="SYL-103" previewHeight="20.0" previewY="90.0" previewX="115.0" previewWidth="20.0" exampleLabel="" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_2" cloningStrategy="Clone" cardinality="ZeroOne" name="shape" userID="SYL" flexoID="103" />
     <FlexoConceptInstanceRole id="SYL-104" virtualModelInstance="model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Task" cloningStrategy="Reference" cardinality="ZeroOne" name="task" userID="SYL" flexoID="104" />
     <DeletionScheme id="SYL-119" visibility="Public" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="119">
       <BehaviourControlGraph_Sequence id="SYL-118" userID="SYL" flexoID="118">
@@ -88,7 +88,7 @@
   <FlexoConcept id="SYL-123" name="TaskGR" userID="SYL" flexoID="123">
     <Inspector id="SYL-3732" inspectorTitle="TaskTypeGR" delegateConceptInstance="task" userID="SYL" flexoID="3732" />
     <ShapeRole id="SYL-124" previewY="80.0" previewX="57.089552238805965" previewWidth="135.82089552238807" exampleLabel="TaskType" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_3" cloningStrategy="Clone" cardinality="ZeroOne" name="shape" userID="SYL" flexoID="124">
-      <GRSpec id="SYL-3825" featureName="label" readOnly="true" value="task.name" userID="SYL" flexoID="3825" />
+      <GRSpec id="SYL-3973" featureName="label" readOnly="true" value="task.name" userID="SYL" flexoID="3973" />
     </ShapeRole>
     <FlexoConceptInstanceRole id="SYL-125" virtualModelInstance="model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Task" cloningStrategy="Reference" cardinality="ZeroOne" name="task" userID="SYL" flexoID="125" />
     <DeletionScheme id="SYL-143" visibility="Public" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="143">
@@ -101,15 +101,18 @@
       <BehaviourControlGraph_Sequence id="SYL-3823" userID="SYL" flexoID="3823">
         <ControlGraph2_Sequence id="SYL-3820" ownerContext="controlGraph2" userID="SYL" flexoID="3820">
           <ControlGraph2_Sequence id="SYL-3817" ownerContext="controlGraph2" userID="SYL" flexoID="3817">
-            <ControlGraph2_Sequence id="SYL-3814" ownerContext="controlGraph2" userID="SYL" flexoID="3814">
-              <ControlGraph2_Sequence id="SYL-3812" ownerContext="controlGraph2" userID="SYL" flexoID="3812">
-                <ControlGraph2_Sequence id="SYL-3810" ownerContext="controlGraph2" userID="SYL" flexoID="3810">
-                  <ControlGraph2_GraphicalAction id="SYL-3808" subject="shape" value="taskTypeGR.shape.graphicalRepresentation.height" feature="height" receiver="diagram" ownerContext="controlGraph2" userID="SYL" flexoID="3808" />
-                  <ControlGraph1_GraphicalAction id="SYL-3809" subject="shape" value="taskTypeGR.shape.graphicalRepresentation.width" feature="width" receiver="diagram" ownerContext="controlGraph1" userID="SYL" flexoID="3809" />
+            <ControlGraph2_Sequence id="SYL-3974" ownerContext="controlGraph2" userID="SYL" flexoID="3974">
+              <ControlGraph2_Sequence id="SYL-3814" ownerContext="controlGraph2" userID="SYL" flexoID="3814">
+                <ControlGraph2_Sequence id="SYL-3812" ownerContext="controlGraph2" userID="SYL" flexoID="3812">
+                  <ControlGraph2_Sequence id="SYL-3810" ownerContext="controlGraph2" userID="SYL" flexoID="3810">
+                    <ControlGraph2_GraphicalAction id="SYL-3808" subject="shape" value="taskTypeGR.shape.graphicalRepresentation.height" feature="height" receiver="diagram" ownerContext="controlGraph2" userID="SYL" flexoID="3808" />
+                    <ControlGraph1_GraphicalAction id="SYL-3809" subject="shape" value="taskTypeGR.shape.graphicalRepresentation.width" feature="width" receiver="diagram" ownerContext="controlGraph1" userID="SYL" flexoID="3809" />
+                  </ControlGraph2_Sequence>
+                  <ControlGraph1_GraphicalAction id="SYL-3811" subject="shape" value="taskTypeGR.shape.graphicalRepresentation.y" feature="y" receiver="diagram" ownerContext="controlGraph1" userID="SYL" flexoID="3811" />
                 </ControlGraph2_Sequence>
-                <ControlGraph1_GraphicalAction id="SYL-3811" subject="shape" value="taskTypeGR.shape.graphicalRepresentation.y" feature="y" receiver="diagram" ownerContext="controlGraph1" userID="SYL" flexoID="3811" />
+                <ControlGraph1_GraphicalAction id="SYL-3813" subject="shape" value="taskTypeGR.shape.graphicalRepresentation.x" feature="x" receiver="diagram" ownerContext="controlGraph1" userID="SYL" flexoID="3813" />
               </ControlGraph2_Sequence>
-              <ControlGraph1_GraphicalAction id="SYL-3813" subject="shape" value="taskTypeGR.shape.graphicalRepresentation.x" feature="x" receiver="diagram" ownerContext="controlGraph1" userID="SYL" flexoID="3813" />
+              <ControlGraph1_LogAction id="SYL-3971" logLevel="INFO" logString="(((&quot;pour &quot; + task) + &quot; taskTypeGR=&quot;) + taskTypeGR)" ownerContext="controlGraph1" userID="SYL" flexoID="3971" />
             </ControlGraph2_Sequence>
             <ControlGraph1_DeclarationAction id="SYL-3816" variable="taskTypeGR" ownerContext="controlGraph1" userID="SYL" flexoID="3816">
               <AssignableAction_ExpressionAction id="SYL-3815" expression="processTypeEditor.getTaskTypeGR(parameters.task.type)" ownerContext="controlGraph2" userID="SYL" flexoID="3815" />
@@ -128,7 +131,7 @@
   </FlexoConcept>
   <FlexoConcept id="SYL-3870" name="EndGR" userID="SYL" flexoID="3870">
     <Inspector id="SYL-3871" inspectorTitle="BeginNode" delegateConceptInstance="begin" userID="SYL" flexoID="3871" />
-    <ShapeRole id="SYL-3872" previewHeight="20.0" previewY="90.0" previewX="115.0" previewWidth="20.0" exampleLabel="Shape" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_6" cloningStrategy="Clone" cardinality="ZeroOne" name="shape" userID="SYL" flexoID="3872" />
+    <ShapeRole id="SYL-3872" previewHeight="20.0" previewY="90.0" previewX="115.0" previewWidth="20.0" exampleLabel="" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_6" cloningStrategy="Clone" cardinality="ZeroOne" name="shape" userID="SYL" flexoID="3872" />
     <FlexoConceptInstanceRole id="SYL-3873" virtualModelInstance="model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Task" cloningStrategy="Reference" cardinality="ZeroOne" name="task" userID="SYL" flexoID="3873" />
     <DeletionScheme id="SYL-3877" visibility="Public" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="3877">
       <BehaviourControlGraph_Sequence id="SYL-3876" userID="SYL" flexoID="3876">
@@ -143,15 +146,15 @@
             <ControlGraph2_Sequence id="SYL-3884" ownerContext="controlGraph2" userID="SYL" flexoID="3884">
               <ControlGraph2_Sequence id="SYL-3882" ownerContext="controlGraph2" userID="SYL" flexoID="3882">
                 <ControlGraph2_Sequence id="SYL-3880" ownerContext="controlGraph2" userID="SYL" flexoID="3880">
-                  <ControlGraph2_GraphicalAction id="SYL-3878" subject="shape" value="beginTypeGR.shape.graphicalRepresentation.height" feature="height" receiver="diagram" ownerContext="controlGraph2" userID="SYL" flexoID="3878" />
-                  <ControlGraph1_GraphicalAction id="SYL-3879" subject="shape" value="beginTypeGR.shape.graphicalRepresentation.width" feature="width" receiver="diagram" ownerContext="controlGraph1" userID="SYL" flexoID="3879" />
+                  <ControlGraph2_GraphicalAction id="SYL-3878" subject="shape" value="endTypeGR.shape.graphicalRepresentation.height" feature="height" receiver="diagram" ownerContext="controlGraph2" userID="SYL" flexoID="3878" />
+                  <ControlGraph1_GraphicalAction id="SYL-3879" subject="shape" value="endTypeGR.shape.graphicalRepresentation.width" feature="width" receiver="diagram" ownerContext="controlGraph1" userID="SYL" flexoID="3879" />
                 </ControlGraph2_Sequence>
-                <ControlGraph1_GraphicalAction id="SYL-3881" subject="shape" value="beginTypeGR.shape.graphicalRepresentation.y" feature="y" receiver="diagram" ownerContext="controlGraph1" userID="SYL" flexoID="3881" />
+                <ControlGraph1_GraphicalAction id="SYL-3881" subject="shape" value="endTypeGR.shape.graphicalRepresentation.y" feature="y" receiver="diagram" ownerContext="controlGraph1" userID="SYL" flexoID="3881" />
               </ControlGraph2_Sequence>
-              <ControlGraph1_GraphicalAction id="SYL-3883" subject="shape" value="beginTypeGR.shape.graphicalRepresentation.x" feature="x" receiver="diagram" ownerContext="controlGraph1" userID="SYL" flexoID="3883" />
+              <ControlGraph1_GraphicalAction id="SYL-3883" subject="shape" value="endTypeGR.shape.graphicalRepresentation.x" feature="x" receiver="diagram" ownerContext="controlGraph1" userID="SYL" flexoID="3883" />
             </ControlGraph2_Sequence>
-            <ControlGraph1_DeclarationAction id="SYL-3886" variable="beginTypeGR" ownerContext="controlGraph1" userID="SYL" flexoID="3886">
-              <AssignableAction_ExpressionAction id="SYL-3885" expression="processTypeEditor.getBeginGR(parameters.task.type)" ownerContext="controlGraph2" userID="SYL" flexoID="3885" />
+            <ControlGraph1_DeclarationAction id="SYL-3886" variable="endTypeGR" ownerContext="controlGraph1" userID="SYL" flexoID="3886">
+              <AssignableAction_ExpressionAction id="SYL-3885" expression="processTypeEditor.getEndGR(parameters.task.type)" ownerContext="controlGraph2" userID="SYL" flexoID="3885" />
             </ControlGraph1_DeclarationAction>
           </ControlGraph2_Sequence>
           <ControlGraph1_AssignationAction id="SYL-3889" assign="shape" ownerContext="controlGraph1" userID="SYL" flexoID="3889">

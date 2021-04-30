@@ -34,7 +34,7 @@ public class ProcessTypeEditor {
 
   @ActionScheme  
   EndGR getEndGR(TaskType taskType) {  
-    return this.SelectUniqueFlexoConceptInstance(type=EndGR,where=where=(selected.begin = parameters.taskType));  
+    return this.SelectUniqueFlexoConceptInstance(type=EndGR,where=where=(selected.end = parameters.taskType));  
   }  
 
 
