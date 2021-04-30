@@ -470,7 +470,7 @@ public class ProcessTypeEditor {
   
     @ActionScheme    
     public Void newProcess(String processName) {    
-      
+      ProcessEditor.init(model,processType,parameters.processName)    
     }    
   
   }  
