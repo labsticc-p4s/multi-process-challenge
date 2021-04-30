@@ -37,6 +37,18 @@ public class ProcessTypeEditor {
     return this.SelectUniqueFlexoConceptInstance(type=EndGR,where=where=(selected.end = parameters.taskType));  
   }  
 
+  @ActionScheme  
+  AndSplitGR getGatewayGR(Gateway gateway) {  
+    if (parameters.gateway.concept.name = "AndSplit") {    
+      return this.SelectUniqueFlexoConceptInstance(type=AndSplitGR,where=where=(selected.andSplit = parameters.gateway));    
+    } else {    
+      if (parameters.gateway.concept.name = "AndJoin") {      
+        return this.SelectUniqueFlexoConceptInstance(type=AndJoinGR,where=where=(selected.andJoin = parameters.gateway));      
+      }    
+    }    
+    return null;  
+  }  
+
 
   @FlexoConcept  
   public class BeginGR {  

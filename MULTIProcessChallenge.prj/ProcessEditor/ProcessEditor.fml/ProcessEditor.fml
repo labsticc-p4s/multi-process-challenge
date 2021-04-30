@@ -19,8 +19,9 @@ public class ProcessEditor {
     model = parameters.model;    
     processTypeEditor = parameters.processTypeEditor;    
     ProcessGR newProcessGR = ProcessGR.instantiateProcess(parameters.processType,parameters.processName);    
+    process = newProcessGR.process;    
     log ("Les tasks= " + newProcessGR.process.tasks)    
-    for (task : newProcessGR.process.tasks) {    
+    for (task : process.tasks) {    
       log ("Task=" + task)      
       if (task.type.concept.name = "Begin") {      
         BeginGR.representTask(task)        
@@ -33,6 +34,11 @@ public class ProcessEditor {
           TaskGR.representTask(task)          
           log "New task"        
         }      
+      }    
+    }    
+    for (gateway : process.type.gateways) {    
+      if ((gateway.concept.name = "AndSplit") | (gateway.concept.name = "AndJoin")) {      
+        GatewayGR.representGateway(gateway,process)      
       }    
     }  
   }  
@@ -141,6 +147,30 @@ public class ProcessEditor {
       shape.y=endTypeGR.shape.graphicalRepresentation.y      
       shape.width=endTypeGR.shape.graphicalRepresentation.width      
       shape.height=endTypeGR.shape.graphicalRepresentation.height    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class GatewayGR {  
+  
+    public DiagramShape shape;  
+    public Gateway gateway;  
+  
+    @DeletionScheme    
+    Void delete() {    
+      delete shape;    
+    }    
+  
+    @CreationScheme    
+    GatewayGR:representGateway(Gateway gateway, Process process) {    
+      gateway = parameters.gateway;      
+      shape = diagram.AddShape();      
+      AndSplitGR gatewayGR = processTypeEditor.getGatewayGR(parameters.gateway);      
+      shape.x=gatewayGR.shape.graphicalRepresentation.x      
+      shape.y=gatewayGR.shape.graphicalRepresentation.y      
+      shape.width=shape.graphicalRepresentation.width      
+      shape.height=gatewayGR.shape.graphicalRepresentation.height    
     }    
   
   }  
