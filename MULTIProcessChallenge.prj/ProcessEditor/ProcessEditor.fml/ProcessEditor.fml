@@ -175,4 +175,21 @@ public class ProcessEditor {
   
   }  
 
+  @FlexoConcept  
+  public class SequencingGR {  
+  
+    public DiagramConnector connector;  
+    public Sequencing sequencing;  
+  
+    @LinkScheme    
+    SequencingGR:linkTaskTypeGRToTaskTypeGR() {    
+      connector = diagram.AddConnector();      
+      sequencing = Sequencing.create();      
+      fromTarget.taskType.container.addToGateways(sequencing)      
+      sequencing.in = fromTarget.taskType;      
+      sequencing.out = toTarget.taskType;    
+    }    
+  
+  }  
+
 }

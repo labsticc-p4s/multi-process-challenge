@@ -38,7 +38,7 @@ public class ProcessTypeEditor {
   }  
 
   @ActionScheme  
-  AndSplitGR getGatewayGR(Gateway gateway) {  
+  ShapeBasedGR getGatewayGR(Gateway gateway) {  
     if (parameters.gateway.concept.name = "AndSplit") {    
       return this.SelectUniqueFlexoConceptInstance(type=AndSplitGR,where=where=(selected.andSplit = parameters.gateway));    
     } else {    
@@ -155,7 +155,7 @@ public class ProcessTypeEditor {
   }  
 
   @FlexoConcept  
-  public class AndSplitGR {  
+  public class AndSplitGR extends ShapeBasedGR  {  
   
     public DiagramShape shape;  
     public AndSplit andSplit;  
@@ -221,7 +221,7 @@ public class ProcessTypeEditor {
   }  
 
   @FlexoConcept  
-  public class AndJoinGR {  
+  public class AndJoinGR extends ShapeBasedGR  {  
   
     public DiagramShape shape;  
     public AndJoin andJoin;  
@@ -505,6 +505,13 @@ public class ProcessTypeEditor {
       ProcessEditor.init(model,processType,parameters.processName,container)    
     }    
   
+  }  
+
+  @FlexoConcept  
+  public class ShapeBasedGR {  
+  
+      
+    abstract DiagramShape shape;  
   }  
 
 }
