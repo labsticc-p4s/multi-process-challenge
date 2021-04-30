@@ -17,6 +17,11 @@ public class ProcessTypeEditor {
     model = parameters.model;  
   }  
 
+  @ActionScheme  
+  ProcessTypeGR getProcessTypeGR(ProcessType processType) {  
+    return this.SelectUniqueFlexoConceptInstance(type=ProcessTypeGR,where=where=(selected.processType = parameters.processType));  
+  }  
+
 
   @FlexoConcept  
   public class BeginGR {  
@@ -470,7 +475,7 @@ public class ProcessTypeEditor {
   
     @ActionScheme    
     public Void newProcess(String processName) {    
-      ProcessEditor.init(model,processType,parameters.processName)    
+      ProcessEditor.init(model,processType,parameters.processName,container)    
     }    
   
   }  

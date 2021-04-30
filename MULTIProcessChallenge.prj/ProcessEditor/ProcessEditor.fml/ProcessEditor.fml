@@ -11,16 +11,40 @@ public class ProcessEditor {
   public Diagram diagram;
   public MetaModel model;
   public Process process;
+  public ProcessTypeEditor processTypeEditor;
 
   @CreationScheme  
-  ProcessEditor:init(MetaModel model, ProcessType processType, String processName) {  
+  ProcessEditor:init(MetaModel model, ProcessType processType, String processName, ProcessTypeEditor processTypeEditor) {  
     diagram = CreateDiagram();    
     model = parameters.model;    
-    process = Process.create(parameters.processName,parameters.processType);  
+    processTypeEditor = parameters.processTypeEditor;    
+    ProcessGR.instantiateProcess(parameters.processType,parameters.processName)  
   }  
 
   @DeletionScheme  
   Void delete() {  
+  
+  }  
+
+
+  @FlexoConcept  
+  public class ProcessGR {  
+  
+    public DiagramShape shape;  
+    public DiagramShape header;  
+    public Process process;  
+  
+    @CreationScheme    
+    ProcessGR:instantiateProcess(ProcessType processType, String processName) {    
+      process = Process.create(parameters.processName,parameters.processType);      
+      shape = diagram.AddShape();      
+      header = diagram.AddShape();      
+      ProcessTypeGR processTypeGR = processTypeEditor.getProcessTypeGR(parameters.processType);      
+      shape.x=processTypeGR.shape.graphicalRepresentation.x      
+      shape.y=processTypeGR.shape.graphicalRepresentation.y      
+      shape.width=processTypeGR.shape.graphicalRepresentation.width      
+      shape.height=processTypeGR.shape.graphicalRepresentation.height    
+    }    
   
   }  
 
