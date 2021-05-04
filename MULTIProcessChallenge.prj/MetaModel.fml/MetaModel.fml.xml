@@ -248,6 +248,12 @@
         <AssignableAction_SelectFlexoConceptInstance id="SYL-2481" container="this" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Sequencing" receiver="container" userID="SYL" flexoID="2481" />
       </GetControlGraph_ReturnStatement>
     </GetSetProperty>
+    <GetSetProperty id="SYL-2658" name="andSplitList" userID="SYL" flexoID="2658">
+      <SetControlGraph_EmptyControlGraph id="SYL-2659" ownerContext="setControlGraph" userID="SYL" flexoID="2659" />
+      <GetControlGraph_ReturnStatement id="SYL-2661" ownerContext="getControlGraph" userID="SYL" flexoID="2661">
+        <AssignableAction_SelectFlexoConceptInstance id="SYL-2660" container="this" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#AndSplit" receiver="container" userID="SYL" flexoID="2660" />
+      </GetControlGraph_ReturnStatement>
+    </GetSetProperty>
     <CreationScheme id="SYL-11" label="create" name="create" width="800" height="600" userID="SYL" flexoID="11">
       <BehaviourControlGraph_ExpressionAction id="SYL-185" expression="super.create(parameters.name)" userID="SYL" flexoID="185" />
       <GenericBehaviourParameter id="SYL-201" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="SYL" flexoID="201" />

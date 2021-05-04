@@ -44,6 +44,10 @@ public class ProcessEditor {
     for (sequencing : process.type.sequencingList) {    
       log ("On cherche a representer la sequence " + sequencing)      
       SequencingGR.representSequencing(sequencing,process)    
+    }    
+    for (andSplit : process.type.andSplitList) {    
+      log ("On cherche a representer le AndSplit " + andSplit)      
+      AndSplitConnectorsGR.representAndSplit(andSplit,process)    
     }  
   }  
 
@@ -222,6 +226,33 @@ public class ProcessEditor {
       log ("Start=" + startTaskGR)      
       log ("End=" + endTaskGR)      
       connector = diagram.AddConnector();    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class AndSplitConnectorsGR {  
+  
+    public DiagramConnector inConnector;  
+    public AndSplit andSplit;  
+    public DiagramConnector outConnector;  
+  
+    @CreationScheme    
+    AndSplitConnectorsGR:representAndSplit(AndSplit andSplit, Process process) {    
+      andSplit = parameters.andSplit;      
+      Task startTask = process.type.getTask(andSplit.in,process);      
+      BeginGR startTaskGR = container.getTaskGR(startTask);      
+      GatewayGR gatewayGR = container.getGatewayGR(parameters.andSplit);      
+      log ("Start=" + startTaskGR)      
+      inConnector = diagram.AddConnector();      
+      for (taskType : andSplit.out) {      
+        log ("Pour la sortie : " + taskType)        
+        Task endTask = process.type.getTask(taskType,process);        
+        BeginGR endTaskGR = container.getTaskGR(endTask);        
+        log ("in : " + gatewayGR)        
+        log ("out : " + endTaskGR)        
+        outConnector = diagram.AddConnector();      
+      }    
     }    
   
   }  

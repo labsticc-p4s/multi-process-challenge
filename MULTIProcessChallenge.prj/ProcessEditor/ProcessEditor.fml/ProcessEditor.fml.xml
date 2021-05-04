@@ -5,7 +5,7 @@
     <ShapeRole id="SYL-40" previewHeight="230.0" previewY="-15.0" previewX="10.0" previewWidth="230.0" exampleLabel="Shape" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_29" cloningStrategy="Clone" cardinality="ZeroOne" name="shape" userID="SYL" flexoID="40" />
     <ShapeRole id="SYL-41" previewHeight="20.0" previewY="0.0" previewX="0.0" previewWidth="246.2094364533389" exampleLabel="Shape" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_30" cloningStrategy="Clone" cardinality="ZeroOne" name="header" userID="SYL" flexoID="41">
       <ParentShapeRole idref="SYL-40" />
-      <GRSpec id="SYL-4588" featureName="label" value="process.name" userID="SYL" flexoID="4588" />
+      <GRSpec id="SYL-4995" featureName="label" value="process.name" userID="SYL" flexoID="4995" />
     </ShapeRole>
     <FlexoConceptInstanceRole id="SYL-42" virtualModelInstance="model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Process" cloningStrategy="Reference" cardinality="ZeroOne" name="process" userID="SYL" flexoID="42" />
     <CreationScheme id="SYL-54" label="instantiateProcess" name="instantiateProcess" width="800" height="600" userID="SYL" flexoID="54">
@@ -88,7 +88,7 @@
   <FlexoConcept id="SYL-123" name="TaskGR" userID="SYL" flexoID="123">
     <Inspector id="SYL-3732" inspectorTitle="TaskTypeGR" delegateConceptInstance="task" userID="SYL" flexoID="3732" />
     <ShapeRole id="SYL-124" previewY="80.0" previewX="57.089552238805965" previewWidth="135.82089552238807" exampleLabel="TaskType" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_3" cloningStrategy="Clone" cardinality="ZeroOne" name="shape" userID="SYL" flexoID="124">
-      <GRSpec id="SYL-4589" featureName="label" readOnly="true" value="task.name" userID="SYL" flexoID="4589" />
+      <GRSpec id="SYL-4996" featureName="label" readOnly="true" value="task.name" userID="SYL" flexoID="4996" />
     </ShapeRole>
     <FlexoConceptInstanceRole id="SYL-125" virtualModelInstance="model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Task" cloningStrategy="Reference" cardinality="ZeroOne" name="task" userID="SYL" flexoID="125" />
     <DeletionScheme id="SYL-143" visibility="Public" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="143">
@@ -248,6 +248,69 @@
       <GenericBehaviourParameter id="SYL-4461" widget="CUSTOM_WIDGET" name="process" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Process&gt;" userID="SYL" flexoID="4461" />
     </CreationScheme>
   </FlexoConcept>
+  <FlexoConcept id="SYL-4861" name="AndSplitConnectorsGR" userID="SYL" flexoID="4861">
+    <Inspector id="SYL-4862" inspectorTitle="StartSequencingGR" delegateConceptInstance="sequencing" userID="SYL" flexoID="4862" />
+    <ConnectorRole id="SYL-4863" exampleLabel="" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_5" cloningStrategy="Clone" cardinality="ZeroOne" name="inConnector" userID="SYL" flexoID="4863" />
+    <FlexoConceptInstanceRole id="SYL-4864" virtualModelInstance="model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#AndSplit" cloningStrategy="Reference" cardinality="ZeroOne" name="andSplit" userID="SYL" flexoID="4864" />
+    <ConnectorRole id="SYL-4895" exampleLabel="" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_5" cloningStrategy="Clone" cardinality="ZeroOne" name="outConnector" userID="SYL" flexoID="4895" />
+    <CreationScheme id="SYL-4888" label="representAndSplit" name="representAndSplit" width="800" height="600" userID="SYL" flexoID="4888">
+      <BehaviourControlGraph_Sequence id="SYL-4885" userID="SYL" flexoID="4885">
+        <ControlGraph2_Sequence id="SYL-4882" ownerContext="controlGraph2" userID="SYL" flexoID="4882">
+          <ControlGraph2_Sequence id="SYL-4876" ownerContext="controlGraph2" userID="SYL" flexoID="4876">
+            <ControlGraph2_Sequence id="SYL-4921" ownerContext="controlGraph2" userID="SYL" flexoID="4921">
+              <ControlGraph2_Sequence id="SYL-4870" ownerContext="controlGraph2" userID="SYL" flexoID="4870">
+                <ControlGraph2_Sequence id="SYL-4920" ownerContext="controlGraph2" userID="SYL" flexoID="4920">
+                  <ControlGraph2_IterationAction id="SYL-4903" iteratorName="taskType" ownerContext="controlGraph2" userID="SYL" flexoID="4903">
+                    <Iteration_ExpressionAction id="SYL-4904" expression="andSplit.out" ownerContext="iterationControlGraph" userID="SYL" flexoID="4904" />
+                    <ControlGraph_Sequence id="SYL-4919" ownerContext="controlGraph" userID="SYL" flexoID="4919">
+                      <ControlGraph2_Sequence id="SYL-4918" ownerContext="controlGraph2" userID="SYL" flexoID="4918">
+                        <ControlGraph2_Sequence id="SYL-4917" ownerContext="controlGraph2" userID="SYL" flexoID="4917">
+                          <ControlGraph2_Sequence id="SYL-4963" ownerContext="controlGraph2" userID="SYL" flexoID="4963">
+                            <ControlGraph2_Sequence id="SYL-4964" ownerContext="controlGraph2" userID="SYL" flexoID="4964">
+                              <ControlGraph2_AssignationAction id="SYL-4970" assign="outConnector" ownerContext="controlGraph2" userID="SYL" flexoID="4970">
+                                <AssignableAction_AddConnector id="SYL-4969" fromShape="gatewayGR.shape" toShape="endTaskGR.shape" receiver="diagram" ownerContext="controlGraph2" userID="SYL" flexoID="4969" />
+                              </ControlGraph2_AssignationAction>
+                              <ControlGraph1_LogAction id="SYL-4962" logLevel="INFO" logString="(&quot;out : &quot; + endTaskGR)" ownerContext="controlGraph1" userID="SYL" flexoID="4962" />
+                            </ControlGraph2_Sequence>
+                            <ControlGraph1_LogAction id="SYL-4961" logLevel="INFO" logString="(&quot;in : &quot; + gatewayGR)" ownerContext="controlGraph1" userID="SYL" flexoID="4961" />
+                          </ControlGraph2_Sequence>
+                          <ControlGraph1_DeclarationAction id="SYL-4912" variable="endTaskGR" ownerContext="controlGraph1" userID="SYL" flexoID="4912">
+                            <AssignableAction_ExpressionAction id="SYL-4913" expression="container.getTaskGR(endTask)" ownerContext="controlGraph2" userID="SYL" flexoID="4913" />
+                          </ControlGraph1_DeclarationAction>
+                        </ControlGraph2_Sequence>
+                        <ControlGraph1_DeclarationAction id="SYL-4910" variable="endTask" ownerContext="controlGraph1" userID="SYL" flexoID="4910">
+                          <AssignableAction_ExpressionAction id="SYL-4911" expression="process.type.getTask(taskType,process)" ownerContext="controlGraph2" userID="SYL" flexoID="4911" />
+                        </ControlGraph1_DeclarationAction>
+                      </ControlGraph2_Sequence>
+                      <ControlGraph1_LogAction id="SYL-4909" logLevel="INFO" logString="(&quot;Pour la sortie : &quot; + taskType)" ownerContext="controlGraph1" userID="SYL" flexoID="4909" />
+                    </ControlGraph_Sequence>
+                  </ControlGraph2_IterationAction>
+                  <ControlGraph1_AssignationAction id="SYL-4866" assign="inConnector" ownerContext="controlGraph1" userID="SYL" flexoID="4866">
+                    <AssignableAction_AddConnector id="SYL-4865" fromShape="startTaskGR.shape" toShape="gatewayGR.shape" receiver="diagram" userID="SYL" flexoID="4865" />
+                  </ControlGraph1_AssignationAction>
+                </ControlGraph2_Sequence>
+                <ControlGraph1_LogAction id="SYL-4869" logLevel="INFO" logString="(&quot;Start=&quot; + startTaskGR)" ownerContext="controlGraph1" userID="SYL" flexoID="4869" />
+              </ControlGraph2_Sequence>
+              <ControlGraph1_DeclarationAction id="SYL-4900" variable="gatewayGR" ownerContext="controlGraph1" userID="SYL" flexoID="4900">
+                <AssignableAction_ExpressionAction id="SYL-4899" expression="container.getGatewayGR(parameters.andSplit)" ownerContext="controlGraph2" userID="SYL" flexoID="4899" />
+              </ControlGraph1_DeclarationAction>
+            </ControlGraph2_Sequence>
+            <ControlGraph1_DeclarationAction id="SYL-4875" variable="startTaskGR" ownerContext="controlGraph1" userID="SYL" flexoID="4875">
+              <AssignableAction_ExpressionAction id="SYL-4874" expression="container.getTaskGR(startTask)" ownerContext="controlGraph2" userID="SYL" flexoID="4874" />
+            </ControlGraph1_DeclarationAction>
+          </ControlGraph2_Sequence>
+          <ControlGraph1_DeclarationAction id="SYL-4881" variable="startTask" ownerContext="controlGraph1" userID="SYL" flexoID="4881">
+            <AssignableAction_ExpressionAction id="SYL-4880" expression="process.type.getTask(andSplit.in,process)" userID="SYL" flexoID="4880" />
+          </ControlGraph1_DeclarationAction>
+        </ControlGraph2_Sequence>
+        <ControlGraph1_AssignationAction id="SYL-4884" assign="andSplit" ownerContext="controlGraph1" userID="SYL" flexoID="4884">
+          <AssignableAction_ExpressionAction id="SYL-4883" expression="parameters.andSplit" userID="SYL" flexoID="4883" />
+        </ControlGraph1_AssignationAction>
+      </BehaviourControlGraph_Sequence>
+      <GenericBehaviourParameter id="SYL-4886" isRequired="true" widget="CUSTOM_WIDGET" name="andSplit" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#AndSplit&gt;" userID="SYL" flexoID="4886" />
+      <GenericBehaviourParameter id="SYL-4887" widget="CUSTOM_WIDGET" name="process" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Process&gt;" userID="SYL" flexoID="4887" />
+    </CreationScheme>
+  </FlexoConcept>
   <UseModelSlotDeclaration id="0" modelSlotClass="org.openflexo.technologyadapter.diagram.TypedDiagramModelSlot" userID="SYL" flexoID="-1" />
   <UseModelSlotDeclaration id="1" modelSlotClass="org.openflexo.foundation.fml.rt.FMLRTVirtualModelInstanceModelSlot" userID="SYL" flexoID="-1" />
   <Inspector id="SYL-2" inspectorTitle="ProcessEditor" userID="SYL" flexoID="2" />
@@ -268,16 +331,28 @@
               <ControlGraph2_Sequence id="SYL-3915" ownerContext="controlGraph2" userID="SYL" flexoID="3915">
                 <ControlGraph2_Sequence id="SYL-4202" ownerContext="controlGraph2" userID="SYL" flexoID="4202">
                   <ControlGraph2_Sequence id="SYL-4442" ownerContext="controlGraph2" userID="SYL" flexoID="4442">
-                    <ControlGraph2_IterationAction id="SYL-4435" iteratorName="sequencing" ownerContext="controlGraph2" userID="SYL" flexoID="4435">
-                      <Iteration_ExpressionAction id="SYL-4436" expression="process.type.sequencingList" ownerContext="iterationControlGraph" userID="SYL" flexoID="4436" />
-                      <ControlGraph_Sequence id="SYL-4603" ownerContext="controlGraph" userID="SYL" flexoID="4603">
-                        <ControlGraph2_AddFlexoConceptInstance id="SYL-4465" creationSchemeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/ProcessEditor/ProcessEditor.fml#SequencingGR.representSequencing(sequencing,process)" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/ProcessEditor/ProcessEditor.fml#SequencingGR" receiver="this" ownerContext="controlGraph2" userID="SYL" flexoID="4465">
-                          <AddFlexoConceptInstanceParameter id="SYL-4466" paramName="sequencing" value="sequencing" userID="SYL" flexoID="4466" />
-                          <AddFlexoConceptInstanceParameter id="SYL-4467" paramName="process" value="process" userID="SYL" flexoID="4467" />
-                        </ControlGraph2_AddFlexoConceptInstance>
-                        <ControlGraph1_LogAction id="SYL-4525" logLevel="INFO" logString="(&quot;On cherche a representer la sequence &quot; + sequencing)" ownerContext="controlGraph1" userID="SYL" flexoID="4525" />
-                      </ControlGraph_Sequence>
-                    </ControlGraph2_IterationAction>
+                    <ControlGraph2_Sequence id="SYL-4931" ownerContext="controlGraph2" userID="SYL" flexoID="4931">
+                      <ControlGraph2_IterationAction id="SYL-4924" iteratorName="andSplit" ownerContext="controlGraph2" userID="SYL" flexoID="4924">
+                        <Iteration_ExpressionAction id="SYL-4925" expression="process.type.andSplitList" ownerContext="iterationControlGraph" userID="SYL" flexoID="4925" />
+                        <ControlGraph_Sequence id="SYL-4930" ownerContext="controlGraph" userID="SYL" flexoID="4930">
+                          <ControlGraph2_AddFlexoConceptInstance id="SYL-4928" creationSchemeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/ProcessEditor/ProcessEditor.fml#AndSplitConnectorsGR.representAndSplit(andSplit,process)" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/ProcessEditor/ProcessEditor.fml#AndSplitConnectorsGR" receiver="this" ownerContext="controlGraph2" userID="SYL" flexoID="4928">
+                            <AddFlexoConceptInstanceParameter id="SYL-4956" paramName="andSplit" value="andSplit" userID="SYL" flexoID="4956" />
+                            <AddFlexoConceptInstanceParameter id="SYL-4957" paramName="process" value="process" userID="SYL" flexoID="4957" />
+                          </ControlGraph2_AddFlexoConceptInstance>
+                          <ControlGraph1_LogAction id="SYL-4929" logLevel="INFO" logString="(&quot;On cherche a representer le AndSplit &quot; + andSplit)" ownerContext="controlGraph1" userID="SYL" flexoID="4929" />
+                        </ControlGraph_Sequence>
+                      </ControlGraph2_IterationAction>
+                      <ControlGraph1_IterationAction id="SYL-4435" iteratorName="sequencing" ownerContext="controlGraph1" userID="SYL" flexoID="4435">
+                        <Iteration_ExpressionAction id="SYL-4436" expression="process.type.sequencingList" ownerContext="iterationControlGraph" userID="SYL" flexoID="4436" />
+                        <ControlGraph_Sequence id="SYL-4603" ownerContext="controlGraph" userID="SYL" flexoID="4603">
+                          <ControlGraph2_AddFlexoConceptInstance id="SYL-4465" creationSchemeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/ProcessEditor/ProcessEditor.fml#SequencingGR.representSequencing(sequencing,process)" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/ProcessEditor/ProcessEditor.fml#SequencingGR" receiver="this" ownerContext="controlGraph2" userID="SYL" flexoID="4465">
+                            <AddFlexoConceptInstanceParameter id="SYL-4466" paramName="sequencing" value="sequencing" userID="SYL" flexoID="4466" />
+                            <AddFlexoConceptInstanceParameter id="SYL-4467" paramName="process" value="process" userID="SYL" flexoID="4467" />
+                          </ControlGraph2_AddFlexoConceptInstance>
+                          <ControlGraph1_LogAction id="SYL-4525" logLevel="INFO" logString="(&quot;On cherche a representer la sequence &quot; + sequencing)" ownerContext="controlGraph1" userID="SYL" flexoID="4525" />
+                        </ControlGraph_Sequence>
+                      </ControlGraph1_IterationAction>
+                    </ControlGraph2_Sequence>
                     <ControlGraph1_IterationAction id="SYL-4193" iteratorName="gateway" ownerContext="controlGraph1" userID="SYL" flexoID="4193">
                       <Iteration_ExpressionAction id="SYL-4194" expression="process.type.gateways" ownerContext="iterationControlGraph" userID="SYL" flexoID="4194" />
                       <ControlGraph_ConditionalAction id="SYL-4204" condition="((gateway.concept.name = &quot;AndSplit&quot;) | (gateway.concept.name = &quot;AndJoin&quot;))" ownerContext="controlGraph" userID="SYL" flexoID="4204">

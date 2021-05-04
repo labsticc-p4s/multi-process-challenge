@@ -18,6 +18,10 @@ public class MetaModel {
     public List<Sequencing> getSequencingList {    
       return container.SelectFlexoConceptInstance(type=Sequencing);    
     }  
+    @GetSetProperty(value="andSplitList", access=get)    
+    public List<AndSplit> getAndSplitList {    
+      return container.SelectFlexoConceptInstance(type=AndSplit);    
+    }  
   
     @CreationScheme    
     ProcessType:create(String name) {    
