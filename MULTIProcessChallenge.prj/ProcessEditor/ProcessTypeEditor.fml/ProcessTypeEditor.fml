@@ -23,7 +23,13 @@ public class ProcessTypeEditor {
   }  
 
   @ActionScheme  
-  TaskTypeGR getTaskTypeGR(TaskType taskType) {  
+  BeginGR getTaskTypeGR(TaskType taskType) {  
+    if (parameters.taskType.concept.name = "Begin") {    
+      return this.getBeginGR(parameters.taskType);    
+    }    
+    if (parameters.taskType.concept.name = "End") {    
+      return this.getEndGR(parameters.taskType);    
+    }    
     return this.SelectUniqueFlexoConceptInstance(type=TaskTypeGR,where=where=(selected.taskType = parameters.taskType));  
   }  
 
@@ -502,7 +508,7 @@ public class ProcessTypeEditor {
   
     @ActionScheme    
     public Void newProcess(String processName) {    
-      ProcessEditor.init(model,processType,parameters.processName,container)    
+      ProcessEditor newProcessEditor = ProcessEditor.init(model,processType,parameters.processName,container);    
     }    
   
   }  

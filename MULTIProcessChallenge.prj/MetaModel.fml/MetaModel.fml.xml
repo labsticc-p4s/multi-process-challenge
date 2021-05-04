@@ -242,6 +242,12 @@
     <FlexoConceptInstanceRole id="SYL-86" virtualModelInstance="container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Gateway" cloningStrategy="Reference" cardinality="ZeroMany" name="gateways" userID="SYL" flexoID="86" />
     <FlexoConceptInstanceRole id="SYL-87" virtualModelInstance="container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Begin" cloningStrategy="Reference" cardinality="ZeroOne" name="initialTaskType" userID="SYL" flexoID="87" />
     <FlexoConceptInstanceRole id="SYL-88" virtualModelInstance="container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#End" cloningStrategy="Reference" cardinality="ZeroMany" name="finalTaskTypes" userID="SYL" flexoID="88" />
+    <GetSetProperty id="SYL-2479" name="sequencingList" userID="SYL" flexoID="2479">
+      <SetControlGraph_EmptyControlGraph id="SYL-2483" ownerContext="setControlGraph" userID="SYL" flexoID="2483" />
+      <GetControlGraph_ReturnStatement id="SYL-2482" ownerContext="getControlGraph" userID="SYL" flexoID="2482">
+        <AssignableAction_SelectFlexoConceptInstance id="SYL-2481" container="this" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Sequencing" receiver="container" userID="SYL" flexoID="2481" />
+      </GetControlGraph_ReturnStatement>
+    </GetSetProperty>
     <CreationScheme id="SYL-11" label="create" name="create" width="800" height="600" userID="SYL" flexoID="11">
       <BehaviourControlGraph_ExpressionAction id="SYL-185" expression="super.create(parameters.name)" userID="SYL" flexoID="185" />
       <GenericBehaviourParameter id="SYL-201" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="SYL" flexoID="201" />
@@ -319,6 +325,15 @@
     <ActionScheme id="SYL-1697" label="removeFromFinalTaskTypes" name="removeFromFinalTaskTypes" width="800" height="600" userID="SYL" flexoID="1697">
       <BehaviourControlGraph_ExpressionAction id="SYL-1698" expression="finalTaskTypes.remove(parameters.taskType)" userID="SYL" flexoID="1698" />
       <GenericBehaviourParameter id="SYL-1699" isRequired="true" widget="CUSTOM_WIDGET" name="taskType" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Gateway&gt;" userID="SYL" flexoID="1699" />
+    </ActionScheme>
+    <ActionScheme id="SYL-2550" label="getTask" name="getTask" width="800" height="600" userID="SYL" flexoID="2550">
+      <BehaviourControlGraph_ReturnStatement id="SYL-2590" ownerContext="controlGraph2" userID="SYL" flexoID="2590">
+        <AssignableAction_SelectUniqueFlexoConceptInstance id="SYL-2591" container="parameters.process" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Task" receiver="container" userID="SYL" flexoID="2591">
+          <Condition id="SYL-2589" condition="(selected.type = parameters.taskType)" userID="SYL" flexoID="2589" />
+        </AssignableAction_SelectUniqueFlexoConceptInstance>
+      </BehaviourControlGraph_ReturnStatement>
+      <GenericBehaviourParameter id="SYL-2562" isRequired="true" widget="CUSTOM_WIDGET" name="taskType" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#TaskType&gt;" userID="SYL" flexoID="2562" />
+      <GenericBehaviourParameter id="SYL-2593" widget="CUSTOM_WIDGET" name="process" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Process&gt;" userID="SYL" flexoID="2593" />
     </ActionScheme>
   </FlexoConcept>
   <FlexoConcept idref="SYL-15" />

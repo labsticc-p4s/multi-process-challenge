@@ -40,6 +40,10 @@ public class ProcessEditor {
       if ((gateway.concept.name = "AndSplit") | (gateway.concept.name = "AndJoin")) {      
         GatewayGR.representGateway(gateway,process)      
       }    
+    }    
+    for (sequencing : process.type.sequencingList) {    
+      log ("On cherche a representer la sequence " + sequencing)      
+      SequencingGR.representSequencing(sequencing,process)    
     }  
   }  
 
@@ -51,6 +55,33 @@ public class ProcessEditor {
   @ActionScheme  
   ProcessGR getProcessGR(Process process) {  
     return this.SelectUniqueFlexoConceptInstance(type=ProcessGR,where=where=(selected.process = parameters.process));  
+  }  
+
+  @ActionScheme  
+  BeginGR getTaskGR(Task task) {  
+    if (parameters.task.type.concept.name = "Begin") {    
+      return this.getBeginGR(parameters.task);    
+    }    
+    if (parameters.task.type.concept.name = "End") {    
+      return this.getEndGR(parameters.task);    
+    }    
+    return this.SelectUniqueFlexoConceptInstance(type=TaskGR,where=where=(selected.task = parameters.task));  
+  }  
+
+  @ActionScheme  
+  BeginGR getBeginGR(Task task) {  
+    return this.SelectUniqueFlexoConceptInstance(type=BeginGR,where=where=(selected.task = parameters.task));  
+  }  
+
+  @ActionScheme  
+  EndGR getEndGR(Task task) {  
+    return this.SelectUniqueFlexoConceptInstance(type=EndGR,where=where=(selected.task = parameters.task));  
+  }  
+
+  @ActionScheme  
+  GatewayGR getGatewayGR(Gateway gateway) {  
+    return this.SelectUniqueFlexoConceptInstance(type=GatewayGR,where=where=(selected.gateway = parameters.gateway));    
+    return null;  
   }  
 
 
@@ -116,7 +147,7 @@ public class ProcessEditor {
     TaskGR:representTask(Task task) {    
       task = parameters.task;      
       shape = diagram.AddShape();      
-      TaskTypeGR taskTypeGR = processTypeEditor.getTaskTypeGR(parameters.task.type);      
+      BeginGR taskTypeGR = processTypeEditor.getTaskTypeGR(parameters.task.type);      
       log ((("pour " + task) + " taskTypeGR=") + taskTypeGR)      
       shape.x=taskTypeGR.shape.graphicalRepresentation.x      
       shape.y=taskTypeGR.shape.graphicalRepresentation.y      
@@ -166,7 +197,7 @@ public class ProcessEditor {
     GatewayGR:representGateway(Gateway gateway, Process process) {    
       gateway = parameters.gateway;      
       shape = diagram.AddShape();      
-      AndSplitGR gatewayGR = processTypeEditor.getGatewayGR(parameters.gateway);      
+      ShapeBasedGR gatewayGR = processTypeEditor.getGatewayGR(parameters.gateway);      
       shape.x=gatewayGR.shape.graphicalRepresentation.x      
       shape.y=gatewayGR.shape.graphicalRepresentation.y      
       shape.width=shape.graphicalRepresentation.width      
@@ -181,13 +212,16 @@ public class ProcessEditor {
     public DiagramConnector connector;  
     public Sequencing sequencing;  
   
-    @LinkScheme    
-    SequencingGR:linkTaskTypeGRToTaskTypeGR() {    
-      connector = diagram.AddConnector();      
-      sequencing = Sequencing.create();      
-      fromTarget.taskType.container.addToGateways(sequencing)      
-      sequencing.in = fromTarget.taskType;      
-      sequencing.out = toTarget.taskType;    
+    @CreationScheme    
+    SequencingGR:representSequencing(Sequencing sequencing, Process process) {    
+      sequencing = parameters.sequencing;      
+      Task startTask = process.type.getTask(sequencing.in,process);      
+      Task endTask = process.type.getTask(sequencing.out,process);      
+      BeginGR startTaskGR = container.getTaskGR(startTask);      
+      BeginGR endTaskGR = container.getTaskGR(endTask);      
+      log ("Start=" + startTaskGR)      
+      log ("End=" + endTaskGR)      
+      connector = diagram.AddConnector();    
     }    
   
   }  
