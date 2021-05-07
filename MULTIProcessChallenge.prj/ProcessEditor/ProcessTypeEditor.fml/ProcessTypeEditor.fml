@@ -9,6 +9,7 @@ use org.openflexo.foundation.fml.rt.FMLRTVirtualModelInstanceModelSlot;
 public class ProcessTypeEditor {
 
   public MetaModel model;
+  public Diagram diagram;
 
   @CreationScheme  
   ProcessTypeEditor:init(MetaModel model, String diagramName) {  

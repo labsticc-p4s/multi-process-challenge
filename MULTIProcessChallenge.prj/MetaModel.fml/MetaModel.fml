@@ -736,6 +736,18 @@ public class MetaModel {
       public List usedArtifacts;    
       public List producedArtifacts;    
       public boolean isActive;    
+      @GetSetProperty(value="performingActorsLabel", access=get)      
+      public String getPerformingActorsLabel {      
+        if (performingActors.size > 0) {        
+          String label = "";          
+          for (actor : performingActors) {          
+            label = ((label + " ") + actor.name);          
+          }          
+          return label;        
+        } else {        
+          return "No actor assigned";        
+        }      
+      }    
       
       @CreationScheme      
       Task:create(String name, TaskType taskType) {      
@@ -846,6 +858,18 @@ public class MetaModel {
     public List usedArtifacts;  
     public List producedArtifacts;  
     public boolean isActive;  
+    @GetSetProperty(value="performingActorsLabel", access=get)    
+    public String getPerformingActorsLabel {    
+      if (performingActors.size > 0) {      
+        String label = "";        
+        for (actor : performingActors) {        
+          label = ((label + " ") + actor.name);        
+        }        
+        return label;      
+      } else {      
+        return "No actor assigned";      
+      }    
+    }  
   
     @CreationScheme    
     Task:create(String name, TaskType taskType) {    

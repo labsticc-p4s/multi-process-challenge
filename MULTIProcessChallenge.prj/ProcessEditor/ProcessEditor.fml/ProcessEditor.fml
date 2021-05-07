@@ -145,6 +145,9 @@ public class ProcessEditor {
   
     public DiagramShape shape;  
     public Task task;  
+    public DiagramShape title;  
+    public DiagramShape performingActors;  
+    public DiagramShape status;  
   
     @DeletionScheme    
     public Void delete() {    
@@ -156,12 +159,15 @@ public class ProcessEditor {
     TaskGR:representTask(Task task) {    
       task = parameters.task;      
       shape = diagram.AddShape();      
+      title = diagram.AddShape();      
+      performingActors = diagram.AddShape();      
+      status = diagram.AddShape();      
       BeginGR taskTypeGR = processTypeEditor.getTaskTypeGR(parameters.task.type);      
       log ((("pour " + task) + " taskTypeGR=") + taskTypeGR)      
       shape.x=taskTypeGR.shape.graphicalRepresentation.x      
       shape.y=taskTypeGR.shape.graphicalRepresentation.y      
       shape.width=taskTypeGR.shape.graphicalRepresentation.width      
-      shape.height=taskTypeGR.shape.graphicalRepresentation.height    
+      shape.height=(taskTypeGR.shape.graphicalRepresentation.height + 20)    
     }    
   
   }  

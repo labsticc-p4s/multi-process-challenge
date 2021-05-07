@@ -501,6 +501,30 @@
       <FlexoConceptInstanceRole id="SYL-512" virtualModelInstance="container.container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Artifact" cloningStrategy="Reference" cardinality="ZeroMany" name="usedArtifacts" userID="SYL" flexoID="512" />
       <FlexoConceptInstanceRole id="SYL-513" virtualModelInstance="container.container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Artifact" cloningStrategy="Reference" cardinality="ZeroMany" name="producedArtifacts" userID="SYL" flexoID="513" />
       <PrimitiveRole id="SYL-1404" primitiveType="Boolean" cloningStrategy="Clone" cardinality="ZeroOne" name="isActive" userID="SYL" flexoID="1404" />
+      <GetSetProperty id="SYL-2799" name="performingActorsLabel" userID="SYL" flexoID="2799">
+        <SetControlGraph_EmptyControlGraph id="SYL-2800" ownerContext="setControlGraph" userID="SYL" flexoID="2800" />
+        <GetControlGraph_ConditionalAction id="SYL-2802" condition="(performingActors.size &gt; 0)" ownerContext="getControlGraph" userID="SYL" flexoID="2802">
+          <ElseControlGraph_ReturnStatement id="SYL-2826" ownerContext="elseControlGraph" userID="SYL" flexoID="2826">
+            <AssignableAction_ExpressionAction id="SYL-2825" expression="&quot;No actor assigned&quot;" userID="SYL" flexoID="2825" />
+          </ElseControlGraph_ReturnStatement>
+          <ThenControlGraph_Sequence id="SYL-2824" ownerContext="thenControlGraph" userID="SYL" flexoID="2824">
+            <ControlGraph2_Sequence id="SYL-2823" ownerContext="controlGraph2" userID="SYL" flexoID="2823">
+              <ControlGraph2_ReturnStatement id="SYL-2822" ownerContext="controlGraph2" userID="SYL" flexoID="2822">
+                <AssignableAction_ExpressionAction id="SYL-2821" expression="label" userID="SYL" flexoID="2821" />
+              </ControlGraph2_ReturnStatement>
+              <ControlGraph1_IterationAction id="SYL-2817" iteratorName="actor" ownerContext="controlGraph1" userID="SYL" flexoID="2817">
+                <Iteration_ExpressionAction id="SYL-2818" expression="performingActors" ownerContext="iterationControlGraph" userID="SYL" flexoID="2818" />
+                <ControlGraph_AssignationAction id="SYL-2820" assign="label" ownerContext="controlGraph" userID="SYL" flexoID="2820">
+                  <AssignableAction_ExpressionAction id="SYL-2819" expression="((label + &quot; &quot;) + actor.name)" userID="SYL" flexoID="2819" />
+                </ControlGraph_AssignationAction>
+              </ControlGraph1_IterationAction>
+            </ControlGraph2_Sequence>
+            <ControlGraph1_DeclarationAction id="SYL-2814" variable="label" ownerContext="controlGraph1" userID="SYL" flexoID="2814">
+              <AssignableAction_ExpressionAction id="SYL-2813" expression="&quot;&quot;" userID="SYL" flexoID="2813" />
+            </ControlGraph1_DeclarationAction>
+          </ThenControlGraph_Sequence>
+        </GetControlGraph_ConditionalAction>
+      </GetSetProperty>
       <CreationScheme id="SYL-400" label="create" name="create" width="800" height="600" userID="SYL" flexoID="400">
         <BehaviourControlGraph_Sequence id="SYL-420" userID="SYL" flexoID="420">
           <ControlGraph2_AssignationAction id="SYL-405" assign="type" ownerContext="controlGraph2" userID="SYL" flexoID="405">
