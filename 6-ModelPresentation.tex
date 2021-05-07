@@ -10,15 +10,15 @@ Figure \ref{fig:MultilevelArchitecture} shows the overview of the multivel archi
  \centering
     % \includegraphics[width=1.0 \columnwidth]{Figures/Metamodel.pdf}
     \includegraphics[width=1.0 \textwidth]{Figures/Metamodel.pdf}
-    \caption{Process management base metamodel}
+     \caption{Process management base metamodel}
     \label{fig:BaseMetamodel}
 \end{figure*}
 
-\subsection{The XSure insurance domain}
+\todo{Augmenter la taille des fontes}
 
-We will illustrate the base metamodel presented in figure \ref{fig:BaseMetamodel}  with XSure insurance domain use case, whose a partial description was provided in the challenge description. Note that the capture of the requirements P1 to P19 in the context of XSure insurance domain are straightforward implementable while instantiating base metamodel.
+In this section, We will present and illustrate the base metamodel presented in figure \ref{fig:BaseMetamodel} with XSure insurance domain use case, whose a partial description was provided in the challenge description. Note that the capture of the requirements P1 to P19 in the context of XSure insurance domain are straightforward implementable while instantiating \textit{XSure model}, as an instance of base metamodel (the left side of figure \ref{fig:MultilevelArchitecture}).
 
-The use case presented in this section is straightforward implementable while instantiating base metamodel presented in figure \ref{fig:BaseMetamodel}.
+Figure \ref{fig:BaseMetamodel} represents this base metamodel with a UML-like formalism, well adapted to represent object-oriented FML concepts and their instances. Our proposition relies on ontologic instantiation as presented in figure \ref{fig:LinguisticAndOntologicInstantiation}, with a common root concept \textit{ModelingElement}. Two types of ontological instantiation are needed to meet the requirements of the challenge. One provides that some instances conform to only one type (\textit{Process} and \textit{Task} do respectively conform to one \textit{ProcessType} and \textit{TaskType}) while some entities define their conformity to several types (\textit{Actor} and \textit{artifact} do respectively conform to several \textit{ProcessType} and \textit{TaskType})
 
 % Passer rapidement sur ce cas pour illustrer le metamodèle décrit plus haut
 
