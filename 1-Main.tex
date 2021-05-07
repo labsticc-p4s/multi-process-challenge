@@ -1,5 +1,3 @@
-
-%\documentclass[preprint]{acmart}
 \documentclass[american]{emisa}
 
 \usepackage{todonotes}
@@ -8,7 +6,8 @@
 \newcommand{\noteJC}[1]{\todo[color=pink!40, author=\textbf{JC}, inline, caption={}]{#1}}
 \newcommand{\noteSylvain}[1]{\todo[color=green!40, author=\textbf{Sylvain}, inline, caption={}]{#1}}
 \newcommand{\noteAntoine}[1]{\todo[color=yellow!40, author=\textbf{Antoine}, inline, caption={}]{#1}}
-\newcommand{\noteFabien}[1]{\todo[color=orange!40, author=\textbf{Fabiem}, inline, caption={}]{#1}}
+\newcommand{\noteFabien}[1]{\todo[color=orange!40, author=\textbf{Fabien}, inline, caption={}]{#1}}
+\newcommand{\noteJoel}[1]{\todo[color=blue!20, author=\textbf{Joel}, inline, caption={}]{#1}}
 
 \newcommand{\mpc}{MULTI process challenge\xspace}
 
@@ -25,51 +24,36 @@
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 
-%\acmPrice{15.00}
-%\acmDOI{10.1145/1122445.1122456}
-%\acmISBN{978-1-4503-9999-9/18/06}
-
 \begin{document}
 \begin{article}{
-%\title{\mpc: the FML solution}
-\title{Multi-level modelling with Openflexo/FML - A contribution to the \mpc}
+    % \title{\mpc: the FML solution}
+    \title{Multi-level modelling with Openflexo/FML - A contribution to the \mpc}
 
-%% Group authors per affiliation:
-%\author{Sylvain Guérin, Joel Champeau}
-%\address{ENSTA Bretagne}
+    %% or include affiliations in footnotes:
+    \author*{Sylvain Guérin}{firstname.lastname@ensta-bretagne.fr}
+    \address{ENSTA Bretagne, Lab-STICC, UMR 6285, Brest, France}
+    % \ead{firstname.lastname@ensta-bretagne.fr}
 
-%\author{Jean-Christophe Bach, Salvador Martinez, Antoine Beugnard, Fabien Dagnat}
-%\address{IMT Atlantique}
+    \author{Joel Champeau}
+    \address[a]{}
 
-%% or include affiliations in footnotes:
-\author*{Sylvain Guérin}{firstname.lastname@ensta-bretagne.fr}
-\address{ENSTA Bretagne, Lab-STICC, UMR 6285, Brest, France}
-%\ead{firstname.lastname@ensta-bretagne.fr}
+    \author{Jean-Christophe Bach}
+    \address{IMT Atlantique, Lab-STICC, UMR 6285, F-29238 Brest, France}
+    % \ead{firstname.lastname@imt-atlantique.fr}
 
-\author{Joel Champeau}
-\address[a]{}
+    \author{Salvador Mart\'inez}
+    \address[b]{}
 
-\author{Jean-Christophe Bach}
-\address{IMT Atlantique, Lab-STICC, UMR 6285, F-29238 Brest, France}
-%\ead{firstname.lastname@imt-atlantique.fr}
+    \author{Antoine Beugnard}
+    \address[b]{}
 
-\author{Salvador Mart\'inez}
-\address[b]{}
+    \author{Fabien Dagnat}
+    \address[b]{}
 
-\author{Antoine Beugnard}
-\address[b]{}
-
-\author{Fabien Dagnat}
-\address[b]{}
-
-\abstract{\input{2-Abstract}}
-\keywords{Multilevel Modeling Challenge, Federation Modeling Language, OpenFlexo}
-\bibliography{}
+    \abstract{\input{2-Abstract}}
+    \keywords{Multilevel Modeling Challenge, Federation Modeling Language, OpenFlexo}
+    \bibliography{biblio.bib}
 }
-%%
-%% This command processes the author and affiliation and title
-%% information and builds the first part of the formatted document.
-
 
 \section{Introduction}
 \label{sec:introduction}
@@ -77,9 +61,10 @@
 
 \noteSM{test}
 \noteJC{test}
-\noteSylvain{Test}
-\noteAntoine{Test}
+\noteSylvain{test}
+\noteAntoine{test}
 \noteFabien{test}
+\noteJoel{test}
 
 \section{Technology}
 \label{sec:technology}
@@ -108,15 +93,9 @@
 \section{Conclusions}
 \input{10-Conclusions.tex}
 
-%% The next two lines define the bibliography style to be used, and
-%% the bibliography file.
-%\bibliographystyle{ACM-Reference-Format}
-\bibliography{biblio}
-
-% à utiliser d'après le style (avec biber), voir comment ça fonctionne sous overleaf, sinon CLI et tant pis/mieux
-%\printbibliography
+\printbibliography
 
 \end{article}
+
 \end{document}
-\endinput
 %%
