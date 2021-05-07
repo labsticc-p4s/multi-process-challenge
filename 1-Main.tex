@@ -4,6 +4,8 @@
 
 \usepackage{todonotes}
 
+\addbibresource{biblio.bib}
+
 \newcommand{\noteSM}[1]{\todo[color=red!40, author=\textbf{Salvador}, inline, caption={}]{#1}}
 \newcommand{\noteJC}[1]{\todo[color=pink!40, author=\textbf{JC}, inline, caption={}]{#1}}
 \newcommand{\noteSylvain}[1]{\todo[color=green!40, author=\textbf{Sylvain}, inline, caption={}]{#1}}
@@ -111,10 +113,10 @@
 %% The next two lines define the bibliography style to be used, and
 %% the bibliography file.
 %\bibliographystyle{ACM-Reference-Format}
-\bibliography{biblio}
+%\bibliography{biblio}
 
 % à utiliser d'après le style (avec biber), voir comment ça fonctionne sous overleaf, sinon CLI et tant pis/mieux
-%\printbibliography
+\printbibliography
 
 \end{article}
 \end{document}
