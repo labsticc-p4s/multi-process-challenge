@@ -739,4 +739,10 @@
   <FlexoConcept idref="SYL-751" />
   <FlexoConcept idref="SYL-757" />
   <Inspector id="SYL-2" inspectorTitle="Model" userID="SYL" flexoID="2" />
+  <GetSetProperty id="SYL-2732" name="actorList" userID="SYL" flexoID="2732">
+    <SetControlGraph_EmptyControlGraph id="SYL-2733" ownerContext="setControlGraph" userID="SYL" flexoID="2733" />
+    <GetControlGraph_ReturnStatement id="SYL-2735" ownerContext="getControlGraph" userID="SYL" flexoID="2735">
+      <AssignableAction_SelectFlexoConceptInstance id="SYL-2734" container="this" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor" receiver="this" userID="SYL" flexoID="2734" />
+    </GetControlGraph_ReturnStatement>
+  </GetSetProperty>
 </VirtualModel>

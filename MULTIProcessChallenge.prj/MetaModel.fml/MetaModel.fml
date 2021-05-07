@@ -7,6 +7,11 @@
 @VirtualModel(uri="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml")
 public class MetaModel {
 
+  @GetSetProperty(value="actorList", access=get)  
+  public List<Actor> getActorList {  
+    return this.SelectFlexoConceptInstance(type=Actor);  
+  }
+
   @FlexoConcept  
   public class ProcessType extends Type  {  
   

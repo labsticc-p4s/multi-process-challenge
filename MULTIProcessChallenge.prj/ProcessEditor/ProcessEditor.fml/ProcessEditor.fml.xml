@@ -350,12 +350,63 @@
       <GenericBehaviourParameter id="SYL-5060" widget="CUSTOM_WIDGET" name="process" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Process&gt;" userID="SYL" flexoID="5060" />
     </CreationScheme>
   </FlexoConcept>
+  <FlexoConcept id="SYL-5129" name="ActorGR" userID="SYL" flexoID="5129">
+    <Inspector id="SYL-5125" inspectorTitle="ActorGR" userID="SYL" flexoID="5125" />
+    <ShapeRole id="SYL-5142" previewHeight="52.12680824869191" previewY="73.93659587565405" previewX="100.08819538670285" previewWidth="49.8236092265943" exampleLabel="Actor" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_23" cloningStrategy="Clone" cardinality="ZeroOne" name="shape" userID="SYL" flexoID="5142">
+      <GRSpec id="SYL-5131" featureName="label" value="actor.name" userID="SYL" flexoID="5131" />
+    </ShapeRole>
+    <FlexoConceptInstanceRole id="SYL-5169" virtualModelInstance="model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor" cloningStrategy="Reference" cardinality="ZeroOne" name="actor" userID="SYL" flexoID="5169" />
+    <DropScheme id="SYL-5130" target="top" label="dropActorGRAtTopLevel" name="dropActorGRAtTopLevel" width="800" height="600" userID="SYL" flexoID="5130">
+      <BehaviourControlGraph_Sequence id="SYL-5170" userID="SYL" flexoID="5170">
+        <ControlGraph2_AssignationAction id="SYL-5144" assign="actor" ownerContext="controlGraph2" userID="SYL" flexoID="5144">
+          <AssignableAction_AddFlexoConceptInstance id="SYL-5146" creationSchemeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor.create(name)" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor" receiver="model" userID="SYL" flexoID="5146">
+            <AddFlexoConceptInstanceParameter id="SYL-5148" paramName="name" value="parameters.name" userID="SYL" flexoID="5148" />
+          </AssignableAction_AddFlexoConceptInstance>
+        </ControlGraph2_AssignationAction>
+        <ControlGraph1_AssignationAction id="SYL-5143" assign="shape" ownerContext="controlGraph1" userID="SYL" flexoID="5143">
+          <AssignableAction_AddShape id="SYL-5145" container="topLevel" receiver="diagram" userID="SYL" flexoID="5145" />
+        </ControlGraph1_AssignationAction>
+      </BehaviourControlGraph_Sequence>
+      <GenericBehaviourParameter id="SYL-5171" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="SYL" flexoID="5171" />
+    </DropScheme>
+    <CreationScheme id="SYL-5149" label="representActor" name="representActor" width="800" height="600" userID="SYL" flexoID="5149">
+      <BehaviourControlGraph_Sequence id="SYL-5167" userID="SYL" flexoID="5167">
+        <ControlGraph2_Sequence id="SYL-5164" ownerContext="controlGraph2" userID="SYL" flexoID="5164">
+          <ControlGraph2_Sequence id="SYL-5161" ownerContext="controlGraph2" userID="SYL" flexoID="5161">
+            <ControlGraph2_Sequence id="SYL-5156" ownerContext="controlGraph2" userID="SYL" flexoID="5156">
+              <ControlGraph2_Sequence id="SYL-5154" ownerContext="controlGraph2" userID="SYL" flexoID="5154">
+                <ControlGraph2_Sequence id="SYL-5152" ownerContext="controlGraph2" userID="SYL" flexoID="5152">
+                  <ControlGraph2_GraphicalAction id="SYL-5150" subject="shape" value="actorInProcessTypeGR.shape.graphicalRepresentation.height" feature="height" receiver="diagram" ownerContext="controlGraph2" userID="SYL" flexoID="5150" />
+                  <ControlGraph1_GraphicalAction id="SYL-5151" subject="shape" value="actorInProcessTypeGR.shape.graphicalRepresentation.width" feature="width" receiver="diagram" ownerContext="controlGraph1" userID="SYL" flexoID="5151" />
+                </ControlGraph2_Sequence>
+                <ControlGraph1_GraphicalAction id="SYL-5153" subject="shape" value="actorInProcessTypeGR.shape.graphicalRepresentation.y" feature="y" receiver="diagram" ownerContext="controlGraph1" userID="SYL" flexoID="5153" />
+              </ControlGraph2_Sequence>
+              <ControlGraph1_GraphicalAction id="SYL-5155" subject="shape" value="actorInProcessTypeGR.shape.graphicalRepresentation.x" feature="x" receiver="diagram" ownerContext="controlGraph1" userID="SYL" flexoID="5155" />
+            </ControlGraph2_Sequence>
+            <ControlGraph1_DeclarationAction id="SYL-5160" variable="actorInProcessTypeGR" ownerContext="controlGraph1" userID="SYL" flexoID="5160">
+              <AssignableAction_ExpressionAction id="SYL-5159" expression="processTypeEditor.getActorGR(parameters.actor)" ownerContext="controlGraph2" userID="SYL" flexoID="5159" />
+            </ControlGraph1_DeclarationAction>
+          </ControlGraph2_Sequence>
+          <ControlGraph1_AssignationAction id="SYL-5163" assign="shape" ownerContext="controlGraph1" userID="SYL" flexoID="5163">
+            <AssignableAction_AddShape id="SYL-5162" container="container.diagram" receiver="diagram" userID="SYL" flexoID="5162" />
+          </ControlGraph1_AssignationAction>
+        </ControlGraph2_Sequence>
+        <ControlGraph1_AssignationAction id="SYL-5166" assign="actor" ownerContext="controlGraph1" userID="SYL" flexoID="5166">
+          <AssignableAction_ExpressionAction id="SYL-5165" expression="parameters.actor" userID="SYL" flexoID="5165" />
+        </ControlGraph1_AssignationAction>
+      </BehaviourControlGraph_Sequence>
+      <GenericBehaviourParameter id="SYL-5168" isRequired="true" widget="CUSTOM_WIDGET" name="actor" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor&gt;" userID="SYL" flexoID="5168" />
+    </CreationScheme>
+  </FlexoConcept>
   <UseModelSlotDeclaration id="0" modelSlotClass="org.openflexo.technologyadapter.diagram.TypedDiagramModelSlot" userID="SYL" flexoID="-1" />
   <UseModelSlotDeclaration id="1" modelSlotClass="org.openflexo.foundation.fml.rt.FMLRTVirtualModelInstanceModelSlot" userID="SYL" flexoID="-1" />
   <Inspector id="SYL-2" inspectorTitle="ProcessEditor" userID="SYL" flexoID="2" />
   <TypedDiagramModelSlot id="SYL-3" metaModelURI="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process" isRequired="true" cloningStrategy="Reference" cardinality="ZeroOne" name="diagram" userID="SYL" flexoID="3">
     <FMLDiagramPaletteElementBinding id="SYL-51" userID="SYL" flexoID="51">
       <DropScheme id="SYL-39" target="top" width="800" height="600" userID="SYL" flexoID="39" />
+    </FMLDiagramPaletteElementBinding>
+    <FMLDiagramPaletteElementBinding id="SYL-5172" paletteElementId="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/Palette.palette#ActorGR" userID="SYL" flexoID="5172">
+      <DropScheme idref="SYL-5130" />
     </FMLDiagramPaletteElementBinding>
   </TypedDiagramModelSlot>
   <FMLRTVirtualModelInstanceModelSlot id="SYL-11" virtualModelURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml" isRequired="true" cloningStrategy="Reference" cardinality="ZeroOne" name="model" userID="SYL" flexoID="11" />
@@ -372,13 +423,21 @@
                   <ControlGraph2_Sequence id="SYL-4442" ownerContext="controlGraph2" userID="SYL" flexoID="4442">
                     <ControlGraph2_Sequence id="SYL-4931" ownerContext="controlGraph2" userID="SYL" flexoID="4931">
                       <ControlGraph2_Sequence id="SYL-5090" ownerContext="controlGraph2" userID="SYL" flexoID="5090">
-                        <ControlGraph2_IterationAction id="SYL-5076" iteratorName="andJoin" ownerContext="controlGraph2" userID="SYL" flexoID="5076">
-                          <Iteration_ExpressionAction id="SYL-5077" expression="process.type.andJoinList" ownerContext="iterationControlGraph" userID="SYL" flexoID="5077" />
-                          <ControlGraph_AddFlexoConceptInstance id="SYL-5080" creationSchemeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/ProcessEditor/ProcessEditor.fml#AndJoinConnectorsGR.representAndSplit(andJoin,process)" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/ProcessEditor/ProcessEditor.fml#AndJoinConnectorsGR" receiver="this" ownerContext="controlGraph" userID="SYL" flexoID="5080">
-                            <AddFlexoConceptInstanceParameter id="SYL-5084" paramName="andJoin" value="andJoin" userID="SYL" flexoID="5084" />
-                            <AddFlexoConceptInstanceParameter id="SYL-5085" paramName="process" value="process" userID="SYL" flexoID="5085" />
-                          </ControlGraph_AddFlexoConceptInstance>
-                        </ControlGraph2_IterationAction>
+                        <ControlGraph2_Sequence id="SYL-5181" ownerContext="controlGraph2" userID="SYL" flexoID="5181">
+                          <ControlGraph2_IterationAction id="SYL-5174" iteratorName="andJoin" ownerContext="controlGraph2" userID="SYL" flexoID="5174">
+                            <Iteration_ExpressionAction id="SYL-5175" expression="process.type.andJoinList" ownerContext="iterationControlGraph" userID="SYL" flexoID="5175" />
+                            <ControlGraph_AddFlexoConceptInstance id="SYL-5177" creationSchemeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/ProcessEditor/ProcessEditor.fml#AndJoinConnectorsGR.representAndSplit(andJoin,process)" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/ProcessEditor/ProcessEditor.fml#AndJoinConnectorsGR" receiver="this" ownerContext="controlGraph" userID="SYL" flexoID="5177">
+                              <AddFlexoConceptInstanceParameter id="SYL-5173" paramName="andJoin" value="andJoin" userID="SYL" flexoID="5173" />
+                              <AddFlexoConceptInstanceParameter id="SYL-5176" paramName="process" value="process" userID="SYL" flexoID="5176" />
+                            </ControlGraph_AddFlexoConceptInstance>
+                          </ControlGraph2_IterationAction>
+                          <ControlGraph1_IterationAction id="SYL-5076" iteratorName="actor" ownerContext="controlGraph1" userID="SYL" flexoID="5076">
+                            <Iteration_ExpressionAction id="SYL-5077" expression="model.actorList" ownerContext="iterationControlGraph" userID="SYL" flexoID="5077" />
+                            <ControlGraph_AddFlexoConceptInstance id="SYL-5080" creationSchemeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/ProcessEditor/ProcessEditor.fml#ActorGR.representActor(actor)" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/ProcessEditor/ProcessEditor.fml#ActorGR" receiver="this" ownerContext="controlGraph" userID="SYL" flexoID="5080">
+                              <AddFlexoConceptInstanceParameter id="SYL-5180" paramName="actor" value="actor" userID="SYL" flexoID="5180" />
+                            </ControlGraph_AddFlexoConceptInstance>
+                          </ControlGraph1_IterationAction>
+                        </ControlGraph2_Sequence>
                         <ControlGraph1_IterationAction id="SYL-4924" iteratorName="andSplit" ownerContext="controlGraph1" userID="SYL" flexoID="4924">
                           <Iteration_ExpressionAction id="SYL-4925" expression="process.type.andSplitList" ownerContext="iterationControlGraph" userID="SYL" flexoID="4925" />
                           <ControlGraph_AddFlexoConceptInstance id="SYL-4928" creationSchemeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/ProcessEditor/ProcessEditor.fml#AndSplitConnectorsGR.representAndSplit(andSplit,process)" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/ProcessEditor/ProcessEditor.fml#AndSplitConnectorsGR" receiver="this" ownerContext="controlGraph" userID="SYL" flexoID="4928">

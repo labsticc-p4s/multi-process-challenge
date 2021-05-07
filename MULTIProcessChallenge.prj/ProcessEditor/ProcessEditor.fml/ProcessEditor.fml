@@ -48,6 +48,9 @@ public class ProcessEditor {
     for (andSplit : process.type.andSplitList) {    
       AndSplitConnectorsGR.representAndSplit(andSplit,process)    
     }    
+    for (actor : model.actorList) {    
+      ActorGR.representActor(actor)    
+    }    
     for (andJoin : process.type.andJoinList) {    
       AndJoinConnectorsGR.representAndSplit(andJoin,process)    
     }  
@@ -274,6 +277,31 @@ public class ProcessEditor {
         BeginGR startTaskGR = container.getTaskGR(startTask);        
         inConnector = diagram.AddConnector();      
       }    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class ActorGR {  
+  
+    public DiagramShape shape;  
+    public Actor actor;  
+  
+    @DropScheme    
+    ActorGR:dropActorGRAtTopLevel(String name) {    
+      shape = diagram.AddShape();      
+      actor = Actor.create(parameters.name);    
+    }    
+  
+    @CreationScheme    
+    ActorGR:representActor(Actor actor) {    
+      actor = parameters.actor;      
+      shape = diagram.AddShape();      
+      ActorGR actorInProcessTypeGR = processTypeEditor.getActorGR(parameters.actor);      
+      shape.x=actorInProcessTypeGR.shape.graphicalRepresentation.x      
+      shape.y=actorInProcessTypeGR.shape.graphicalRepresentation.y      
+      shape.width=actorInProcessTypeGR.shape.graphicalRepresentation.width      
+      shape.height=actorInProcessTypeGR.shape.graphicalRepresentation.height    
     }    
   
   }  

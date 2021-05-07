@@ -113,7 +113,7 @@
     </ShapeGraphicalRepresentation>
   </Shape>
   <Shape id="13" name="Shape" text="First Task Type" userID="SYL" flexoID="3">
-    <ShapeGraphicalRepresentation id="14" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="204.0" y="84.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="135.82089552238807" height="40.0" identifier="644eba05" layer="1" text="First Task Type" isMultilineAllowed="true">
+    <ShapeGraphicalRepresentation id="14" relativeTextY="0.5" locationConstraints="FREELY_MOVABLE" isFloatingLabel="false" allowToLeaveBounds="false" adaptBoundsToContents="false" x="204.0" y="84.0" relativeTextX="0.5" dimensionConstraints="FREELY_RESIZABLE" width="133.12246713452606" height="32.925824175824175" identifier="644eba05" layer="1" text="First Task Type" isMultilineAllowed="true">
       <SelectedColorBackgroundStyle id="15" color="254,247,217" transparencyLevel="0.5" />
       <ForegroundStyle id="16" color="204,0,0" joinStyle="JOIN_MITER" dashStyle="PLAIN_STROKE" capStyle="CAP_SQUARE" lineWidth="0.999999998509884" />
       <FocusedColorBackgroundStyle id="17" color="254,247,217" transparencyLevel="0.5" />

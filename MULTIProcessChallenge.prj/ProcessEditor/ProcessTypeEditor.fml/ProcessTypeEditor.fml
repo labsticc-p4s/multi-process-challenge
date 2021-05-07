@@ -8,7 +8,6 @@ use org.openflexo.foundation.fml.rt.FMLRTVirtualModelInstanceModelSlot;
 @VirtualModel(uri="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml")
 public class ProcessTypeEditor {
 
-  public Diagram diagram;
   public MetaModel model;
 
   @CreationScheme  
@@ -53,6 +52,11 @@ public class ProcessTypeEditor {
       }    
     }    
     return null;  
+  }  
+
+  @ActionScheme  
+  ActorGR getActorGR(Actor actor) {  
+    return this.SelectUniqueFlexoConceptInstance(type=ActorGR,where=where=(selected.actor = parameters.actor));  
   }  
 
 
