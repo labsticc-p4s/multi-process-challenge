@@ -46,8 +46,10 @@ public class ProcessEditor {
       SequencingGR.representSequencing(sequencing,process)    
     }    
     for (andSplit : process.type.andSplitList) {    
-      log ("On cherche a representer le AndSplit " + andSplit)      
       AndSplitConnectorsGR.representAndSplit(andSplit,process)    
+    }    
+    for (andJoin : process.type.andJoinList) {    
+      AndJoinConnectorsGR.representAndSplit(andJoin,process)    
     }  
   }  
 
@@ -243,15 +245,34 @@ public class ProcessEditor {
       Task startTask = process.type.getTask(andSplit.in,process);      
       BeginGR startTaskGR = container.getTaskGR(startTask);      
       GatewayGR gatewayGR = container.getGatewayGR(parameters.andSplit);      
-      log ("Start=" + startTaskGR)      
       inConnector = diagram.AddConnector();      
       for (taskType : andSplit.out) {      
-        log ("Pour la sortie : " + taskType)        
         Task endTask = process.type.getTask(taskType,process);        
         BeginGR endTaskGR = container.getTaskGR(endTask);        
-        log ("in : " + gatewayGR)        
-        log ("out : " + endTaskGR)        
         outConnector = diagram.AddConnector();      
+      }    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class AndJoinConnectorsGR {  
+  
+    public DiagramConnector inConnector;  
+    public AndJoin andJoin;  
+    public DiagramConnector outConnector;  
+  
+    @CreationScheme    
+    AndJoinConnectorsGR:representAndSplit(AndJoin andJoin, Process process) {    
+      andJoin = parameters.andJoin;      
+      Task endTask = process.type.getTask(andJoin.out,process);      
+      BeginGR endTaskGR = container.getTaskGR(endTask);      
+      GatewayGR gatewayGR = container.getGatewayGR(parameters.andJoin);      
+      outConnector = diagram.AddConnector();      
+      for (taskType : andJoin.in) {      
+        Task startTask = process.type.getTask(taskType,process);        
+        BeginGR startTaskGR = container.getTaskGR(startTask);        
+        inConnector = diagram.AddConnector();      
       }    
     }    
   

@@ -22,6 +22,10 @@ public class MetaModel {
     public List<AndSplit> getAndSplitList {    
       return container.SelectFlexoConceptInstance(type=AndSplit);    
     }  
+    @GetSetProperty(value="andJoinList", access=get)    
+    public List<AndJoin> getAndJoinList {    
+      return container.SelectFlexoConceptInstance(type=AndJoin);    
+    }  
   
     @CreationScheme    
     ProcessType:create(String name) {    
