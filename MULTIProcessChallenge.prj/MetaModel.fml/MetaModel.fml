@@ -165,8 +165,6 @@ public class MetaModel {
       @ActionScheme      
       Task newTask(String name, Process process) {      
         log ((("Creating new Task " + parameters.name) + " process=") + parameters.process)        
-        log ("container=" + container)        
-        log ("container.container=" + container.container)        
         return Task.create(parameters.name,this);      
       }      
       
@@ -211,6 +209,11 @@ public class MetaModel {
           
       }      
       
+      @ActionScheme      
+      Void execute(Process process) {      
+          
+      }      
+      
     }    
   
     @FlexoConcept    
@@ -227,6 +230,15 @@ public class MetaModel {
       @DeletionScheme      
       Void delete() {      
           
+      }      
+      
+      @ActionScheme      
+      Void execute(Process process) {      
+        Task inTask = parameters.process.getTask(in);        
+        if inTask.completed {        
+          Task outTask = parameters.process.getTask(out);          
+          outTask.startTask()        
+        }      
       }      
       
     }    
@@ -247,6 +259,17 @@ public class MetaModel {
           
       }      
       
+      @ActionScheme      
+      Void execute(Process process) {      
+        Task inTask = parameters.process.getTask(in);        
+        if inTask.completed {        
+          for (taskType : out) {          
+            Task outTask = parameters.process.getTask(taskType);            
+            outTask.startTask()          
+          }        
+        }      
+      }      
+      
     }    
   
     @FlexoConcept    
@@ -263,6 +286,17 @@ public class MetaModel {
       @DeletionScheme      
       Void delete() {      
           
+      }      
+      
+      @ActionScheme      
+      Void execute(Process process) {      
+        Task inTask = parameters.process.getTask(in);        
+        if inTask.completed {        
+          for (taskType : out) {          
+            Task outTask = parameters.process.getTask(taskType);            
+            outTask.startTask()          
+          }        
+        }      
       }      
       
     }    
@@ -283,6 +317,25 @@ public class MetaModel {
           
       }      
       
+      @ActionScheme      
+      Void execute(Process process) {      
+        if this.areAllTasksCompleted(parameters.process) {        
+          Task outTask = parameters.process.getTask(out);          
+          outTask.startTask()        
+        }      
+      }      
+      
+      @ActionScheme      
+      Boolean areAllTasksCompleted(Process process) {      
+        for (taskType : in) {        
+          Task inTask = parameters.process.getTask(taskType);          
+          if (!(inTask.completed)) {          
+            return false;          
+          }        
+        }        
+        return true;      
+      }      
+      
     }    
   
     @FlexoConcept    
@@ -299,6 +352,25 @@ public class MetaModel {
       @DeletionScheme      
       Void delete() {      
           
+      }      
+      
+      @ActionScheme      
+      Boolean isOneTaskCompleted(Process process) {      
+        for (taskType : in) {        
+          Task inTask = parameters.process.getTask(taskType);          
+          if inTask.completed {          
+            return false;          
+          }        
+        }        
+        return false;      
+      }      
+      
+      @ActionScheme      
+      Void execute(Process process) {      
+        if this.isOneTaskCompleted(parameters.process) {        
+          Task outTask = parameters.process.getTask(out);          
+          outTask.startTask()        
+        }      
       }      
       
     }    
@@ -318,6 +390,12 @@ public class MetaModel {
         }      
       }      
       
+      @ActionScheme      
+      BeginTask newTask(String name, Process process) {      
+        log ((("Creating new BeginTask " + parameters.name) + " process=") + parameters.process)        
+        return BeginTask.create(parameters.name,this);      
+      }      
+      
     }    
   
     @FlexoConcept    
@@ -333,6 +411,12 @@ public class MetaModel {
         if (container != null) {        
           container.finalTaskTypes.remove(this)        
         }      
+      }      
+      
+      @ActionScheme      
+      EndTask newTask(String name, Process process) {      
+        log ((("Creating new BeginTask " + parameters.name) + " process=") + parameters.process)        
+        return EndTask.create(parameters.name,this);      
       }      
       
     }    
@@ -407,8 +491,6 @@ public class MetaModel {
     @ActionScheme    
     Task newTask(String name, Process process) {    
       log ((("Creating new Task " + parameters.name) + " process=") + parameters.process)      
-      log ("container=" + container)      
-      log ("container.container=" + container.container)      
       return Task.create(parameters.name,this);    
     }    
   
@@ -453,6 +535,11 @@ public class MetaModel {
       
     }    
   
+    @ActionScheme    
+    Void execute(Process process) {    
+      
+    }    
+  
   }  
 
   @FlexoConcept  
@@ -469,6 +556,15 @@ public class MetaModel {
     @DeletionScheme    
     Void delete() {    
       
+    }    
+  
+    @ActionScheme    
+    Void execute(Process process) {    
+      Task inTask = parameters.process.getTask(in);      
+      if inTask.completed {      
+        Task outTask = parameters.process.getTask(out);        
+        outTask.startTask()      
+      }    
     }    
   
   }  
@@ -489,6 +585,17 @@ public class MetaModel {
       
     }    
   
+    @ActionScheme    
+    Void execute(Process process) {    
+      Task inTask = parameters.process.getTask(in);      
+      if inTask.completed {      
+        for (taskType : out) {        
+          Task outTask = parameters.process.getTask(taskType);          
+          outTask.startTask()        
+        }      
+      }    
+    }    
+  
   }  
 
   @FlexoConcept  
@@ -505,6 +612,17 @@ public class MetaModel {
     @DeletionScheme    
     Void delete() {    
       
+    }    
+  
+    @ActionScheme    
+    Void execute(Process process) {    
+      Task inTask = parameters.process.getTask(in);      
+      if inTask.completed {      
+        for (taskType : out) {        
+          Task outTask = parameters.process.getTask(taskType);          
+          outTask.startTask()        
+        }      
+      }    
     }    
   
   }  
@@ -525,6 +643,25 @@ public class MetaModel {
       
     }    
   
+    @ActionScheme    
+    Void execute(Process process) {    
+      if this.areAllTasksCompleted(parameters.process) {      
+        Task outTask = parameters.process.getTask(out);        
+        outTask.startTask()      
+      }    
+    }    
+  
+    @ActionScheme    
+    Boolean areAllTasksCompleted(Process process) {    
+      for (taskType : in) {      
+        Task inTask = parameters.process.getTask(taskType);        
+        if (!(inTask.completed)) {        
+          return false;        
+        }      
+      }      
+      return true;    
+    }    
+  
   }  
 
   @FlexoConcept  
@@ -541,6 +678,25 @@ public class MetaModel {
     @DeletionScheme    
     Void delete() {    
       
+    }    
+  
+    @ActionScheme    
+    Boolean isOneTaskCompleted(Process process) {    
+      for (taskType : in) {      
+        Task inTask = parameters.process.getTask(taskType);        
+        if inTask.completed {        
+          return false;        
+        }      
+      }      
+      return false;    
+    }    
+  
+    @ActionScheme    
+    Void execute(Process process) {    
+      if this.isOneTaskCompleted(parameters.process) {      
+        Task outTask = parameters.process.getTask(out);        
+        outTask.startTask()      
+      }    
     }    
   
   }  
@@ -698,6 +854,15 @@ public class MetaModel {
     public ProcessType type;  
     public List tasks;  
     public Task initialTask;  
+    @GetSetProperty(value="isProcessStartable", access=get)    
+    public Boolean getIsProcessStartable {    
+      for (task : tasks) {      
+        if (!(task.isStartable())) {        
+          return false;        
+        }      
+      }      
+      return true;    
+    }  
   
     @CreationScheme    
     Process:create(String name, ProcessType processType) {    
@@ -716,13 +881,27 @@ public class MetaModel {
     }    
   
     @ActionScheme    
-    public Void start() {    
+    public Void startProcess() {    
+      log ("Starting process " + name)      
+      log ("initial task = " + initialTask)      
       initialTask.startTask()    
     }    
   
     @ActionScheme    
     Task getTask(TaskType taskType) {    
       return container.SelectUniqueFlexoConceptInstance(type=Task,where=where=(selected.type = parameters.taskType));    
+    }    
+  
+    @ActionScheme    
+    Void completeProcess() {    
+      log (("Process " + name) + " has finished")    
+    }    
+  
+    @ActionScheme    
+    public Void executeGateways() {    
+      for (gateway : type.gateways) {      
+        gateway.execute(this)      
+      }    
     }    
   
   
@@ -752,7 +931,11 @@ public class MetaModel {
       public String getStatusLabel {      
         if this.isStartable() {        
           if isActive {          
-            return beginDate.toString;          
+            if completed {            
+              return "Completed";            
+            } else {            
+              return beginDate.toString.substring(0,(beginDate.toString.length - 9));            
+            }          
           } else {          
             return "Not started";          
           }        
@@ -760,12 +943,14 @@ public class MetaModel {
           return "Not startable";        
         }      
       }    
+      public boolean completed;    
       
       @CreationScheme      
       Task:create(String name, TaskType taskType) {      
         super.create(parameters.name)        
         type = parameters.taskType;        
-        isActive = false;      
+        isActive = false;        
+        completed = false;      
       }      
       
       @DeletionScheme      
@@ -842,14 +1027,16 @@ public class MetaModel {
       public Void startTask() {      
         beginDate = new Date();        
         isActive = true;        
-        if (type.concept.name = "Begin") {        
-          this.finishTask()        
-        }      
+        this.firePropertyChange statusLabel        
+        log ("Start abstract task " + this)      
       }      
       
       @ActionScheme      
       public Void finishTask() {      
-        isActive = false;      
+        isActive = false;        
+        completed = true;        
+        container.executeGateways()        
+        log ("Finish abstract task " + this)      
       }      
       
       @ActionScheme      
@@ -861,7 +1048,7 @@ public class MetaModel {
       Void addToPerformingActor(Actor actor) {      
         performingActors.add(parameters.actor)        
         this.firePropertyChange performingActorsLabel        
-        this.firePropertyChange isStartable        
+        this.firePropertyChange isStartable()        
         this.firePropertyChange statusLabel      
       }      
       
@@ -895,7 +1082,11 @@ public class MetaModel {
     public String getStatusLabel {    
       if this.isStartable() {      
         if isActive {        
-          return beginDate.toString;        
+          if completed {          
+            return "Completed";          
+          } else {          
+            return beginDate.toString.substring(0,(beginDate.toString.length - 9));          
+          }        
         } else {        
           return "Not started";        
         }      
@@ -903,12 +1094,14 @@ public class MetaModel {
         return "Not startable";      
       }    
     }  
+    public boolean completed;  
   
     @CreationScheme    
     Task:create(String name, TaskType taskType) {    
       super.create(parameters.name)      
       type = parameters.taskType;      
-      isActive = false;    
+      isActive = false;      
+      completed = false;    
     }    
   
     @DeletionScheme    
@@ -985,14 +1178,16 @@ public class MetaModel {
     public Void startTask() {    
       beginDate = new Date();      
       isActive = true;      
-      if (type.concept.name = "Begin") {      
-        this.finishTask()      
-      }    
+      this.firePropertyChange statusLabel      
+      log ("Start abstract task " + this)    
     }    
   
     @ActionScheme    
     public Void finishTask() {    
-      isActive = false;    
+      isActive = false;      
+      completed = true;      
+      container.executeGateways()      
+      log ("Finish abstract task " + this)    
     }    
   
     @ActionScheme    
@@ -1004,7 +1199,7 @@ public class MetaModel {
     Void addToPerformingActor(Actor actor) {    
       performingActors.add(parameters.actor)      
       this.firePropertyChange performingActorsLabel      
-      this.firePropertyChange isStartable      
+      this.firePropertyChange isStartable()      
       this.firePropertyChange statusLabel    
     }    
   
@@ -1074,6 +1269,12 @@ public class MetaModel {
       }    
     }    
   
+    @ActionScheme    
+    BeginTask newTask(String name, Process process) {    
+      log ((("Creating new BeginTask " + parameters.name) + " process=") + parameters.process)      
+      return BeginTask.create(parameters.name,this);    
+    }    
+  
   }  
 
   @FlexoConcept  
@@ -1089,6 +1290,66 @@ public class MetaModel {
       if (container != null) {      
         container.finalTaskTypes.remove(this)      
       }    
+    }    
+  
+    @ActionScheme    
+    EndTask newTask(String name, Process process) {    
+      log ((("Creating new BeginTask " + parameters.name) + " process=") + parameters.process)      
+      return EndTask.create(parameters.name,this);    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class BeginTask extends Task  {  
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+    @CreationScheme    
+    BeginTask:create(String name, TaskType taskType) {    
+      super.create(parameters.name,parameters.taskType)    
+    }    
+  
+    @ActionScheme    
+    public Void startTask() {    
+      super.startTask()      
+      log ("Start BEGIN " + this)      
+      this.finishTask()    
+    }    
+  
+    @ActionScheme    
+    Boolean isStartable() {    
+      return true;    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class EndTask extends Task  {  
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+    @CreationScheme    
+    EndTask:create(String name, TaskType taskType) {    
+      super.create(parameters.name,parameters.taskType)    
+    }    
+  
+    @ActionScheme    
+    public Void startTask() {    
+      super.startTask()      
+      this.finishTask()      
+      container.completeProcess()    
+    }    
+  
+    @ActionScheme    
+    Boolean isStartable() {    
+      return true;    
     }    
   
   }  

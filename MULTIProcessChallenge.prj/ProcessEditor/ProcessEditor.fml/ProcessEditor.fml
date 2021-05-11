@@ -113,6 +113,11 @@ public class ProcessEditor {
       shape.height=processTypeGR.shape.graphicalRepresentation.height    
     }    
   
+    @ActionScheme    
+    public Void start() {    
+      process.startProcess()    
+    }    
+  
   }  
 
   @FlexoConcept  
@@ -168,6 +173,11 @@ public class ProcessEditor {
       shape.y=taskTypeGR.shape.graphicalRepresentation.y      
       shape.width=taskTypeGR.shape.graphicalRepresentation.width      
       shape.height=(taskTypeGR.shape.graphicalRepresentation.height + 20)    
+    }    
+  
+    @ActionScheme    
+    public Void completeTask() {    
+      task.finishTask()    
     }    
   
   }  
