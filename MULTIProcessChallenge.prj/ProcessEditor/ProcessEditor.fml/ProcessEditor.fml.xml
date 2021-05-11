@@ -5,7 +5,7 @@
     <ShapeRole id="SYL-40" previewHeight="230.0" previewY="-15.0" previewX="10.0" previewWidth="230.0" exampleLabel="Shape" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_29" cloningStrategy="Clone" cardinality="ZeroOne" name="shape" userID="SYL" flexoID="40" />
     <ShapeRole id="SYL-41" previewHeight="20.0" previewY="0.0" previewX="0.0" previewWidth="246.2094364533389" exampleLabel="Shape" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_30" cloningStrategy="Clone" cardinality="ZeroOne" name="header" userID="SYL" flexoID="41">
       <ParentShapeRole idref="SYL-40" />
-      <GRSpec id="SYL-5420" featureName="label" value="process.name" userID="SYL" flexoID="5420" />
+      <GRSpec id="SYL-5534" featureName="label" value="process.name" userID="SYL" flexoID="5534" />
     </ShapeRole>
     <FlexoConceptInstanceRole id="SYL-42" virtualModelInstance="model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Process" cloningStrategy="Reference" cardinality="ZeroOne" name="process" userID="SYL" flexoID="42" />
     <CreationScheme id="SYL-54" label="instantiateProcess" name="instantiateProcess" width="800" height="600" userID="SYL" flexoID="54">
@@ -87,18 +87,21 @@
   </FlexoConcept>
   <FlexoConcept id="SYL-123" name="TaskGR" userID="SYL" flexoID="123">
     <Inspector id="SYL-3732" inspectorTitle="TaskTypeGR" delegateConceptInstance="task" userID="SYL" flexoID="3732" />
-    <ShapeRole id="SYL-124" previewHeight="72.14285714285714" previewY="62.85714285714286" previewX="60.735413839891436" previewWidth="133.1750339213026" exampleLabel="" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_3" cloningStrategy="Clone" cardinality="ZeroOne" name="shape" userID="SYL" flexoID="124" />
+    <ShapeRole id="SYL-124" previewHeight="72.14285714285714" previewY="62.85714285714286" previewX="60.735413839891436" previewWidth="133.1750339213026" exampleLabel="" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_3" cloningStrategy="Clone" cardinality="ZeroOne" name="shape" userID="SYL" flexoID="124">
+      <GRSpec id="SYL-5535" featureName="transparency" readOnly="true" value="(task.isActive ? 1.0 : 0.2)" userID="SYL" flexoID="5535" />
+    </ShapeRole>
     <FlexoConceptInstanceRole id="SYL-125" virtualModelInstance="model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Task" cloningStrategy="Reference" cardinality="ZeroOne" name="task" userID="SYL" flexoID="125" />
     <ShapeRole id="SYL-5203" previewHeight="26.07142857142857" previewY="10.0" previewX="0.0" previewWidth="133.1750339213026" exampleLabel="Task" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_32" container="diagram" cloningStrategy="Clone" cardinality="ZeroOne" name="title" userID="SYL" flexoID="5203">
       <ParentShapeRole idref="SYL-124" />
-      <GRSpec id="SYL-5421" featureName="label" value="task.name" userID="SYL" flexoID="5421" />
+      <GRSpec id="SYL-5536" featureName="label" value="task.name" userID="SYL" flexoID="5536" />
     </ShapeRole>
     <ShapeRole id="SYL-5248" previewHeight="18.035714285714285" previewY="36.07142857142857" previewX="0.0" previewWidth="133.1750339213026" exampleLabel="Actors" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_33" container="diagram" cloningStrategy="Clone" cardinality="ZeroOne" name="performingActors" userID="SYL" flexoID="5248">
       <ParentShapeRole idref="SYL-124" />
-      <GRSpec id="SYL-5422" featureName="label" value="task.performingActorsLabel" userID="SYL" flexoID="5422" />
+      <GRSpec id="SYL-5537" featureName="label" readOnly="true" value="task.performingActorsLabel" userID="SYL" flexoID="5537" />
     </ShapeRole>
     <ShapeRole id="SYL-5271" previewHeight="18.035714285714285" previewY="54.107142857142854" previewX="0.0" previewWidth="133.1750339213026" exampleLabel="Status" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_34" container="diagram" cloningStrategy="Clone" cardinality="ZeroOne" name="status" userID="SYL" flexoID="5271">
       <ParentShapeRole idref="SYL-124" />
+      <GRSpec id="SYL-5538" featureName="label" readOnly="true" value="task.statusLabel" userID="SYL" flexoID="5538" />
     </ShapeRole>
     <DeletionScheme id="SYL-143" visibility="Public" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="143">
       <BehaviourControlGraph_Sequence id="SYL-142" userID="SYL" flexoID="142">
@@ -377,7 +380,7 @@
   <FlexoConcept id="SYL-5129" name="ActorGR" userID="SYL" flexoID="5129">
     <Inspector id="SYL-5125" inspectorTitle="ActorGR" userID="SYL" flexoID="5125" />
     <ShapeRole id="SYL-5142" previewHeight="52.12680824869191" previewY="73.93659587565405" previewX="100.08819538670285" previewWidth="49.8236092265943" exampleLabel="Actor" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_23" cloningStrategy="Clone" cardinality="ZeroOne" name="shape" userID="SYL" flexoID="5142">
-      <GRSpec id="SYL-5423" featureName="label" value="actor.name" userID="SYL" flexoID="5423" />
+      <GRSpec id="SYL-5539" featureName="label" value="actor.name" userID="SYL" flexoID="5539" />
     </ShapeRole>
     <FlexoConceptInstanceRole id="SYL-5169" virtualModelInstance="model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor" cloningStrategy="Reference" cardinality="ZeroOne" name="actor" userID="SYL" flexoID="5169" />
     <DropScheme id="SYL-5130" target="top" label="dropActorGRAtTopLevel" name="dropActorGRAtTopLevel" width="800" height="600" userID="SYL" flexoID="5130">
@@ -391,7 +394,7 @@
           <AssignableAction_AddShape id="SYL-5145" container="topLevel" receiver="diagram" userID="SYL" flexoID="5145" />
         </ControlGraph1_AssignationAction>
       </BehaviourControlGraph_Sequence>
-      <GenericBehaviourParameter id="SYL-5171" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="SYL" flexoID="5171" />
+      <GenericBehaviourParameter id="SYL-5171" isRequired="true" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="SYL" flexoID="5171" />
     </DropScheme>
     <CreationScheme id="SYL-5149" label="representActor" name="representActor" width="800" height="600" userID="SYL" flexoID="5149">
       <BehaviourControlGraph_Sequence id="SYL-5167" userID="SYL" flexoID="5167">
@@ -421,6 +424,18 @@
       </BehaviourControlGraph_Sequence>
       <GenericBehaviourParameter id="SYL-5168" isRequired="true" widget="CUSTOM_WIDGET" name="actor" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor&gt;" userID="SYL" flexoID="5168" />
     </CreationScheme>
+  </FlexoConcept>
+  <FlexoConcept id="SYL-5458" name="ActorAssignationGR" userID="SYL" flexoID="5458">
+    <Inspector id="SYL-5454" inspectorTitle="ActorAssignationGR" userID="SYL" flexoID="5454" />
+    <ConnectorRole id="SYL-5464" exampleLabel="Connector28" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_28" cloningStrategy="Clone" cardinality="ZeroOne" name="connector" userID="SYL" flexoID="5464" />
+    <LinkScheme id="SYL-5459" northDirectionSupported="true" eastDirectionSupported="true" fromTarget="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/ProcessEditor/ProcessEditor.fml#ActorGR" toTarget="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/ProcessEditor/ProcessEditor.fml#TaskGR" westDirectionSupported="true" isAvailableWithFloatingPalette="true" southDirectionSupported="true" label="linkActorGRToTaskGR" name="linkActorGRToTaskGR" width="800" height="600" userID="SYL" flexoID="5459">
+      <BehaviourControlGraph_Sequence id="SYL-5540" ownerContext="controlGraph1" userID="SYL" flexoID="5540">
+        <ControlGraph2_ExpressionAction id="SYL-5533" expression="toTarget.task.addToPerformingActor(fromTarget.actor)" ownerContext="controlGraph2" userID="SYL" flexoID="5533" />
+        <ControlGraph1_AssignationAction id="SYL-5460" assign="connector" ownerContext="controlGraph1" userID="SYL" flexoID="5460">
+          <AssignableAction_AddConnector id="SYL-5475" fromShape="fromTarget.shape" toShape="toTarget.shape" receiver="diagram" userID="SYL" flexoID="5475" />
+        </ControlGraph1_AssignationAction>
+      </BehaviourControlGraph_Sequence>
+    </LinkScheme>
   </FlexoConcept>
   <UseModelSlotDeclaration id="0" modelSlotClass="org.openflexo.technologyadapter.diagram.TypedDiagramModelSlot" userID="SYL" flexoID="-1" />
   <UseModelSlotDeclaration id="1" modelSlotClass="org.openflexo.foundation.fml.rt.FMLRTVirtualModelInstanceModelSlot" userID="SYL" flexoID="-1" />

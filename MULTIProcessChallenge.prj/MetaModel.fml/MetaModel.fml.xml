@@ -525,11 +525,32 @@
           </ThenControlGraph_Sequence>
         </GetControlGraph_ConditionalAction>
       </GetSetProperty>
+      <GetSetProperty id="SYL-2900" name="statusLabel" userID="SYL" flexoID="2900">
+        <SetControlGraph_EmptyControlGraph id="SYL-2914" ownerContext="setControlGraph" userID="SYL" flexoID="2914" />
+        <GetControlGraph_ConditionalAction id="SYL-2902" condition="this.isStartable()" ownerContext="getControlGraph" userID="SYL" flexoID="2902">
+          <ElseControlGraph_ReturnStatement id="SYL-2913" ownerContext="elseControlGraph" userID="SYL" flexoID="2913">
+            <AssignableAction_ExpressionAction id="SYL-2912" expression="&quot;Not startable&quot;" userID="SYL" flexoID="2912" />
+          </ElseControlGraph_ReturnStatement>
+          <ThenControlGraph_ConditionalAction id="SYL-2907" condition="isActive" ownerContext="thenControlGraph" userID="SYL" flexoID="2907">
+            <ElseControlGraph_ReturnStatement id="SYL-2911" ownerContext="elseControlGraph" userID="SYL" flexoID="2911">
+              <AssignableAction_ExpressionAction id="SYL-2910" expression="&quot;Not started&quot;" userID="SYL" flexoID="2910" />
+            </ElseControlGraph_ReturnStatement>
+            <ThenControlGraph_ReturnStatement id="SYL-2909" ownerContext="thenControlGraph" userID="SYL" flexoID="2909">
+              <AssignableAction_ExpressionAction id="SYL-2908" expression="beginDate.toString" userID="SYL" flexoID="2908" />
+            </ThenControlGraph_ReturnStatement>
+          </ThenControlGraph_ConditionalAction>
+        </GetControlGraph_ConditionalAction>
+      </GetSetProperty>
       <CreationScheme id="SYL-400" label="create" name="create" width="800" height="600" userID="SYL" flexoID="400">
         <BehaviourControlGraph_Sequence id="SYL-420" userID="SYL" flexoID="420">
-          <ControlGraph2_AssignationAction id="SYL-405" assign="type" ownerContext="controlGraph2" userID="SYL" flexoID="405">
-            <AssignableAction_ExpressionAction id="SYL-404" expression="parameters.taskType" userID="SYL" flexoID="404" />
-          </ControlGraph2_AssignationAction>
+          <ControlGraph2_Sequence id="SYL-2915" ownerContext="controlGraph2" userID="SYL" flexoID="2915">
+            <ControlGraph2_AssignationAction id="SYL-2905" assign="isActive" ownerContext="controlGraph2" userID="SYL" flexoID="2905">
+              <AssignableAction_ExpressionAction id="SYL-2904" expression="false" userID="SYL" flexoID="2904" />
+            </ControlGraph2_AssignationAction>
+            <ControlGraph1_AssignationAction id="SYL-405" assign="type" ownerContext="controlGraph1" userID="SYL" flexoID="405">
+              <AssignableAction_ExpressionAction id="SYL-404" expression="parameters.taskType" userID="SYL" flexoID="404" />
+            </ControlGraph1_AssignationAction>
+          </ControlGraph2_Sequence>
           <ControlGraph1_ExpressionAction id="SYL-403" expression="super.create(parameters.name)" ownerContext="controlGraph1" userID="SYL" flexoID="403" />
         </BehaviourControlGraph_Sequence>
         <GenericBehaviourParameter id="SYL-421" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="SYL" flexoID="421" />
@@ -656,6 +677,21 @@
         <BehaviourControlGraph_ReturnStatement id="SYL-2328" userID="SYL" flexoID="2328">
           <AssignableAction_ExpressionAction id="SYL-2327" expression="(performingActors.size &gt; 0)" userID="SYL" flexoID="2327" />
         </BehaviourControlGraph_ReturnStatement>
+      </ActionScheme>
+      <ActionScheme id="SYL-2892" label="addToPerformingActor" name="addToPerformingActor" width="800" height="600" userID="SYL" flexoID="2892">
+        <BehaviourControlGraph_Sequence id="SYL-2897" userID="SYL" flexoID="2897">
+          <ControlGraph2_Sequence id="SYL-2916" ownerContext="controlGraph2" userID="SYL" flexoID="2916">
+            <ControlGraph2_Sequence id="SYL-2918" ownerContext="controlGraph2" userID="SYL" flexoID="2918">
+              <ControlGraph2_NotifyPropertyChangedAction id="SYL-2917" propertyName="statusLabel" object="this" ownerContext="controlGraph2" userID="SYL" flexoID="2917" />
+              <ControlGraph1_NotifyPropertyChangedAction id="SYL-2899" propertyName="isStartable" object="this" ownerContext="controlGraph1" userID="SYL" flexoID="2899" />
+            </ControlGraph2_Sequence>
+            <ControlGraph1_NotifyPropertyChangedAction id="SYL-2896" propertyName="performingActorsLabel" object="this" ownerContext="controlGraph1" userID="SYL" flexoID="2896" />
+          </ControlGraph2_Sequence>
+          <ControlGraph1_AddToListAction id="SYL-2894" list="performingActors" ownerContext="controlGraph1" userID="SYL" flexoID="2894">
+            <AssignableAction_ExpressionAction id="SYL-2893" expression="parameters.actor" userID="SYL" flexoID="2893" />
+          </ControlGraph1_AddToListAction>
+        </BehaviourControlGraph_Sequence>
+        <GenericBehaviourParameter id="SYL-2898" isRequired="true" widget="CUSTOM_WIDGET" name="actor" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor&gt;" userID="SYL" flexoID="2898" />
       </ActionScheme>
     </EmbeddedFlexoConcept>
     <FlexoConceptInstanceRole id="SYL-391" virtualModelInstance="container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ProcessType" cloningStrategy="Reference" cardinality="ZeroOne" name="type" userID="SYL" flexoID="391" />

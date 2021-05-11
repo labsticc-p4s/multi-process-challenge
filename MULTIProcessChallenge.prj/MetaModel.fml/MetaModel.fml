@@ -748,11 +748,24 @@ public class MetaModel {
           return "No actor assigned";        
         }      
       }    
+      @GetSetProperty(value="statusLabel", access=get)      
+      public String getStatusLabel {      
+        if this.isStartable() {        
+          if isActive {          
+            return beginDate.toString;          
+          } else {          
+            return "Not started";          
+          }        
+        } else {        
+          return "Not startable";        
+        }      
+      }    
       
       @CreationScheme      
       Task:create(String name, TaskType taskType) {      
         super.create(parameters.name)        
-        type = parameters.taskType;      
+        type = parameters.taskType;        
+        isActive = false;      
       }      
       
       @DeletionScheme      
@@ -844,6 +857,14 @@ public class MetaModel {
         return (performingActors.size > 0);      
       }      
       
+      @ActionScheme      
+      Void addToPerformingActor(Actor actor) {      
+        performingActors.add(parameters.actor)        
+        this.firePropertyChange performingActorsLabel        
+        this.firePropertyChange isStartable        
+        this.firePropertyChange statusLabel      
+      }      
+      
     }    
   
   }  
@@ -870,11 +891,24 @@ public class MetaModel {
         return "No actor assigned";      
       }    
     }  
+    @GetSetProperty(value="statusLabel", access=get)    
+    public String getStatusLabel {    
+      if this.isStartable() {      
+        if isActive {        
+          return beginDate.toString;        
+        } else {        
+          return "Not started";        
+        }      
+      } else {      
+        return "Not startable";      
+      }    
+    }  
   
     @CreationScheme    
     Task:create(String name, TaskType taskType) {    
       super.create(parameters.name)      
-      type = parameters.taskType;    
+      type = parameters.taskType;      
+      isActive = false;    
     }    
   
     @DeletionScheme    
@@ -964,6 +998,14 @@ public class MetaModel {
     @ActionScheme    
     Boolean isStartable() {    
       return (performingActors.size > 0);    
+    }    
+  
+    @ActionScheme    
+    Void addToPerformingActor(Actor actor) {    
+      performingActors.add(parameters.actor)      
+      this.firePropertyChange performingActorsLabel      
+      this.firePropertyChange isStartable      
+      this.firePropertyChange statusLabel    
     }    
   
   }  

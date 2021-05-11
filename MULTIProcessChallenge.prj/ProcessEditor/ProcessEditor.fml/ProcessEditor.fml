@@ -312,4 +312,17 @@ public class ProcessEditor {
   
   }  
 
+  @FlexoConcept  
+  public class ActorAssignationGR {  
+  
+    public DiagramConnector connector;  
+  
+    @LinkScheme    
+    ActorAssignationGR:linkActorGRToTaskGR() {    
+      connector = diagram.AddConnector();      
+      toTarget.task.addToPerformingActor(fromTarget.actor)    
+    }    
+  
+  }  
+
 }
