@@ -1,3 +1,18 @@
-Positioning  and  contrasting  the  presented solution with related work
+%Positioning  and  contrasting  the  presented solution with related work
 
-Salvador commence
+%Salvador commence
+
+A first description of the process modeling challenge as a multi-level modeling problem was proposed in \cite{lara2018refactoring} in the context of a catalogue of refactoring for multi-level models. A solution is provided at a conceptual level using deep instantiation and linguistic extensions.
+
+\cite{multiecore2019} use MultiEcore \citep{multecore2016} to provide a solution to the challenge. MultEcore uses cascading and potency. They do not need the synthetic typing relations we introduce. However they need to do frequent model transformations to transform instance models into instantiable models. With respect to them, we use less models as we do not include a generic software engineering process model nor a generic assurance process model. Finally, they use multi-level couple model transformations for the definition and enforcement of constraints.
+
+More similar to us, \cite{deeptelos2019} use DeepTelos\citep{deeptelos2016}, an extension of the Telos language \citep{telos1990} in order to solve the process challenge. DeepTelos is based on the use of the PowerType \citep{atkinson2001essence} pattern. As with OpenFlexo and FML, they do not use explicit (numbered) levels nor potency.
+
+
+%Their solution to the challenge includes 5 (ontological) levels and 8 models, including Ecore at the top. %They include two supplementary hierarchies (linguistic extensions) that are not bound to any of the %aforementioned 5 levels. Finally, they use multi-level couple model transformations for the definition and %enforcement of constraints. Their approach is implemented on top of EMF and achieves integration with its %strict modeling paradigm by extending the two-level cascading mechanism to all the hierarchy.
+
+\cite{dmla2019} Use the Dynamic Multi-Layer Algebra (DMLA)\citep{dmla2017} in order to solve the process challenge. DMLA is a level-blind modeling framework which is fully customizable (e.g., different types of instantiaton may be implemented). Their proposed solution separates the process challenge in two separate domains, namely, the tasks definition domain and the process definition domain. Wrappers are used in order to reuse tasks in processes. Their solution does not use inheritance, as it is not supported by the framework. It does not use explicitly separated models either.
+
+%DMLA does not directly supports inheritance nor bi-directional navigation which prevents an easy solution to %some of the challenge requirements (e.g., p9 and s13).
+
+\noteSM{Say something about constraints in FML}
