@@ -5,14 +5,22 @@
     <EmbeddedFlexoConcept id="SYL-15" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Type" name="TaskType" author="sylvain" userID="SYL" flexoID="15">
       <Inspector id="SYL-16" inspectorTitle="TaskType" userID="SYL" flexoID="16">
         <InspectorEntry id="SYL-1561" container="container.container" widget="CUSTOM_WIDGET" data="this.creator" name="creator" label="creator" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor&gt;" userID="SYL" flexoID="1561" />
+        <InspectorEntry id="SYL-3666" widget="INTEGER" data="expectedDuration" name="expectedDuration" label="expectedDuration" type="int" userID="SYL" flexoID="3666" />
       </Inspector>
       <FlexoConceptInstanceRole id="SYL-97" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor" cloningStrategy="Reference" cardinality="ZeroOne" name="creator" userID="SYL" flexoID="97" />
       <FlexoConceptInstanceRole id="SYL-327" virtualModelInstance="container.container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ActorType" cloningStrategy="Reference" cardinality="ZeroMany" name="allowedActorTypes" userID="SYL" flexoID="327" />
       <FlexoConceptInstanceRole id="SYL-328" virtualModelInstance="container.container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor" cloningStrategy="Reference" cardinality="ZeroMany" name="allowedActors" userID="SYL" flexoID="328" />
       <FlexoConceptInstanceRole id="SYL-414" virtualModelInstance="container.container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ArtifactType" cloningStrategy="Reference" cardinality="ZeroMany" name="usedArtifactTypes" userID="SYL" flexoID="414" />
       <FlexoConceptInstanceRole id="SYL-415" virtualModelInstance="container.container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ArtifactType" cloningStrategy="Reference" cardinality="ZeroMany" name="producedArtifactTypes" userID="SYL" flexoID="415" />
+      <PrimitiveRole id="SYL-3665" primitiveType="Integer" cloningStrategy="Clone" cardinality="ZeroOne" name="expectedDuration" userID="SYL" flexoID="3665" />
+      <PrimitiveRole id="SYL-3667" primitiveType="Boolean" cloningStrategy="Clone" cardinality="One" name="isCritical" userID="SYL" flexoID="3667" />
       <CreationScheme id="SYL-20" label="create" name="create" width="800" height="600" userID="SYL" flexoID="20">
-        <BehaviourControlGraph_ExpressionAction id="SYL-204" expression="super.create(parameters.name)" userID="SYL" flexoID="204" />
+        <BehaviourControlGraph_Sequence id="SYL-3674" userID="SYL" flexoID="3674">
+          <ControlGraph2_AssignationAction id="SYL-3669" assign="isCritical" ownerContext="controlGraph2" userID="SYL" flexoID="3669">
+            <AssignableAction_ExpressionAction id="SYL-3668" expression="false" userID="SYL" flexoID="3668" />
+          </ControlGraph2_AssignationAction>
+          <ControlGraph1_ExpressionAction id="SYL-204" expression="super.create(parameters.name)" ownerContext="controlGraph1" userID="SYL" flexoID="204" />
+        </BehaviourControlGraph_Sequence>
         <GenericBehaviourParameter id="SYL-205" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="SYL" flexoID="205" />
       </CreationScheme>
       <DeletionScheme id="SYL-21" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="21">
@@ -142,6 +150,7 @@
         </BehaviourControlGraph_AssignationAction>
         <GenericBehaviourParameter id="SYL-1300" container="container" isRequired="true" widget="CUSTOM_WIDGET" name="creator" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor&gt;" userID="SYL" flexoID="1300" />
       </ActionScheme>
+      <Constraint id="SYL-3673" iteratorName="actor" iteration="allowedActors" constraint="((!(isCritical)) | actor.isSenior)" name="Critical task implies that allowed actor must all be senior" userID="SYL" flexoID="3673" />
     </EmbeddedFlexoConcept>
     <EmbeddedFlexoConcept id="SYL-25" visibility="Public" isAbstract="true" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Type" name="Gateway" author="sylvain" userID="SYL" flexoID="25">
       <Inspector id="SYL-67" inspectorTitle="Gateway" userID="SYL" flexoID="67" />
@@ -608,8 +617,14 @@
   <FlexoConcept id="SYL-307" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#MultiInstance" name="Actor" author="sylvain" userID="SYL" flexoID="307">
     <Inspector id="SYL-308" renderer="this.name" inspectorTitle="Actor" userID="SYL" flexoID="308" />
     <FlexoConceptInstanceRole id="SYL-314" virtualModelInstance="container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ActorType" cloningStrategy="Reference" cardinality="ZeroMany" name="types" userID="SYL" flexoID="314" />
+    <PrimitiveRole id="SYL-3670" primitiveType="Boolean" cloningStrategy="Clone" cardinality="One" name="isSenior" userID="SYL" flexoID="3670" />
     <CreationScheme id="SYL-312" label="create" name="create" width="800" height="600" userID="SYL" flexoID="312">
-      <BehaviourControlGraph_ExpressionAction id="SYL-318" expression="super.create(parameters.name)" userID="SYL" flexoID="318" />
+      <BehaviourControlGraph_Sequence id="SYL-3675" userID="SYL" flexoID="3675">
+        <ControlGraph2_AssignationAction id="SYL-3672" assign="isSenior" ownerContext="controlGraph2" userID="SYL" flexoID="3672">
+          <AssignableAction_ExpressionAction id="SYL-3671" expression="false" userID="SYL" flexoID="3671" />
+        </ControlGraph2_AssignationAction>
+        <ControlGraph1_ExpressionAction id="SYL-318" expression="super.create(parameters.name)" ownerContext="controlGraph1" userID="SYL" flexoID="318" />
+      </BehaviourControlGraph_Sequence>
       <GenericBehaviourParameter id="SYL-324" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="SYL" flexoID="324" />
     </CreationScheme>
     <DeletionScheme id="SYL-313" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="313">
