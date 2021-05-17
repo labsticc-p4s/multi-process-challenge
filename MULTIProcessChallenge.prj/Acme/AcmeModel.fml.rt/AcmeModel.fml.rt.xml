@@ -22,143 +22,153 @@
     <EmbeddedFlexoConceptInstance id="20" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Begin" userID="SYL" flexoID="45">
       <PrimitiveActorReference id="21" valueAsString="Begin" roleName="name" userID="SYL" flexoID="53" />
       <PrimitiveActorReference id="22" valueAsString="dd/MM/yy HH:mm,17/03/21 11:03" roleName="lastUpdated" userID="SYL" flexoID="54" />
+      <PrimitiveActorReference id="23" valueAsString="false" roleName="isCritical" userID="SYL" flexoID="211" />
     </EmbeddedFlexoConceptInstance>
-    <EmbeddedFlexoConceptInstance id="23" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#SoftwareEngineeringTaskType" userID="SYL" flexoID="46">
-      <PrimitiveActorReference id="24" valueAsString="dd/MM/yy HH:mm,17/03/21 16:29" roleName="lastUpdated" userID="SYL" flexoID="55" />
-      <PrimitiveActorReference id="25" valueAsString="Requirement analysis" roleName="name" userID="SYL" flexoID="56" />
-      <ModelObjectActorReference id="26" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_140" roleName="producedArtifactTypes" userID="SYL" flexoID="161" />
-      <ModelObjectActorReference id="27" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_116" roleName="allowedActorTypes" userID="SYL" flexoID="165" />
-      <ModelObjectActorReference id="28" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_117" roleName="creator" userID="SYL" flexoID="172" />
+    <EmbeddedFlexoConceptInstance id="24" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#SoftwareEngineeringTaskType" userID="SYL" flexoID="46">
+      <PrimitiveActorReference id="25" valueAsString="dd/MM/yy HH:mm,17/03/21 16:29" roleName="lastUpdated" userID="SYL" flexoID="55" />
+      <PrimitiveActorReference id="26" valueAsString="Requirement analysis" roleName="name" userID="SYL" flexoID="56" />
+      <ModelObjectActorReference id="27" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_140" roleName="producedArtifactTypes" userID="SYL" flexoID="161" />
+      <ModelObjectActorReference id="28" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_116" roleName="allowedActorTypes" userID="SYL" flexoID="165" />
+      <ModelObjectActorReference id="29" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_117" roleName="creator" userID="SYL" flexoID="172" />
+      <PrimitiveActorReference id="30" valueAsString="false" roleName="isCritical" userID="SYL" flexoID="212" />
     </EmbeddedFlexoConceptInstance>
-    <EmbeddedFlexoConceptInstance id="29" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Sequencing" userID="SYL" flexoID="47">
-      <PrimitiveActorReference id="30" valueAsString="Sequence" roleName="name" userID="SYL" flexoID="57" />
-      <PrimitiveActorReference id="31" valueAsString="dd/MM/yy HH:mm,17/03/21 11:03" roleName="lastUpdated" userID="SYL" flexoID="58" />
-      <ModelObjectActorReference id="32" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_45" roleName="in" userID="SYL" flexoID="59" />
-      <ModelObjectActorReference id="33" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_46" roleName="out" userID="SYL" flexoID="60" />
+    <EmbeddedFlexoConceptInstance id="31" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Sequencing" userID="SYL" flexoID="47">
+      <PrimitiveActorReference id="32" valueAsString="Sequence" roleName="name" userID="SYL" flexoID="57" />
+      <PrimitiveActorReference id="33" valueAsString="dd/MM/yy HH:mm,17/03/21 11:03" roleName="lastUpdated" userID="SYL" flexoID="58" />
+      <ModelObjectActorReference id="34" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_45" roleName="in" userID="SYL" flexoID="59" />
+      <ModelObjectActorReference id="35" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_46" roleName="out" userID="SYL" flexoID="60" />
     </EmbeddedFlexoConceptInstance>
-    <EmbeddedFlexoConceptInstance id="34" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#AndSplit" userID="SYL" flexoID="48">
-      <PrimitiveActorReference id="35" valueAsString="AndSplit" roleName="name" userID="SYL" flexoID="61" />
-      <PrimitiveActorReference id="36" valueAsString="dd/MM/yy HH:mm,17/03/21 11:04" roleName="lastUpdated" userID="SYL" flexoID="62" />
-      <ModelObjectActorReference id="37" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_46" roleName="in" userID="SYL" flexoID="63" />
-      <ModelObjectActorReference id="38" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_64" roleName="out" userID="SYL" flexoID="80" />
-      <ModelObjectActorReference id="39" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_65" roleName="out" userID="SYL" flexoID="81" />
+    <EmbeddedFlexoConceptInstance id="36" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#AndSplit" userID="SYL" flexoID="48">
+      <PrimitiveActorReference id="37" valueAsString="AndSplit" roleName="name" userID="SYL" flexoID="61" />
+      <PrimitiveActorReference id="38" valueAsString="dd/MM/yy HH:mm,17/03/21 11:04" roleName="lastUpdated" userID="SYL" flexoID="62" />
+      <ModelObjectActorReference id="39" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_46" roleName="in" userID="SYL" flexoID="63" />
+      <ModelObjectActorReference id="40" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_64" roleName="out" userID="SYL" flexoID="80" />
+      <ModelObjectActorReference id="41" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_65" roleName="out" userID="SYL" flexoID="81" />
     </EmbeddedFlexoConceptInstance>
-    <EmbeddedFlexoConceptInstance id="40" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#SoftwareEngineeringTaskType" userID="SYL" flexoID="64">
-      <PrimitiveActorReference id="41" valueAsString="dd/MM/yy HH:mm,17/03/21 11:08" roleName="lastUpdated" userID="SYL" flexoID="82" />
-      <PrimitiveActorReference id="42" valueAsString="Design" roleName="name" userID="SYL" flexoID="83" />
-      <ModelObjectActorReference id="43" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_117" roleName="creator" userID="SYL" flexoID="173" />
+    <EmbeddedFlexoConceptInstance id="42" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#SoftwareEngineeringTaskType" userID="SYL" flexoID="64">
+      <PrimitiveActorReference id="43" valueAsString="dd/MM/yy HH:mm,17/03/21 11:08" roleName="lastUpdated" userID="SYL" flexoID="82" />
+      <PrimitiveActorReference id="44" valueAsString="Design" roleName="name" userID="SYL" flexoID="83" />
+      <ModelObjectActorReference id="45" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_117" roleName="creator" userID="SYL" flexoID="173" />
+      <PrimitiveActorReference id="46" valueAsString="false" roleName="isCritical" userID="SYL" flexoID="213" />
     </EmbeddedFlexoConceptInstance>
-    <EmbeddedFlexoConceptInstance id="44" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#SoftwareEngineeringTaskType" userID="SYL" flexoID="65">
-      <PrimitiveActorReference id="45" valueAsString="dd/MM/yy HH:mm,17/03/21 16:29" roleName="lastUpdated" userID="SYL" flexoID="84" />
-      <PrimitiveActorReference id="46" valueAsString="Test Case design" roleName="name" userID="SYL" flexoID="85" />
-      <ModelObjectActorReference id="47" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_141" roleName="producedArtifactTypes" userID="SYL" flexoID="160" />
-      <ModelObjectActorReference id="48" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_116" roleName="allowedActorTypes" userID="SYL" flexoID="166" />
-      <ModelObjectActorReference id="49" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_117" roleName="creator" userID="SYL" flexoID="174" />
+    <EmbeddedFlexoConceptInstance id="47" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#SoftwareEngineeringTaskType" userID="SYL" flexoID="65">
+      <PrimitiveActorReference id="48" valueAsString="dd/MM/yy HH:mm,17/03/21 16:29" roleName="lastUpdated" userID="SYL" flexoID="84" />
+      <PrimitiveActorReference id="49" valueAsString="Test Case design" roleName="name" userID="SYL" flexoID="85" />
+      <ModelObjectActorReference id="50" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_141" roleName="producedArtifactTypes" userID="SYL" flexoID="160" />
+      <ModelObjectActorReference id="51" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_116" roleName="allowedActorTypes" userID="SYL" flexoID="166" />
+      <ModelObjectActorReference id="52" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_117" roleName="creator" userID="SYL" flexoID="174" />
+      <PrimitiveActorReference id="53" valueAsString="false" roleName="isCritical" userID="SYL" flexoID="214" />
     </EmbeddedFlexoConceptInstance>
-    <EmbeddedFlexoConceptInstance id="50" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#CodingTaskType" userID="SYL" flexoID="66">
-      <PrimitiveActorReference id="51" valueAsString="dd/MM/yy HH:mm,18/03/21 10:42" roleName="lastUpdated" userID="SYL" flexoID="86" />
-      <PrimitiveActorReference id="52" valueAsString="Coding" roleName="name" userID="SYL" flexoID="87" />
-      <ModelObjectActorReference id="53" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_142" roleName="producedArtifactTypes" userID="SYL" flexoID="146" />
-      <ModelObjectActorReference id="54" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_120" roleName="allowedActorTypes" userID="SYL" flexoID="171" />
-      <ModelObjectActorReference id="55" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_117" roleName="creator" userID="SYL" flexoID="175" />
+    <EmbeddedFlexoConceptInstance id="54" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#CodingTaskType" userID="SYL" flexoID="66">
+      <PrimitiveActorReference id="55" valueAsString="dd/MM/yy HH:mm,18/03/21 10:42" roleName="lastUpdated" userID="SYL" flexoID="86" />
+      <PrimitiveActorReference id="56" valueAsString="Coding" roleName="name" userID="SYL" flexoID="87" />
+      <ModelObjectActorReference id="57" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_142" roleName="producedArtifactTypes" userID="SYL" flexoID="146" />
+      <ModelObjectActorReference id="58" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_120" roleName="allowedActorTypes" userID="SYL" flexoID="171" />
+      <ModelObjectActorReference id="59" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_117" roleName="creator" userID="SYL" flexoID="175" />
+      <PrimitiveActorReference id="60" valueAsString="false" roleName="isCritical" userID="SYL" flexoID="215" />
     </EmbeddedFlexoConceptInstance>
-    <EmbeddedFlexoConceptInstance id="56" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Sequencing" userID="SYL" flexoID="67">
-      <PrimitiveActorReference id="57" valueAsString="Sequence" roleName="name" userID="SYL" flexoID="88" />
-      <PrimitiveActorReference id="58" valueAsString="dd/MM/yy HH:mm,17/03/21 11:09" roleName="lastUpdated" userID="SYL" flexoID="89" />
-      <ModelObjectActorReference id="59" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_64" roleName="in" userID="SYL" flexoID="90" />
-      <ModelObjectActorReference id="60" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_66" roleName="out" userID="SYL" flexoID="91" />
+    <EmbeddedFlexoConceptInstance id="61" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Sequencing" userID="SYL" flexoID="67">
+      <PrimitiveActorReference id="62" valueAsString="Sequence" roleName="name" userID="SYL" flexoID="88" />
+      <PrimitiveActorReference id="63" valueAsString="dd/MM/yy HH:mm,17/03/21 11:09" roleName="lastUpdated" userID="SYL" flexoID="89" />
+      <ModelObjectActorReference id="64" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_64" roleName="in" userID="SYL" flexoID="90" />
+      <ModelObjectActorReference id="65" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_66" roleName="out" userID="SYL" flexoID="91" />
     </EmbeddedFlexoConceptInstance>
-    <EmbeddedFlexoConceptInstance id="61" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#SoftwareEngineeringTaskType" userID="SYL" flexoID="68">
-      <PrimitiveActorReference id="62" valueAsString="dd/MM/yy HH:mm,17/03/21 11:10" roleName="lastUpdated" userID="SYL" flexoID="92" />
-      <PrimitiveActorReference id="63" valueAsString="Test Design review" roleName="name" userID="SYL" flexoID="93" />
-      <ModelObjectActorReference id="64" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_117" roleName="creator" userID="SYL" flexoID="176" />
+    <EmbeddedFlexoConceptInstance id="66" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#SoftwareEngineeringTaskType" userID="SYL" flexoID="68">
+      <PrimitiveActorReference id="67" valueAsString="dd/MM/yy HH:mm,17/03/21 11:10" roleName="lastUpdated" userID="SYL" flexoID="92" />
+      <PrimitiveActorReference id="68" valueAsString="Test Design review" roleName="name" userID="SYL" flexoID="93" />
+      <ModelObjectActorReference id="69" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_117" roleName="creator" userID="SYL" flexoID="176" />
+      <PrimitiveActorReference id="70" valueAsString="false" roleName="isCritical" userID="SYL" flexoID="216" />
     </EmbeddedFlexoConceptInstance>
-    <EmbeddedFlexoConceptInstance id="65" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Sequencing" userID="SYL" flexoID="69">
-      <PrimitiveActorReference id="66" valueAsString="Sequence" roleName="name" userID="SYL" flexoID="94" />
-      <PrimitiveActorReference id="67" valueAsString="dd/MM/yy HH:mm,17/03/21 11:10" roleName="lastUpdated" userID="SYL" flexoID="95" />
-      <ModelObjectActorReference id="68" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_65" roleName="in" userID="SYL" flexoID="96" />
-      <ModelObjectActorReference id="69" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_68" roleName="out" userID="SYL" flexoID="97" />
+    <EmbeddedFlexoConceptInstance id="71" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Sequencing" userID="SYL" flexoID="69">
+      <PrimitiveActorReference id="72" valueAsString="Sequence" roleName="name" userID="SYL" flexoID="94" />
+      <PrimitiveActorReference id="73" valueAsString="dd/MM/yy HH:mm,17/03/21 11:10" roleName="lastUpdated" userID="SYL" flexoID="95" />
+      <ModelObjectActorReference id="74" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_65" roleName="in" userID="SYL" flexoID="96" />
+      <ModelObjectActorReference id="75" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_68" roleName="out" userID="SYL" flexoID="97" />
     </EmbeddedFlexoConceptInstance>
-    <EmbeddedFlexoConceptInstance id="70" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#AndJoin" userID="SYL" flexoID="70">
-      <PrimitiveActorReference id="71" valueAsString="AndJoin" roleName="name" userID="SYL" flexoID="98" />
-      <PrimitiveActorReference id="72" valueAsString="dd/MM/yy HH:mm,17/03/21 11:10" roleName="lastUpdated" userID="SYL" flexoID="99" />
-      <ModelObjectActorReference id="73" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_66" roleName="in" userID="SYL" flexoID="100" />
-      <ModelObjectActorReference id="74" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_68" roleName="in" userID="SYL" flexoID="101" />
-      <ModelObjectActorReference id="75" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_71" roleName="out" userID="SYL" flexoID="109" />
+    <EmbeddedFlexoConceptInstance id="76" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#AndJoin" userID="SYL" flexoID="70">
+      <PrimitiveActorReference id="77" valueAsString="AndJoin" roleName="name" userID="SYL" flexoID="98" />
+      <PrimitiveActorReference id="78" valueAsString="dd/MM/yy HH:mm,17/03/21 11:10" roleName="lastUpdated" userID="SYL" flexoID="99" />
+      <ModelObjectActorReference id="79" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_66" roleName="in" userID="SYL" flexoID="100" />
+      <ModelObjectActorReference id="80" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_68" roleName="in" userID="SYL" flexoID="101" />
+      <ModelObjectActorReference id="81" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_71" roleName="out" userID="SYL" flexoID="109" />
     </EmbeddedFlexoConceptInstance>
-    <EmbeddedFlexoConceptInstance id="76" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#SoftwareEngineeringTaskType" userID="SYL" flexoID="71">
-      <PrimitiveActorReference id="77" valueAsString="dd/MM/yy HH:mm,17/03/21 16:29" roleName="lastUpdated" userID="SYL" flexoID="102" />
-      <PrimitiveActorReference id="78" valueAsString="Testing" roleName="name" userID="SYL" flexoID="103" />
-      <ModelObjectActorReference id="79" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_143" roleName="producedArtifactTypes" userID="SYL" flexoID="159" />
-      <ModelObjectActorReference id="80" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_119" roleName="allowedActorTypes" userID="SYL" flexoID="167" />
-      <ModelObjectActorReference id="81" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_117" roleName="creator" userID="SYL" flexoID="177" />
+    <EmbeddedFlexoConceptInstance id="82" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#SoftwareEngineeringTaskType" userID="SYL" flexoID="71">
+      <PrimitiveActorReference id="83" valueAsString="dd/MM/yy HH:mm,17/03/21 16:29" roleName="lastUpdated" userID="SYL" flexoID="102" />
+      <PrimitiveActorReference id="84" valueAsString="Testing" roleName="name" userID="SYL" flexoID="103" />
+      <ModelObjectActorReference id="85" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_143" roleName="producedArtifactTypes" userID="SYL" flexoID="159" />
+      <ModelObjectActorReference id="86" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_119" roleName="allowedActorTypes" userID="SYL" flexoID="167" />
+      <ModelObjectActorReference id="87" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_117" roleName="creator" userID="SYL" flexoID="177" />
+      <PrimitiveActorReference id="88" valueAsString="false" roleName="isCritical" userID="SYL" flexoID="217" />
     </EmbeddedFlexoConceptInstance>
-    <EmbeddedFlexoConceptInstance id="82" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#End" userID="SYL" flexoID="104">
-      <PrimitiveActorReference id="83" valueAsString="End" roleName="name" userID="SYL" flexoID="110" />
-      <PrimitiveActorReference id="84" valueAsString="dd/MM/yy HH:mm,17/03/21 11:19" roleName="lastUpdated" userID="SYL" flexoID="111" />
+    <EmbeddedFlexoConceptInstance id="89" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#End" userID="SYL" flexoID="104">
+      <PrimitiveActorReference id="90" valueAsString="End" roleName="name" userID="SYL" flexoID="110" />
+      <PrimitiveActorReference id="91" valueAsString="dd/MM/yy HH:mm,17/03/21 11:19" roleName="lastUpdated" userID="SYL" flexoID="111" />
+      <PrimitiveActorReference id="92" valueAsString="false" roleName="isCritical" userID="SYL" flexoID="218" />
     </EmbeddedFlexoConceptInstance>
-    <EmbeddedFlexoConceptInstance id="85" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Sequencing" userID="SYL" flexoID="105">
-      <PrimitiveActorReference id="86" valueAsString="Sequence" roleName="name" userID="SYL" flexoID="112" />
-      <PrimitiveActorReference id="87" valueAsString="dd/MM/yy HH:mm,17/03/21 11:19" roleName="lastUpdated" userID="SYL" flexoID="113" />
-      <ModelObjectActorReference id="88" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_71" roleName="in" userID="SYL" flexoID="114" />
-      <ModelObjectActorReference id="89" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_104" roleName="out" userID="SYL" flexoID="115" />
+    <EmbeddedFlexoConceptInstance id="93" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Sequencing" userID="SYL" flexoID="105">
+      <PrimitiveActorReference id="94" valueAsString="Sequence" roleName="name" userID="SYL" flexoID="112" />
+      <PrimitiveActorReference id="95" valueAsString="dd/MM/yy HH:mm,17/03/21 11:19" roleName="lastUpdated" userID="SYL" flexoID="113" />
+      <ModelObjectActorReference id="96" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_71" roleName="in" userID="SYL" flexoID="114" />
+      <ModelObjectActorReference id="97" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_104" roleName="out" userID="SYL" flexoID="115" />
     </EmbeddedFlexoConceptInstance>
   </FlexoConceptInstance>
   <FlexoConceptInstance idref="20" />
-  <FlexoConceptInstance idref="23" />
-  <FlexoConceptInstance idref="29" />
-  <FlexoConceptInstance idref="34" />
-  <FlexoConceptInstance idref="40" />
-  <FlexoConceptInstance idref="44" />
-  <FlexoConceptInstance idref="50" />
-  <FlexoConceptInstance idref="56" />
+  <FlexoConceptInstance idref="24" />
+  <FlexoConceptInstance idref="31" />
+  <FlexoConceptInstance idref="36" />
+  <FlexoConceptInstance idref="42" />
+  <FlexoConceptInstance idref="47" />
+  <FlexoConceptInstance idref="54" />
   <FlexoConceptInstance idref="61" />
-  <FlexoConceptInstance idref="65" />
-  <FlexoConceptInstance idref="70" />
+  <FlexoConceptInstance idref="66" />
+  <FlexoConceptInstance idref="71" />
   <FlexoConceptInstance idref="76" />
   <FlexoConceptInstance idref="82" />
-  <FlexoConceptInstance idref="85" />
-  <FlexoConceptInstance id="90" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ActorType" userID="SYL" flexoID="116">
-    <PrimitiveActorReference id="91" valueAsString="Analyst" roleName="name" userID="SYL" flexoID="125" />
-    <PrimitiveActorReference id="92" valueAsString="dd/MM/yy HH:mm,17/03/21 15:17" roleName="lastUpdated" userID="SYL" flexoID="126" />
+  <FlexoConceptInstance idref="89" />
+  <FlexoConceptInstance idref="93" />
+  <FlexoConceptInstance id="98" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ActorType" userID="SYL" flexoID="116">
+    <PrimitiveActorReference id="99" valueAsString="Analyst" roleName="name" userID="SYL" flexoID="125" />
+    <PrimitiveActorReference id="100" valueAsString="dd/MM/yy HH:mm,17/03/21 15:17" roleName="lastUpdated" userID="SYL" flexoID="126" />
   </FlexoConceptInstance>
-  <FlexoConceptInstance id="93" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor" userID="SYL" flexoID="117">
-    <PrimitiveActorReference id="94" valueAsString="Bob Brown" roleName="name" userID="SYL" flexoID="127" />
-    <PrimitiveActorReference id="95" valueAsString="dd/MM/yy HH:mm,17/03/21 15:17" roleName="lastUpdated" userID="SYL" flexoID="128" />
-    <ModelObjectActorReference id="96" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_116" roleName="types" userID="SYL" flexoID="162" />
-    <ModelObjectActorReference id="97" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_119" roleName="types" userID="SYL" flexoID="163" />
+  <FlexoConceptInstance id="101" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor" userID="SYL" flexoID="117">
+    <PrimitiveActorReference id="102" valueAsString="Bob Brown" roleName="name" userID="SYL" flexoID="127" />
+    <PrimitiveActorReference id="103" valueAsString="dd/MM/yy HH:mm,17/03/21 15:17" roleName="lastUpdated" userID="SYL" flexoID="128" />
+    <ModelObjectActorReference id="104" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_116" roleName="types" userID="SYL" flexoID="162" />
+    <ModelObjectActorReference id="105" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_119" roleName="types" userID="SYL" flexoID="163" />
+    <PrimitiveActorReference id="106" valueAsString="false" roleName="isSenior" userID="SYL" flexoID="219" />
   </FlexoConceptInstance>
-  <FlexoConceptInstance id="98" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ActorType" userID="SYL" flexoID="118">
-    <PrimitiveActorReference id="99" valueAsString="Test Designer" roleName="name" userID="SYL" flexoID="131" />
-    <PrimitiveActorReference id="100" valueAsString="dd/MM/yy HH:mm,17/03/21 15:18" roleName="lastUpdated" userID="SYL" flexoID="132" />
+  <FlexoConceptInstance id="107" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ActorType" userID="SYL" flexoID="118">
+    <PrimitiveActorReference id="108" valueAsString="Test Designer" roleName="name" userID="SYL" flexoID="131" />
+    <PrimitiveActorReference id="109" valueAsString="dd/MM/yy HH:mm,17/03/21 15:18" roleName="lastUpdated" userID="SYL" flexoID="132" />
   </FlexoConceptInstance>
-  <FlexoConceptInstance id="101" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ActorType" userID="SYL" flexoID="119">
-    <PrimitiveActorReference id="102" valueAsString="Tester" roleName="name" userID="SYL" flexoID="133" />
-    <PrimitiveActorReference id="103" valueAsString="dd/MM/yy HH:mm,17/03/21 15:19" roleName="lastUpdated" userID="SYL" flexoID="134" />
+  <FlexoConceptInstance id="110" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ActorType" userID="SYL" flexoID="119">
+    <PrimitiveActorReference id="111" valueAsString="Tester" roleName="name" userID="SYL" flexoID="133" />
+    <PrimitiveActorReference id="112" valueAsString="dd/MM/yy HH:mm,17/03/21 15:19" roleName="lastUpdated" userID="SYL" flexoID="134" />
   </FlexoConceptInstance>
-  <FlexoConceptInstance id="104" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#Developer" userID="SYL" flexoID="120">
-    <PrimitiveActorReference id="105" valueAsString="Developer" roleName="name" userID="SYL" flexoID="135" />
-    <PrimitiveActorReference id="106" valueAsString="dd/MM/yy HH:mm,17/03/21 15:20" roleName="lastUpdated" userID="SYL" flexoID="136" />
+  <FlexoConceptInstance id="113" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#Developer" userID="SYL" flexoID="120">
+    <PrimitiveActorReference id="114" valueAsString="Developer" roleName="name" userID="SYL" flexoID="135" />
+    <PrimitiveActorReference id="115" valueAsString="dd/MM/yy HH:mm,17/03/21 15:20" roleName="lastUpdated" userID="SYL" flexoID="136" />
   </FlexoConceptInstance>
-  <FlexoConceptInstance id="107" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor" userID="SYL" flexoID="121">
-    <PrimitiveActorReference id="108" valueAsString="Ann Smith" roleName="name" userID="SYL" flexoID="137" />
-    <PrimitiveActorReference id="109" valueAsString="dd/MM/yy HH:mm,17/03/21 15:20" roleName="lastUpdated" userID="SYL" flexoID="138" />
-    <ModelObjectActorReference id="110" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_120" roleName="types" userID="SYL" flexoID="164" />
+  <FlexoConceptInstance id="116" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor" userID="SYL" flexoID="121">
+    <PrimitiveActorReference id="117" valueAsString="Ann Smith" roleName="name" userID="SYL" flexoID="137" />
+    <PrimitiveActorReference id="118" valueAsString="dd/MM/yy HH:mm,17/03/21 15:20" roleName="lastUpdated" userID="SYL" flexoID="138" />
+    <ModelObjectActorReference id="119" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_120" roleName="types" userID="SYL" flexoID="164" />
+    <PrimitiveActorReference id="120" valueAsString="false" roleName="isSenior" userID="SYL" flexoID="220" />
   </FlexoConceptInstance>
-  <FlexoConceptInstance id="111" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#SoftwareEngineeringArtifactType" userID="SYL" flexoID="140">
-    <PrimitiveActorReference id="112" valueAsString="dd/MM/yy HH:mm,17/03/21 15:22" roleName="lastUpdated" userID="SYL" flexoID="148" />
-    <PrimitiveActorReference id="113" valueAsString="Requirements Specifications" roleName="name" userID="SYL" flexoID="149" />
+  <FlexoConceptInstance id="121" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#SoftwareEngineeringArtifactType" userID="SYL" flexoID="140">
+    <PrimitiveActorReference id="122" valueAsString="dd/MM/yy HH:mm,17/03/21 15:22" roleName="lastUpdated" userID="SYL" flexoID="148" />
+    <PrimitiveActorReference id="123" valueAsString="Requirements Specifications" roleName="name" userID="SYL" flexoID="149" />
   </FlexoConceptInstance>
-  <FlexoConceptInstance id="114" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#SoftwareEngineeringArtifactType" userID="SYL" flexoID="141">
-    <PrimitiveActorReference id="115" valueAsString="dd/MM/yy HH:mm,17/03/21 15:23" roleName="lastUpdated" userID="SYL" flexoID="150" />
-    <PrimitiveActorReference id="116" valueAsString="Test Cases" roleName="name" userID="SYL" flexoID="151" />
+  <FlexoConceptInstance id="124" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#SoftwareEngineeringArtifactType" userID="SYL" flexoID="141">
+    <PrimitiveActorReference id="125" valueAsString="dd/MM/yy HH:mm,17/03/21 15:23" roleName="lastUpdated" userID="SYL" flexoID="150" />
+    <PrimitiveActorReference id="126" valueAsString="Test Cases" roleName="name" userID="SYL" flexoID="151" />
   </FlexoConceptInstance>
-  <FlexoConceptInstance id="117" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#CodeArtifactType" userID="SYL" flexoID="142">
-    <PrimitiveActorReference id="118" valueAsString="dd/MM/yy HH:mm,17/03/21 15:23" roleName="lastUpdated" userID="SYL" flexoID="152" />
-    <PrimitiveActorReference id="119" valueAsString="Code" roleName="name" userID="SYL" flexoID="153" />
+  <FlexoConceptInstance id="127" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#CodeArtifactType" userID="SYL" flexoID="142">
+    <PrimitiveActorReference id="128" valueAsString="dd/MM/yy HH:mm,17/03/21 15:23" roleName="lastUpdated" userID="SYL" flexoID="152" />
+    <PrimitiveActorReference id="129" valueAsString="Code" roleName="name" userID="SYL" flexoID="153" />
   </FlexoConceptInstance>
-  <FlexoConceptInstance id="120" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ArtifactType" userID="SYL" flexoID="143">
-    <PrimitiveActorReference id="121" valueAsString="Test Report" roleName="name" userID="SYL" flexoID="154" />
-    <PrimitiveActorReference id="122" valueAsString="dd/MM/yy HH:mm,17/03/21 15:24" roleName="lastUpdated" userID="SYL" flexoID="155" />
+  <FlexoConceptInstance id="130" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ArtifactType" userID="SYL" flexoID="143">
+    <PrimitiveActorReference id="131" valueAsString="Test Report" roleName="name" userID="SYL" flexoID="154" />
+    <PrimitiveActorReference id="132" valueAsString="dd/MM/yy HH:mm,17/03/21 15:24" roleName="lastUpdated" userID="SYL" flexoID="155" />
   </FlexoConceptInstance>
 </FMLRTVirtualModelInstance>
