@@ -6,6 +6,7 @@
       <Inspector id="SYL-16" inspectorTitle="TaskType" userID="SYL" flexoID="16">
         <InspectorEntry id="SYL-1561" container="container.container" widget="CUSTOM_WIDGET" data="this.creator" name="creator" label="creator" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor&gt;" userID="SYL" flexoID="1561" />
         <InspectorEntry id="SYL-3666" widget="INTEGER" data="expectedDuration" name="expectedDuration" label="expectedDuration" type="int" userID="SYL" flexoID="3666" />
+        <InspectorEntry id="SYL-3676" widget="CHECKBOX" data="isCritical" name="isCritical" label="isCritical" type="boolean" userID="SYL" flexoID="3676" />
       </Inspector>
       <FlexoConceptInstanceRole id="SYL-97" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor" cloningStrategy="Reference" cardinality="ZeroOne" name="creator" userID="SYL" flexoID="97" />
       <FlexoConceptInstanceRole id="SYL-327" virtualModelInstance="container.container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ActorType" cloningStrategy="Reference" cardinality="ZeroMany" name="allowedActorTypes" userID="SYL" flexoID="327" />
@@ -615,7 +616,9 @@
     </DeletionScheme>
   </FlexoConcept>
   <FlexoConcept id="SYL-307" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#MultiInstance" name="Actor" author="sylvain" userID="SYL" flexoID="307">
-    <Inspector id="SYL-308" renderer="this.name" inspectorTitle="Actor" userID="SYL" flexoID="308" />
+    <Inspector id="SYL-308" renderer="this.name" inspectorTitle="Actor" userID="SYL" flexoID="308">
+      <InspectorEntry id="SYL-3677" widget="CHECKBOX" data="isSenior" name="isSenior" label="isSenior" type="boolean" userID="SYL" flexoID="3677" />
+    </Inspector>
     <FlexoConceptInstanceRole id="SYL-314" virtualModelInstance="container" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ActorType" cloningStrategy="Reference" cardinality="ZeroMany" name="types" userID="SYL" flexoID="314" />
     <PrimitiveRole id="SYL-3670" primitiveType="Boolean" cloningStrategy="Clone" cardinality="One" name="isSenior" userID="SYL" flexoID="3670" />
     <CreationScheme id="SYL-312" label="create" name="create" width="800" height="600" userID="SYL" flexoID="312">
