@@ -105,10 +105,13 @@ public class MetaModel {
       public List allowedActors;    
       public List usedArtifactTypes;    
       public List producedArtifactTypes;    
+      public int expectedDuration;    
+      public boolean isCritical;    
       
       @CreationScheme      
       TaskType:create(String name) {      
-        super.create(parameters.name)      
+        super.create(parameters.name)        
+        isCritical = false;      
       }      
       
       @DeletionScheme      
@@ -441,10 +444,13 @@ public class MetaModel {
     public List allowedActors;  
     public List usedArtifactTypes;  
     public List producedArtifactTypes;  
+    public int expectedDuration;  
+    public boolean isCritical;  
   
     @CreationScheme    
     TaskType:create(String name) {    
-      super.create(parameters.name)    
+      super.create(parameters.name)      
+      isCritical = false;    
     }    
   
     @DeletionScheme    
@@ -835,10 +841,12 @@ public class MetaModel {
   public class Actor extends MultiInstance  {  
   
     public List types;  
+    public boolean isSenior;  
   
     @CreationScheme    
     Actor:create(String name) {    
-      super.create(parameters.name)    
+      super.create(parameters.name)      
+      isSenior = false;    
     }    
   
     @DeletionScheme    
