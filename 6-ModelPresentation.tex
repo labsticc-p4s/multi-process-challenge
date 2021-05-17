@@ -16,24 +16,64 @@ Figure \ref{fig:MultilevelArchitecture} shows the overview of the multivel archi
 
 \todo{Augmenter la taille des fontes}
 
-In this section, we present and illustrate the base metamodel presented in figure \ref{fig:BaseMetamodel} with XSure insurance domain use case, whose a partial description was provided in the challenge description. Note that the capture of the requirements P1 to P19 in the context of XSure insurance domain are straightforward implementable while instantiating \textit{XSure model}, as an instance of base metamodel (the left side of figure \ref{fig:MultilevelArchitecture}).
+In this section, we present and illustrate the base metamodel presented in figure \ref{fig:BaseMetamodel} with \textit{XSure} insurance domain use case, whose a partial description was provided in the challenge description. Note that the capture of the requirements \textbf{P1} to \textbf{P19} in the context of XSure insurance domain are straightforward implementable while instantiating \textit{XSure model}, as an instance of base metamodel (the left side of figure \ref{fig:MultilevelArchitecture}).
 
-Figure \ref{fig:BaseMetamodel} represents this base metamodel with a UML-like formalism, well adapted to represent object-oriented FML concepts and their instances. Our proposition relies on ontologic instantiation as presented in figure \ref{fig:LinguisticAndOntologicInstantiation}, with a common root concept \textit{ModelingElement}. Two types of ontological instantiation are needed to meet the requirements of the challenge. One provides that some instances conform to only one type (\textit{Process} and \textit{Task} do respectively conform to one \textit{ProcessType} and \textit{TaskType}) while some entities define their conformity to several types (\textit{Actor} and \textit{Artifact} do respectively conform to several \textit{ActorType} and \textit{ArtifactType}). This instantiation is reified with the relations \textit{type} and \textit{types} between \textit{Type}, \textit{Instance} and \textit{MultiInstance} concepts.  
+Figure \ref{fig:BaseMetamodel} represents this base metamodel with a UML-like formalism, well adapted to represent object-oriented FML concepts and their instances. Base conceptual element is called a \textit{FlexoConcept} in FML language, and is similar to the concept of class in object-oriented modeling. We use the UML representation of class to represent a \textit{FlexoConcept}, while cardinalities are shown using the UML-like classical rules.
 
-% P1 : ProcessType / TaskType
-% P2 : Gateways
-% P3 : initial / final TaskTypes
-% P4 : attribut creator dans TaskType > facile car même MM
-% P5 : ActorType allowedActorTypes
-% P6 : Actor allowedActors
-% P7 : même chose pour ArtefactType avec used et produced
-% P8 : attribut expectedDuration : TODO
-% P9 : contrainte à mettre en place isCritical dans TaskType isSenior dans Actor : TODO
+Our proposition relies on ontologic instantiation as presented in figure \ref{fig:LinguisticAndOntologicInstantiation}, with a common root concept \textit{ModelingElement}. Two types of ontological instantiation are needed to meet the requirements of the challenge. One provides that some instances conform to only one type (\textit{Process} and \textit{Task} do respectively conform to one \textit{ProcessType} and \textit{TaskType}) while some entities define their conformity to several types (\textit{Actor} and \textit{Artifact} do respectively conform to several \textit{ActorType} and \textit{ArtifactType}). This instantiation is reified with the relations \textit{type} and \textit{types} between \textit{Type}, \textit{Instance} and \textit{MultiInstance} concepts.  
+
+\subsubsection{Process type definition}
+
+We first present the process definition part of base metamodel, located left of figure \ref{fig:BaseMetamodel}.
+
+% Illustrer avec des instances de XSure
+
+\textit{ProcessType} is defined as a specialization of Type \textit{FlexoConcept}, and references a collection of \textit{TaskType} through the composition relation \textit{taskTypes} with (0..*) cardinality (\textbf{P1}). A \textit{TaskType} is embedded in a \textit{ProcessType} and inherits from it context. To illustrate this in \textit{XSure} insurance domain use case, \textit{XSure model} defines \textit{Claim Handling}, instance of \textit{ProcessType}, and \textit{Receive Claim}, \textit{Asses Claim} and \textit{Pay premium}, instances of \textit{TaskType}.
+
+\textit{ProcessType} also references a collection of gateways, reified with the \textit{Gateway} concept hierarchy. \textit{Gateway} is defined as a specialization of \textit{Type} and is specialized with \textit{Sequencing}, \textit{AndSplit}, \textit{AndJoin}, \textit{OrSplit} and \textit{OrJoin} concepts (\textbf{P2}). Depending of its type, a \textit{Gateway} defines one or more inputs and one or more outputs, depending of its underlying execution semantics. A \textit{ProcessType} additionally exposes unique initial \textit{TaskType} and a collection of final \textit{TaskType} with both attributes \textit{initialTaskType} (single cardinality) and \textit{finalTaskType} (cardinality 0..*) (\textbf{P3}). TaskType exposes a creator attribute as an association relation to Actor concept (\textbf{P4}), which is in the same conceptual level. 
+
+\textit{ActorType} is defined as a sub-concept of \textit{Type} and the \textit{allowedActorTypes} relation to \textit{ActorType} which is defined in \textit{TaskType} (with 0..* cardinality) captures \textbf{P5} requirement. Requirement \textbf{P6} is symmetrically satisfied with \textit{allowedActors} relation to \textit{Actor} also defined in \textit{TaskType} (with same 0..* cardinality). Same modeling pattern applies for \textit{ArtefactType} defined as a sub-concept of \textit{Type}, and both relations \textit{usedArtifactTypes} and \textit{producedArtifactTypes} defined in \textit{TaskType} (\textbf{P7}). \textit{TaskType} additionnaly exposes an \textit{expectedDuration} attribute (expressed in number of days), satisfying \textbf{P8}. 
+
+Actor concept defines a boolean attribute called \textit{isSenior}, while \textit{TaskType} defines an additional \textit{isCritical} boolean attribute, indicating that some instance of \textit{TaskType} are flagged as critical and must be performed by senior actors. To fullfill \textbf{P9} requirement, a supplementary constraint is required for \textit{TaskType} and is captured through this invariant expressed in FML language:
+
+\begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true]
+forEach (actor : allowedActors) {
+    assert !isCritical | actor.isSenior
+}
+\end{lstlisting}
+
+This invariant should be completed with additional constraints defined in \textit{Task} \textit{FlexoConcept}, which apply to performing actors actually assigned to enacted tasks. 
+
+\subsubsection{Process enactment}
+
+We now present the process enactment part of base metamodel, located right of figure \ref{fig:BaseMetamodel}. All concepts defined in this subsection are either specialization of \textit{Instance} concept (if they are associated with exactly one \textit{Type}) or \textit{MultiInstance} concept (for those which have several types).
+
+\textit{Process} represents an enacted \textit{ProcessType}, as defined in previous subsection (\textbf{P10}). FML defines behavioural features (operations in object-oriented modelling), called \texttt{FlexoBehaviour}. \textit{ProcessType} defines following behaviour \texttt{newProcess(String)}, taking a \texttt{String} argument (the name of the process to enact):
+
+\begin{lstlisting}[breaklines=true, language=XML, basicstyle=\ttfamily\scriptsize, mathescape=true]
+public Process newProcess(String name) {    
+  Process newProcess = new Process(parameters.name,this);      
+  for (taskType : taskTypes) {      
+    Task newTask = taskType.newTask(newProcess.name+"-"+taskType.name),newProcess);        
+  }      
+  return newProcess;    
+}    
+\end{lstlisting}
+
+This scheme allows to rely on FML dynamic binding mechanism to delegate to types the responsability for instances creation.
+
+
+
 % P10: Process <> ProcessType
 % P11: Tasks, toutes les TaskType sont instanciées en Task
 % P12: begin et end date dans Task
 % P13: instantiation des Artefacts et association des actors
-% P14: 
+% P14: instantiation des Artefacts
+% P15: Actor/ActorType
+% P16: Artefact/ArtefactType
+% P17: cf P5&P6
+% P18: héritage des ActorTypes
+% P19: lastUpdated dans ModelingElement
 
 \subsection{The Acme software development process}
 
