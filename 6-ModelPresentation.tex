@@ -20,9 +20,20 @@ In this section, we present and illustrate the base metamodel presented in figur
 
 Figure \ref{fig:BaseMetamodel} represents this base metamodel with a UML-like formalism, well adapted to represent object-oriented FML concepts and their instances. Our proposition relies on ontologic instantiation as presented in figure \ref{fig:LinguisticAndOntologicInstantiation}, with a common root concept \textit{ModelingElement}. Two types of ontological instantiation are needed to meet the requirements of the challenge. One provides that some instances conform to only one type (\textit{Process} and \textit{Task} do respectively conform to one \textit{ProcessType} and \textit{TaskType}) while some entities define their conformity to several types (\textit{Actor} and \textit{Artifact} do respectively conform to several \textit{ActorType} and \textit{ArtifactType}). This instantiation is reified with the relations \textit{type} and \textit{types} between \textit{Type}, \textit{Instance} and \textit{MultiInstance} concepts.  
 
-% Passer rapidement sur ce cas pour illustrer le metamodèle décrit plus haut
-
-% We will illustrate the approach...
+% P1 : ProcessType / TaskType
+% P2 : Gateways
+% P3 : initial / final TaskTypes
+% P4 : attribut creator dans TaskType > facile car même MM
+% P5 : ActorType allowedActorTypes
+% P6 : Actor allowedActors
+% P7 : même chose pour ArtefactType avec used et produced
+% P8 : attribut expectedDuration : TODO
+% P9 : contrainte à mettre en place isCritical dans TaskType isSenior dans Actor : TODO
+% P10: Process <> ProcessType
+% P11: Tasks, toutes les TaskType sont instanciées en Task
+% P12: begin et end date dans Task
+% P13: instantiation des Artefacts et association des actors
+% P14: 
 
 \subsection{The Acme software development process}
 
