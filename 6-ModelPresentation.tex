@@ -28,9 +28,52 @@ We first present the process definition part of base metamodel, located left of 
 
 % Illustrer avec des instances de XSure
 
-\textit{ProcessType} is defined as a specialization of Type \textit{FlexoConcept}, and references a collection of \textit{TaskType} through the composition relation \textit{taskTypes} with (0..*) cardinality (\textbf{P1}). A \textit{TaskType} is embedded in a \textit{ProcessType} and inherits from it context. To illustrate this in \textit{XSure} insurance domain use case, \textit{XSure model} defines \textit{Claim Handling}, instance of \textit{ProcessType}, and \textit{Receive Claim}, \textit{Asses Claim} and \textit{Pay premium}, instances of \textit{TaskType}.
+\textit{ProcessType} is defined as a specialization of \textit{Type} \texttt{FlexoConcept}, and references a collection of \textit{TaskType} through the composition relation \textit{taskTypes} with (0..*) cardinality (\textbf{P1}). A \textit{TaskType} is embedded in a \textit{ProcessType} and inherits from it context. To illustrate this in \textit{XSure} insurance domain use case, \textit{XSure model} defines \textit{Claim Handling}, instance of \textit{ProcessType}, and \textit{Receive Claim}, \textit{Asses Claim} and \textit{Pay premium}, instances of \textit{TaskType}.
 
-\textit{ProcessType} also references a collection of gateways, reified with the \textit{Gateway} concept hierarchy. \textit{Gateway} is defined as a specialization of \textit{Type} and is specialized with \textit{Sequencing}, \textit{AndSplit}, \textit{AndJoin}, \textit{OrSplit} and \textit{OrJoin} concepts (\textbf{P2}). Depending of its type, a \textit{Gateway} defines one or more inputs and one or more outputs, depending of its underlying execution semantics. A \textit{ProcessType} additionally exposes unique initial \textit{TaskType} and a collection of final \textit{TaskType} with both attributes \textit{initialTaskType} (single cardinality) and \textit{finalTaskType} (cardinality 0..*) (\textbf{P3}). TaskType exposes a creator attribute as an association relation to Actor concept (\textbf{P4}), which is in the same conceptual level. 
+\textit{ProcessType} also references a collection of gateways, reified with the \textit{Gateway} concept hierarchy. \textit{Gateway} is defined as a specialization of \textit{Type} and is specialized with \textit{Sequencing}, \textit{AndSplit}, \textit{AndJoin}, \textit{OrSplit} and \textit{OrJoin} concepts (\textbf{P2}). Depending of its type, a \textit{Gateway} defines one or more inputs and one or more outputs, depending of its underlying execution semantics. A \textit{ProcessType} additionally exposes unique initial \textit{TaskType} and a collection of final \textit{TaskType} with both attributes \textit{initialTaskType} (single cardinality) and \textit{finalTaskType} (cardinality 0..*) (\textbf{P3}). TaskType exposes a creator attribute as an association relation to \textit{Actor} concept (\textbf{P4}), which is in the same conceptual level. 
+
+Following listing shows an excerpt of FML code modeling some core concepts of process modeling base metamodel. 
+
+\begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true]
+model MetaModel {
+
+  concept ModelingElement {
+    ...
+  }
+  
+  concept Type extends ModelingElement {
+    ...
+  }
+  
+  concept ProcessType extends Type {
+    TaskType[0..*] taskTypes;
+    TaskType initialTaskType;
+    TaskType[0..*] finalTaskTypes;
+    Gateway[0..*] gateways;
+        
+    concept TaskType extends Type {
+      Actor creator;
+      Actor[0..*] allowedActors;
+      ActorType[0..*] allowedActorTypes;
+      ...
+    }
+        
+    abstract concept Gateway extends Type {
+      abstract void executeGateway(Process process);
+      ...
+    }
+        
+    concept Sequencing extends Gateway {
+      TaskType in;
+      TaskType out;
+    }
+    
+    // Other core concepts
+    ...
+  }
+}    
+\end{lstlisting}
+
 
 \textit{ActorType} is defined as a sub-concept of \textit{Type} and the \textit{allowedActorTypes} relation to \textit{ActorType} which is defined in \textit{TaskType} (with 0..* cardinality) captures \textbf{P5} requirement. Requirement \textbf{P6} is symmetrically satisfied with \textit{allowedActors} relation to \textit{Actor} also defined in \textit{TaskType} (with same 0..* cardinality). Same modeling pattern applies for \textit{ArtefactType} defined as a sub-concept of \textit{Type}, and both relations \textit{usedArtifactTypes} and \textit{producedArtifactTypes} defined in \textit{TaskType} (\textbf{P7}). \textit{TaskType} additionnaly exposes an \textit{expectedDuration} attribute (expressed in number of days), satisfying \textbf{P8}. 
 
@@ -50,9 +93,9 @@ We now present the process enactment part of base metamodel, located right of fi
 
 \textit{Process} represents an enacted \textit{ProcessType}, as defined in previous subsection (\textbf{P10}). FML defines behavioural features (operations in object-oriented modelling), called \texttt{FlexoBehaviour}. \textit{ProcessType} defines following behaviour \texttt{newProcess(String)}, taking a \texttt{String} argument (the name of the process to enact):
 
-\begin{lstlisting}[breaklines=true, language=XML, basicstyle=\ttfamily\scriptsize, mathescape=true]
+\begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true]
 public Process newProcess(String name) {    
-  Process newProcess = new Process(parameters.name,this);      
+  Process newProcess = new Process(name,this);  
   for (taskType : taskTypes) {      
     Task newTask = taskType.newTask(newProcess.name+"-"+taskType.name),newProcess);        
   }      
@@ -60,22 +103,98 @@ public Process newProcess(String name) {
 }    
 \end{lstlisting}
 
-This scheme allows to rely on FML dynamic binding mechanism to delegate to types the responsability for instances creation.
+This scheme allows to rely on FML dynamic binding mechanism to delegate to types the responsability for instances creation. An instance of \textit{Process} references a unique \textit{ProcessType} trough the specialized \textit{/type} relation. Each instance of \textit{TaskType} is ontologically instantiated with a \textit{Task} (\textbf{P11}), using the same pattern where \textit{TaskType} has the responsability to manage this ontological instantiation. A \textit{Task} references its unique \textit{TaskType}, and defines a \textit{begin date} and an \textit{end date} as basic attributes of the concept (\textbf{P12}).
 
+Same pattern applies for artifacts used and produced with relations \textit{usedArtifacts}, \textit{producedArtifacts} and \textit{performingActors} defined in \textit{Task} concept (\textbf{P13}). An instance of \textit{Artifact}, defined as a specialization of \textit{MultiInstance} concept, references a set of \textit{ArtifactType} through the specialized \textit{/types} relation (\textbf{P14} and \textbf{P16}). Likewise, concept \textit{Actor} is defined as a specialization of \textit{MultiInstance} concept and references a set of \textit{ActorType} through the specialized \textit{/types} relation (\textbf{P15}).
 
+Authorization for an actor to perform a task (\textbf{P17}) is captured either through the relations \textit{allowedActors} and \textit{allowedActorTypes} defined in \textit{TaskType}. This mechanism is completed by following behaviours \textit{isAuthorizedActor(Actor)}, \textit{isValidActor(Actor)} and \textit{isValidActorType(ActorType)} defined in \textit{TaskType} : 
 
-% P10: Process <> ProcessType
-% P11: Tasks, toutes les TaskType sont instanciées en Task
-% P12: begin et end date dans Task
-% P13: instantiation des Artefacts et association des actors
-% P14: instantiation des Artefacts
-% P15: Actor/ActorType
-% P16: Artefact/ArtefactType
-% P17: cf P5&P6
-% P18: héritage des ActorTypes
-% P19: lastUpdated dans ModelingElement
+\begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true]
+concept TaskType extends Type {
+ ...
+ // Check that an Actor is authorized to perform a task, according to allowed Actor and ActorTypes
+ boolean isAuthorizedActor(Actor actor) {      
+  for (actType : allowedActorTypes) {        
+   if (actor.hasActorType(actType))         
+    return this.isValidActorType(actType);          
+  }        
+  for (act : allowedActors) {        
+   if (actor == act)         
+    return this.isValidActor(actor);          
+   return false;      
+ }
+  
+ // Check that an Actor may perform this TaskType (override when required)
+ boolean isValidActor(Actor actor) {
+  return true;
+ }
+
+ // Check that an ActorType may perform this TaskType (override when required)
+ boolean isValidActorType(ActorType actorType) {
+  return true;
+ }
+ ...
+}
+\end{lstlisting}
+
+\textit{Task} concept basically delegates this authorization to its related \textit{TaskType}, as shown in following FML excerpt:
+
+\begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true]
+concept Task extends Instance {
+ ...
+ boolean isAuthorizedActor(Actor actor) {      
+  return type.isAuthorizedActor(actor);      
+ }  
+ ...
+}
+\end{lstlisting}
+
+Enforcing those constraints is finally performed by the definition of this invariant in \textit{Task} concept:
+
+\begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true]
+forEach (actor : performingActors) {
+    assert isAuthorizedActor(actor);
+}
+\end{lstlisting}
+
+Default behaviour states that all actors and actor types are valid for all task types. This modelling scheme offers many extension points, by the redefinition of one or some behaviours in inherited concepts (although none were required in the context of XSure insurance use case).
+
+Actor types specialization is captured by the \textit{parentActorTypes} relation defined in \textit{ActorType} (\textbf{P18}). This is completed by both the definition of \textit{hasActorType(ActorType)} behaviour in \textit{Actor} concept and recursive behaviour \textit{isOrSpecializes(ActorType)} in \textit{ActorType}:
+
+\begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true]
+concept ActorType extends Type {
+ ActorType[0..*] parentActorTypes;
+ ...
+ boolean isOrSpecializes(ActorType actorType) {    
+  if (actorType = this)   
+   return true;      
+  for (p : parentActorTypes) {      
+   if (p.isOrSpecializes(actorType)
+    return true;        
+  return false;    
+ }
+ ...
+}
+
+concept Actor extends MultiInstance {
+ ...
+ boolean hasActorType(ActorType actType) {      
+  for (type : types) {
+   if (type.isOrSpecializes(actType)) {
+    return true;
+   }
+  }     
+ }  
+ ...
+}
+\end{lstlisting}
+
+All concepts inherits from \textit{ModelingElement}, which defines a \textit{lastUpdated} attribute with \textit{Date} type, and thus satisfies \textbf{P19} requirement. 
 
 \subsection{The Acme software development process}
+
+The challenge describes in a second part a Software engineering process for fictional Acme company. Base metamodel as described in previous section is too generic to capture all domain-specific aspects of this use case. We choose to complete the architectual hierarchy with a specific metamodel, specific to Acme software development process, as shown in figure \ref{fig:MultilevelArchitecture}. \textit{Acme metamodel} inherits and specializes base metamodel, and \textit{Acme model} is defined as an instance of \textit{Acme metamodel}. 
+
 
 \subsection{Openflexo tooling}
 
