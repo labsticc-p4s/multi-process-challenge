@@ -187,6 +187,11 @@
     <ModelObjectActorReference id="144" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_120" roleName="actorType" userID="SYL" flexoID="244" />
     <ModelObjectActorReference id="145" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/SoftwareEngineeringProcessDiagram.diagram#SYL_70" roleName="connector" userID="SYL" flexoID="245" />
   </FlexoConceptInstance>
-  <TypeAwareModelSlotInstance id="146" modelURI="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/SoftwareEngineeringProcessDiagram.diagram" modelSlotName="diagram" roleName="diagram" userID="SYL" flexoID="2" />
-  <VirtualModelModelSlotInstance id="147" virtualModelInstanceURI="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt" modelSlotName="model" roleName="model" userID="SYL" flexoID="3" />
+  <FlexoConceptInstance id="146" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#UsedArtefactType" userID="SYL" flexoID="246">
+    <ModelObjectActorReference id="147" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/SoftwareEngineeringProcessDiagram.diagram#SYL_83" roleName="connector" userID="SYL" flexoID="247" />
+    <ModelObjectActorReference id="148" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_68" roleName="taskType" userID="SYL" flexoID="248" />
+    <ModelObjectActorReference id="149" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_141" roleName="artefactType" userID="SYL" flexoID="249" />
+  </FlexoConceptInstance>
+  <TypeAwareModelSlotInstance id="150" modelURI="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/SoftwareEngineeringProcessDiagram.diagram" modelSlotName="diagram" roleName="diagram" userID="SYL" flexoID="2" />
+  <VirtualModelModelSlotInstance id="151" virtualModelInstanceURI="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt" modelSlotName="model" roleName="model" userID="SYL" flexoID="3" />
 </FMLRTVirtualModelInstance>
