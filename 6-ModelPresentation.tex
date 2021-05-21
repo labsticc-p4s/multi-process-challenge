@@ -89,14 +89,6 @@ This invariant should be completed with additional constraints defined in \texti
 \label{sec:ProcessEnactment}
 We now present the process enactment part of base metamodel, located right of figure \ref{fig:BaseMetamodel}. All concepts defined in this subsection are either specialization of \textit{Instance} concept (if they are associated with exactly one \textit{Type}) or \textit{MultiInstance} concept (for those which have several types).
 
-\begin{figure*}
- \centering
-     \includegraphics[width=1.0 \textwidth]{Figures/AcmeFullArchitecture.pdf}
-     \caption{Acme software development process architecture}
-    \label{fig:AcmeFullArchitecture}
-\end{figure*}
-
-
 \textit{Process} represents an enacted \textit{ProcessType}, as defined in previous subsection (\textbf{P10}). FML defines behavioural features (operations in object-oriented modelling), called \texttt{FlexoBehaviour}. \textit{ProcessType} defines following behaviour \texttt{newProcess(String)}, taking a \texttt{String} argument (the name of the process to enact):
 
 \begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true]
@@ -209,6 +201,13 @@ The challenge describes in a second part a Software engineering process for a fi
      \caption{Acme software development process architecture}
     \label{fig:AcmeArchitecture}
 \end{figure}
+
+\begin{figure*}
+ \centering
+     \includegraphics[width=1.0 \textwidth]{Figures/AcmeFullArchitecture.pdf}
+     \caption{Acme software development process architecture}
+    \label{fig:AcmeFullArchitecture}
+\end{figure*}
 
 
 
