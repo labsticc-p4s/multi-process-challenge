@@ -1,16 +1,163 @@
-discussing choices  made (ex : héritage vs attr), pointing out potential compromises/deficiencies
-jc, fabien ; 
-pas d'explicitation de niveaux de « concrétude » : conséquences ? facile de tracer des liens entre les niveaux ; difficile d'avoir le niveau ; 
-outil adaptable, niveau d'abstraction, on fournit une solution + l'outil pour exécuter le processus ; réutilisabilité des modèles ; 
-\todo[inline]{on pourrait aussi répondre ici aux 3 questions posées explicitement (copiées dansl'intro pour le moment), a priori non, le chef trouve que c'est chiant}
+\noteJC{notes en vrac
+  \begin{itemize}
+    \item qui ? jc, fabien
+    \item l'appel contraint plus ou monis la structure et le contenu de cette
+      section
+  \begin{itemize}
+    \item discussing choices  made (ex : héritage vs attr), pointing out potential compromises/deficiencies ;
+    \item \emph{Challenge respondents must discuss their multilevel
+model solution with regard to the following aspects, each
+of which should be treated in a specific sub-section of the
+“Assessment” section of the article}
+  \end{itemize}
+    \item pas d'explicitation de niveaux de « concrétude » : conséquences ? facile de tracer des liens entre les niveaux ; difficile d'avoir le niveau ;
+    \item outil adaptable
+    \item niveau d'abstraction
+    \item réutilisabilité des modèles ; 
+    \item ajouter quelques métriques "gros grains"
+    \item difficultés/facilités : contraintes faites à la main par rapport aux
+      langages où on peut spécifier le niveau d'extension lorsque l'on trace un
+      lien multi niveaux -> outil plus souple, mais moins de comportements
+      automatisés
+    \item + ouvert
+    \item moins de support (faudrait implémenter ce qui manque)
+    \item requiert de la méthode, ajouter des comportements, etc.
+    \item point saillant :  outillage "gratuit" = on fournit une solution + l'outil pour exécuter le processus
+\end{itemize}}
+ 
+\todo[inline]{on pourrait aussi répondre ici aux 3 questions posées
+explicitement (copiées dansl'intro pour le moment), a priori non, le chef
+trouve que c'est chiant}
 
-ajouter quelques métriquse "gros grains"
+%
+%%niveaux de ``concrétude'' -> level-blind solution
+%
+%Although our tool was not designed with a focus on multi-level modelling, we were able to propose a fully working solution. 
+%
+%Our approach is level-blind, therefore it is not easy to quickly retrieve the abstraction level of a concept.
+%
+%%métriques gros grains ?
+%
+%
+%%choices, compromises/deficiences
+%During the modeling phase, we had to choose 
+%(for instance requirement xx 
+%
+%%+/-
+%
+%%points saillants
 
-difficultés/facilités : contraintes faites à la main par rapport aux langages où on peut spécifier le niveau d'extension lorsque l'on trace un lien multi niveaux -> outil plus souple, mais moins de comportements automatisés ; + ouvert ; moins de support (faudrait implémenter ce qui manque) ; requiert de la méthode, ajouter des comportemets, etc.
-points saillants :  outillage "gratuit" ; 
+
+  %plan plus ou moins imposé par l'appel
+\todo[inline]{mandatory discussion aspects (on verra plus tard si on fait des
+sous-sections ou pas) ↓}
+
+  \subsection{Basic modeling constructs}
+  %Explain the basic modeling constructs used in the solution.
+
+  \subsection{Levels}
+  %Levels (or other model content organization schemes employed)
+
+  %Explain the nature of “levels” in the model, how model elements are arranged
+  %on these levels and which relationships (such as “instance-of”) may feature
+  %between elements at different levels. The nature of levels should be
+  %captured by explicitly stating the level segregation and the level cohesion
+  %principles used [5]. Avoid vague language such as “higher level concepts are
+  %more abstract” if the inter-level relationship is more specific. If the
+  %inter-level relationship is deliberately allowed to be vague, state this
+  %explicitly.
+
+  The Openflexo approach is level-blind: ``levels'' have no specific
+  nature and there are no numbered levels. 
+
+  \subsection{Number of levels}
+  %Elaborate whether the submitted solution could have had more or fewer levels
+  %and explain how any potentially existing degrees of freedom were resolved.
+
+  Due to the fact our approach is level-blind, our solution could have had more
+  or fewer levels depending on the variations of the use case. %As levels are
+  %not specifically encoded, 
+
+  \subsection{Cross-level relashionships}
+
+  %Discuss if and how associations and links can connect model elements at
+  %different levels. State well-formedness constraints, if any apply.
+
+  Thanks to the level-blindness nature of the Openflexo approach, cross-level
+  relashionships are not an issue. Model elements of different levels can be
+  linked each other in a transparent way. %If the user has defined
+  %well-formedness constraints, then they are 
+
+  \subsection{Cross-level constraints}
+
+%Discuss if and how constraints can span multiple levels, especially with
+%regard to cross-level relationships.
+
+  As for cross-level relationships, cross-level constraints do not have a
+  specific nature. They are like any constraint a user can define on a model
+  element. Therefore, if a constraint is mandatory when establishing a
+  relationship between elements from different levels, the user has create it
+  manually. This can be a limit of our approach: the flexibility of our tooling
+  at the cost of a limited number fo automated behaviors. 
+  
+
+  \subsection{Integrity mechanism}
+
+  %Discuss how the integrity of level contents is preserved when changes to
+  %level contents occur.
+
+  In order to preserve the integrity of level contents when changes to level
+  contents occur, a validation has to be triggered. The tool reports all
+  inconsistencies that the user is free to fix.
+
+  \subsection{Deep characterization}
+
+  %Discuss if and how higher levels influence elements at lower levels with a
+  %level distance of two or more. Such an influence may be desired to ensure
+  %properties of lower level elements regardless of the design choices that
+  %modelers make at intermediate levels, including future extensions to
+  %intermediate levels.
+
+  \noteJC{pas trop clair pour moi pour le moment}
+
+  \subsection{Generality}
+
+  %Discuss the generality of the solution. Is (part of) it applicable to other
+  %domains? Does it embody invariant principles of the domain(s) it covers with
+  %minimal redundancy?
+
+  Due to the nature of model federation, the models are highly reusable. Our
+  solution separates the domain-specific elements from general purpose ones,
+  making easily possible to apply it to other domains. 
+  \noteJC{à développer + ajouter avantage de l'outil gratuit ici ?}
+
+  \subsection{Extensibility}
+
+  %Elaborate how the solution would respond to further requirements, such as
+  %further special tasks that must be taken care of by special actors. Identify
+  %expected extension points in the solution, e.g., subtyping opportunities. If
+  %level insertion is a possibility in your chosen approach, explain how it
+  %would be performed.
+
+  A strength of the approach of model federation we have adopted resides in its
+  flexibility. One can extend a solution easily: 
+
+  \noteJC{comment étendre : dépend un peu des extensions, ne prendre que celle
+  donnée en exemple ? ; level insertion possible : oui, vu que pas de notion de
+level}
+
+  
+\todo[inline]{recommended discussion aspects ↓}
+\subsection{formalisms and tools ?}
+
+%Indicate whether there are formalisms to establish the semantics of the MLM
+%technique and/or tools that support the present solution
+
+\noteJC{on a du tooling, un peu moins de formalisme}
+
+\subsection{model verification}
+
+%Discuss model verification (e.g., consistency analyses) or other quality
+%assessment mechanisms supported by the MLM technique employed.
 
 
-
-Although our tool was not designed with a focus on multi-level modelling, we were able to propose a fully working solution. 
-
-Our approach is level-blind, therefore it is not easy to quickly retrieve the abstraction level of a concept.
