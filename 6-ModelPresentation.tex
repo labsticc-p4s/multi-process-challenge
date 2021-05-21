@@ -86,7 +86,7 @@ forEach (actor : allowedActors) {
 This invariant should be completed with additional constraints defined in \textit{Task} \textit{FlexoConcept}, which apply to performing actors actually assigned to enacted tasks. 
 
 \subsubsection{Process enactment}
-
+\label{sec:ProcessEnactment}
 We now present the process enactment part of base metamodel, located right of figure \ref{fig:BaseMetamodel}. All concepts defined in this subsection are either specialization of \textit{Instance} concept (if they are associated with exactly one \textit{Type}) or \textit{MultiInstance} concept (for those which have several types).
 
 \textit{Process} represents an enacted \textit{ProcessType}, as defined in previous subsection (\textbf{P10}). FML defines behavioural features (operations in object-oriented modelling), called \texttt{FlexoBehaviour}. \textit{ProcessType} defines following behaviour \texttt{newProcess(String)}, taking a \texttt{String} argument (the name of the process to enact):
@@ -190,6 +190,7 @@ concept Actor extends MultiInstance {
 All concepts inherits from \textit{ModelingElement}, which defines a \textit{lastUpdated} attribute with \textit{Date} type, and thus satisfies \textbf{P19} requirement. 
 
 \subsection{The Acme software development process}
+\label{sec:AcmeSoftwareDevelopmentProcess}
 
 The challenge describes in a second part a Software engineering process for a fictional Acme company. Base metamodel as described in previous section is too generic to capture all domain-specific aspects of this use case. We choose to complete the architectual hierarchy with a specific metamodel, specific to Acme software development process, as shown in figure \ref{fig:AcmeArchitecture}. \textit{Acme metamodel} inherits and specializes base metamodel, and \textit{Acme model} is defined as an instance of \textit{Acme metamodel}. Any instance of Acme model is either an instance of a concept defined in base metamodel, or a concept defined in specialized Acme metamodel, which may or not inherit from a concept defined in base metamodel.
 % FML follows a classical object-oriented semantics. ???
@@ -204,7 +205,7 @@ The challenge describes in a second part a Software engineering process for a fi
 \begin{figure*}
  \centering
      \includegraphics[width=1.0 \textwidth]{Figures/AcmeMetamodel.pdf}
-     \caption{Process management base metamodel}
+     \caption{Acme software development process architecture}
     \label{fig:BaseMetamodel}
 \end{figure*}
 
