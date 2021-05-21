@@ -119,12 +119,9 @@
         <GenericBehaviourParameter id="SYL-1417" widget="CUSTOM_WIDGET" name="process" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Process&gt;" userID="SYL" flexoID="1417" />
       </ActionScheme>
       <ActionScheme id="SYL-1139" label="isValidActorType" name="isValidActorType" width="800" height="600" userID="SYL" flexoID="1139">
-        <BehaviourControlGraph_Sequence id="SYL-1905" userID="SYL" flexoID="1905">
-          <ControlGraph2_ReturnStatement id="SYL-1143" ownerContext="controlGraph2" userID="SYL" flexoID="1143">
-            <AssignableAction_ExpressionAction id="SYL-1142" expression="true" userID="SYL" flexoID="1142" />
-          </ControlGraph2_ReturnStatement>
-          <ControlGraph1_LogAction id="SYL-1904" logLevel="INFO" logString="(&quot;ici parameters=&quot; + parameters)" ownerContext="controlGraph1" userID="SYL" flexoID="1904" />
-        </BehaviourControlGraph_Sequence>
+        <BehaviourControlGraph_ReturnStatement id="SYL-1143" ownerContext="controlGraph2" userID="SYL" flexoID="1143">
+          <AssignableAction_ExpressionAction id="SYL-1142" expression="true" userID="SYL" flexoID="1142" />
+        </BehaviourControlGraph_ReturnStatement>
         <GenericBehaviourParameter id="SYL-1141" isRequired="true" widget="CUSTOM_WIDGET" name="actorType" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#ActorType&gt;" userID="SYL" flexoID="1141" />
       </ActionScheme>
       <ActionScheme id="SYL-1144" label="isValidActor" name="isValidActor" width="800" height="600" userID="SYL" flexoID="1144">
@@ -150,6 +147,32 @@
           <AssignableAction_ExpressionAction id="SYL-1298" expression="parameters.creator" userID="SYL" flexoID="1298" />
         </BehaviourControlGraph_AssignationAction>
         <GenericBehaviourParameter id="SYL-1300" container="container" isRequired="true" widget="CUSTOM_WIDGET" name="creator" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor&gt;" userID="SYL" flexoID="1300" />
+      </ActionScheme>
+      <ActionScheme id="SYL-3750" label="isAuthorizedActor" name="isAuthorizedActor" width="800" height="600" userID="SYL" flexoID="3750">
+        <BehaviourControlGraph_Sequence id="SYL-3764" userID="SYL" flexoID="3764">
+          <ControlGraph2_Sequence id="SYL-3758" ownerContext="controlGraph2" userID="SYL" flexoID="3758">
+            <ControlGraph2_ReturnStatement id="SYL-3752" ownerContext="controlGraph2" userID="SYL" flexoID="3752">
+              <AssignableAction_ExpressionAction id="SYL-3751" expression="false" userID="SYL" flexoID="3751" />
+            </ControlGraph2_ReturnStatement>
+            <ControlGraph1_IterationAction id="SYL-3757" iteratorName="allowedActor" ownerContext="controlGraph1" userID="SYL" flexoID="3757">
+              <Iteration_ExpressionAction id="SYL-3753" expression="allowedActors" ownerContext="iterationControlGraph" userID="SYL" flexoID="3753" />
+              <ControlGraph_ConditionalAction id="SYL-3756" condition="(parameters.actor = allowedActor)" ownerContext="controlGraph" userID="SYL" flexoID="3756">
+                <ThenControlGraph_ReturnStatement id="SYL-3755" ownerContext="thenControlGraph" userID="SYL" flexoID="3755">
+                  <AssignableAction_ExpressionAction id="SYL-3754" expression="this.isValidActor(allowedActor)" userID="SYL" flexoID="3754" />
+                </ThenControlGraph_ReturnStatement>
+              </ControlGraph_ConditionalAction>
+            </ControlGraph1_IterationAction>
+          </ControlGraph2_Sequence>
+          <ControlGraph1_IterationAction id="SYL-3763" iteratorName="allowedActorType" ownerContext="controlGraph1" userID="SYL" flexoID="3763">
+            <Iteration_ExpressionAction id="SYL-3759" expression="allowedActorTypes" ownerContext="iterationControlGraph" userID="SYL" flexoID="3759" />
+            <ControlGraph_ConditionalAction id="SYL-3762" condition="parameters.actor.hasActorType(allowedActorType)" ownerContext="controlGraph" userID="SYL" flexoID="3762">
+              <ThenControlGraph_ReturnStatement id="SYL-3761" ownerContext="thenControlGraph" userID="SYL" flexoID="3761">
+                <AssignableAction_ExpressionAction id="SYL-3760" expression="this.isValidActorType(allowedActorType)" userID="SYL" flexoID="3760" />
+              </ThenControlGraph_ReturnStatement>
+            </ControlGraph_ConditionalAction>
+          </ControlGraph1_IterationAction>
+        </BehaviourControlGraph_Sequence>
+        <GenericBehaviourParameter id="SYL-3765" isRequired="true" widget="CUSTOM_WIDGET" name="actor" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor&gt;" userID="SYL" flexoID="3765" />
       </ActionScheme>
       <Constraint id="SYL-3673" iteratorName="actor" iteration="allowedActors" constraint="((!(isCritical)) | actor.isSenior)" name="Critical task implies that allowed actor must all be senior" userID="SYL" flexoID="3673" />
     </EmbeddedFlexoConcept>
@@ -751,29 +774,9 @@
         <BehaviourControlGraph_EmptyControlGraph id="SYL-423" userID="SYL" flexoID="423" />
       </DeletionScheme>
       <ActionScheme id="SYL-573" label="isAuthorizedActor" name="isAuthorizedActor" width="800" height="600" userID="SYL" flexoID="573">
-        <BehaviourControlGraph_Sequence id="SYL-596" userID="SYL" flexoID="596">
-          <ControlGraph2_Sequence id="SYL-662" ownerContext="controlGraph2" userID="SYL" flexoID="662">
-            <ControlGraph2_ReturnStatement id="SYL-661" ownerContext="controlGraph2" userID="SYL" flexoID="661">
-              <AssignableAction_ExpressionAction id="SYL-660" expression="false" userID="SYL" flexoID="660" />
-            </ControlGraph2_ReturnStatement>
-            <ControlGraph1_IterationAction id="SYL-592" iteratorName="allowedActor" ownerContext="controlGraph1" userID="SYL" flexoID="592">
-              <Iteration_ExpressionAction id="SYL-593" expression="type.allowedActors" ownerContext="iterationControlGraph" userID="SYL" flexoID="593" />
-              <ControlGraph_ConditionalAction id="SYL-657" condition="(parameters.actor = allowedActor)" ownerContext="controlGraph" userID="SYL" flexoID="657">
-                <ThenControlGraph_ReturnStatement id="SYL-659" ownerContext="thenControlGraph" userID="SYL" flexoID="659">
-                  <AssignableAction_ExpressionAction id="SYL-658" expression="true" userID="SYL" flexoID="658" />
-                </ThenControlGraph_ReturnStatement>
-              </ControlGraph_ConditionalAction>
-            </ControlGraph1_IterationAction>
-          </ControlGraph2_Sequence>
-          <ControlGraph1_IterationAction id="SYL-575" iteratorName="allowedActorType" ownerContext="controlGraph1" userID="SYL" flexoID="575">
-            <Iteration_ExpressionAction id="SYL-576" expression="type.allowedActorTypes" ownerContext="iterationControlGraph" userID="SYL" flexoID="576" />
-            <ControlGraph_ConditionalAction id="SYL-588" condition="parameters.actor.hasActorType(allowedActorType)" ownerContext="controlGraph" userID="SYL" flexoID="588">
-              <ThenControlGraph_ReturnStatement id="SYL-590" ownerContext="thenControlGraph" userID="SYL" flexoID="590">
-                <AssignableAction_ExpressionAction id="SYL-589" expression="true" userID="SYL" flexoID="589" />
-              </ThenControlGraph_ReturnStatement>
-            </ControlGraph_ConditionalAction>
-          </ControlGraph1_IterationAction>
-        </BehaviourControlGraph_Sequence>
+        <BehaviourControlGraph_ReturnStatement id="SYL-3767" ownerContext="controlGraph2" userID="SYL" flexoID="3767">
+          <AssignableAction_ExpressionAction id="SYL-3766" expression="type.isAuthorizedActor(parameters.actor)" userID="SYL" flexoID="3766" />
+        </BehaviourControlGraph_ReturnStatement>
         <GenericBehaviourParameter id="SYL-598" isRequired="true" widget="CUSTOM_WIDGET" name="actor" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor&gt;" userID="SYL" flexoID="598" />
       </ActionScheme>
       <ActionScheme id="SYL-742" visibility="Public" label="addToPerformingActors" name="addToPerformingActors" width="800" height="600" userID="SYL" flexoID="742">

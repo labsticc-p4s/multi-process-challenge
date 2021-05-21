@@ -173,7 +173,6 @@ public class MetaModel {
       
       @ActionScheme      
       Boolean isValidActorType(ActorType actorType) {      
-        log ("ici parameters=" + parameters)        
         return true;      
       }      
       
@@ -195,6 +194,21 @@ public class MetaModel {
       @ActionScheme      
       public Void setCreator(Actor creator) {      
         creator = parameters.creator;      
+      }      
+      
+      @ActionScheme      
+      Boolean isAuthorizedActor(Actor actor) {      
+        for (allowedActorType : allowedActorTypes) {        
+          if parameters.actor.hasActorType(allowedActorType) {          
+            return this.isValidActorType(allowedActorType);          
+          }        
+        }        
+        for (allowedActor : allowedActors) {        
+          if (parameters.actor = allowedActor) {          
+            return this.isValidActor(allowedActor);          
+          }        
+        }        
+        return false;      
       }      
       
     }    
@@ -512,7 +526,6 @@ public class MetaModel {
   
     @ActionScheme    
     Boolean isValidActorType(ActorType actorType) {    
-      log ("ici parameters=" + parameters)      
       return true;    
     }    
   
@@ -534,6 +547,21 @@ public class MetaModel {
     @ActionScheme    
     public Void setCreator(Actor creator) {    
       creator = parameters.creator;    
+    }    
+  
+    @ActionScheme    
+    Boolean isAuthorizedActor(Actor actor) {    
+      for (allowedActorType : allowedActorTypes) {      
+        if parameters.actor.hasActorType(allowedActorType) {        
+          return this.isValidActorType(allowedActorType);        
+        }      
+      }      
+      for (allowedActor : allowedActors) {      
+        if (parameters.actor = allowedActor) {        
+          return this.isValidActor(allowedActor);        
+        }      
+      }      
+      return false;    
     }    
   
   }  
@@ -995,17 +1023,7 @@ public class MetaModel {
       
       @ActionScheme      
       Boolean isAuthorizedActor(Actor actor) {      
-        for (allowedActorType : type.allowedActorTypes) {        
-          if parameters.actor.hasActorType(allowedActorType) {          
-            return true;          
-          }        
-        }        
-        for (allowedActor : type.allowedActors) {        
-          if (parameters.actor = allowedActor) {          
-            return true;          
-          }        
-        }        
-        return false;      
+        return type.isAuthorizedActor(parameters.actor);      
       }      
       
       @ActionScheme      
@@ -1148,17 +1166,7 @@ public class MetaModel {
   
     @ActionScheme    
     Boolean isAuthorizedActor(Actor actor) {    
-      for (allowedActorType : type.allowedActorTypes) {      
-        if parameters.actor.hasActorType(allowedActorType) {        
-          return true;        
-        }      
-      }      
-      for (allowedActor : type.allowedActors) {      
-        if (parameters.actor = allowedActor) {        
-          return true;        
-        }      
-      }      
-      return false;    
+      return type.isAuthorizedActor(parameters.actor);    
     }    
   
     @ActionScheme    

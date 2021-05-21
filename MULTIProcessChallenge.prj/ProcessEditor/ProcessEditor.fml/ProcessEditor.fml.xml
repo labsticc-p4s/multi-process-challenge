@@ -5,7 +5,7 @@
     <ShapeRole id="SYL-40" previewHeight="230.0" previewY="-15.0" previewX="10.0" previewWidth="230.0" exampleLabel="Shape" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_29" cloningStrategy="Clone" cardinality="ZeroOne" name="shape" userID="SYL" flexoID="40" />
     <ShapeRole id="SYL-41" previewHeight="20.0" previewY="0.0" previewX="0.0" previewWidth="246.2094364533389" exampleLabel="Shape" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_30" cloningStrategy="Clone" cardinality="ZeroOne" name="header" userID="SYL" flexoID="41">
       <ParentShapeRole idref="SYL-40" />
-      <GRSpec id="SYL-5951" featureName="label" value="process.name" userID="SYL" flexoID="5951" />
+      <GRSpec id="SYL-5992" featureName="label" value="process.name" userID="SYL" flexoID="5992" />
     </ShapeRole>
     <FlexoConceptInstanceRole id="SYL-42" virtualModelInstance="model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Process" cloningStrategy="Reference" cardinality="ZeroOne" name="process" userID="SYL" flexoID="42" />
     <CreationScheme id="SYL-54" label="instantiateProcess" name="instantiateProcess" width="800" height="600" userID="SYL" flexoID="54">
@@ -52,7 +52,7 @@
   <FlexoConcept id="SYL-102" name="BeginGR" userID="SYL" flexoID="102">
     <Inspector id="SYL-3731" inspectorTitle="BeginNode" delegateConceptInstance="task" userID="SYL" flexoID="3731" />
     <ShapeRole id="SYL-103" previewHeight="20.0" previewY="90.0" previewX="115.0" previewWidth="20.0" exampleLabel="" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_2" cloningStrategy="Clone" cardinality="ZeroOne" name="shape" userID="SYL" flexoID="103">
-      <GRSpec id="SYL-5952" featureName="transparency" readOnly="true" value="((task.isActive | task.completed) ? 1.0 : (task.isStartable() ? 0.5 : 0.2))" userID="SYL" flexoID="5952" />
+      <GRSpec id="SYL-5993" featureName="transparency" readOnly="true" value="((task.isActive | task.completed) ? 1.0 : (task.isStartable() ? 0.5 : 0.2))" userID="SYL" flexoID="5993" />
     </ShapeRole>
     <FlexoConceptInstanceRole id="SYL-104" virtualModelInstance="model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Task" cloningStrategy="Reference" cardinality="ZeroOne" name="task" userID="SYL" flexoID="104" />
     <DeletionScheme id="SYL-119" visibility="Public" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="119">
@@ -93,20 +93,20 @@
   <FlexoConcept id="SYL-123" name="TaskGR" userID="SYL" flexoID="123">
     <Inspector id="SYL-3732" inspectorTitle="TaskTypeGR" delegateConceptInstance="task" userID="SYL" flexoID="3732" />
     <ShapeRole id="SYL-124" previewHeight="72.14285714285714" previewY="62.85714285714286" previewX="60.735413839891436" previewWidth="133.1750339213026" exampleLabel="" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_3" cloningStrategy="Clone" cardinality="ZeroOne" name="shape" userID="SYL" flexoID="124">
-      <GRSpec id="SYL-5953" featureName="transparency" readOnly="true" value="((task.isActive | task.completed) ? 1.0 : (task.isStartable() ? 0.5 : 0.2))" userID="SYL" flexoID="5953" />
+      <GRSpec id="SYL-5994" featureName="transparency" readOnly="true" value="((task.isActive | task.completed) ? 1.0 : (task.isStartable() ? 0.5 : 0.2))" userID="SYL" flexoID="5994" />
     </ShapeRole>
     <FlexoConceptInstanceRole id="SYL-125" virtualModelInstance="model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Task" cloningStrategy="Reference" cardinality="ZeroOne" name="task" userID="SYL" flexoID="125" />
     <ShapeRole id="SYL-5203" previewHeight="26.07142857142857" previewY="10.0" previewX="0.0" previewWidth="133.1750339213026" exampleLabel="Task" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_32" container="diagram" cloningStrategy="Clone" cardinality="ZeroOne" name="title" userID="SYL" flexoID="5203">
       <ParentShapeRole idref="SYL-124" />
-      <GRSpec id="SYL-5954" featureName="label" value="task.name" userID="SYL" flexoID="5954" />
+      <GRSpec id="SYL-5995" featureName="label" value="task.name" userID="SYL" flexoID="5995" />
     </ShapeRole>
     <ShapeRole id="SYL-5248" previewHeight="18.035714285714285" previewY="36.07142857142857" previewX="0.0" previewWidth="133.1750339213026" exampleLabel="Actors" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_33" container="diagram" cloningStrategy="Clone" cardinality="ZeroOne" name="performingActors" userID="SYL" flexoID="5248">
       <ParentShapeRole idref="SYL-124" />
-      <GRSpec id="SYL-5955" featureName="label" readOnly="true" value="task.performingActorsLabel" userID="SYL" flexoID="5955" />
+      <GRSpec id="SYL-5996" featureName="label" readOnly="true" value="task.performingActorsLabel" userID="SYL" flexoID="5996" />
     </ShapeRole>
     <ShapeRole id="SYL-5271" previewHeight="18.035714285714285" previewY="54.107142857142854" previewX="0.0" previewWidth="133.1750339213026" exampleLabel="Status" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_34" container="diagram" cloningStrategy="Clone" cardinality="ZeroOne" name="status" userID="SYL" flexoID="5271">
       <ParentShapeRole idref="SYL-124" />
-      <GRSpec id="SYL-5956" featureName="label" readOnly="true" value="task.statusLabel" userID="SYL" flexoID="5956" />
+      <GRSpec id="SYL-5997" featureName="label" readOnly="true" value="task.statusLabel" userID="SYL" flexoID="5997" />
     </ShapeRole>
     <DeletionScheme id="SYL-143" visibility="Public" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="143">
       <BehaviourControlGraph_Sequence id="SYL-142" userID="SYL" flexoID="142">
@@ -167,7 +167,7 @@
   <FlexoConcept id="SYL-3870" name="EndGR" userID="SYL" flexoID="3870">
     <Inspector id="SYL-3871" inspectorTitle="BeginNode" delegateConceptInstance="task" userID="SYL" flexoID="3871" />
     <ShapeRole id="SYL-3872" previewHeight="20.0" previewY="90.0" previewX="115.0" previewWidth="20.0" exampleLabel="" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_6" cloningStrategy="Clone" cardinality="ZeroOne" name="shape" userID="SYL" flexoID="3872">
-      <GRSpec id="SYL-5957" featureName="transparency" readOnly="true" value="((task.isActive | task.completed) ? 1.0 : (task.isStartable() ? 0.5 : 0.2))" userID="SYL" flexoID="5957" />
+      <GRSpec id="SYL-5998" featureName="transparency" readOnly="true" value="((task.isActive | task.completed) ? 1.0 : (task.isStartable() ? 0.5 : 0.2))" userID="SYL" flexoID="5998" />
     </ShapeRole>
     <FlexoConceptInstanceRole id="SYL-3873" virtualModelInstance="model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Task" cloningStrategy="Reference" cardinality="ZeroOne" name="task" userID="SYL" flexoID="3873" />
     <DeletionScheme id="SYL-3877" visibility="Public" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="3877">
@@ -390,7 +390,7 @@
   <FlexoConcept id="SYL-5129" name="ActorGR" userID="SYL" flexoID="5129">
     <Inspector id="SYL-5125" inspectorTitle="ActorGR" userID="SYL" flexoID="5125" />
     <ShapeRole id="SYL-5142" previewHeight="52.12680824869191" previewY="73.93659587565405" previewX="100.08819538670285" previewWidth="49.8236092265943" exampleLabel="Actor" metamodelElementReference="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram#SYL_23" cloningStrategy="Clone" cardinality="ZeroOne" name="shape" userID="SYL" flexoID="5142">
-      <GRSpec id="SYL-5958" featureName="label" value="actor.name" userID="SYL" flexoID="5958" />
+      <GRSpec id="SYL-5999" featureName="label" value="actor.name" userID="SYL" flexoID="5999" />
     </ShapeRole>
     <FlexoConceptInstanceRole id="SYL-5169" virtualModelInstance="model" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor" cloningStrategy="Reference" cardinality="ZeroOne" name="actor" userID="SYL" flexoID="5169" />
     <DropScheme id="SYL-5130" target="top" label="dropActorGRAtTopLevel" name="dropActorGRAtTopLevel" width="800" height="600" userID="SYL" flexoID="5130">
