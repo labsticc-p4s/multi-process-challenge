@@ -266,7 +266,7 @@ concept CodingTaskType extends SETaskType
 
 \begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true]
 forEach (artifactType : types) {
-    assert !(artifactType instanceof CodeArtifactType) | artifactType.implements()
+    assert !(artifactType instanceof CodeArtifactType) | artifactType.implements(programmingLanguages)
 }
 \end{lstlisting}
 
