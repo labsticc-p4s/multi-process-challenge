@@ -85,6 +85,8 @@ forEach (actor : allowedActors) {
 
 This invariant should be completed with additional constraints defined in \textit{Task} \textit{FlexoConcept}, which apply to performing actors actually assigned to enacted tasks. 
 
+\todo{Gérer également la fin de P9, non traité pour le moment: artifact they produced must be associated with a validation task}
+
 \subsubsection{Process enactment}
 \label{sec:ProcessEnactment}
 We now present the process enactment part of base metamodel, located right of figure \ref{fig:BaseMetamodel}. All concepts defined in this subsection are either specialization of \textit{Instance} concept (if they are associated with exactly one \textit{Type}) or \textit{MultiInstance} concept (for those which have several types).
@@ -202,8 +204,6 @@ The challenge describes in a second part a Software engineering process for a fi
     \label{fig:AcmeArchitecture}
 \end{figure}
 
-Figure \ref{fig:AcmeFullArchitecture} shows the full architecture capturing Acme software development process, with an instance of enacted Software Engineering Process, and highlights all conceptual levels. 
-
 \begin{figure*}
  \centering
      \includegraphics[width=1.0 \textwidth]{Figures/AcmeFullArchitecture.pdf}
@@ -211,7 +211,52 @@ Figure \ref{fig:AcmeFullArchitecture} shows the full architecture capturing Acme
     \label{fig:AcmeFullArchitecture}
 \end{figure*}
 
+\todo{Augmenter la taille des fontes de la figure \ref{fig:AcmeFullArchitecture}}
 
+Figure \ref{fig:AcmeFullArchitecture} shows the full architecture capturing Acme software development process, with an instance of enacted \textit{Software Engineering Process}, and highlights all conceptual levels. Acme metamodel enriches base metamodel by offering specializing concepts: \textit{SETaskType} extending \textit{TaskType}, a more specialized concept \textit{CodingTaskType} extending \textit{SETaskType}, \textit{SEArtifactType} extending \textit{ArtifactType}, a more specialized concept \textit{CodeArtifactType} extending \textit{SEArtifactType}. Acme metamodel also defines task type \textit{Coding} as a specialized concept of \textit{Task}, and provides concept \textit{Developer} extending \textit{ActorType}. This metamodel is completed with \textit{ProgrammingLanguage} concept, defined as an enumeration (\textit{Java}, \textit{C}, \textit{COBOL}). All instances required to capture challenge use case are still defined in final Acme model itself instance of Acme metamodel. Instances are represented with rounded boxes and linguistic instantiation are represented with dashed connectors.
+
+Figure \ref{fig:AcmeSoftwareDevelopmentProcess} shows a screen-capture from the tooling developed in the context of the challenge, and presents the \textit{Software Development Process} for Acme company. 
+
+\begin{figure}
+ \centering
+    \includegraphics[width=1.0 \columnwidth]{Figures/SoftwareEngineeringProcessCroped.pdf}
+     \caption{Acme software development process}
+    \label{fig:AcmeSoftwareDevelopmentProcess}
+\end{figure}
+
+\todo{Supprimer ombres et dégradés de la figure \ref{fig:AcmeSoftwareDevelopmentProcess}, et faire en sorte qu'elle soit plus haute et moins large}
+
+\textit{"Requirements analysis"} is defined as an instance of \textit{SETaskType}, \textit{Analyst} as an instance of \textit{ActorType} and \textit{Requirement specifications} as an instance of \textit{SEArtifactType}. \textit{"Requirements analysis"} instance defines property values \textit{producedArtifactTypes=\{Requirement specifications\}} and \textit{allowedActorTypes=\{Analyst\}} (\textbf{S1}). In the same way, \textit{"Test case design"} is defined as an instance of \textit{SETaskType}, marked as critical with property value \textit{isCritical=\{true\}}, and bound to \textit{Analyst} with \textit{allowedActorTypes} relation. \textit{"Test case design"} produces \textit{"Test cases"} defined as an instance of \textit{SETaskType}. The latter is used in "Test design review" (\textit{producedArtifactTypes} relation) (\textbf{S1} and \textbf{S13}, satisfied with \textbf{P9}). 
+
+The capture of \textbf{S3} requirement is performed while defining \textit{Coding} as an instance of concept \textit{CodingTaskType} extending \textit{SETaskType} and defining a relation \textit{languages} to \textit{ProgrammingLanguage} with 1..* cardinality. \textit{newTask(String)} behaviour overrides generic implementation while instantiating a \textit{Coding} concept, specializing \textit{SEArtifact}, as shown in following excerpt of FML code:
+
+\begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true]
+concept CodingTaskType extends SETaskType 
+{
+  ProgrammingLanguage[1..*] languages;
+  ...
+  public Process newTask(String name) {    
+    return new Coding(name,this); 
+  }
+}    
+\end{lstlisting}
+
+\textit{Code} concept extends \textit{SEArtifact}, and defines a relation \textit{language} to \textit{ProgrammingLanguage} with single cardinality (\textbf{S4}). \textbf{S5} is more ambigous as task type \textit{Coding} defines one or more programming languages but produces code which is expressed in one language only. Semantics is unclear relatively to instantiation policy for artifacts. We assume that a Code artifact must be produced for each programming language defined in a \textit{CodingTaskType}. If \textit{COBOL} is referenced in languages defined for a given Coding instance, then we must instantiate a \textit{Code} instance with \textit{COBOL} language (\textbf{S5} and \textbf{S6}).
+
+\begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true]
+concept CodingTaskType extends SETaskType 
+{
+  ...
+  public Artifact[] instantiateArtifacts() {
+    Artifact[] returned = {}; 
+    for (langage : languages) {
+      returned.add(new Code(langage); 
+    }
+    return returned;
+  }
+  ...
+}    
+\end{lstlisting}
 
 
 \subsection{Openflexo tooling}
