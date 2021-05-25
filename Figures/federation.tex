@@ -10,7 +10,7 @@
 
 \begin{document}
   \begin{tikzpicture}[ >=Classical TikZ Rightarrow]
-    \draw[use as bounding box] (-4.065,-4.065) rectangle (4.065,4.065);
+    \path[use as bounding box] (-4.065,-4.065) rectangle (4.065,4.065);
     \foreach \n/\h in {0/1.2cm,1/1.3cm,2/1.2cm,3/1.1cm,4/1cm}{
       \node[inner sep=0pt] (m\n) at (90+\n*360/5: 3cm) {\includegraphics[height=\h]{house\n}};
       \node[minimum width=3mm,minimum height=2mm,draw=orange,fill=orange!30,inner sep=0pt,rotate=\n*360/5] (ms\n) at (90+\n*360/5:1.18cm) {};
