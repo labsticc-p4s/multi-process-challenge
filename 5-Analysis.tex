@@ -6,39 +6,6 @@ The next step in our approach, we try to take into account the reusability of th
 
 Like any modeling approaches, these different steps could also be achieved in any order. But our goal during the challenge requirement analysis remains to lead to define a FML Virtual Models architecture as a federation of virtualmodels. As shown in figure~\ref{fig:MultilevelArchitecture}, we developped two metamodels (Base and ACME processes abstractions) instantiatied by two models (XSure and ACME processes). This follows the way the challenge is presented and this organisation allows for the possibility of easy extensions.
 
-Also as our understanding, the use case analysis leads to identify two main modeling axis (as presented in figure \ref{fig:LinguisticAndOntologicInstantiation}):
-\begin{itemize}
-    \item the horizontal axis is characterized as the an ontological instantiation axis, in the sense that the domain type definition (ProcessType as example) is referenced by an instance definition (Process, a.e). In our base  VirtualModel, each domain type definition is referenced by its instance definition, as developed in the section \ref{sec:ProcessEnactmen}
-
-\item the vertical axis is viewed as the linguistic instantiation, relative to the use of the FML language. The VirtualModel, defined as the core definition model, generates a model founded on the instantiation mechanism of the FML Language. This mechanism is the classical Object/Instance mechanism of the object languages but without any constraint on the referenced VirtualModel. The set of resulted instances comes from several VirtualModels 
-from any abstraction level as detailed in section \ref{sec:AcmeSoftwareDevelopmentProcess}
-
-
-\end{itemize}
-
-% il reste à décrire l'architecture générale des VirtualModels
-
-
-~\\
-~\\
-
-any disambiguations of the  case  description and assumptions made, any potentially added requirements
-
-quelles hypothèses supplémentaires ? 
-
-+ architecture de la modélisation (ce qui se trouve dans le ppt), le détail se retrouvera dans la section suivante
-
-%Joel commence
-
-% Sylvain
-% Joel, je te propose les deux figures suivantes:
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.7 \columnwidth]{Figures/MultilevelArchitecture.pdf}
-    \caption{Multilevel architecture for the Process Challenge}
-    \label{fig:MultilevelArchitecture}
-\end{figure}
 
 \begin{figure}
     \centering
@@ -47,5 +14,43 @@ quelles hypothèses supplémentaires ?
     \label{fig:LinguisticAndOntologicInstantiation}
 \end{figure}
 
+
+
+Also as our understanding, the use case analysis leads to identify two main modeling axis (as presented in figure \ref{fig:LinguisticAndOntologicInstantiation}):
+\begin{itemize}
+    \item the horizontal axis is characterized as the ontological instantiation axis, in the sense that the domain type definition (ProcessType as example) is referenced by an instance definition (Process, a.e). In our base  VirtualModel, each domain type definition is referenced by its instance definition, as developed in the section \ref{sec:ProcessEnactment}
+
+\item the vertical axis is viewed as the linguistic instantiation, relative to the use of the FML language. The VirtualModel, defined as the core definition model, generates a model founded on the instantiation mechanism of the FML Language. This mechanism is the classical Object/Instance mechanism of the object languages but without any constraint on the referenced VirtualModel. The set of resulted instances comes from several VirtualModels 
+from any abstraction level as detailed in section \ref{sec:AcmeSoftwareDevelopmentProcess}
+
+
+\end{itemize}
+
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7 \columnwidth]{Figures/MultilevelArchitecture.pdf}
+    \caption{Multilevel architecture for the Process Challenge}
+    \label{fig:MultilevelArchitecture}
+\end{figure}
+
+
+
+% il reste à décrire l'architecture générale des VirtualModels
+
+
+~\\
+~\\
+
+%\emph{any disambiguations of the  case  description and assumptions made, any potentially added requirements}
+
+\todo[inline]{quelles hypothèses supplémentaires ?}
+\todo[inline]{+ architecture de la modélisation (ce qui se trouve dans le ppt), le détail se retrouvera dans la section suivante}
+
+%Joel commence
+
+% Sylvain
+% Joel, je te propose les deux figures suivantes:
 
 
