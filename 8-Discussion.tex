@@ -96,9 +96,9 @@ sous-sections ou pas) ↓}
   As for cross-level relationships, cross-level constraints do not have a
   specific nature. They are like any constraint a user can define on a model
   element. Therefore, if a constraint is mandatory when establishing a
-  relationship between elements from different levels, the user has create it
-  manually. This can be a limit of our approach: the flexibility of our tooling
-  at the cost of a limited number fo automated behaviors. 
+  relationship between elements from different levels, the user has to create
+  it manually. This can be a limit of our approach: the flexibility of our
+  tooling at the cost of a limited number of automated behaviors. 
   
 
   \subsection{Integrity mechanism}
@@ -108,7 +108,9 @@ sous-sections ou pas) ↓}
 
   In order to preserve the integrity of level contents when changes to level
   contents occur, a validation has to be triggered. The tool reports all
-  inconsistencies that the user is free to fix.
+  inconsistencies that the user is free to fix. Note that in our approach, the
+  metamodels are built in a ad hoc way  together with the models
+  (co-construction), threfore the user validates on a ad hoc basis.
 
   \subsection{Deep characterization}
 
@@ -126,10 +128,10 @@ sous-sections ou pas) ↓}
   %domains? Does it embody invariant principles of the domain(s) it covers with
   %minimal redundancy?
 
-  Due to the nature of model federation, the models are highly reusable. Our
-  solution separates the domain-specific elements from general purpose ones,
-  making easily possible to apply it to other domains. 
-  \noteJC{à développer + ajouter avantage de l'outil gratuit ici ?}
+  Due to the nature of model federation, the models are highly reusable.
+  Although we build ad hoc metamodels in our approach, our solution separates
+  the domain-specific elements from general purpose ones, making easily
+  possible to apply it to other domains. 
 
   \subsection{Extensibility}
 
@@ -140,11 +142,21 @@ sous-sections ou pas) ↓}
   %would be performed.
 
   A strength of the approach of model federation we have adopted resides in its
-  flexibility. One can extend a solution easily: 
+  flexibility. As we build metamodels and models together instead of fitting
+  into a metamodel, our solution is more flexible. Therefore one can extend a
+  solution easily. The challenge itself can be seen as a validation of the
+  extensibility ability of our solution: it was decomposed into two steps
+  (generic process Xsure, then ACME process) which is kind of simulation of the
+  evolution of the  specification. We observed that our approach has been
+  resilient to change.
 
-  \noteJC{comment étendre : dépend un peu des extensions, ne prendre que celle
-  donnée en exemple ? ; level insertion possible : oui, vu que pas de notion de
-level}
+  Due to the level-blind aspect of our approach, we could insert a new level,
+  for instance. It would consist in creating new concepts we would link to
+  other ones. Then, we would add any necessary constraints on those concepts
+  and on the relashiontips linking them to the other existing concepts. 
+
+  \noteJC{comment étendre : prendre l'exemple donné ?; level insertion possible
+  : oui, vu que pas de notion de level}
 
   
 \todo[inline]{recommended discussion aspects ↓}
@@ -154,6 +166,14 @@ level}
 %technique and/or tools that support the present solution
 
 \noteJC{on a du tooling, un peu moins de formalisme}
+
+Currently, there are no formalism to establish the semantics of the MLM
+technique in our solution. \textcolor{red}{To develop…}
+
+Our solution is fully tooled by a ``free'' ad hoc tool. We use the Openflexo
+infrastructure to design models and metamodels together. In addition, our
+infrastructure also produces a dedicated tool which allows processes execution.
+In our approach, 
 
 \subsection{model verification}
 
