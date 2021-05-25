@@ -256,39 +256,46 @@ concept CodingTaskType extends SETaskType
 {
   ProgrammingLanguage[1..*] languages;
   ...
-  public Coding newTask(String name) {    
+  public Coding newTask(String name) { 
     return new Coding(name,this); 
   }
 }    
 \end{lstlisting}
 
-\textit{Code} concept extends \textit{SEArtifact}, and defines a relation \textit{language} to \textit{ProgrammingLanguage} with single cardinality (\textbf{S4}). \textbf{S5} is more ambigous as task type \textit{Coding} defines one or more programming languages but produces code which is expressed in one language only. This requirement is captured through the redefinition of \textit{declaresRequiredProducedArtifacts()} where programming language should also match \noteSylvain{Pas la place pour mettre le code, non nécessaire si ?}. \textbf{S6} is guaranteed though the \textit{language} relation defined in \textit{Code} and following invariant declared in \textit{Code}:  
+\textit{Code} concept extends \textit{SEArtifact}, and defines a relation \textit{language} to \textit{ProgrammingLanguage} with single cardinality (\textbf{S4}). \textbf{S5} is more ambigous as task type \textit{Coding} defines one or more programming languages but produces code which is expressed in one language only. This requirement is captured through the redefinition of \textit{declaresRequiredProducedArtifacts()} where programming language should also match. \noteSylvain{Pas la place pour mettre le code, non nécessaire si ?} \textbf{S6} is guaranteed though the \textit{language} relation defined in \textit{Code} and following invariant declared in \textit{Code}:  
 
 \begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true]
 forEach (artifactType : types) {
-    assert !(artifactType instanceof CodeArtifactType) | artifactType.implements(programmingLanguages)
+    assert !(artifactType instanceof CodeArtifactType) | artifactType.implements(languages)
 }
 \end{lstlisting}
 
-% 
-
-Code artifact must be produced for each programming language defined in a \textit{CodingTaskType}. If \textit{COBOL} is referenced in languages defined for a given Coding instance, then we must instantiate a \textit{Code} instance with \textit{COBOL} language (\textbf{S5} and \textbf{S6}).
+\textit{Ann Smith} is the only one allowed to perform coding in COBOL (\textbf{S7}). This is implemented through the redefinition of \textit{newTask(String)} in \textit{CodingTaskType}:
 
 \begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true]
 concept CodingTaskType extends SETaskType 
 {
   ...
-  public Artifact[] instantiateArtifacts() {
-    Artifact[] returned = {}; 
-    for (langage : languages) {
-      returned.add(new Code(langage); 
+  public Coding newTask(String name) {
+    Coding returned = new Coding(name,this); 
+    if (languages.contains(ProgrammingLanguage.COBOL)) {
+        returned.addToPerformingActors(getActor("Ann Smith"));
     }
     return returned;
   }
-  ...
 }    
 \end{lstlisting}
 
+\textbf{S8} requirement is simply captured with the definition of \textit{Testing} instance of \textit{SETaskType}, \textit{Tester} instance of \textit{ActorType}, and \textit{Test report} instance of \textit{ArtifactType}.
+% TODO S9
+
+All software engineering artifacts defined in the context of Acme Software Engineering Process (figure \ref{fig:AcmeSoftwareDevelopmentProcess}) are all instances of \textit{SEArtifact} which defines both attributes \textit{responsible} (an \textit{Actor} instance), and \textit{versionNumber} (an \textit{integer} value), and thus fulfills \textbf{S10}. \textit{Bob Brown} is declared as an instance of \textit{Actor}, and references \textit{Analyst} and \textit{Tester} (\textit{ActorType} instances). He is also referenced by all instances of \textit{SETaskType} as the creator for related task types (\textbf{S11}).
+
+\textbf{S12} is somehow ambigous as it implies an implicit semantics regarding underlying business logic of process execution. We assume that all tasks may define an expected duration, which might be checked during process execution. This can be modelled through the addition of \textit{expectedDuration} attribute in \textit{TaskType}. Alternatively, this can be modelled through the definition of \textit{SETesting} concept, as a specialization of \textit{SETaskType}, and the instantiation of \textit{Testing} as an instance of \textit{SETesting}. The business logic expressed by \textbf{S12} requirement should be redefined in \textit{SETesting}.
+
+\textbf{S13} requirement has been previously partially fulfilled. This must be completed with...
+
+% TODO S13
 
 \subsection{Openflexo tooling}
 

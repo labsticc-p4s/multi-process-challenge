@@ -1,12 +1,15 @@
 % Inspiré de la section 10 du papier formose
 
+\noteFabien{metamodel ou meta-model ? perso je penche plus pour le premier}
+\noteJC{pareil, j'utilise plutôt metamodel, en général}
+
 To meet the \mpc, we have decided to use the general
 approach of model federation~\cite{Golra2016-federation}. \emph{Model
-  federation} is a way models are assembled together with some kind of
+  federation} is a way to assemble models using some kind of
 low-coupling links. It has been studied to answer the OMG' RFP
 Semantic Modeling for Information Federation (SIMF)~\cite{simf}. In
 contrast to approaches that compose meta-models into a single large
-meta-model welcoming all needed entities, model federation build links
+meta-model grouping all needed entities, model federation build links
 among models and meta-models (even through levels) to make ``things''
 work together. As an illustration of this feature, we developed a
 free-modeling editor -- freeing oneself from the bonds of
@@ -31,22 +34,7 @@ paradigm while a virtual model is built using the Flexo Modeling
 Language (FML). Each federated model can be viewed as an autonomous
 component that may evolve with its own tooling. The virtual models
 serve as control components.
-% Figure~\ref{fig:space-ex} presents a
-% simplified version of the \textsf{Goal-xls} federation example that
-% groups these different models. The upper half of the figure
-% illustrates the design of a federation with a model coming from the
-% \smk technological space (the goal diagram), one from the Excel
-% technological space (the file) and one virtual model, named
-% \emph{ReqXls}, reifying the dependencies between the goal model and
-% the reporting file.
 
-A \emph{technology adapter} (TA) is a reusable library that defines
-connections between the FML execution engine and a particular
-technological space. The model federation framework provides ways to
-define TA.
-%The \emph{ReqXls} virtual model relies on two technology
-%adapters (Excel TA and \smk TA) for manipulating the models in their
-%respective technological spaces.
 
 FML is a language designed to define virtual models. A virtual model
 is composed of a set of \emph{concepts}, while itself being a concept.
@@ -58,20 +46,17 @@ to understand FML\footnote{Beware, even though useful for
   reliable, as some aspects of FML do not map to object oriented
   concepts}. A concept corresponds to a class, its roles to the
 attributes of the class and its behaviors to the methods of the class.
-% In our example, a concept \texttt{Requirement} is presented with
-% three roles \texttt{row}, \texttt{goal} and \texttt{refines}. The
-% first two are represented as attributes whereas the third as an
-% association.
 These roles have types defining the kind of value the role will point
 at runtime.
-% Our example illustrates three forms of such types \ie another
-% concept for \textsf{refines}, a type defined in a TA for
-% \textsf{Row} or a type defined in an external model for
-% \textsf{Goal}.
 Whenever a type external to the federation space (from a TA or an
 external model) is used, one needs to use a \emph{model slot}. A model
 slot is a mediation entity, associated with a TA, in charge of giving
 access to external elements of the corresponding technological space.
+
+A \emph{technology adapter} (TA) is a reusable library that defines
+connections between the FML execution engine and a particular
+technological space. The model federation framework provides ways to
+define TA.
 
 We should stress that building a virtual model is purely conceptual,
 model slots / TA are in charge of the technicalities. Additionally,
@@ -120,7 +105,7 @@ also been used to build a tool, the freemodeling editor that has been
 used in industrial projects~\cite{models2016-freemodel}. As of today, this tool
 offers some mature technology adapters (\emph{docx} and \emph{excel}
 for documents, EMF and OWL for modeling languages, JDBC for databases,
-REST and XMLRPC for external services and one for diagraming tools)
+REST and XMLRPC for external services and one for diagramming tools)
 and other more rudimentary (pdf, HTTP, XML, etc.).
 
 Finally, tools have their own model. We have taken advantage of
