@@ -107,6 +107,27 @@ This scheme allows to rely on FML dynamic binding mechanism to delegate to types
 
 Same pattern applies for artifacts used and produced with relations \textit{usedArtifacts}, \textit{producedArtifacts} and \textit{performingActors} defined in \textit{Task} concept (\textbf{P13}). An instance of \textit{Artifact}, defined as a specialization of \textit{MultiInstance} concept, references a set of \textit{ArtifactType} through the specialized \textit{/types} relation (\textbf{P14} and \textbf{P16}). Likewise, concept \textit{Actor} is defined as a specialization of \textit{MultiInstance} concept and references a set of \textit{ActorType} through the specialized \textit{/types} relation (\textbf{P15}).
 
+Semantics is unclear relatively to instantiation policy for artifacts. We assume that task execution implies that for each used and produced \textit{artifact type} defined in related \textit{task type}, it exists at least one \textit{artifact} declaring required ontologic instantiation (through \textit{type} relation). Following excerpt of FML code shows partial implementation of this. Same patterns applied for produced artifacts.
+
+\begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true] 
+concept Task extends Instance 
+{
+  ...
+  boolean declaresRequiredUsedArtifacts() {
+    for (artifactType : type.usedArtifactType) {
+      boolean found = false;
+      for (artifact : usedArtifacts) {
+        if (artifact.isOfType(artifactType))
+          found = true;
+      }
+      if (!found) return false;
+    }
+    return true;
+  }
+  ...
+}    
+\end{lstlisting}
+
 Authorization for an actor to perform a task (\textbf{P17}) is captured either through the relations \textit{allowedActors} and \textit{allowedActorTypes} defined in \textit{TaskType}. This mechanism is completed by following behaviours \textit{isAuthorizedActor(Actor)}, \textit{isValidActor(Actor)} and \textit{isValidActorType(ActorType)} defined in \textit{TaskType} : 
 
 \begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true]
@@ -235,13 +256,21 @@ concept CodingTaskType extends SETaskType
 {
   ProgrammingLanguage[1..*] languages;
   ...
-  public Process newTask(String name) {    
+  public Coding newTask(String name) {    
     return new Coding(name,this); 
   }
 }    
 \end{lstlisting}
 
-\textit{Code} concept extends \textit{SEArtifact}, and defines a relation \textit{language} to \textit{ProgrammingLanguage} with single cardinality (\textbf{S4}). \textbf{S5} is more ambigous as task type \textit{Coding} defines one or more programming languages but produces code which is expressed in one language only. Semantics is unclear relatively to instantiation policy for artifacts. We assume that task execution implies that for each used artifact type defined in related task type, at least one artifact
+\textit{Code} concept extends \textit{SEArtifact}, and defines a relation \textit{language} to \textit{ProgrammingLanguage} with single cardinality (\textbf{S4}). \textbf{S5} is more ambigous as task type \textit{Coding} defines one or more programming languages but produces code which is expressed in one language only. This requirement is captured through the redefinition of \textit{declaresRequiredProducedArtifacts()} where programming language should also match \noteSylvain{Pas la place pour mettre le code, non nécessaire si ?}. \textbf{S6} is guaranteed though the \textit{language} relation defined in \textit{Code} and following invariant declared in \textit{Code}:  
+
+\begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true]
+forEach (artifactType : types) {
+    assert !(artifactType instanceof CodeArtifactType) | artifactType.isSenior
+}
+\end{lstlisting}
+
+% 
 
 Code artifact must be produced for each programming language defined in a \textit{CodingTaskType}. If \textit{COBOL} is referenced in languages defined for a given Coding instance, then we must instantiate a \textit{Code} instance with \textit{COBOL} language (\textbf{S5} and \textbf{S6}).
 
