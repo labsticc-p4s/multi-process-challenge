@@ -241,7 +241,9 @@ concept CodingTaskType extends SETaskType
 }    
 \end{lstlisting}
 
-\textit{Code} concept extends \textit{SEArtifact}, and defines a relation \textit{language} to \textit{ProgrammingLanguage} with single cardinality (\textbf{S4}). \textbf{S5} is more ambigous as task type \textit{Coding} defines one or more programming languages but produces code which is expressed in one language only. Semantics is unclear relatively to instantiation policy for artifacts. We assume that a Code artifact must be produced for each programming language defined in a \textit{CodingTaskType}. If \textit{COBOL} is referenced in languages defined for a given Coding instance, then we must instantiate a \textit{Code} instance with \textit{COBOL} language (\textbf{S5} and \textbf{S6}).
+\textit{Code} concept extends \textit{SEArtifact}, and defines a relation \textit{language} to \textit{ProgrammingLanguage} with single cardinality (\textbf{S4}). \textbf{S5} is more ambigous as task type \textit{Coding} defines one or more programming languages but produces code which is expressed in one language only. Semantics is unclear relatively to instantiation policy for artifacts. We assume that task execution implies that for each used artifact type defined in related task type, at least one artifact
+
+Code artifact must be produced for each programming language defined in a \textit{CodingTaskType}. If \textit{COBOL} is referenced in languages defined for a given Coding instance, then we must instantiate a \textit{Code} instance with \textit{COBOL} language (\textbf{S5} and \textbf{S6}).
 
 \begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true]
 concept CodingTaskType extends SETaskType 
@@ -260,6 +262,13 @@ concept CodingTaskType extends SETaskType
 
 
 \subsection{Openflexo tooling}
+
+\begin{figure*}
+ \centering
+     \includegraphics[width=1.0 \textwidth]{Figures/ToolingArchitecture.pdf}
+     \caption{Tooling architecture}
+    \label{fig:ToolingArchitecture}
+\end{figure*}
 
 % Expliquer l'outillage construit et comment il marche
 
