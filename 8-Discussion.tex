@@ -27,7 +27,7 @@ of which should be treated in a specific sub-section of the
  
 \todo[inline]{on pourrait aussi répondre ici aux 3 questions posées
 explicitement (copiées dans l'intro pour le moment), a priori non, le chef
-trouve que c'est chiant}
+« trouve que c'est chiant »}
 
 %
 %%niveaux de ``concrétude'' -> level-blind solution
@@ -171,13 +171,18 @@ Currently, there are no formalism to establish the semantics of the MLM
 technique in our solution. \textcolor{red}{To develop…}
 
 Our solution is fully tooled by a ``free'' ad hoc tool. We use the Openflexo
-infrastructure to design models and metamodels together. In addition, our
-infrastructure also produces a dedicated tool which allows processes execution.
-In our approach, 
+infrastructure to build models and metamodels together. In addition to the
+solution, it also provides a dedicated tool which allows processes execution. 
+\noteJC{dire qqch sur le fait que produire une solution avec son outil associé
+  est une force, genre ``Providing a solution and its associated tool can be
+…'' mais pour le moment je ne vois pas comment l'enchainer}
 
-\subsection{model verification}
+\subsection{Model verification}
 
 %Discuss model verification (e.g., consistency analyses) or other quality
 %assessment mechanisms supported by the MLM technique employed.
 
-
+By default, our tooling does not include a lot of automated verifications.
+However, a user can add verification mechanisms by writing new behaviors
+attached to concepts. Presently, the verifications rely on the users when they
+build the metamodels and the models.
