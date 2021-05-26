@@ -1,6 +1,8 @@
 %Model Presentation: detailed  presentation of a model, including justifications for design decisions
 
-\todo[inline]{phrase d'intro pour expliquer que les req étaient couverts au fur et à mesure (côté systématique)}
+The presentation of our solution to the \mpc follows a systematic methodology where modeling choices are introduced step by step, as the requirements are stated. Satisfaction of requirements are explained throughout this presentation.
+
+%\todo[inline]{phrase d'intro pour expliquer que les req étaient couverts au fur et à mesure (côté systématique)}
 
 Figure \ref{fig:MultilevelArchitecture} shows the overview of the multivel architecture designed to capture the two use cases described in the Process Challenge.
 
@@ -188,22 +190,23 @@ concept ActorType extends Type {
       return true;      
     for (p : parentActorTypes) {      
       if (p.isOrSpecializes(actorType)
-        return true;        
-      return false;    
+        return true;
     }
- ...
+    return false;
+  }
+  ...
 }
 
 concept Actor extends MultiInstance {
- ...
- boolean hasActorType(ActorType actType) {      
-  for (type : types) {
-   if (type.isOrSpecializes(actType)) {
-    return true;
-   }
+  ...
+  boolean hasActorType(ActorType actType) {      
+    for (type : types) {
+      if (type.isOrSpecializes(actType))
+        return true;
+    }
+    return false;
   }     
- }  
- ...
+  ...
 }
 \end{lstlisting}
 
@@ -248,9 +251,8 @@ Figure \ref{fig:AcmeSoftwareDevelopmentProcess} shows a screen-capture from the 
 
 The capture of \textbf{S3} requirement is performed while defining \textit{Coding} as an instance of concept \textit{CodingTaskType} extending \textit{SETaskType} and defining a relation \textit{languages} to \textit{ProgrammingLanguage} with 1..* cardinality. \textit{newTask(String)} behaviour overrides generic implementation while instantiating a \textit{Coding} concept, specializing \textit{SEArtifact}, as shown in following excerpt of FML code:
 
-\begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true]
-concept CodingTaskType extends SETaskType 
-{
+\begin{lstlisting}
+concept CodingTaskType extends SETaskType {
   ProgrammingLanguage[1..*] languages;
   ...
   public Coding newTask(String name) { 
@@ -261,30 +263,30 @@ concept CodingTaskType extends SETaskType
 
 \textit{Code} concept extends \textit{SEArtifact}, and defines a relation \textit{language} to \textit{ProgrammingLanguage} with single cardinality (\textbf{S4}). \textbf{S5} is more ambigous as task type \textit{Coding} defines one or more programming languages but produces code which is expressed in one language only. This requirement is captured through the redefinition of \textit{declaresRequiredProducedArtifacts()} where programming language should also match. \noteSylvain{Pas la place pour mettre le code, non nécessaire si ?} \textbf{S6} is guaranteed though the \textit{language} relation defined in \textit{Code} and following invariant declared in \textit{Code}:  
 
-\begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true]
+\begin{lstlisting}
 forEach (artifactType : types) {
-    assert !(artifactType instanceof CodeArtifactType) | artifactType.implements(languages)
+  assert !(artifactType instanceof CodeArtifactType) | artifactType.doesImplement(languages)
 }
 \end{lstlisting}
 
 \textit{Ann Smith} is the only one allowed to perform coding in COBOL (\textbf{S7}). This is implemented through the redefinition of \textit{newTask(String)} in \textit{CodingTaskType}:
 
-\begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true]
-concept CodingTaskType extends SETaskType 
-{
+\begin{lstlisting}
+concept CodingTaskType extends SETaskType {
   ...
   public Coding newTask(String name) {
     Coding returned = new Coding(name,this); 
-    if (languages.contains(ProgrammingLanguage.COBOL)) {
-        returned.addToPerformingActors(getActor("Ann Smith"));
-    }
+    if (languages.contains(ProgrammingLanguage.COBOL))
+      returned.addToPerformingActors(getActor("Ann Smith"));
     return returned;
   }
 }    
 \end{lstlisting}
 
 \textbf{S8} requirement is simply captured with the definition of \textit{Testing} instance of \textit{SETaskType}, \textit{Tester} instance of \textit{ActorType}, and \textit{Test report} instance of \textit{ArtifactType}.
-% TODO S9
+
+\todo[inline]{requirement S9 non couvert pour le moment: compléter}
+
 
 All software engineering artifacts defined in the context of Acme Software Engineering Process (figure \ref{fig:AcmeSoftwareDevelopmentProcess}) are all instances of \textit{SEArtifact} which defines both attributes \textit{responsible} (an \textit{Actor} instance), and \textit{versionNumber} (an \textit{integer} value), and thus fulfills \textbf{S10}. \textit{Bob Brown} is declared as an instance of \textit{Actor}, and references \textit{Analyst} and \textit{Tester} (\textit{ActorType} instances). He is also referenced by all instances of \textit{SETaskType} as the creator for related task types (\textbf{S11}).
 
@@ -292,9 +294,19 @@ All software engineering artifacts defined in the context of Acme Software Engin
 
 \textbf{S13} requirement has been previously partially fulfilled. This must be completed with...
 
-% TODO S13
+\todo[inline]{requirement S13 pas complètement couvert : compléter}
 
 \subsection{Openflexo tooling}
+
+Our solution is fully implemented within Openflexo tool. Both usecases have been modelled in the interactive design environment and are executable by the FML execution engine.
+
+\todo[inline]{mettre ici le lien vers la page web qui montre la démo}
+
+Ici: un paragraphe qui décrit l'exécution, l'activation et la finalisation des taches, la business logic des gateways, etc...
+
+We took advantage of model federation and the availability of diagramming features though the \textit{Diagramming TA} to implement two interactive graphical tools built on top of conceptual levels detailed in previous section. A first tool offers a graphical edition of a Process type, while the second tool offers enactment feature (the instantiation of a process from its process type), the ability within an enacted process to assign tasks to some actors, and the execution of this process with a graphical visualization.
+
+Figure \ref{fig:ToolingArchitecture} shows the architecture of these two tools. Left of figure presents process type graphical editor. ProcessTypeEditor is implemented as a VirtualModel declaring two model slots (represented with bold circles). The first model slot references an instance of Acme metamodel, while the second model slot references an instance of diagram, conforms to the ProcessType diagram specification (a diagram metamodel
 
 \begin{figure*}
  \centering
