@@ -6,8 +6,8 @@ First, the federation approach is mainly based on modeling relationships among s
 During the next step of our approach, we try to take into account the reusability of the relationships by identifying the meaning, the semantics, associated with each relationship, in a goal of concept reification with their behavior. The last step is to organize or structure these concepts to improve reusability and extensibility, to create VirtualModels in our Openflexo framework.     
 
 Like any modeling approaches, these different steps could also be achieved in any order and iteratively. But our goal during the challenge's analysis remains to produce a FML VirtualModels architecture as a federation of VirtualModels. 
-As shown in figure~\ref{fig:MultilevelArchitecture}, we defined two VirtualModels (Base and ACME processes abstractions) instantiatied by two VirtualModel instances (XSure and ACME processes). As the figure shows the VirtualModels play the role of metamodels, in the sens of concept definition with a level blind approach. The VirtualModel instance plays the role of models conforms to the metamodel definitions. 
-This follows the way the challenge is presented and this organisation allows for the possibility of easy extensions.
+As shown in figure~\ref{fig:MultilevelArchitecture}, we defined two VirtualModels (Base and ACME processes abstractions) instantiatied by two VirtualModel instances (XSure and ACME processes). As the figure shows the VirtualModels play the role of metamodels, in the sens of concept definition with a level-blind approach. The VirtualModel instances play the role of models conforms to metamodel definitions. In the rest of the paper, we keep the the vocabulary metamodels and models as to simplify the presentation.
+The resulted architecture follows the way the challenge is presented and this organisation allows for the possibility of flexible extensions.
 
 \begin{figure}
     \centering
@@ -18,9 +18,9 @@ This follows the way the challenge is presented and this organisation allows for
 
 Also as our understanding, the use case analysis leads to identify two main modeling axis (as presented in figure \ref{fig:LinguisticAndOntologicInstantiation}):
 \begin{itemize}
-    \item the horizontal axis is characterized as the ontological instantiation axis, in the sense that the domain type definition (ProcessType as example) is referenced by an instance definition (Process, a.e). In our base  VirtualModel, each domain type definition is referenced by its instance definition, as developed in the section \ref{sec:ProcessEnactment}
+    \item the horizontal axis is characterized as the ontological instantiation axis, in the sense that the domain type definition (ProcessType as example) is referenced by an instance definition (Process, a.e). In our base metamodel, each domain type definition is referenced by its instance definition, as developed in the section \ref{sec:ProcessEnactment}
 
-\item the vertical axis is viewed as the linguistic instantiation, relative to the use of the FML language. The VirtualModel, defined as the core definition model, generates a model founded on the instantiation mechanism of the FML Language. This mechanism is the classical Object/Instance mechanism of the object languages but without any constraint on the referenced VirtualModel. The set of resulted instances comes from several VirtualModels 
+\item the vertical axis is viewed as the linguistic instantiation, relative to the use of the FML language. The VirtualModel, defined as the core definition metamodel, generates a model founded on the instantiation mechanism of the FML Language. This mechanism is the classical Object/Instance mechanism of the object languages but without any constraint on the referenced VirtualModel, i.e metamodel. The set of resulted instances comes from several VirtualModels 
 from any abstraction level as detailed in section \ref{sec:AcmeSoftwareDevelopmentProcess}
 
 
@@ -33,13 +33,15 @@ from any abstraction level as detailed in section \ref{sec:AcmeSoftwareDevelopme
     \label{fig:LinguisticAndOntologicInstantiation}
 \end{figure}
 
-Based on this approach, we organize our set of models as presented by the figure \ref{fig:MultilevelArchitecture}. The resulted multi-level architecture is organized as a set of VirtualModels. The first one is the core concepts model including the definition of Processes and Tasks. The second one, Acme VirtualModel, is extended from the previous model to integrate the Acme definitions. Our FML language defines the multiple inheritance concept between VirtualModels as illustrated in the section \ref{sec:AcmeSoftwareDevelopmentProcess}.
+Based on this approach, we organize our set of models as presented by the figure \ref{fig:MultilevelArchitecture}. The resulted multi-level architecture is organized as a set of VirtualModels. The first one is the core concepts metamodel including the definition of Processes and Tasks. The second one, Acme metamodel, is extended from the previous model to integrate the Acme definitions. Our FML language defines multiple inheritance concept between VirtualModels as illustrated in the section \ref{sec:AcmeSoftwareDevelopmentProcess}.
 
-Finally as explained previously, the defined level for the Acme model and the XSure is the result of the instantiation of VirtualModels of different levels. In our approach this level can't be specialized or extended but all the other VirtualModels could be extended  by any concepts, as a new federated model. 
+Finally as explained previously, the defined level for the Acme metamodel and the XSure is the result of the instantiation of VirtualModels. In our approach this level can't be specialized or extended but all the other VirtualModels could be extended  by any concepts, as a new federated model. 
+Also, the instance level can be instantiated from any VirtualModel, which represent any metamodel level. 
 
 
 
-% il reste à décrire l'architecture générale des VirtualModels
+% cross level constraints or added models as federated metamodels
+
 
 
 ~\\
