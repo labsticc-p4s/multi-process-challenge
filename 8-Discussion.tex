@@ -1,59 +1,48 @@
-\noteJC{notes en vrac
-  \begin{itemize}
-    \item qui ? jc, fabien
-    \item l'appel contraint plus ou monis la structure et le contenu de cette
-      section
-  \begin{itemize}
-    \item discussing choices  made (ex : héritage vs attr), pointing out potential compromises/deficiencies ;
-    \item \emph{Challenge respondents must discuss their multilevel
-model solution with regard to the following aspects, each
-of which should be treated in a specific sub-section of the
-“Assessment” section of the article}
-  \end{itemize}
-    \item pas d'explicitation de niveaux de « concrétude » : conséquences ? facile de tracer des liens entre les niveaux ; difficile d'avoir le niveau ;
-    \item outil adaptable
-    \item niveau d'abstraction
-    \item réutilisabilité des modèles ; 
-    \item ajouter quelques métriques "gros grains"
-    \item difficultés/facilités : contraintes faites à la main par rapport aux
-      langages où on peut spécifier le niveau d'extension lorsque l'on trace un
-      lien multi niveaux -> outil plus souple, mais moins de comportements
-      automatisés
-    \item + ouvert
-    \item moins de support (faudrait implémenter ce qui manque)
-    \item requiert de la méthode, ajouter des comportements, etc.
-    \item point saillant :  outillage "gratuit" = on fournit une solution + l'outil pour exécuter le processus
-\end{itemize}}
+% Assessment of the Modeling Solution: discussing choices made, pointing out potential compromises / deficiencies
+
+%\noteJC{notes en vrac
+%  \begin{itemize}
+%    \item qui ? jc, fabien
+%    \item l'appel contraint plus ou moins la structure et le contenu de cette
+%      section
+%  \begin{itemize}
+%    \item discussing choices  made (ex : héritage vs attr), pointing out potential compromises/deficiencies ;
+%    \item \emph{Challenge respondents must discuss their multilevel
+%model solution with regard to the following aspects, each
+%of which should be treated in a specific sub-section of the
+%“Assessment” section of the article}
+%  \end{itemize}
+%    \item[\checkmark] pas d'explicitation de niveaux de « concrétude » : conséquences ? facile de tracer des liens entre les niveaux ; difficile d'avoir le niveau ;
+%    \item outil adaptable
+%    \item niveau d'abstraction
+%    \item[\checkmark] réutilisabilité des modèles ; 
+%    \item ajouter quelques métriques "gros grains"
+%    \item[\checkmark] difficultés/facilités : contraintes faites à la main par rapport aux
+%      langages où on peut spécifier le niveau d'extension lorsque l'on trace un
+%      lien multi niveaux -> outil plus souple, mais moins de comportements
+%      automatisés
+%    \item + ouvert
+%    \item[\checkmark] moins de support (faudrait implémenter ce qui manque)
+%    \item requiert de la méthode, ajouter des comportements, etc.
+%    \item[\checkmark] point saillant :  outillage "gratuit" = on fournit une solution + l'outil pour exécuter le processus
+%\end{itemize}}
  
-\todo[inline]{on pourrait aussi répondre ici aux 3 questions posées
-explicitement (copiées dansl'intro pour le moment), a priori non, le chef
-trouve que c'est chiant}
+%\todo[inline]{on pourrait aussi répondre ici aux 3 questions posées
+%explicitement (copiées dans l'intro pour le moment), a priori non, le chef
+%« trouve que c'est chiant »}
 
-%
-%%niveaux de ``concrétude'' -> level-blind solution
-%
-%Although our tool was not designed with a focus on multi-level modelling, we were able to propose a fully working solution. 
-%
-%Our approach is level-blind, therefore it is not easy to quickly retrieve the abstraction level of a concept.
-%
-%%métriques gros grains ?
-%
-%
-%%choices, compromises/deficiences
-%During the modeling phase, we had to choose 
-%(for instance requirement xx 
-%
-%%+/-
-%
-%%points saillants
-
+\noteJC{pour le moment, seulement réponse aux différents points, on ne voit pas
+de discussion sur les choix, sur les potentiels compromis/déficiencies ;
+sous-sections : bof, p-e plutôt des paragraphes ; très court/concis, faudrait
+étoffer}
 
   %plan plus ou moins imposé par l'appel
-\todo[inline]{mandatory discussion aspects (on verra plus tard si on fait des
-sous-sections ou pas) ↓}
+\todo[inline]{mandatory discussion aspects ↓}
 
   \subsection{Basic modeling constructs}
   %Explain the basic modeling constructs used in the solution.
+
+  \noteJC{pas clair pour moi ce qui est entendu par « basic modeling constructs »}
 
   \subsection{Levels}
   %Levels (or other model content organization schemes employed)
@@ -96,9 +85,9 @@ sous-sections ou pas) ↓}
   As for cross-level relationships, cross-level constraints do not have a
   specific nature. They are like any constraint a user can define on a model
   element. Therefore, if a constraint is mandatory when establishing a
-  relationship between elements from different levels, the user has create it
-  manually. This can be a limit of our approach: the flexibility of our tooling
-  at the cost of a limited number fo automated behaviors. 
+  relationship between elements from different levels, the user has to create
+  it manually. This can be a limit of our approach: the flexibility of our
+  tooling at the cost of a limited number of automated behaviors. 
   
 
   \subsection{Integrity mechanism}
@@ -108,7 +97,9 @@ sous-sections ou pas) ↓}
 
   In order to preserve the integrity of level contents when changes to level
   contents occur, a validation has to be triggered. The tool reports all
-  inconsistencies that the user is free to fix.
+  inconsistencies that the user is free to fix. Note that in our approach, the
+  metamodels are built in a ad hoc way together with the models
+  (co-construction), therefore the user validates on a ad hoc basis.
 
   \subsection{Deep characterization}
 
@@ -118,7 +109,7 @@ sous-sections ou pas) ↓}
   %modelers make at intermediate levels, including future extensions to
   %intermediate levels.
 
-  \noteJC{pas trop clair pour moi pour le moment}
+  \noteJC{pas trop clair pour moi pour le moment -> N/A}
 
   \subsection{Generality}
 
@@ -126,10 +117,10 @@ sous-sections ou pas) ↓}
   %domains? Does it embody invariant principles of the domain(s) it covers with
   %minimal redundancy?
 
-  Due to the nature of model federation, the models are highly reusable. Our
-  solution separates the domain-specific elements from general purpose ones,
-  making easily possible to apply it to other domains. 
-  \noteJC{à développer + ajouter avantage de l'outil gratuit ici ?}
+  Due to the nature of model federation, the models are highly reusable.
+  Although we build ad hoc metamodels in our approach, our solution separates
+  the domain-specific elements from general purpose ones, making easily
+  possible to apply it to other domains. 
 
   \subsection{Extensibility}
 
@@ -139,25 +130,51 @@ sous-sections ou pas) ↓}
   %level insertion is a possibility in your chosen approach, explain how it
   %would be performed.
 
-  A strength of the approach of model federation we have adopted resides in its
-  flexibility. One can extend a solution easily: 
+  A strength of the  model federation approach we have adopted resides in its
+  flexibility. As we build metamodels and models together instead of fitting
+  into a metamodel, our solution is more flexible. Therefore one can extend a
+  solution easily. The challenge itself can be seen as a validation of the
+  extensibility ability of our solution: it was decomposed into two steps
+  (generic process Xsure, then ACME process) which is kind of simulation of the
+  evolution of the  specification. We observed that our approach has been
+  resilient to change.
 
-  \noteJC{comment étendre : dépend un peu des extensions, ne prendre que celle
-  donnée en exemple ? ; level insertion possible : oui, vu que pas de notion de
-level}
+  Due to the level-blind aspect of our approach, we could insert a new level,
+  for instance. It would consist in creating new concepts we would link to
+  other ones. Then, we would add any necessary constraints on those concepts
+  and on the relashiontips linking them to the other existing concepts. 
+
+  \noteJC{comment étendre : prendre l'exemple donné ?; level insertion possible
+  : oui, vu que pas de notion de level}
+
 
   
 \todo[inline]{recommended discussion aspects ↓}
-\subsection{formalisms and tools ?}
+\subsection{Formalisms and tools ?}
 
 %Indicate whether there are formalisms to establish the semantics of the MLM
 %technique and/or tools that support the present solution
 
 \noteJC{on a du tooling, un peu moins de formalisme}
 
-\subsection{model verification}
+Currently, there are no formalism to establish the semantics of the MLM
+technique in our solution. \textcolor{red}{To develop…}
+
+Our solution is fully tooled by a ``free'' ad hoc tool. We use the Openflexo
+infrastructure to build models and metamodels together. In addition to the
+solution, it also provides a dedicated tool which allows processes execution. 
+\noteJC{dire qqch sur le fait que produire une solution avec son outil associé
+  est une force, genre ``Providing a solution and its associated tool can be
+…'' mais pour le moment je ne vois pas comment l'enchainer}
+
+\subsection{Model verification}
 
 %Discuss model verification (e.g., consistency analyses) or other quality
 %assessment mechanisms supported by the MLM technique employed.
 
+By default, our tooling does not include a lot of automated verifications.
+However, a user can add verification mechanisms by writing new behaviors
+attached to concepts. Presently, the verifications rely on the users when they
+build the metamodels and the models.
 
+\todo[inline]{verification de cohérence syntaxique (cardinalités, type des instances) et des contraintes métier (comportements écrits par les humains) à la volée + validation manuelle ; typage ? ; pas d'analyseur statique ; vérif de la structure des contraintes/bonne forme des contraintes par rapport à la structure des modèles (exemple binding pas valide)}

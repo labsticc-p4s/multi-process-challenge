@@ -1,4 +1,6 @@
-% detailed  presentation of a model, including justifications for design decisions
+%Model Presentation: detailed  presentation of a model, including justifications for design decisions
+
+\todo[inline]{phrase d'intro pour expliquer que les req étaient couverts au fur et à mesure (côté systématique)}
 
 Figure \ref{fig:MultilevelArchitecture} shows the overview of the multivel architecture designed to capture the two use cases described in the Process Challenge.
 
@@ -32,16 +34,12 @@ We first present the process definition part of base metamodel, located left of 
 
 Following listing shows an excerpt of FML code modeling some core concepts of process modeling base metamodel. 
 
-\begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true]
+\begin{lstlisting}
 model MetaModel {
 
-  concept ModelingElement {
-    ...
-  }
+  concept ModelingElement { ... }
   
-  concept Type extends ModelingElement {
-    ...
-  }
+  concept Type extends ModelingElement { ... }
   
   concept ProcessType extends Type {
     TaskType[0..*] taskTypes;
@@ -67,7 +65,6 @@ model MetaModel {
     }
     
     // Other core concepts
-    ...
   }
 }    
 \end{lstlisting}
@@ -77,7 +74,7 @@ model MetaModel {
 
 Actor concept defines a boolean attribute called \textit{isSenior}, while \textit{TaskType} defines an additional \textit{isCritical} boolean attribute, indicating that some instance of \textit{TaskType} are flagged as critical and must be performed by senior actors. To fullfill \textbf{P9} requirement, a supplementary constraint is required for \textit{TaskType} and is captured through this invariant expressed in FML language:
 
-\begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true]
+\begin{lstlisting}
 forEach (actor : allowedActors) {
     assert !isCritical | actor.isSenior
 }
@@ -85,13 +82,15 @@ forEach (actor : allowedActors) {
 
 This invariant should be completed with additional constraints defined in \textit{Task} \textit{FlexoConcept}, which apply to performing actors actually assigned to enacted tasks. 
 
+\todo{Gérer également la fin de P9, non traité pour le moment: artifact they produced must be associated with a validation task}
+
 \subsubsection{Process enactment}
 \label{sec:ProcessEnactment}
 We now present the process enactment part of base metamodel, located right of figure \ref{fig:BaseMetamodel}. All concepts defined in this subsection are either specialization of \textit{Instance} concept (if they are associated with exactly one \textit{Type}) or \textit{MultiInstance} concept (for those which have several types).
 
 \textit{Process} represents an enacted \textit{ProcessType}, as defined in previous subsection (\textbf{P10}). FML defines behavioural features (operations in object-oriented modelling), called \texttt{FlexoBehaviour}. \textit{ProcessType} defines following behaviour \texttt{newProcess(String)}, taking a \texttt{String} argument (the name of the process to enact):
 
-\begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true]
+\begin{lstlisting}
 public Process newProcess(String name) {    
   Process newProcess = new Process(name,this);  
   for (taskType : taskTypes) {      
@@ -105,44 +104,65 @@ This scheme allows to rely on FML dynamic binding mechanism to delegate to types
 
 Same pattern applies for artifacts used and produced with relations \textit{usedArtifacts}, \textit{producedArtifacts} and \textit{performingActors} defined in \textit{Task} concept (\textbf{P13}). An instance of \textit{Artifact}, defined as a specialization of \textit{MultiInstance} concept, references a set of \textit{ArtifactType} through the specialized \textit{/types} relation (\textbf{P14} and \textbf{P16}). Likewise, concept \textit{Actor} is defined as a specialization of \textit{MultiInstance} concept and references a set of \textit{ActorType} through the specialized \textit{/types} relation (\textbf{P15}).
 
+Semantics is unclear relatively to instantiation policy for artifacts. We assume that task execution implies that for each used and produced \textit{artifact type} defined in related \textit{task type}, it exists at least one \textit{artifact} declaring required ontologic instantiation (through \textit{type} relation). Following excerpt of FML code shows partial implementation of this. Same patterns applied for produced artifacts.
+
+\begin{lstlisting}
+concept Task extends Instance {
+  ...
+  boolean declaresRequiredUsedArtifacts() {
+    for (artifactType : type.usedArtifactType) {
+      boolean found = false;
+      for (artifact : usedArtifacts) {
+        if (artifact.isOfType(artifactType))
+          found = true;
+      }
+      if (!found) return false;
+    }
+    return true;
+  }
+  ...
+}    
+\end{lstlisting}
+
 Authorization for an actor to perform a task (\textbf{P17}) is captured either through the relations \textit{allowedActors} and \textit{allowedActorTypes} defined in \textit{TaskType}. This mechanism is completed by following behaviours \textit{isAuthorizedActor(Actor)}, \textit{isValidActor(Actor)} and \textit{isValidActorType(ActorType)} defined in \textit{TaskType} : 
 
-\begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true]
+\begin{lstlisting}
 concept TaskType extends Type {
  ...
- // Check that an Actor is authorized to perform a task, according to allowed Actor and ActorTypes
- boolean isAuthorizedActor(Actor actor) {      
-  for (actType : allowedActorTypes) {        
-   if (actor.hasActorType(actType))         
-    return this.isValidActorType(actType);          
-  }        
-  for (act : allowedActors) {        
-   if (actor == act)         
-    return this.isValidActor(actor);          
-   return false;      
- }
+ // Check that an Actor is authorized to perform a task, using allowed Actor and ActorTypes
+  boolean isAuthorizedActor(Actor actor) {      
+    for (actType : allowedActorTypes) {        
+      if (actor.hasActorType(actType))         
+        return this.isValidActorType(actType);          
+    }        
+    for (act : allowedActors) {        
+      if (actor == act)         
+        return this.isValidActor(actor);
+    }
+    return false;
+  }
   
  // Check that an Actor may perform this TaskType (override when required)
- boolean isValidActor(Actor actor) {
-  return true;
- }
+  boolean isValidActor(Actor actor) {
+    return true;
+  }
 
  // Check that an ActorType may perform this TaskType (override when required)
- boolean isValidActorType(ActorType actorType) {
-  return true;
- }
- ...
+  boolean isValidActorType(ActorType actorType) {
+    return true;
+  }
+  ...
 }
 \end{lstlisting}
 
 \textit{Task} concept basically delegates this authorization to its related \textit{TaskType}, as shown in following FML excerpt:
 
-\begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true]
+\begin{lstlisting}
 concept Task extends Instance {
  ...
- boolean isAuthorizedActor(Actor actor) {      
-  return type.isAuthorizedActor(actor);      
- }  
+  boolean isAuthorizedActor(Actor actor) {      
+    return type.isAuthorizedActor(actor);      
+ }
  ...
 }
 \end{lstlisting}
@@ -164,7 +184,7 @@ concept ActorType extends Type {
  ActorType[0..*] parentActorTypes;
  ...
  boolean isOrSpecializes(ActorType actorType) {    
-  if (actorType = this)   
+  if (actorType == this)   
    return true;      
   for (p : parentActorTypes) {      
    if (p.isOrSpecializes(actorType)
@@ -209,10 +229,79 @@ The challenge describes in a second part a Software engineering process for a fi
     \label{fig:AcmeFullArchitecture}
 \end{figure*}
 
+\todo{Augmenter la taille des fontes de la figure \ref{fig:AcmeFullArchitecture}}
 
+Figure \ref{fig:AcmeFullArchitecture} shows the full architecture capturing Acme software development process, with an instance of enacted \textit{Software Engineering Process}, and highlights all conceptual levels. Acme metamodel enriches base metamodel by offering specializing concepts: \textit{SETaskType} extending \textit{TaskType}, a more specialized concept \textit{CodingTaskType} extending \textit{SETaskType}, \textit{SEArtifactType} extending \textit{ArtifactType}, a more specialized concept \textit{CodeArtifactType} extending \textit{SEArtifactType}. Acme metamodel also defines task type \textit{Coding} as a specialized concept of \textit{Task}, and provides concept \textit{Developer} extending \textit{ActorType}. This metamodel is completed with \textit{ProgrammingLanguage} concept, defined as an enumeration (\textit{Java}, \textit{C}, \textit{COBOL}). All instances required to capture challenge use case are still defined in final Acme model itself instance of Acme metamodel. Instances are represented with rounded boxes and linguistic instantiation are represented with dashed connectors.
 
+Figure \ref{fig:AcmeSoftwareDevelopmentProcess} shows a screen-capture from the tooling developed in the context of the challenge, and presents the \textit{Software Development Process} for Acme company. 
+
+\begin{figure}
+ \centering
+    \includegraphics[width=1.0 \columnwidth]{Figures/SoftwareEngineeringProcessCroped.pdf}
+     \caption{Acme software development process}
+    \label{fig:AcmeSoftwareDevelopmentProcess}
+\end{figure}
+
+\todo{Supprimer ombres et dégradés de la figure \ref{fig:AcmeSoftwareDevelopmentProcess}, et faire en sorte qu'elle soit plus haute et moins large}
+
+\textit{"Requirements analysis"} is defined as an instance of \textit{SETaskType}, \textit{Analyst} as an instance of \textit{ActorType} and \textit{Requirement specifications} as an instance of \textit{SEArtifactType}. \textit{"Requirements analysis"} instance defines property values \textit{producedArtifactTypes=\{Requirement specifications\}} and \textit{allowedActorTypes=\{Analyst\}} (\textbf{S1}). In the same way, \textit{"Test case design"} is defined as an instance of \textit{SETaskType}, marked as critical with property value \textit{isCritical=\{true\}}, and bound to \textit{Analyst} with \textit{allowedActorTypes} relation. \textit{"Test case design"} produces \textit{"Test cases"} defined as an instance of \textit{SETaskType}. The latter is used in "Test design review" (\textit{producedArtifactTypes} relation) (\textbf{S1} and \textbf{S13}, satisfied with \textbf{P9}). 
+
+The capture of \textbf{S3} requirement is performed while defining \textit{Coding} as an instance of concept \textit{CodingTaskType} extending \textit{SETaskType} and defining a relation \textit{languages} to \textit{ProgrammingLanguage} with 1..* cardinality. \textit{newTask(String)} behaviour overrides generic implementation while instantiating a \textit{Coding} concept, specializing \textit{SEArtifact}, as shown in following excerpt of FML code:
+
+\begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true]
+concept CodingTaskType extends SETaskType 
+{
+  ProgrammingLanguage[1..*] languages;
+  ...
+  public Coding newTask(String name) { 
+    return new Coding(name,this); 
+  }
+}    
+\end{lstlisting}
+
+\textit{Code} concept extends \textit{SEArtifact}, and defines a relation \textit{language} to \textit{ProgrammingLanguage} with single cardinality (\textbf{S4}). \textbf{S5} is more ambigous as task type \textit{Coding} defines one or more programming languages but produces code which is expressed in one language only. This requirement is captured through the redefinition of \textit{declaresRequiredProducedArtifacts()} where programming language should also match. \noteSylvain{Pas la place pour mettre le code, non nécessaire si ?} \textbf{S6} is guaranteed though the \textit{language} relation defined in \textit{Code} and following invariant declared in \textit{Code}:  
+
+\begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true]
+forEach (artifactType : types) {
+    assert !(artifactType instanceof CodeArtifactType) | artifactType.implements(languages)
+}
+\end{lstlisting}
+
+\textit{Ann Smith} is the only one allowed to perform coding in COBOL (\textbf{S7}). This is implemented through the redefinition of \textit{newTask(String)} in \textit{CodingTaskType}:
+
+\begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true]
+concept CodingTaskType extends SETaskType 
+{
+  ...
+  public Coding newTask(String name) {
+    Coding returned = new Coding(name,this); 
+    if (languages.contains(ProgrammingLanguage.COBOL)) {
+        returned.addToPerformingActors(getActor("Ann Smith"));
+    }
+    return returned;
+  }
+}    
+\end{lstlisting}
+
+\textbf{S8} requirement is simply captured with the definition of \textit{Testing} instance of \textit{SETaskType}, \textit{Tester} instance of \textit{ActorType}, and \textit{Test report} instance of \textit{ArtifactType}.
+% TODO S9
+
+All software engineering artifacts defined in the context of Acme Software Engineering Process (figure \ref{fig:AcmeSoftwareDevelopmentProcess}) are all instances of \textit{SEArtifact} which defines both attributes \textit{responsible} (an \textit{Actor} instance), and \textit{versionNumber} (an \textit{integer} value), and thus fulfills \textbf{S10}. \textit{Bob Brown} is declared as an instance of \textit{Actor}, and references \textit{Analyst} and \textit{Tester} (\textit{ActorType} instances). He is also referenced by all instances of \textit{SETaskType} as the creator for related task types (\textbf{S11}).
+
+\textbf{S12} is somehow ambigous as it implies an implicit semantics regarding underlying business logic of process execution. We assume that all tasks may define an expected duration, which might be checked during process execution. This can be modelled through the addition of \textit{expectedDuration} attribute in \textit{TaskType}. Alternatively, this can be modelled through the definition of \textit{SETesting} concept, as a specialization of \textit{SETaskType}, and the instantiation of \textit{Testing} as an instance of \textit{SETesting}. The business logic expressed by \textbf{S12} requirement should be redefined in \textit{SETesting}.
+
+\textbf{S13} requirement has been previously partially fulfilled. This must be completed with...
+
+% TODO S13
 
 \subsection{Openflexo tooling}
+
+\begin{figure*}
+ \centering
+     \includegraphics[width=0.9 \textwidth]{Figures/ToolingArchitecture.pdf}
+     \caption{Tooling architecture}
+    \label{fig:ToolingArchitecture}
+\end{figure*}
 
 % Expliquer l'outillage construit et comment il marche
 

@@ -1,0 +1,37 @@
+\documentclass{standalone}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary{calc,shapes.geometric,arrows.meta,backgrounds}
+
+\begin{document}
+  \begin{tikzpicture}[ >=Classical TikZ Rightarrow]
+    \path[use as bounding box] (-4.065,-4.065) rectangle (4.065,4.065);
+    \foreach \n/\h in {0/1.2cm,1/1.3cm,2/1.2cm,3/1.1cm,4/1cm}{
+      \node[inner sep=0pt] (m\n) at (90+\n*360/5: 3cm) {\includegraphics[height=\h]{house\n}};
+      \node[minimum width=3mm,minimum height=2mm,draw=orange,fill=orange!30,inner sep=0pt,rotate=\n*360/5] (ms\n) at (90+\n*360/5:1.18cm) {};
+      \draw[<->] (m\n) -- (ms\n);
+    }
+    \begin{pgfonlayer}{background}
+      \foreach \n/\c in {0/black!15,1/black!20,2/black!25,3/black!20,4/black!25}{
+        \node[inner sep=1pt,outer sep=0pt,circular sector,circular sector angle=360/5,fill=\c,minimum width=6.8cm,rotate=-90+\n*360/5] (ts\n) at (90+\n*360/5: 2.73cm) {};
+      }
+      \begin{scope}[blue]
+        \node[circle,draw=orange,fill=orange!30,text width=2cm,align=center,inner sep=1mm] {conceptual models};
+        \node[anchor=center,text width=2cm,align=center] (ts) at (m0-|m4)  {technological spaces};
+        \node[align=center,text width=0.92cm] (ms) at ($(m3)!0.5!(m4)$)  {model slots};
+        \node[anchor=south east,text width=1.4cm,align=center] (fm) at ($(m0)!0.5!(m1)$)  {federated models};
+        \draw[->,thin] (ts.west) -- +(-0.4,0);
+        \draw[->,thin] (ts.south) -- +(0,-0.4);
+        \draw[->,thin] (ms) -- (ms3);
+        \draw[->,thin] (ms) -- (ms4);
+        \draw[->,thin] (fm) -- (m0);
+        \draw[->,thin] (fm) -- (m1);
+      \end{scope}
+    \end{pgfonlayer}
+  \end{tikzpicture}
+\end{document}
