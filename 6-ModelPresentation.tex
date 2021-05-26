@@ -1,4 +1,6 @@
-% detailed  presentation of a model, including justifications for design decisions
+%Model Presentation: detailed  presentation of a model, including justifications for design decisions
+
+\todo[inline]{phrase d'intro pour expliquer que les req étaient couverts au fur et à mesure (côté systématique)}
 
 Figure \ref{fig:MultilevelArchitecture} shows the overview of the multivel architecture designed to capture the two use cases described in the Process Challenge.
 
@@ -32,16 +34,12 @@ We first present the process definition part of base metamodel, located left of 
 
 Following listing shows an excerpt of FML code modeling some core concepts of process modeling base metamodel. 
 
-\begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true]
+\begin{lstlisting}
 model MetaModel {
 
-  concept ModelingElement {
-    ...
-  }
+  concept ModelingElement { ... }
   
-  concept Type extends ModelingElement {
-    ...
-  }
+  concept Type extends ModelingElement { ... }
   
   concept ProcessType extends Type {
     TaskType[0..*] taskTypes;
@@ -67,7 +65,6 @@ model MetaModel {
     }
     
     // Other core concepts
-    ...
   }
 }    
 \end{lstlisting}
@@ -77,7 +74,7 @@ model MetaModel {
 
 Actor concept defines a boolean attribute called \textit{isSenior}, while \textit{TaskType} defines an additional \textit{isCritical} boolean attribute, indicating that some instance of \textit{TaskType} are flagged as critical and must be performed by senior actors. To fullfill \textbf{P9} requirement, a supplementary constraint is required for \textit{TaskType} and is captured through this invariant expressed in FML language:
 
-\begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true]
+\begin{lstlisting}
 forEach (actor : allowedActors) {
     assert !isCritical | actor.isSenior
 }
@@ -93,7 +90,7 @@ We now present the process enactment part of base metamodel, located right of fi
 
 \textit{Process} represents an enacted \textit{ProcessType}, as defined in previous subsection (\textbf{P10}). FML defines behavioural features (operations in object-oriented modelling), called \texttt{FlexoBehaviour}. \textit{ProcessType} defines following behaviour \texttt{newProcess(String)}, taking a \texttt{String} argument (the name of the process to enact):
 
-\begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true]
+\begin{lstlisting}
 public Process newProcess(String name) {    
   Process newProcess = new Process(name,this);  
   for (taskType : taskTypes) {      
@@ -109,9 +106,8 @@ Same pattern applies for artifacts used and produced with relations \textit{used
 
 Semantics is unclear relatively to instantiation policy for artifacts. We assume that task execution implies that for each used and produced \textit{artifact type} defined in related \textit{task type}, it exists at least one \textit{artifact} declaring required ontologic instantiation (through \textit{type} relation). Following excerpt of FML code shows partial implementation of this. Same patterns applied for produced artifacts.
 
-\begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true] 
-concept Task extends Instance 
-{
+\begin{lstlisting}
+concept Task extends Instance {
   ...
   boolean declaresRequiredUsedArtifacts() {
     for (artifactType : type.usedArtifactType) {
@@ -130,43 +126,44 @@ concept Task extends Instance
 
 Authorization for an actor to perform a task (\textbf{P17}) is captured either through the relations \textit{allowedActors} and \textit{allowedActorTypes} defined in \textit{TaskType}. This mechanism is completed by following behaviours \textit{isAuthorizedActor(Actor)}, \textit{isValidActor(Actor)} and \textit{isValidActorType(ActorType)} defined in \textit{TaskType} : 
 
-\begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true]
+\begin{lstlisting}
 concept TaskType extends Type {
  ...
- // Check that an Actor is authorized to perform a task, according to allowed Actor and ActorTypes
- boolean isAuthorizedActor(Actor actor) {      
-  for (actType : allowedActorTypes) {        
-   if (actor.hasActorType(actType))         
-    return this.isValidActorType(actType);          
-  }        
-  for (act : allowedActors) {        
-   if (actor == act)         
-    return this.isValidActor(actor);          
-   return false;      
- }
+ // Check that an Actor is authorized to perform a task, using allowed Actor and ActorTypes
+  boolean isAuthorizedActor(Actor actor) {      
+    for (actType : allowedActorTypes) {        
+      if (actor.hasActorType(actType))         
+        return this.isValidActorType(actType);          
+    }        
+    for (act : allowedActors) {        
+      if (actor == act)         
+        return this.isValidActor(actor);
+    }
+    return false;
+  }
   
  // Check that an Actor may perform this TaskType (override when required)
- boolean isValidActor(Actor actor) {
-  return true;
- }
+  boolean isValidActor(Actor actor) {
+    return true;
+  }
 
  // Check that an ActorType may perform this TaskType (override when required)
- boolean isValidActorType(ActorType actorType) {
-  return true;
- }
- ...
+  boolean isValidActorType(ActorType actorType) {
+    return true;
+  }
+  ...
 }
 \end{lstlisting}
 
 \textit{Task} concept basically delegates this authorization to its related \textit{TaskType}, as shown in following FML excerpt:
 
-\begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true]
+\begin{lstlisting}
 concept Task extends Instance {
  ...
- boolean isAuthorizedActor(Actor actor) {      
-  return type.isAuthorizedActor(actor);      
- }  
- ...
+  boolean isAuthorizedActor(Actor actor) {      
+    return type.isAuthorizedActor(actor);      
+  }
+  ...
 }
 \end{lstlisting}
 
@@ -187,7 +184,7 @@ concept ActorType extends Type {
  ActorType[0..*] parentActorTypes;
  ...
  boolean isOrSpecializes(ActorType actorType) {    
-  if (actorType = this)   
+  if (actorType == this)   
    return true;      
   for (p : parentActorTypes) {      
    if (p.isOrSpecializes(actorType)

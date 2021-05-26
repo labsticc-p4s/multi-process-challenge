@@ -1,20 +1,20 @@
+%\emph{Analysis: any disambiguations of the  case  description and assumptions made, any potentially added requirements}
 
 During the requirement analysis of the challenge, the general model federation approach remains the foundation of our reflections and modeling intentions. 
 
 First, the federation approach is mainly based on modeling relationships among several models, independently of abstraction levels and model architectures.
-The next step in our approach, we try to take into account the reusability of the relationships by identifying the meaning, or semantics, associated with each relationship, in a goal of concept reification with their behavior. The last step is to organize or structure these concepts to improve reusability and extensibility, to create VirtualModels in our Openflexo framework.     
+During the next step of our approach, we try to take into account the reusability of the relationships by identifying the meaning, the semantics, associated with each relationship, in a goal of concept reification with their behavior. The last step is to organize or structure these concepts to improve reusability and extensibility, to create VirtualModels in our Openflexo framework.     
 
-Like any modeling approaches, these different steps could also be achieved in any order. But our goal during the challenge requirement analysis remains to lead to define a FML Virtual Models architecture as a federation of virtualmodels. As shown in figure~\ref{fig:MultilevelArchitecture}, we developped two metamodels (Base and ACME processes abstractions) instantiatied by two models (XSure and ACME processes). This follows the way the challenge is presented and this organisation allows for the possibility of easy extensions.
-
+Like any modeling approaches, these different steps could also be achieved in any order and iteratively. But our goal during the challenge's analysis remains to produce a FML VirtualModels architecture as a federation of VirtualModels. 
+As shown in figure~\ref{fig:MultilevelArchitecture}, we defined two VirtualModels (Base and ACME processes abstractions) instantiatied by two VirtualModel instances (XSure and ACME processes). As the figure shows the VirtualModels 
+This follows the way the challenge is presented and this organisation allows for the possibility of easy extensions.
 
 \begin{figure}
     \centering
-    \includegraphics[width=1.0 \columnwidth]{Figures/Instantiation.pdf}
-    \caption{Linguistic and ontologic instantiation}
-    \label{fig:LinguisticAndOntologicInstantiation}
+    \includegraphics[width=0.7 \columnwidth]{Figures/MultilevelArchitecture.pdf}
+    \caption{Multilevel architecture for the Process Challenge}
+    \label{fig:MultilevelArchitecture}
 \end{figure}
-
-
 
 Also as our understanding, the use case analysis leads to identify two main modeling axis (as presented in figure \ref{fig:LinguisticAndOntologicInstantiation}):
 \begin{itemize}
@@ -26,14 +26,16 @@ from any abstraction level as detailed in section \ref{sec:AcmeSoftwareDevelopme
 
 \end{itemize}
 
-
-
 \begin{figure}
     \centering
-    \includegraphics[width=0.7 \columnwidth]{Figures/MultilevelArchitecture.pdf}
-    \caption{Multilevel architecture for the Process Challenge}
-    \label{fig:MultilevelArchitecture}
+    \includegraphics[width=1.0 \columnwidth]{Figures/Instantiation.pdf}
+    \caption{Linguistic and ontologic instantiation}
+    \label{fig:LinguisticAndOntologicInstantiation}
 \end{figure}
+
+Based on this approach, we organize our set of models as presented by the figure \ref{fig:MultilevelArchitecture}. The resulted multi-level architecture is organized as a set of VirtualModels. The first one is the core concepts model including the definition of Processes and Tasks. The second one, Acme VirtualModel, is extended from the previous model to integrate the Acme definitions. Our FML language defines the multiple inheritance concept between VirtualModels as illustrated in the section \ref{sec:AcmeSoftwareDevelopmentProcess}.
+
+Finally as explained previously, the defined level for the Acme model and the XSure is the result of the instantiation of VirtualModels of different levels. In our approach this level can't be specialized or extended but all the other VirtualModels could be extended  by any concepts, as a new federated model. 
 
 
 
@@ -43,14 +45,7 @@ from any abstraction level as detailed in section \ref{sec:AcmeSoftwareDevelopme
 ~\\
 ~\\
 
-%\emph{any disambiguations of the  case  description and assumptions made, any potentially added requirements}
 
 \todo[inline]{quelles hypothèses supplémentaires ?}
-\todo[inline]{+ architecture de la modélisation (ce qui se trouve dans le ppt), le détail se retrouvera dans la section suivante}
-
-%Joel commence
-
-% Sylvain
-% Joel, je te propose les deux figures suivantes:
-
+%\todo[inline]{+ architecture de la modélisation (ce qui se trouve dans le ppt), le détail se retrouvera dans la section suivante}
 
