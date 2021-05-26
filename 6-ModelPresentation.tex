@@ -1,4 +1,6 @@
-% detailed  presentation of a model, including justifications for design decisions
+%Model Presentation: detailed  presentation of a model, including justifications for design decisions
+
+\todo[inline]{phrase d'intro pour expliquer que les req étaient couverts au fur et à mesure (côté systématique)}
 
 Figure \ref{fig:MultilevelArchitecture} shows the overview of the multivel architecture designed to capture the two use cases described in the Process Challenge.
 
@@ -187,7 +189,7 @@ concept ActorType extends Type {
  ActorType[0..*] parentActorTypes;
  ...
  boolean isOrSpecializes(ActorType actorType) {    
-  if (actorType = this)   
+  if (actorType == this)   
    return true;      
   for (p : parentActorTypes) {      
    if (p.isOrSpecializes(actorType)
