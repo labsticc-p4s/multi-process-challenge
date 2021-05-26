@@ -55,7 +55,7 @@ model MetaModel {
     }
         
     abstract concept Gateway extends Type {
-      abstract void executeGateway(Process process);
+      abstract void execute(Process process);
       ...
     }
         
@@ -159,7 +159,7 @@ concept TaskType extends Type {
 
 \begin{lstlisting}
 concept Task extends Instance {
- ...
+  ...
   boolean isAuthorizedActor(Actor actor) {      
     return type.isAuthorizedActor(actor);      
   }
@@ -169,9 +169,9 @@ concept Task extends Instance {
 
 Enforcing those constraints is finally performed by the definition of this invariant in \textit{Task} concept:
 
-\begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true]
+\begin{lstlisting}
 forEach (actor : performingActors) {
-    assert isAuthorizedActor(actor);
+  assert isAuthorizedActor(actor);
 }
 \end{lstlisting}
 
@@ -179,18 +179,18 @@ Default behaviour states that all actors and actor types are valid for all task 
 
 Actor types specialization is captured by the \textit{parentActorTypes} relation defined in \textit{ActorType} (\textbf{P18}). This is completed by both the definition of \textit{hasActorType(ActorType)} behaviour in \textit{Actor} concept and recursive behaviour \textit{isOrSpecializes(ActorType)} in \textit{ActorType}:
 
-\begin{lstlisting}[breaklines=true, language=java, basicstyle=\ttfamily\scriptsize, mathescape=true]
+\begin{lstlisting}
 concept ActorType extends Type {
- ActorType[0..*] parentActorTypes;
- ...
- boolean isOrSpecializes(ActorType actorType) {    
-  if (actorType == this)   
-   return true;      
-  for (p : parentActorTypes) {      
-   if (p.isOrSpecializes(actorType)
-    return true;        
-  return false;    
- }
+  ActorType[0..*] parentActorTypes;
+  ...
+  boolean isOrSpecializes(ActorType actorType) {    
+    if (actorType == this)   
+      return true;      
+    for (p : parentActorTypes) {      
+      if (p.isOrSpecializes(actorType)
+        return true;        
+      return false;    
+    }
  ...
 }
 
