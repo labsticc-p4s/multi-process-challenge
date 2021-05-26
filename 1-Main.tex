@@ -2,8 +2,6 @@
 
 \usepackage{todonotes}
 
-
-
 \newcommand{\noteSM}[1]{\todo[color=red!40, author=\textbf{Salvador}, inline, caption={}]{#1}}
 \newcommand{\noteJC}[1]{\todo[color=pink!40, author=\textbf{JC}, inline, caption={}]{#1}}
 \newcommand{\noteSylvain}[1]{\todo[color=green!40, author=\textbf{Sylvain}, inline, caption={}]{#1}}
@@ -28,26 +26,47 @@
 
 \DeclareTextFontCommand{\mytexttt}{\ttfamily\hyphenchar\font=45\relax}
 
+\lstdefinelanguage{fml}{
+  keywords={
+    abstract,boolean,break,byte,case,catch,char,class,%
+    const,continue,default,do,double,else,extends,false,final,%
+    finally,float,for,goto,if,implements,import,instanceof,int,%
+    interface,label,long,native,new,null,package,private,protected,%
+    public,return,short,static,super,switch,this,throw,%
+    throws,transient,true,try,void,volatile,while,String},%
+  morekeywords={
+    [3]concept,model,forEach,assert,%
+  },%
+  sensitive,%
+%  alsoletter={+-!*=<>/\%|\&\{\}?},%
+%  ndkeywords={/,+,-,!,--,++,*,=,==,!=,<,>,<=,>=,\%,|,||,\&,\&\&,\{,\}},%
+  morecomment=[l]//,%
+  morecomment=[s]{/*}{*/},%
+  morestring=[b]",%
+  morestring=[b]',%
+}%[keywords,comments,strings]%
+
 \lstdefinestyle{mystyle}{
     backgroundcolor=\color{backcolour},   
     commentstyle=\color{codegreen},
     keywordstyle=\color{magenta},
     numberstyle=\tiny\color{codegray},
     stringstyle=\color{codepurple},
-    basicstyle=\ttfamily\footnotesize,
+    basicstyle=\ttfamily\scriptsize,
     breakatwhitespace=false,         
-    breaklines=true,                 
-    captionpos=b,                    
-    keepspaces=true,                 
-    %numbers=left,                    
-    numbersep=5pt,                  
-    showspaces=false,                
-    showstringspaces=false,
-    showtabs=false,                  
+    breaklines=true,
+    flexiblecolumns=true,
+    captionpos=b,
+    emptylines=0,
+    %keepspaces=true,                 
+    %numbers=left,    numbersep=5pt,                  
+    %showspaces=false,                
+    %showstringspaces=false,
+    %showtabs=false,                  
     tabsize=2
 }
 
-\lstset{style=mystyle}
+\lstset{style=mystyle,language=fml}
 
 \begin{document}
 \begin{article}{
