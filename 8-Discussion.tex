@@ -82,11 +82,11 @@ sous-sections : bof, p-e plutôt des paragraphes ; très court/concis, faudrait
 %regard to cross-level relationships.
 
   As for cross-level relationships, cross-level constraints do not have a
-  specific nature. They are like any constraint a user can define on a model
-  element. Therefore, if a constraint is mandatory when establishing a
+  specific nature. They are like any constraint a user can define by adding a behavior to a model element. Therefore, if a constraint is mandatory when establishing a
   relationship between elements from different levels, the user has to create
-  it manually. This can be a limit of our approach: the flexibility of our
-  tooling at the cost of a limited number of automated behaviors. 
+  it manually. This can be a limit of our approach: the cost of the flexibility of our tooling is a limited number of automated behaviors. 
+  
+  %the flexibility of our tooling at the cost of a limited number of automated behaviors. 
   
 
   \subsection{Integrity mechanism}
@@ -94,11 +94,11 @@ sous-sections : bof, p-e plutôt des paragraphes ; très court/concis, faudrait
   %Discuss how the integrity of level contents is preserved when changes to
   %level contents occur.
 
-  In order to preserve the integrity of level contents when changes to level
-  contents occur, a validation has to be triggered. The tool reports all
-  inconsistencies that the user is free to fix. Note that in our approach, the
-  metamodels are built in a ad hoc way together with the models
-  (co-construction), therefore the user validates on a ad hoc basis.
+  Behaviors are continuously checked, ensuring the integrity of the models when changes occur. 
+  However, most of those behaviors have to be written by the users. 
+  Thus, the integrity of the contents relies on the users when they build the metamodels and the models.
+  Note that in our approach, the metamodels are built in a ad hoc way together with the models
+  (co-construction), therefore the user also validates on a ad hoc basis.
 
   \subsection{Deep characterization}
 
@@ -108,7 +108,10 @@ sous-sections : bof, p-e plutôt des paragraphes ; très court/concis, faudrait
   %modelers make at intermediate levels, including future extensions to
   %intermediate levels.
 
-  \noteJC{pas trop clair pour moi pour le moment -> N/A}
+  \noteJC{pas trop clair pour moi pour le moment -> N/A ? }
+  Due to the nature of our approach and its level-blindness, \emph{deep characterization} does not apply to our solution. \todo[inline]{je suppose qu'en fait, on pourrait encoder dans un comportement quelque chose se rapprochant}
+  
+  
 
   \subsection{Generality}
 
@@ -171,11 +174,4 @@ solution, it also provides a dedicated tool which allows processes execution.
 %Discuss model verification (e.g., consistency analyses) or other quality
 %assessment mechanisms supported by the MLM technique employed.
 
-Our tooling includes mechanisms to verify the models. First, syntactical consistency is realised by cardinality checks and by typing. Second, the constraints the users have written are continuously checked in order to 
-
-
-However, a user can add verification mechanisms by writing new behaviors
-attached to concepts. Presently, the verifications rely on the users when they
-build the metamodels and the models.
-
-\todo[inline]{verification de cohérence syntaxique (cardinalités, type des instances) et des contraintes métier (comportements écrits par les humains) à la volée + validation manuelle ; typage ? ; pas d'analyseur statique ; vérif de la structure des contraintes/bonne forme des contraintes par rapport à la structure des modèles (exemple binding pas valide)}
+Our tooling includes mechanisms to verify the models. First, syntactical consistency is realised by cardinality checks and by typing. Second, the constraints the users have written are continuously checked. Thus, a part of the verification relies on the users when they build the metamodels and the models.
