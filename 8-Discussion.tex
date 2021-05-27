@@ -64,8 +64,7 @@ sous-sections : bof, p-e plutôt des paragraphes ; très court/concis, faudrait
   %and explain how any potentially existing degrees of freedom were resolved.
 
   Due to the fact our approach is level-blind, our solution could have had more
-  or fewer levels depending on the variations of the use case. %As levels are
-  %not specifically encoded, 
+  or fewer levels depending on the variations of the use case. However, the number of levels is very related to the problem, making the approach fixed. For example, given a requirement, an instance cannot become a concept easily.
 
   \subsection{Cross-level relashionships}
 
@@ -156,7 +155,7 @@ sous-sections : bof, p-e plutôt des paragraphes ; très court/concis, faudrait
 %technique and/or tools that support the present solution
 
 \noteJC{on a du tooling, un peu moins de formalisme}
-
+-
 Currently, there are no formalism to establish the semantics of the MLM
 technique in our solution. \textcolor{red}{To develop…}
 
@@ -172,7 +171,9 @@ solution, it also provides a dedicated tool which allows processes execution.
 %Discuss model verification (e.g., consistency analyses) or other quality
 %assessment mechanisms supported by the MLM technique employed.
 
-By default, our tooling does not include a lot of automated verifications.
+Our tooling includes mechanisms to verify the models. First, syntactical consistency is realised by cardinality checks and by typing. Second, the constraints the users have written are continuously checked in order to 
+
+
 However, a user can add verification mechanisms by writing new behaviors
 attached to concepts. Presently, the verifications rely on the users when they
 build the metamodels and the models.
