@@ -10,6 +10,8 @@ public class AcmeMetaModel extends MetaModel  {
   @FlexoConcept  
   public class CodingTaskType extends SoftwareEngineeringTaskType  {  
   
+    public List languages;  
+  
     @CreationScheme    
     CodingTaskType:create(String name) {    
       super.create(parameters.name)    

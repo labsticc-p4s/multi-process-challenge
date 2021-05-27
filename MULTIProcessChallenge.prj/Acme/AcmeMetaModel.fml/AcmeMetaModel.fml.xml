@@ -2,6 +2,7 @@
 <VirtualModel id="SYL-1" virtualModelClass="org.openflexo.foundation.fml.VirtualModel" modelVersion="2.0" uri="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml" version="0.1" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml" name="AcmeMetaModel" author="sylvain" userID="SYL" flexoID="1">
   <FlexoConcept id="SYL-6" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#SoftwareEngineeringTaskType" name="CodingTaskType" userID="SYL" flexoID="6">
     <Inspector id="SYL-7" inspectorTitle="Coding TaskType" userID="SYL" flexoID="7" />
+    <FlexoConceptInstanceRole id="SYL-1361" virtualModelInstance="this" cloningStrategy="Reference" cardinality="OneMany" name="languages" userID="SYL" flexoID="1361" />
     <CreationScheme id="SYL-11" label="create" name="create" width="800" height="600" userID="SYL" flexoID="11">
       <BehaviourControlGraph_ExpressionAction id="SYL-20" expression="super.create(parameters.name)" userID="SYL" flexoID="20" />
       <GenericBehaviourParameter id="SYL-21" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="SYL" flexoID="21" />
