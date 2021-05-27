@@ -31,10 +31,11 @@
 %explicitement (copiées dans l'intro pour le moment), a priori non, le chef
 %« trouve que c'est chiant »}
 
-\noteJC{pour le moment, seulement réponse aux différents points, on ne voit pas
-de discussion sur les choix, sur les potentiels compromis/déficiencies ;
-sous-sections : bof, p-e plutôt des paragraphes ; très court/concis, faudrait
-étoffer}
+%\noteJC{pour le moment, seulement réponse aux différents points, on ne voit pas
+%de discussion sur les choix, sur les potentiels compromis/déficiencies}
+
+In this section, we discuss our multilevel model solution with regard to the required aspects 
+mentioned in the challenge.
 
   %plan plus ou moins imposé par l'appel
 \todo[inline]{mandatory discussion aspects ↓}
@@ -63,8 +64,8 @@ sous-sections : bof, p-e plutôt des paragraphes ; très court/concis, faudrait
   %Elaborate whether the submitted solution could have had more or fewer levels
   %and explain how any potentially existing degrees of freedom were resolved.
 
-  Due to the fact our approach is level-blind, our solution could have had more
-  or fewer levels depending on the variations of the use case. However, the number of levels is very related to the problem, making the approach fixed. For example, given a requirement, an instance cannot become a concept easily.
+  Due to the fact that our approach is level-blind, our solution could have had more
+  or fewer levels depending on the variations of the use case. However, the number of levels is very related to the problem, making the approach fixed. For example, given a requirement, an instance cannot be changed into a concept easily.
 
   \subsection{Cross-level relashionships}
 
@@ -108,10 +109,10 @@ sous-sections : bof, p-e plutôt des paragraphes ; très court/concis, faudrait
   %modelers make at intermediate levels, including future extensions to
   %intermediate levels.
 
-  \noteJC{pas trop clair pour moi pour le moment -> N/A ? }
-  Due to the nature of our approach and its level-blindness, \emph{deep characterization} does not apply to our solution. \todo[inline]{je suppose qu'en fait, on pourrait encoder dans un comportement quelque chose se rapprochant}
-  
-  
+  %\noteJC{pas trop clair pour moi pour le moment -> N/A ? }
+  Due to the nature of our approach and its level-blindness, \emph{deep characterization} does not 
+  apply to our solution. Such a mechanism could probably be encoded by specific behaviors, however 
+  it would not be a generic mechanism, making it difficult to reuse for another problem.
 
   \subsection{Generality}
 
@@ -121,8 +122,8 @@ sous-sections : bof, p-e plutôt des paragraphes ; très court/concis, faudrait
 
   Due to the nature of model federation, the models are highly reusable.
   Although we build ad hoc metamodels in our approach, our solution separates
-  the domain-specific elements from general purpose ones, making easily
-  possible to apply it to other domains. 
+  the domain-specific elements from general purpose ones, making possible to 
+  apply it to other domains. 
 
   \subsection{Extensibility}
 
@@ -137,41 +138,41 @@ sous-sections : bof, p-e plutôt des paragraphes ; très court/concis, faudrait
   into a metamodel, our solution is more flexible. Therefore one can extend a
   solution easily. The challenge itself can be seen as a validation of the
   extensibility ability of our solution: it was decomposed into two steps
-  (generic process Xsure, then ACME process) which is kind of simulation of the
+  (Xsure process, then ACME process) which can be seen as a simulation of the
   evolution of the  specification. We observed that our approach has been
   resilient to change.
 
   Due to the level-blind aspect of our approach, we could insert a new level,
-  for instance. It would consist in creating new concepts we would link to
+  for example. It would consist in creating new concepts we would link to
   other ones. Then, we would add any necessary constraints on those concepts
   and on the relashiontips linking them to the other existing concepts. 
 
-  \noteJC{comment étendre : prendre l'exemple donné ?; level insertion possible
-  : oui, vu que pas de notion de level}
+  %\noteJC{comment étendre : prendre l'exemple donné ?; level insertion possible
+  %: oui, vu que pas de notion de level}
 
 
   
 \todo[inline]{recommended discussion aspects ↓}
-\subsection{Formalisms and tools ?}
+\subsection{Formalism and tools}
 
 %Indicate whether there are formalisms to establish the semantics of the MLM
 %technique and/or tools that support the present solution
 
-\noteJC{on a du tooling, un peu moins de formalisme}
--
+\noteJC{on a du tooling, un peu moins de formalisme ; je me demande s'il ne vaut pas mieux ne pas traiter l'aspect formalisme}
+
 Currently, there are no formalism to establish the semantics of the MLM
 technique in our solution. \textcolor{red}{To develop…}
 
-Our solution is fully tooled by a ``free'' ad hoc tool. We use the Openflexo
-infrastructure to build models and metamodels together. In addition to the
-solution, it also provides a dedicated tool which allows processes execution. 
-\noteJC{dire qqch sur le fait que produire une solution avec son outil associé
-  est une force, genre ``Providing a solution and its associated tool can be
-…'' mais pour le moment je ne vois pas comment l'enchainer}
+As described in section~\ref{subsec:tooling}, our solution is fully tooled with Openflexo.
+We use the Openflexo infrastructure to build models and metamodels together, and to provide 
+dedicated tooling to edit a Process type, to enact a process and to execute it. Being able to provide a solution and its associated tools quickly and easily is an \textcolor{red}{interesting} feature. 
+We could also have taken advantage of the model federation to connect our solution to other tools 
+dedicated to process edition and to process execution (\emph{e.g.} a BPMN engine). However we 
+already had all the necessary components to provide the aforementioned graphical tools.
 
 \subsection{Model verification}
 
 %Discuss model verification (e.g., consistency analyses) or other quality
 %assessment mechanisms supported by the MLM technique employed.
 
-Our tooling includes mechanisms to verify the models. First, syntactical consistency is realised by cardinality checks and by typing. Second, the constraints the users have written are continuously checked. Thus, a part of the verification relies on the users when they build the metamodels and the models.
+Our tooling includes mechanisms to verify the models. First, syntactical consistency is realised by cardinality checks and by typing. Second, the constraints the users have written are continuously checked. Thus, a part of the verification relies on the fact that users add behaviors when they build the metamodels and the models.

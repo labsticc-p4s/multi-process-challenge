@@ -247,8 +247,6 @@ Figure \ref{fig:AcmeSoftwareDevelopmentProcess} shows a screen-capture from the 
     \label{fig:AcmeSoftwareDevelopmentProcess}
 \end{figure}
 
-\todo{Supprimer ombres et dégradés de la figure \ref{fig:AcmeSoftwareDevelopmentProcess}, et faire en sorte qu'elle soit plus haute et moins large}
-
 \textit{"Requirements analysis"} is defined as an instance of \textit{SETaskType}, \textit{Analyst} as an instance of \textit{ActorType} and \textit{Requirement specifications} as an instance of \textit{SEArtifactType}. \textit{"Requirements analysis"} instance defines property values \textit{producedArtifactTypes=\{Requirement specifications\}} and \textit{allowedActorTypes=\{Analyst\}} (\textbf{S1}). In the same way, \textit{"Test case design"} is defined as an instance of \textit{SETaskType}, marked as critical with property value \textit{isCritical=\{true\}}, and bound to \textit{Analyst} with \textit{allowedActorTypes} relation. \textit{"Test case design"} produces \textit{"Test cases"} defined as an instance of \textit{SETaskType}. The latter is used in "Test design review" (\textit{producedArtifactTypes} relation) (\textbf{S1} and \textbf{S13}, satisfied with \textbf{P9}). 
 
 The capture of \textbf{S3} requirement is performed while defining \textit{Coding} as an instance of concept \textit{CodingTaskType} extending \textit{SETaskType} and defining a relation \textit{languages} to \textit{ProgrammingLanguage} with 1..* cardinality. \textit{newTask(String)} behaviour overrides generic implementation while instantiating a \textit{Coding} concept, specializing \textit{SEArtifact}, as shown in following excerpt of FML code:
@@ -299,6 +297,7 @@ All software engineering artifacts defined in the context of Acme Software Engin
 \todo[inline]{requirement S13 pas complètement couvert : compléter}
 
 \subsection{Openflexo tooling}
+\label{subsec:tooling}
 
 Our solution is fully implemented within Openflexo tool. Both usecases have been modelled in the interactive design environment and are executable by the FML execution engine.
 
