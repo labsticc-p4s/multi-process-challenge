@@ -44,12 +44,12 @@ In this paper, we mainly use the conceptual models and more precisely FML its do
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=\columnwidth]{Figures/}
-    \caption{The model federation approach}
-    \label{fig:mf}
+    \includegraphics[width=\columnwidth]{Figures/FMLCoreModel.pdf}
+    \caption{The FML core metamodel}
+    \label{fig:mm}
 \end{figure}
 
-FML is a language designed to define virtual models. A virtual model
+FML simplified metamodel is provided in Figure~\ref{fig:mm}, it is designed to define virtual models. A virtual model
 is composed of a set of \emph{concepts}, while itself being a concept.
 Hence, virtual models are structuring units while concepts are the
 core entities. A concept has a set of \emph{roles} and
@@ -58,52 +58,23 @@ to understand FML\footnote{Some aspects of FML do not exist in object oriented a
 attributes of the class and its behaviors to the methods of the class.
 These roles have types defining the kind of value the role will point
 at runtime.
-Whenever a type external to the federation space (from a TA or an
-external model) is used, one needs to use a \emph{model slot}. A model
-slot is a mediation entity, associated with a TA, in charge of giving
-access to external elements of the corresponding technological space.
-
-A \emph{technology adapter} (TA) is a reusable library that defines
+Whenever a type external to the federation space is used, one needs to use a \emph{model slot}. A model
+slot is a mediation entity in charge of giving
+access to external elements using
+a \emph{technology adapter}\footnote{It is a reusable library that defines
 connections between the FML execution engine and a particular
-technological space. The model federation framework provides ways to
-define TA.
-
-We should stress that building a virtual model is purely conceptual,
-model slots / TA are in charge of the technicalities. Additionally,
-when a virtual model or a concept point to an external model, it comes
-with an explicit interpretation of the external data. The virtual
-model can hide information, transform elements and does not need to
-cover the whole external metamodel.
-% In our example, it ignores all other elements of the \smk metamodel.
-We did not required TA in our proposal. The whole solution uses the
-internal (FML) language.
+technological space.}.
 
 FML is designed to define not only the structure of virtual models but
 also to define the collection of actions an engineer can perform on
-them. These actions are called \emph{business behaviors} and may be
-compared to methods of object-oriented approach.
-% The rename operation already cited for the \textsf{Goal-xls}
-% federation is an example of such a behavior. One could also define
-% operations to add or remove requirements, to refine relationships,
-% \emph{etc.} The renaming operation is defined by a \texttt{rename}
-% behavior in the concept \texttt{Requirement}. It uses the
-% \texttt{setCell} action of the Excel TA and the \texttt{rnGoal} of
-% the \smk TA.
+them. These actions are called \emph{behaviors} and can either be called (like usual methods) or triggered by events. The reactive behaviors are mainly useful when models have to be synchronised. We did not
+exploit this possibility in the challenge.
+
+
 When the FML execution engine runs a federation, it creates virtual
 model instances containing concept instances. Some concept instances
 are connected to external elements through model slot instances.
-% The lower part of the figure~\ref{fig:space-ex} illustrates this
-% runtime phase.
 
-FML also supports another kind of behavior which can be described as
-interactors. Such behavior is reactive and triggers when any of the
-federated models evolves. Two scenarios are then possible: (1) an
-action in the federation is propagated to the federated models or (2)
-a modification is detected in a federated model and triggers a
-behavioral interactor of the federation.
-% Hence the double arrows in the links of Figure~\ref{fig:space-ex}.
-This feature is useful when models have to be synchronised. We did not
-exploit this possibility in the challenge.
 
 The tool support for model federation framework,
 Openflexo\footnote{\url{https://github.com/openflexo-team}}, is
