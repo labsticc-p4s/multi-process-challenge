@@ -4,21 +4,19 @@ In the previous section~\ref{sec:model}, we demonstrated that our solution satis
 
 %Now we discuss how the solution satisfies the challenge requirements.
 
-\noteSylvain{
-Je voulais dire ici qu'on avait construit la solution pas à pas en suivant les requirements les uns après les autres, et qu'on avait à chaque fois veillé à traduire et respecter les requirements. Ca me semble très lourd de tout rejustifier ici.
+%\noteSylvain{
+%Je voulais dire ici qu'on avait construit la solution pas à pas en suivant les requirements les uns après les autres, et qu'on avait à chaque fois veillé à traduire et respecter les requirements. Ca me semble très lourd de tout rejustifier ici.
 
-On peut cependant expliciter les différentes techniques employées:
-\begin{itemize}
-    \item Requirements satisfaits par conformance syntaxique: obligation de respecter le modèle structurel
-    \item Requirements satisfaits par ajout de contraintes: on peut instantier quelque chose de syntaxiquement correct, mais qui viole certaines contraintes (sur l'outillage les croix rouges)
-    \item Requirements satisfaits par l'outillage: ajout de comportements de manipulation du modèle qui "forcent" à respecter les contraintes d'intégrité resultant des requirements.
-\end{itemize}
+%On peut cependant expliciter les différentes techniques employées:
+%\begin{itemize}
+%    \item Requirements satisfaits par conformance syntaxique: obligation de respecter le modèle structurel
+%    \item Requirements satisfaits par ajout de contraintes: on peut instantier quelque chose de syntaxiquement correct, mais qui viole certaines contraintes (sur l'outillage les croix rouges)
+%    \item Requirements satisfaits par l'outillage: ajout de comportements de manipulation du modèle qui "forcent" à respecter les contraintes d'intégrité resultant des requirements.
+%\end{itemize}
 
-Peut-être peut-on faire un tableau qui rescence comment on a satisfait chaque contrainte ? Est ce que c'est intéressant ?
-}
-
-
-\todo[inline]{OK pour le tableau synthétique +un petit peu de texte + une mini intro qui référence la section précédente (vu que les req ont été couverts dans la section précédente ; pas de fusion des deux sections}
+%Peut-être peut-on faire un tableau qui rescence comment on a satisfait chaque contrainte ? Est ce que c'est %intéressant ?
+%}
+%\todo[inline]{OK pour le tableau synthétique +un petit peu de texte + une mini intro qui référence la section précédente (vu que les req ont été couverts dans la section précédente ; pas de fusion des deux sections}
 
 CT : Conceptualization
 SP : Specialization
@@ -28,23 +26,62 @@ OI : Ontologic instantiation
 BM : Behavioural modeling
 
 
-\begin{tabular}{|l|l|l|l|}
+\begin{figure*}
+ \centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
    \hline
-   Requirements & Syntactic conformity & Constraint checking & Tooling\\
+    & \multicolumn{6}{c|}{Syntactic conformance} & Constraints checking & Tooling\\
    \hline
-                & Conceptualization & Instantiation \\
+                 & Conc.      & Spec.      & Comp.      & L.Inst     & O.Inst     & B.Mod      &            & \\
   \hline
-   P1 & \\
-   \hline
+    \textbf{P1}  & \checkmark &            & \checkmark &            &            &            &            & \\
+    \textbf{P2}  & \checkmark & \checkmark & \checkmark &            &            &            &            & \\
+    \textbf{P3}  &            &            & \checkmark &            &            &            &            & \\
+    \textbf{P4}  & \checkmark &            &            &            & \checkmark &            &            & \\
+    \textbf{P5}  & \checkmark &            & \checkmark &            &            &            &            & \\
+    \textbf{P6}  & \checkmark &            & \checkmark &            & \checkmark &            &            & \\
+    \textbf{P7}  & \checkmark &            & \checkmark &            &            &            &            & \\
+    \textbf{P8}  &            &            & \checkmark &            &            &            &            & \\
+    \textbf{P9}  &            &            & \checkmark &            &            &            & \checkmark & \\
+    \textbf{P10} & \checkmark &            &            &            & \checkmark &            &            & \\
+    \textbf{P11} & \checkmark &            & \checkmark &            & \checkmark &            &            & \\
+    \textbf{P12} &            &            & \checkmark &            &            &            &            & \\
+    \textbf{P13} & \checkmark &            & \checkmark &            & \checkmark &            &            & \\
+    \textbf{P14} & \checkmark &            &            &            & \checkmark &            &            & \\
+    \textbf{P15} & \checkmark &            &            &            & \checkmark &            &            & \\
+    \textbf{P16} & \checkmark &            &            &            & \checkmark &            &            & \\
+    \textbf{P17} &            &            &            &            &            & \checkmark & \checkmark & \checkmark \\
+    \textbf{P18} &            &            &            &            &            & \checkmark &            & \\
+    \textbf{P19} &            & \checkmark & \checkmark &            &            & \checkmark &            & \\
+  \hline
 \end{tabular}
+     \caption{Requirements satisfaction for base metamodel}
+    \label{tab:RequirementsSatisfactionBaseMetamodel}
+\end{figure*}
 
-
-\begin{tabular}{|l|l|l|}
+\begin{figure*}
+ \centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
    \hline
-   Requirements & \multicolumn{2}{c|}{colonnes 2 et 3} \\
+    & \multicolumn{6}{c|}{Syntactic conformance} & Constraints checking & Tooling\\
    \hline
-   1.1 & 1.2 & 1.3 \\
-   \hline
-   2.1 & 2.2 & \checkmark \\
-   \hline
+                 & Conc.      & Spec.      & Comp.      & L.Inst     & O.Inst     & B.Mod      &            & \\
+  \hline
+    \textbf{S1}  &            &            &            & \checkmark &            &            &            & \\
+    \textbf{S2}  &            &            &            & \checkmark &            &            &            & \\
+    \textbf{S3}  & \checkmark & \checkmark & \checkmark & \checkmark &            &            &            & \checkmark \\
+    \textbf{S4}  & \checkmark & \checkmark & \checkmark & \checkmark &            &            &            & \\
+    \textbf{S5}  &            & \checkmark &            & \checkmark &            & \checkmark &            & \\
+    \textbf{S6}  &            & \checkmark &            & \checkmark &            & \checkmark & \checkmark & \\
+    \textbf{S7}  &            &            &            & \checkmark &            & \checkmark &            & \\
+    \textbf{S8}  &            &            &            & \checkmark &            &            &            & \\
+    \textbf{S9}  &            &            &            &            &            & \checkmark & \checkmark & \\
+    \textbf{S10} & \checkmark & \checkmark & \checkmark &            &            &            &            & \\
+    \textbf{S11} &            &            &            & \checkmark &            &            &            & \checkmark \\
+    \textbf{S12} &            &            &            & \checkmark &            &            &            & \checkmark \\
+    \textbf{S13} &            &            &            & \checkmark &            &            &            & \\
+  \hline
 \end{tabular}
+     \caption{Requirements satisfaction for Acme software engineering process}
+    \label{tab:RequirementsSatisfactionAcme}
+\end{figure*}
