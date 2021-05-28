@@ -7,10 +7,13 @@
 @VirtualModel(uri="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml")
 public class AcmeMetaModel extends MetaModel  {
 
+  
+  public AcmeMetaModel acmeMetaModel = this;
+
   @FlexoConcept  
   public class CodingTaskType extends SoftwareEngineeringTaskType  {  
   
-    public List languages;  
+    public ProgrammingLanguage language;  
   
     @CreationScheme    
     CodingTaskType:create(String name) {    
@@ -24,7 +27,12 @@ public class AcmeMetaModel extends MetaModel  {
   
     @ActionScheme    
     Coding newTask(String name, Process process) {    
-      return Coding.create(parameters.name,this);    
+      Coding returned = Coding.create(parameters.name,this);      
+      log ("prout: " + language.concept.name)      
+      if (language.concept.name = "COBOL") {      
+        returned.addToPerformingActor(container.container.getActor("Ann Smith"))      
+      }      
+      return returned;    
     }    
   
     @ActionScheme    

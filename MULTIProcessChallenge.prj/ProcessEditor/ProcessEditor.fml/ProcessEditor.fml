@@ -53,6 +53,11 @@ public class ProcessEditor {
     }    
     for (andJoin : process.type.andJoinList) {    
       AndJoinConnectorsGR.representAndSplit(andJoin,process)    
+    }    
+    for (task : process.tasks) {    
+      for (actor : task.performingActors) {      
+        ActorAssignationGR.representAssignation(actor,task)      
+      }    
     }  
   }  
 
@@ -91,6 +96,11 @@ public class ProcessEditor {
   GatewayGR getGatewayGR(Gateway gateway) {  
     return this.SelectUniqueFlexoConceptInstance(type=GatewayGR,where=where=(selected.gateway = parameters.gateway));    
     return null;  
+  }  
+
+  @ActionScheme  
+  ActorGR getActorGR(Actor actor) {  
+    return this.SelectUniqueFlexoConceptInstance(type=ActorGR,where=where=(selected.actor = parameters.actor));  
   }  
 
 
@@ -331,6 +341,13 @@ public class ProcessEditor {
     ActorAssignationGR:linkActorGRToTaskGR() {    
       connector = diagram.AddConnector();      
       toTarget.task.addToPerformingActor(fromTarget.actor)    
+    }    
+  
+    @CreationScheme    
+    ActorAssignationGR:representAssignation(Actor actor, Task task) {    
+      ActorGR actorGR = container.getActorGR(parameters.actor);      
+      BeginGR taskGR = container.getTaskGR(parameters.task);      
+      connector = diagram.AddConnector();    
     }    
   
   }  

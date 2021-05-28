@@ -1132,4 +1132,12 @@
       <AssignableAction_SelectFlexoConceptInstance id="SYL-2734" container="this" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor" receiver="this" userID="SYL" flexoID="2734" />
     </GetControlGraph_ReturnStatement>
   </GetSetProperty>
+  <ActionScheme id="SYL-3840" label="getActor" name="getActor" width="800" height="600" userID="SYL" flexoID="3840">
+    <BehaviourControlGraph_ReturnStatement id="SYL-3844" userID="SYL" flexoID="3844">
+      <AssignableAction_SelectUniqueFlexoConceptInstance id="SYL-3842" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Actor" receiver="this" userID="SYL" flexoID="3842">
+        <Condition id="SYL-3843" condition="(selected.name = parameters.name)" userID="SYL" flexoID="3843" />
+      </AssignableAction_SelectUniqueFlexoConceptInstance>
+    </BehaviourControlGraph_ReturnStatement>
+    <GenericBehaviourParameter id="SYL-3845" isRequired="true" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="SYL" flexoID="3845" />
+  </ActionScheme>
 </VirtualModel>

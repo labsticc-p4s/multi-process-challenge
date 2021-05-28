@@ -12,6 +12,12 @@ public class MetaModel {
     return this.SelectFlexoConceptInstance(type=Actor);  
   }
 
+  @ActionScheme  
+  Actor getActor(String name) {  
+    return this.SelectUniqueFlexoConceptInstance(type=Actor,where=where=(selected.name = parameters.name));  
+  }  
+
+
   @FlexoConcept  
   public class ProcessType extends Type  {  
   

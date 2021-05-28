@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <VirtualModel id="SYL-1" virtualModelClass="org.openflexo.foundation.fml.VirtualModel" modelVersion="2.0" uri="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml" version="0.1" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml" name="AcmeMetaModel" author="sylvain" userID="SYL" flexoID="1">
   <FlexoConcept id="SYL-6" visibility="Public" parentFlexoConceptsList="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#SoftwareEngineeringTaskType" name="CodingTaskType" userID="SYL" flexoID="6">
-    <Inspector id="SYL-7" inspectorTitle="Coding TaskType" userID="SYL" flexoID="7" />
-    <FlexoConceptInstanceRole id="SYL-1361" virtualModelInstance="this" cloningStrategy="Reference" cardinality="OneMany" name="languages" userID="SYL" flexoID="1361" />
+    <Inspector id="SYL-7" inspectorTitle="Coding TaskType" userID="SYL" flexoID="7">
+      <InspectorEntry id="SYL-1396" widget="DROPDOWN" data="language" name="language" label="language" type="org.openflexo.foundation.fml.FlexoEnumType&lt;http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#ProgrammingLanguage&gt;" userID="SYL" flexoID="1396" />
+    </Inspector>
+    <FlexoConceptInstanceRole id="SYL-1361" virtualModelInstance="acmeMetaModel" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#ProgrammingLanguage" cloningStrategy="Reference" cardinality="One" name="language" userID="SYL" flexoID="1361" />
     <CreationScheme id="SYL-11" label="create" name="create" width="800" height="600" userID="SYL" flexoID="11">
       <BehaviourControlGraph_ExpressionAction id="SYL-20" expression="super.create(parameters.name)" userID="SYL" flexoID="20" />
       <GenericBehaviourParameter id="SYL-21" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="SYL" flexoID="21" />
@@ -11,12 +13,25 @@
       <BehaviourControlGraph_EmptyControlGraph id="SYL-22" userID="SYL" flexoID="22" />
     </DeletionScheme>
     <ActionScheme id="SYL-1098" label="newTask" name="newTask" width="800" height="600" userID="SYL" flexoID="1098">
-      <BehaviourControlGraph_ReturnStatement id="SYL-1100" userID="SYL" flexoID="1100">
-        <AssignableAction_AddFlexoConceptInstance id="SYL-1099" container="parameters.process" creationSchemeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#Coding.create(name,taskType)" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#Coding" receiver="container.container" userID="SYL" flexoID="1099">
-          <AddFlexoConceptInstanceParameter id="SYL-1232" paramName="name" value="parameters.name" userID="SYL" flexoID="1232" />
-          <AddFlexoConceptInstanceParameter id="SYL-1324" paramName="taskType" value="this" userID="SYL" flexoID="1324" />
-        </AssignableAction_AddFlexoConceptInstance>
-      </BehaviourControlGraph_ReturnStatement>
+      <BehaviourControlGraph_Sequence id="SYL-1444" ownerContext="controlGraph2" userID="SYL" flexoID="1444">
+        <ControlGraph2_Sequence id="SYL-1443" ownerContext="controlGraph2" userID="SYL" flexoID="1443">
+          <ControlGraph2_Sequence id="SYL-1449" ownerContext="controlGraph2" userID="SYL" flexoID="1449">
+            <ControlGraph2_ReturnStatement id="SYL-1442" ownerContext="controlGraph2" userID="SYL" flexoID="1442">
+              <AssignableAction_ExpressionAction id="SYL-1441" expression="returned" userID="SYL" flexoID="1441" />
+            </ControlGraph2_ReturnStatement>
+            <ControlGraph1_ConditionalAction id="SYL-1446" condition="(language.concept.name = &quot;COBOL&quot;)" ownerContext="controlGraph1" userID="SYL" flexoID="1446">
+              <ThenControlGraph_ExpressionAction id="SYL-1448" expression="returned.addToPerformingActor(container.container.getActor(&quot;Ann Smith&quot;))" ownerContext="thenControlGraph" userID="SYL" flexoID="1448" />
+            </ControlGraph1_ConditionalAction>
+          </ControlGraph2_Sequence>
+          <ControlGraph1_LogAction id="SYL-1440" logLevel="INFO" logString="(&quot;prout: &quot; + language.concept.name)" ownerContext="controlGraph1" userID="SYL" flexoID="1440" />
+        </ControlGraph2_Sequence>
+        <ControlGraph1_DeclarationAction id="SYL-1401" variable="returned" ownerContext="controlGraph1" userID="SYL" flexoID="1401">
+          <AssignableAction_AddFlexoConceptInstance id="SYL-1099" container="parameters.process" creationSchemeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#Coding.create(name,taskType)" flexoConceptTypeURI="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml#Coding" receiver="container.container" userID="SYL" flexoID="1099">
+            <AddFlexoConceptInstanceParameter id="SYL-1232" paramName="name" value="parameters.name" userID="SYL" flexoID="1232" />
+            <AddFlexoConceptInstanceParameter id="SYL-1324" paramName="taskType" value="this" userID="SYL" flexoID="1324" />
+          </AssignableAction_AddFlexoConceptInstance>
+        </ControlGraph1_DeclarationAction>
+      </BehaviourControlGraph_Sequence>
       <GenericBehaviourParameter id="SYL-1101" isRequired="true" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="SYL" flexoID="1101" />
       <GenericBehaviourParameter id="SYL-1326" isRequired="true" widget="CUSTOM_WIDGET" name="process" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml#Process&gt;" userID="SYL" flexoID="1326" />
     </ActionScheme>
@@ -174,4 +189,5 @@
     </CreationScheme>
   </FlexoConcept>
   <Inspector id="SYL-2" inspectorTitle="AcmeMetaModel" userID="SYL" flexoID="2" />
+  <ExpressionProperty id="SYL-1395" expression="this" name="acmeMetaModel" userID="SYL" flexoID="1395" />
 </VirtualModel>
