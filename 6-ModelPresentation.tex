@@ -1,10 +1,10 @@
 %Model Presentation: detailed  presentation of a model, including justifications for design decisions
 
-The presentation of our solution to the \mpc follows a systematic methodology where modeling choices are introduced step by step, as the requirements are stated. Satisfaction of requirements are explained throughout this presentation.
+The presentation of our solution to the \mpc follows a systematic methodology where modeling choices are introduced step by step, as the requirements are stated. Satisfaction of requirements is explained throughout this presentation.
 
 %\todo[inline]{phrase d'intro pour expliquer que les req étaient couverts au fur et à mesure (côté systématique)}
 
-The designed multilevel architecture is shown in Figure \ref{fig:MultilevelArchitecture} overview and captures the two use cases described in the Process Challenge.
+The designed multilevel architecture shown in Figure~\ref{fig:MultilevelArchitecture} captures the two use cases described in the Process Challenge.
 
 % Expliquer que le use case XSure ne nécessitait pas l'extension de metamodèle requise pour le usecase Acme Software Developement Process
 
@@ -18,13 +18,12 @@ The designed multilevel architecture is shown in Figure \ref{fig:MultilevelArchi
     \label{fig:BaseMetamodel}
 \end{figure*}
 
-In this section, we present and illustrate the base metamodel presented in figure \ref{fig:BaseMetamodel} with \textit{XSure} insurance domain use case, whose a partial description was provided in the challenge description. Note that the capture of the requirements \textbf{P1} to \textbf{P19} in the context of XSure insurance domain are straightforward implementable while instantiating \textit{XSure model}, as an instance of base metamodel (the left side of figure \ref{fig:MultilevelArchitecture}).
+In this section, we present the base metamodel presented in figure~\ref{fig:BaseMetamodel} with \textit{XSure} insurance domain use case, whose partial description was provided in the challenge description. The requirements \textbf{P1} to \textbf{P19} of XSure insurance domain are straightforwardly implemented by instantiating the \emph{XSure model}, as an instance of base metamodel (the left side of figure~\ref{fig:MultilevelArchitecture}).
 
-Figure \ref{fig:BaseMetamodel} represents this base metamodel with a \UML-like formalism, well adapted to represent object-oriented \FML concepts and their instances. Base conceptual element is called a \textit{FlexoConcept} in \FML language, and is similar to the concept of class in object-oriented modeling. The \UML representation of class is used to represent a \textit{FlexoConcept}, while cardinalities are shown using the \UML-like classical rules. 
-In the diagram, we choose to represent the role associated with the \textit{FlexoConcept} in the class square and the role type is referenced by the arrow in front of the role name.
+Figure~\ref{fig:BaseMetamodel} represents this base metamodel with a \UML-like formalism, well adapted to represent \FML concepts and their instances. A \textit{Concept} of \FML is represented by a \UML class. The roles are represented by a combination of a name in their concept container and an arrow from their name to their type. The cardinality follow the \UML practice.
+For example, the role \texttt{parentActorTypes} of the concept \texttt{ActorType} has the type \texttt{ActorType} and the * cardinality.
 
-
-Our proposition relies on ontologic instantiation as presented in figure \ref{fig:LinguisticAndOntologicInstantiation}, with a common root concept \textit{ModelingElement}. Two types of ontological instantiation are needed to meet the requirements of the challenge. One provides that some instances conform to only one type (\textit{Process} and \textit{Task} do respectively conform to one \textit{ProcessType} and \textit{TaskType}) while some entities define their conformity to several types (\textit{Actor} and \textit{Artifact} do respectively conform to several \textit{ActorType} and \textit{ArtifactType}). This instantiation is reified with the relations \textit{type} and \textit{types} between \textit{Type}, \textit{Instance} and \textit{MultiInstance} concepts.  
+Our proposition relies on ontologic instantiation as presented in figure \ref{fig:LinguisticAndOntologicInstantiation}, with a common root concept \texttt{ModelingElement}. Two types of ontological instantiation are needed to meet the requirements of the challenge. One provides that some instances conform to only one type (\texttt{Process} and \texttt{Task} do respectively conform to one \texttt{ProcessType} and \texttt{TaskType}). While some entities define their conformity to several types (\textit{Actor} and \textit{Artifact} do respectively conform to several \textit{ActorType} and \textit{ArtifactType}). This instantiation is reified with the relations \textit{type} and \textit{types} between \textit{Type}, \textit{Instance} and \textit{MultiInstance} concepts.  
 
 \subsubsection{Process type definition}
 
@@ -32,7 +31,7 @@ We first present the process definition part of base metamodel, located left of 
 
 % Illustrer avec des instances de XSure
 
-\textit{ProcessType} is defined as a specialization of \textit{Type} \texttt{FlexoConcept}, and references a collection of \textit{TaskType} through the composition relation \textit{taskTypes} with (0..*) cardinality (\textbf{P1}). A \textit{TaskType} is embedded in a \textit{ProcessType} and inherits from it context. To illustrate this in \textit{XSure} insurance domain use case, \textit{XSure model} defines \textit{Claim Handling}, instance of \textit{ProcessType}, and \textit{Receive Claim}, \textit{Asses Claim} and \textit{Pay premium}, instances of \textit{TaskType}.
+\textit{ProcessType} is defined as a specialization of \textit{Type} \texttt{FlexoConcept}, and references a collection of \textit{TaskType} through the composition relation \textit{taskTypes} with (0..*) cardinality (\textbf{P1}). A \textit{TaskType} is embedded in a \textit{ProcessType} and inherits from its context. To illustrate this in \textit{XSure} insurance domain use case, \textit{XSure model} defines \textit{Claim Handling}, instance of \textit{ProcessType}, and \textit{Receive Claim}, \textit{Assess Claim} and \textit{Pay premium}, instances of \textit{TaskType}.
 
 \textit{ProcessType} also references a collection of gateways, reified with the \textit{Gateway} concept hierarchy. \textit{Gateway} is defined as a specialization of \textit{Type} and is specialized with \textit{Sequencing}, \textit{AndSplit}, \textit{AndJoin}, \textit{OrSplit} and \textit{OrJoin} concepts (\textbf{P2}). Depending of its type, a \textit{Gateway} defines one or more inputs and one or more outputs, depending of its underlying execution semantics. A \textit{ProcessType} additionally exposes unique initial \textit{TaskType} and a collection of final \textit{TaskType} with both roles \textit{initialTaskType} (single cardinality) and \textit{finalTaskType} (cardinality 0..*) (\textbf{P3}). TaskType exposes a creator role as a reference to \textit{Actor} concept (\textbf{P4}), which is at the same conceptual level. 
 
@@ -76,7 +75,7 @@ model MetaModel {
 
 \textit{ActorType} is defined as a sub-concept of \textit{Type} and the \textit{allowedActorTypes} relation to \textit{ActorType} which is defined in \textit{TaskType} (with 0..* cardinality) captures \textbf{P5} requirement. Requirement \textbf{P6} is symmetrically satisfied with \textit{allowedActors} relation to \textit{Actor} also defined in \textit{TaskType} (with same 0..* cardinality). Same modeling pattern applies for \textit{ArtefactType} defined as a sub-concept of \textit{Type}, and both relations \textit{usedArtifactTypes} and \textit{producedArtifactTypes} defined in \textit{TaskType} (\textbf{P7}). \textit{TaskType} additionnaly exposes an \textit{expectedDuration} attribute (expressed in number of days), satisfying \textbf{P8}. 
 
-Actor concept defines a boolean attribute called \textit{isSenior}, while \textit{TaskType} defines an additional \textit{isCritical} boolean attribute, indicating that some instance of \textit{TaskType} are flagged as critical and must be performed by senior actors. To fullfill \textbf{P9} requirement, a supplementary constraint is required for \textit{TaskType} and is captured through this invariant expressed in \FML language:
+\textit{Actor} concept defines a boolean attribute called \textit{isSenior}, while \textit{TaskType} defines an additional \textit{isCritical} boolean attribute, indicating that some instance of \textit{TaskType} are flagged as critical and must be performed by senior actors. To fullfill \textbf{P9} requirement, a supplementary constraint is required for \textit{TaskType} and is captured through this invariant expressed in \FML language:
 
 \begin{lstlisting}
 forEach (actor : allowedActors) {
@@ -239,7 +238,7 @@ The challenge describes in a second part a Software engineering process for a fi
 
 Figure \ref{fig:AcmeFullArchitecture} shows the full architecture capturing Acme software development process, with an instance of enacted \textit{Software Engineering Process}, and highlights all conceptual levels. Acme metamodel enriches base metamodel by offering specializing concepts: \textit{SETaskType} extending \textit{TaskType}, a more specialized concept \textit{CodingTaskType} extending \textit{SETaskType}, \textit{SEArtifactType} extending \textit{ArtifactType}, a more specialized concept \textit{CodeArtifactType} extending \textit{SEArtifactType}. Acme metamodel also defines task type \textit{Coding} as a specialized concept of \textit{Task}, and provides concept \textit{Developer} extending \textit{ActorType}. This metamodel is completed with \textit{ProgrammingLanguage} concept, defined as an enumeration (\textit{Java}, \textit{C}, \textit{COBOL}). All instances required to capture challenge use case are still defined in final Acme model itself instance of Acme metamodel. Instances are represented with rounded boxes and linguistic instantiation are represented with dashed connectors.
 
-Figure \ref{fig:AcmeSoftwareDevelopmentProcess} shows a screen-capture from the tooling developed in the context of the challenge, and presents the \textit{Software Development Process} for Acme company. 
+The \textit{Software Development Process} for Acme company is presented in the figure \ref{fig:AcmeSoftwareDevelopmentProcess} which is a screen-capture from the tooling developed in the context of the challenge and described in the next section. 
 
 \begin{figure}
  \centering
@@ -262,7 +261,8 @@ concept CodingTaskType extends SETaskType {
 }    
 \end{lstlisting}
 
-\textit{Code} concept extends \textit{SEArtifact}, and defines a relation \textit{language} to \textit{ProgrammingLanguage} with single cardinality (\textbf{S4}). \textbf{S5} is more ambigous as task type \textit{Coding} defines one or more programming languages but produces code which is expressed in one language only. This requirement is captured through the redefinition of \textit{declaresRequiredProducedArtifacts()} where programming language should also match. \noteSylvain{Pas la place pour mettre le code, non nécessaire si ?} \textbf{S6} is guaranteed though the \textit{language} relation defined in \textit{Code} and following invariant declared in \textit{Code}:  
+\textit{Code} concept extends \textit{SEArtifact}, and defines a relation \textit{language} to \textit{ProgrammingLanguage} with single cardinality (\textbf{S4}). \textbf{S5} is more ambigous as task type \textit{Coding} defines one or more programming languages but produces code which is expressed in one language only. This requirement is captured through the redefinition of \textit{declaresRequiredProducedArtifacts()} where programming language should also match. 
+\textbf{S6} is guaranteed though the \textit{language} relation defined in \textit{Code} and following invariant declared in \textit{Code}:  
 
 \begin{lstlisting}
 forEach (artifactType : types) {
@@ -291,7 +291,7 @@ concept CodingTaskType extends SETaskType {
 
 All software engineering artifacts defined in the context of Acme Software Engineering Process (figure \ref{fig:AcmeSoftwareDevelopmentProcess}) are all instances of \textit{SEArtifact} which defines both attributes \textit{responsible} (an \textit{Actor} instance), and \textit{versionNumber} (an \textit{integer} value), and thus fulfills \textbf{S10}. \textit{Bob Brown} is declared as an instance of \textit{Actor}, and references \textit{Analyst} and \textit{Tester} (\textit{ActorType} instances). He is also referenced by all instances of \textit{SETaskType} as the creator for related task types (\textbf{S11}).
 
-\textbf{S12} is somehow ambigous as it implies an implicit semantics regarding underlying business logic of process execution. We assume that all tasks may define an expected duration, which might be checked during process execution. This can be modelled through the addition of \textit{expectedDuration} attribute in \textit{TaskType}. Alternatively, this can be modelled through the definition of \textit{SETesting} concept, as a specialization of \textit{SETaskType}, and the instantiation of \textit{Testing} as an instance of \textit{SETesting}. The business logic expressed by \textbf{S12} requirement should be redefined in \textit{SETesting}.
+\textbf{S12} is somehow ambiguous as it implies an implicit semantics regarding underlying business logic of process execution. We assume that all tasks may define an expected duration, which might be checked during process execution. This can be modelled through the addition of \textit{expectedDuration} attribute in \textit{TaskType}. Alternatively, this can be modelled through the definition of \textit{SETesting} concept, as a specialization of \textit{SETaskType}, and the instantiation of \textit{Testing} as an instance of \textit{SETesting}. The business logic expressed by \textbf{S12} requirement should be redefined in \textit{SETesting}.
 
 \textbf{S13} requirement has been previously partially fulfilled. This must be completed with...
 
@@ -302,7 +302,7 @@ All software engineering artifacts defined in the context of Acme Software Engin
 
 Our solution is fully implemented within Openflexo tool. Both usecases have been modelled in the interactive design environment and are executable by the FML execution engine.
 
-Base metamodel has been completed with some behaviours implementing execution semantic for executed processes. All tasks - instantiated from \textit{TaskType} for a given enacted process - manage a status which can be \textit{Not startable} (when not assigned to a performing actor or when required input artifacts are not available) , \textit{Startable}, \textit{Started}, \textit{Completable} (when all output artifacts are ready), \textit{Completed}). A \textit{Task} also manages a set of performing actors, a begin and end date, some used and produced artifacts. \textit{Gateways} business logic has also been implemented through the implementation of abstract \texttt{execute(Process)} behaviour. Management of artifacts whose semantics follows rules defined in section \ref{sec:ProcessEnactment} (\textbf{P13}) has also been implemented.
+Base metamodel has been completed with some behaviors implementing execution semantic for executed processes. All tasks - instantiated from \textit{TaskType} for a given enacted process - manage a status which can be \textit{Not startable} (when not assigned to a performing actor or when required input artifacts are not available) , \textit{Startable}, \textit{Started}, \textit{Completable} (when all output artifacts are ready), \textit{Completed}). A \textit{Task} also manages a set of performing actors, a begin and end date, some used and produced artifacts. \textit{Gateways} business logic has also been implemented through the implementation of abstract \texttt{execute(Process)} behaviour. Management of artifacts whose semantics follows rules defined in section \ref{sec:ProcessEnactment} (\textbf{P13}) has also been implemented.
 
 We took advantage of model federation and the availability of diagramming features though the \textit{Diagramming TA} to implement two interactive graphical tools built on top of conceptual levels detailed in previous section. A first tool offers a graphical edition of a Process type, while the second tool offers enactment feature (the instantiation of a process from its process type), the ability within an enacted process to assign tasks to some actors, and the execution of this process with a graphical visualization.
 

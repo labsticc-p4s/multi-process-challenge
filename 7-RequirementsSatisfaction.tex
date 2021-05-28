@@ -1,14 +1,22 @@
 %Satisfaction of Requirements: demonstration of how the solution satisfies the challenge requirements
 
-In the previous section~\ref{sec:model}, we demonstrated that our solution satisfies all the challenge
-requirements. In this section, we summarize the different techniques used to satisfy them, without repeating
-all the justifications. We classify those techniques into three categories: 
+In the previous section~\ref{sec:model}, we demonstrated that our solution satisfies all the challenge requirements. In this section, we summarize the different techniques used to satisfy them, without repeating all the justifications. We classify those techniques into three categories: 
 \begin{itemize}
-    \item syntactit
-    \item 
-    \item 
+    \item \textbf{syntactic conformance}: the requirements are structurally satisfied when the model conforms to its metamodel,
+    \item\textbf{constraints checking}: the requirements are fulfilled when all instances satisfy both syntactic conformance and the evaluation of invariants expressed for related concepts,
+    \item \textbf{tooling}: the requirements are enforced by the implementation of the associated tooling.
 \end{itemize}
 
+Table \ref{tab:RequirementsSatisfactionBaseMetamodel} summarizes requirement covering for the base metamodel illustrated by XSure insurance use case while table \ref{tab:RequirementsSatisfactionAcme} shows requirements satisfaction for Acme software engineering process. Syntactic conformance is more precisely classified into six subcategories:
+
+\begin{itemize}
+    \item \textbf{Conceptualization} (\textit{Conc.}): a concept carries the semantics exposed by the requirement (for example for \textbf{P1}: \textit{process type} is conceptualized in a \textit{FlexoConcept} \textit{ProcessType}).
+    \item \textbf{Specialization} (\textit{Spec.}): a concept is specialized in the sense of object-oriented modeling (for example for \textbf{P2}: \textit{Gateway} defines an abstract behaviour \texttt{execute()} and \textit{Sequencing}, \textit{AndSplit}, \textit{AndJoin}, \textit{OrSplit} and \textit{OrJoin} are defined as inherited concepts implementing specific business logic).
+    \item \textbf{Composition} (\textit{Comp.}): some concepts are in relation, or specific attributes were added to some concepts (for example for \textbf{P3}: a \textit{process type} has one \textit{initial task type}).
+    \item \textbf{Linguistic instanciation} (\textit{L.Inst.}): requirement is satisfied by the instantiation of one or more concepts (for example for \textbf{S1}: \textit{requirement analysis} is defined as an instance of \textit{SETasktype}).
+    \item \textbf{Ontologic instanciation} (\textit{O.Inst.}): fulfillment of requirement is obtained by the relation between an instance and its type definition instance (for example for \textbf{S3} : \textit{developer} has the dual concept nature in \textit{Acme metamodel} and instance nature in \textit{Acme model}).
+    \item \textbf{Behavioral modeling} (\textit{B.Mod.}): requirement is satisfied by the definition of one more object-oriented behavioural features, which may combined with constraints checking and associated tooling (for example \textbf{P17}).
+\end{itemize}
 
 %Table~\ref{tab:RequirementsSatisfactionBaseMetamodel} 
 %Table~\ref{tab:RequirementsSatisfactionAcme}
@@ -29,12 +37,12 @@ all the justifications. We classify those techniques into three categories:
 %}
 %\todo[inline]{OK pour le tableau synthétique +un petit peu de texte + une mini intro qui référence la section précédente (vu que les req ont été couverts dans la section précédente ; pas de fusion des deux sections}
 
-CT : Conceptualization
-SP : Specialization
-CP : Composition
-LI : Linguistic instantiation
-OI : Ontologic instantiation
-BM : Behavioural modeling
+%CT : Conceptualization
+%SP : Specialization
+%CP : Composition
+%LI : Linguistic instantiation
+%OI : Ontologic instantiation
+%BM : Behavioural modeling
 
 
 \begin{figure*}
@@ -43,7 +51,7 @@ BM : Behavioural modeling
    \hline
     & \multicolumn{6}{c|}{Syntactic conformance} & Constraints checking & Tooling\\
    \hline
-                 & Conc.      & Spec.      & Comp.      & L.Inst     & O.Inst     & B.Mod      &            & \\
+                 & Conc.      & Spec.      & Comp.      & L.Inst.     & O.Inst.     & B.Mod.      &            & \\
   \hline
     \textbf{P1}  & \checkmark &            & \checkmark &            &            &            &            & \\
     \textbf{P2}  & \checkmark & \checkmark & \checkmark &            &            &            &            & \\
