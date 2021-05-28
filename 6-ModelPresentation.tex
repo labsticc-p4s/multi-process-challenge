@@ -20,7 +20,7 @@ The designed multilevel architecture is shown in Figure \ref{fig:MultilevelArchi
 
 In this section, we present and illustrate the base metamodel presented in figure \ref{fig:BaseMetamodel} with \textit{XSure} insurance domain use case, whose a partial description was provided in the challenge description. Note that the capture of the requirements \textbf{P1} to \textbf{P19} in the context of XSure insurance domain are straightforward implementable while instantiating \textit{XSure model}, as an instance of base metamodel (the left side of figure \ref{fig:MultilevelArchitecture}).
 
-Figure \ref{fig:BaseMetamodel} represents this base metamodel with a \UML-like formalism, well adapted to represent object-oriented FML concepts and their instances. Base conceptual element is called a \textit{FlexoConcept} in FML language, and is similar to the concept of class in object-oriented modeling. The \UML representation of class is used to represent a \textit{FlexoConcept}, while cardinalities are shown using the \UML-like classical rules. 
+Figure \ref{fig:BaseMetamodel} represents this base metamodel with a \UML-like formalism, well adapted to represent object-oriented \FML concepts and their instances. Base conceptual element is called a \textit{FlexoConcept} in \FML language, and is similar to the concept of class in object-oriented modeling. The \UML representation of class is used to represent a \textit{FlexoConcept}, while cardinalities are shown using the \UML-like classical rules. 
 In the diagram, we choose to represent the role associated with the \textit{FlexoConcept} in the class square and the role type is referenced by the arrow in front of the role name.
 
 
@@ -36,7 +36,7 @@ We first present the process definition part of base metamodel, located left of 
 
 \textit{ProcessType} also references a collection of gateways, reified with the \textit{Gateway} concept hierarchy. \textit{Gateway} is defined as a specialization of \textit{Type} and is specialized with \textit{Sequencing}, \textit{AndSplit}, \textit{AndJoin}, \textit{OrSplit} and \textit{OrJoin} concepts (\textbf{P2}). Depending of its type, a \textit{Gateway} defines one or more inputs and one or more outputs, depending of its underlying execution semantics. A \textit{ProcessType} additionally exposes unique initial \textit{TaskType} and a collection of final \textit{TaskType} with both attributes \textit{initialTaskType} (single cardinality) and \textit{finalTaskType} (cardinality 0..*) (\textbf{P3}). TaskType exposes a creator attribute as an association relation to \textit{Actor} concept (\textbf{P4}), which is in the same conceptual level. 
 
-Following listing shows an excerpt of FML code modeling some core concepts of process modeling base metamodel. 
+Following listing shows an excerpt of \FML code modeling some core concepts of process modeling base metamodel. 
 
 \begin{lstlisting}
 model MetaModel {
@@ -76,7 +76,7 @@ model MetaModel {
 
 \textit{ActorType} is defined as a sub-concept of \textit{Type} and the \textit{allowedActorTypes} relation to \textit{ActorType} which is defined in \textit{TaskType} (with 0..* cardinality) captures \textbf{P5} requirement. Requirement \textbf{P6} is symmetrically satisfied with \textit{allowedActors} relation to \textit{Actor} also defined in \textit{TaskType} (with same 0..* cardinality). Same modeling pattern applies for \textit{ArtefactType} defined as a sub-concept of \textit{Type}, and both relations \textit{usedArtifactTypes} and \textit{producedArtifactTypes} defined in \textit{TaskType} (\textbf{P7}). \textit{TaskType} additionnaly exposes an \textit{expectedDuration} attribute (expressed in number of days), satisfying \textbf{P8}. 
 
-Actor concept defines a boolean attribute called \textit{isSenior}, while \textit{TaskType} defines an additional \textit{isCritical} boolean attribute, indicating that some instance of \textit{TaskType} are flagged as critical and must be performed by senior actors. To fullfill \textbf{P9} requirement, a supplementary constraint is required for \textit{TaskType} and is captured through this invariant expressed in FML language:
+Actor concept defines a boolean attribute called \textit{isSenior}, while \textit{TaskType} defines an additional \textit{isCritical} boolean attribute, indicating that some instance of \textit{TaskType} are flagged as critical and must be performed by senior actors. To fullfill \textbf{P9} requirement, a supplementary constraint is required for \textit{TaskType} and is captured through this invariant expressed in \FML language:
 
 \begin{lstlisting}
 forEach (actor : allowedActors) {
