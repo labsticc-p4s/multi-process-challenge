@@ -19,6 +19,7 @@ expectedDuration=expectedDuration
 finishTask=finishTask
 invalid_parameter=invalid_parameter
 isCritical=isCritical
+isSenior=isSenior
 isStartable=isStartable
 is_active=is_active
 last_updated=last_updated
