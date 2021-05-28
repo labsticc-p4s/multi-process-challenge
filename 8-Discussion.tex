@@ -43,7 +43,20 @@ mentioned in the challenge.
   \subsection{Basic modeling constructs}
   %Explain the basic modeling constructs used in the solution.
 
-  \noteJC{pas clair pour moi ce qui est entendu par « basic modeling constructs », ce qui est dans la partie 2 ?}
+%  \noteJC{pas clair pour moi ce qui est entendu par « basic modeling constructs », ce qui est dans la partie 2 ?}
+
+  Our solution uses the basic modeling constructs depicted by the \FML core
+  metamodel (Figure~\ref{fig:mm}) and described in
+  section~\ref{sec:technology}. Models are \emph{virtual models}. They are
+  composed of \emph{concepts}, being themselves concepts. Concepts may have
+  \emph{roles} and \emph{behaviors} (actions one can perform).
+
+  In order to provide the graphical tools, our solution also uses \emph{model
+  slots} to connect some concept instances to external elements (in our case:
+  instance of diagram from our diagramming TA). The use of slots has been
+  described in section~\ref{sec:model} and is illustrated by bold circles in
+  the Figure~\ref{fig:ToolingArchitecture}).
+
 
   \subsection{Levels}
   %Levels (or other model content organization schemes employed)
