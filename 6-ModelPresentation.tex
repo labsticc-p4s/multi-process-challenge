@@ -20,10 +20,10 @@ The designed multilevel architecture shown in Figure~\ref{fig:MultilevelArchitec
 
 In this section, we present the base metamodel presented in figure~\ref{fig:BaseMetamodel} with \textit{XSure} insurance domain use case, whose partial description was provided in the challenge description. The requirements \textbf{P1} to \textbf{P19} of XSure insurance domain are straightforwardly implemented by instantiating the \emph{XSure model}, as an instance of base metamodel (the left side of figure~\ref{fig:MultilevelArchitecture}).
 
-Figure~\ref{fig:BaseMetamodel} represents this base metamodel with a \UML-like formalism, well adapted to represent \FML concepts and their instances. A \textit{Concept} of \FML is represented by a \UML class. The roles are represented by a combination of a name in their concept container and an arrow from their name to their type. The cardinality follow the \UML practice.
+Figure~\ref{fig:BaseMetamodel} represents this base metamodel with a \UML-like formalism, well adapted to represent \FML concepts and their instances. A \textit{Concept} of \FML is represented by a \UML class where roles of basic types are attributes. The roles whose types are concepts are represented by a combination of a name in their containing concept and an arrow from their name to their type. The cardinality follow the \UML practice.
 For example, the role \texttt{parentActorTypes} of the concept \texttt{ActorType} has the type \texttt{ActorType} and the * cardinality.
 
-Our proposition relies on ontologic instantiation as presented in figure \ref{fig:LinguisticAndOntologicInstantiation}, with a common root concept \texttt{ModelingElement}. Two types of ontological instantiation are needed to meet the requirements of the challenge. One provides that some instances conform to only one type (\texttt{Process} and \texttt{Task} do respectively conform to one \texttt{ProcessType} and \texttt{TaskType}). While some entities define their conformity to several types (\textit{Actor} and \textit{Artifact} do respectively conform to several \textit{ActorType} and \textit{ArtifactType}). This instantiation is reified with the relations \textit{type} and \textit{types} between \textit{Type}, \textit{Instance} and \textit{MultiInstance} concepts.  
+Our proposition relies on ontologic instantiation as presented in figure \ref{fig:LinguisticAndOntologicInstantiation}, with a common root concept \texttt{ModelingElement}. Two types of ontological instantiation are needed to meet the requirements of the challenge. One provides that some instances conform to only one type (\texttt{Process} and \texttt{Task} do respectively conform to \texttt{ProcessType} and \texttt{TaskType}). While some entities define their conformity to several types (\texttt{Actor} and \texttt{Artifact} do respectively conform to several \texttt{ActorType} and \texttt{ArtifactType}). These instantiations are respectively expressed using the relations \texttt{type} and \texttt{types} between \texttt{Type}, \texttt{Instance} and \texttt{MultiInstance} concepts. In the diagram, the realization of these relations are indicated by a derived relation, \texttt{/type} or \texttt{/types}, as for example between \texttt{Process} and \texttt{ProcessType} or between \texttt{Actor} and \texttt{ActorType}.
 
 \subsubsection{Process type definition}
 
@@ -31,11 +31,11 @@ We first present the process definition part of base metamodel, located left of 
 
 % Illustrer avec des instances de XSure
 
-\textit{ProcessType} is defined as a specialization of \textit{Type} \texttt{FlexoConcept}, and references a collection of \textit{TaskType} through the composition relation \textit{taskTypes} with (0..*) cardinality (\textbf{P1}). A \textit{TaskType} is embedded in a \textit{ProcessType} and inherits from its context. To illustrate this in \textit{XSure} insurance domain use case, \textit{XSure model} defines \textit{Claim Handling}, instance of \textit{ProcessType}, and \textit{Receive Claim}, \textit{Assess Claim} and \textit{Pay premium}, instances of \textit{TaskType}.
+\texttt{ProcessType} is a specialization of the \texttt{Type} concept, and references a collection of \texttt{TaskType} through the composition relation \texttt{taskTypes} with (0..*) cardinality (\textbf{P1}). A \texttt{TaskType} is embedded in a \texttt{ProcessType} and inherits from its context. To illustrate this in \textit{XSure} insurance domain use case, \textit{XSure model} defines \textsf{Claim Handling}, instance of \texttt{ProcessType}, and \textsf{Receive Claim}, \textsf{Assess Claim} and \textsf{Pay premium}, instances of \texttt{TaskType}.
 
-\textit{ProcessType} also references a collection of gateways, reified with the \textit{Gateway} concept hierarchy. \textit{Gateway} is defined as a specialization of \textit{Type} and is specialized with \textit{Sequencing}, \textit{AndSplit}, \textit{AndJoin}, \textit{OrSplit} and \textit{OrJoin} concepts (\textbf{P2}). Depending of its type, a \textit{Gateway} defines one or more inputs and one or more outputs, depending of its underlying execution semantics. A \textit{ProcessType} additionally exposes unique initial \textit{TaskType} and a collection of final \textit{TaskType} with both roles \textit{initialTaskType} (single cardinality) and \textit{finalTaskType} (cardinality 0..*) (\textbf{P3}). TaskType exposes a creator role as a reference to \textit{Actor} concept (\textbf{P4}), which is at the same conceptual level. 
+\texttt{ProcessType} also references a collection of gateways, reified with the \texttt{Gateway} concept hierarchy. \texttt{Gateway} is a specialization of \texttt{Type} and is specialized by \texttt{Sequencing}, \texttt{AndSplit}, \texttt{AndJoin}, \texttt{OrSplit} and \texttt{OrJoin} concepts (\textbf{P2}). Depending on its type and following its underlying operational semantics, a gateway defines one or more inputs and one or more outputs. A \texttt{ProcessType} additionally exposes a unique initial \texttt{TaskType} and a collection of final \texttt{TaskType} with both roles \texttt{initialTaskType} (single cardinality) and \texttt{finalTaskType} (cardinality 0..*) (\textbf{P3}). \textt{TaskType} exposes a creator role as a reference to an \texttt{Actor} concept (\textbf{P4}), which is at the same conceptual level. 
 
-Following listing shows an excerpt of \FML code modeling some core concepts of process modeling base metamodel. 
+The following listing shows an excerpt of the \FML code modeling some core concepts of process modeling base metamodel. 
 
 \begin{lstlisting}
 model MetaModel {
@@ -73,9 +73,10 @@ model MetaModel {
 \end{lstlisting}
 
 
-\textit{ActorType} is defined as a sub-concept of \textit{Type} and the \textit{allowedActorTypes} relation to \textit{ActorType} which is defined in \textit{TaskType} (with 0..* cardinality) captures \textbf{P5} requirement. Requirement \textbf{P6} is symmetrically satisfied with \textit{allowedActors} relation to \textit{Actor} also defined in \textit{TaskType} (with same 0..* cardinality). Same modeling pattern applies for \textit{ArtefactType} defined as a sub-concept of \textit{Type}, and both relations \textit{usedArtifactTypes} and \textit{producedArtifactTypes} defined in \textit{TaskType} (\textbf{P7}). \textit{TaskType} additionnaly exposes an \textit{expectedDuration} attribute (expressed in number of days), satisfying \textbf{P8}. 
+The \texttt{ActorType} concept is a sub-concept of \texttt{Type} and the \texttt{allowedActorTypes} relation to \texttt{ActorType} defined in \texttt{TaskType} (with 0..* cardinality) captures \textbf{P5} requirement. Requirement \textbf{P6} is symmetrically satisfied with \texttt{allowedActors} relation to \texttt{Actor} also defined in \texttt{TaskType} (with 0..* cardinality). The same modeling pattern applies to \texttt{ArtefactType} defined as a sub-concept of \texttt{Type}, and both relations \texttt{usedArtifactTypes} and \texttt{producedArtifactTypes} defined in \texttt{TaskType} (\textbf{P7}). \texttt{TaskType} additionally exposes an \texttt{expectedDuration} role (expressed in number of days), satisfying \textbf{P8}.
+\noteFabien{expectedDuration pas dans la figure}
 
-\textit{Actor} concept defines a boolean attribute called \textit{isSenior}, while \textit{TaskType} defines an additional \textit{isCritical} boolean attribute, indicating that some instance of \textit{TaskType} are flagged as critical and must be performed by senior actors. To fullfill \textbf{P9} requirement, a supplementary constraint is required for \textit{TaskType} and is captured through this invariant expressed in \FML language:
+The \texttt{Actor} concept defines a boolean attribute called \texttt{isSenior}, while \texttt{TaskType} defines an additional \texttt{isCritical} boolean attribute, indicating that some instance are flagged as critical and must be performed by senior actors. To fulfil \textbf{P9} requirement, a supplementary constraint is required for \texttt{TaskType} and is captured through the following invariant expressed in the \FML language:
 
 \begin{lstlisting}
 forEach (actor : allowedActors) {
@@ -83,15 +84,15 @@ forEach (actor : allowedActors) {
 }
 \end{lstlisting}
 
-This invariant should be completed with additional constraints defined in \textit{Task} \textit{FlexoConcept}, which apply to performing actors actually assigned to enacted tasks. 
+This invariant should be completed with additional constraints defined in the \texttt{Task} concept, which apply to performing actors assigned to enact tasks. 
 
 \todo{Gérer également la fin de P9, non traité pour le moment: artifact they produced must be associated with a validation task}
 
 \subsubsection{Process enactment}
 \label{sec:ProcessEnactment}
-We now present the process enactment part of base metamodel, located right of figure \ref{fig:BaseMetamodel}. All concepts defined in this subsection are either specialization of \textit{Instance} concept (if they are associated with exactly one \textit{Type}) or \textit{MultiInstance} concept (for those which have several types).
+We now present the process enactment part of base metamodel, located right of figure~\ref{fig:BaseMetamodel}. All concepts defined in this subsection are either specialization of the \texttt{Instance} concept (if they have exactly one type) or the \texttt{MultiInstance} concept (when they have several types).
 
-\textit{Process} represents an enacted \textit{ProcessType}, as defined in previous subsection (\textbf{P10}). FML defines behavioral features (operations in object-oriented modeling), called \texttt{FlexoBehavior}. \textit{ProcessType} defines following behavior \texttt{newProcess(String)}, taking a \texttt{String} argument (the name of the process to enact):
+\texttt{Process} represents an enacted \texttt{ProcessType}, as defined in previous subsection (\textbf{P10}). FML defines behavioral features called behavior. \texttt{ProcessType} defines the behavior \texttt{newProcess(String)}, taking the name of the process to enact as argument:
 
 \begin{lstlisting}
 public Process newProcess(String name) {    
@@ -103,7 +104,7 @@ public Process newProcess(String name) {
 }    
 \end{lstlisting}
 
-This scheme allows to rely on FML dynamic binding mechanism to delegate to types the responsability for instances creation. An instance of \textit{Process} references a unique \textit{ProcessType} trough the specialized \textit{/type} role. Each instance of \textit{TaskType} is ontologically instantiated with a \textit{Task} (\textbf{P11}), using the same pattern where \textit{TaskType} has the responsability to manage this ontological instantiation. A \textit{Task} references its unique \textit{TaskType}, and defines a \textit{begin date} and an \textit{end date} as basic attributes of the concept (\textbf{P12}).
+This scheme rely on \FML dynamic binding mechanism to delegate to task types the responsibility of instances creation. An instance of \texttt{Process} references its unique type \texttt{ProcessType} by the specialized \texttt{/type} role. Each instance of \texttt{TaskType} is ontologically instantiated with a \textit{Task} (\textbf{P11}), using the same pattern where \textit{TaskType} has the responsability to manage this ontological instantiation. A \textit{Task} references its unique \textit{TaskType}, and defines a \textit{begin date} and an \textit{end date} as basic attributes of the concept (\textbf{P12}).
 
 Same pattern applies for artifacts used and produced with roles \textit{usedArtifacts}, \textit{producedArtifacts} and \textit{performingActors} defined in \textit{Task} concept (\textbf{P13}). An instance of \textit{Artifact}, defined as a specialization of \textit{MultiInstance} concept, references a set of \textit{ArtifactType} through the specialized \textit{/types} role (\textbf{P14} and \textbf{P16}). Likewise, concept \textit{Actor} is defined as a specialization of \textit{MultiInstance} concept and references a set of \textit{ActorType} through the specialized \textit{/types} relation (\textbf{P15}).
 
