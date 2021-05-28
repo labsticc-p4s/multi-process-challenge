@@ -57,10 +57,12 @@ mentioned in the challenge.
   %inter-level relationship is deliberately allowed to be vague, state this
   %explicitly.
 
-  The Openflexo approach is level-agnostic: ``levels'' have no specific
-  nature and there are no numbered levels. 
+  The Openflexo approach is level-agnostic: ``levels'' have no specific nature
+  and there are no numbered levels. In our solution, concepts of a given level
+  are grouped into a virtual model. Inheritance and instantiation allow the
+  establishment of relationships between concepts from different levels.
 
-\todo[inline]{mais on peut dire que les niveaux sont empaquetés dans des virtual models ; pour passer d'un niveau à l'autre, on a des relations : héritage et instantiation}
+%\todo[inline]{mais on peut dire que les niveaux sont empaquetés dans des virtual models ; pour passer d'un niveau à l'autre, on a des relations : héritage et instantiation}
 
   \subsection{Number of levels}
   %Elaborate whether the submitted solution could have had more or fewer levels
@@ -71,15 +73,14 @@ mentioned in the challenge.
   to the problem, making the approach fixed. For example, given a requirement, an instance cannot be 
   changed into a concept easily.
 
-  \subsection{Cross-level relashionships}
+  \subsection{Cross-level relationships}
 
   %Discuss if and how associations and links can connect model elements at
   %different levels. State well-formedness constraints, if any apply.
 
   Thanks to the level-agnosticity nature of the Openflexo approach, cross-level
-  relashionships are not an issue. Model elements of different levels can be
-  linked each other in a transparent way. %If the user has defined
-  %well-formedness constraints, then they are 
+  relationships are not an issue. Model elements of different levels can be
+  linked each other in a transparent way, using inheritance or instantiation.
 
   \subsection{Cross-level constraints}
 
@@ -87,9 +88,11 @@ mentioned in the challenge.
 %regard to cross-level relationships.
 
   As for cross-level relationships, cross-level constraints do not have a
-  specific nature. They are like any constraint a user can define by adding a behavior to a model element. Therefore, if a constraint is mandatory when establishing a
-  relationship between elements from different levels, the user has to create
-  it manually. This can be a limit of our approach: the cost of the flexibility of our tooling is a limited number of automated behaviors. 
+  specific nature. They are like any constraint a user can define by adding a
+  behavior to a model element. Therefore, if a constraint is mandatory when
+  establishing a relationship between elements from different levels, the user
+  has to create it manually. This can be a limit of our approach: the cost of
+  the flexibility of our tooling is a limited number of automated behaviors. 
   
   %the flexibility of our tooling at the cost of a limited number of automated behaviors. 
   
@@ -99,10 +102,11 @@ mentioned in the challenge.
   %Discuss how the integrity of level contents is preserved when changes to
   %level contents occur.
 
-  Behaviors are continuously checked, ensuring the integrity of the models when changes occur. 
-  However, most of those behaviors have to be written by the users. 
-  Thus, the integrity of the contents relies on the users when they build the metamodels and the models.
-  Note that in our approach, the metamodels are built in a ad hoc way together with the models
+  Behaviors are continuously checked, ensuring the integrity of the models when
+  changes occur. However, most of these behaviors have to be written by the
+  users. Thus, the integrity of the contents relies on the users when they
+  build the metamodels and the models.  Note that in our approach, the
+  metamodels are built in a ad hoc way together with the models
   (co-construction), therefore the user also validates on a ad hoc basis.
 
   \subsection{Deep characterization}
@@ -146,10 +150,10 @@ mentioned in the challenge.
   evolution of the  specification. We observed that our approach has been
   resilient to change.
 
-  Due to the level-agnostic aspect of our approach, we could insert a new level,
-  for example. It would consist in creating new concepts we would link to
-  other ones. Then, we would add any necessary constraints on those concepts
-  and on the relashiontips linking them to the other existing concepts. 
+  Due to the level-agnostic aspect of our approach, we could insert a new
+  level, for example. It would consist in creating new concepts we would link
+  to other ones. Then, we would add any necessary constraints on those concepts
+  and on the relationships linking them to the other existing concepts. 
 
   %\noteJC{comment étendre : prendre l'exemple donné ?; level insertion possible
   %: oui, vu que pas de notion de level}
@@ -161,17 +165,23 @@ mentioned in the challenge.
 %Indicate whether there are formalisms to establish the semantics of the MLM
 %technique and/or tools that support the present solution
 
-As described in section~\ref{subsec:tooling}, our solution is fully tooled with Openflexo.
-We use the Openflexo infrastructure to build models and metamodels together, and to provide 
-dedicated tooling to edit a Process type, to enact a process and to execute it. Being able to provide a
-solution and its associated tools quickly and easily is a noticeable feature. 
-We could also have taken advantage of the model federation to connect our solution to other tools 
-dedicated to process edition and to process execution (\eg a \BPMN engine). However we 
-already had all the necessary components to provide the aforementioned graphical tools.
+As described in section~\ref{subsec:tooling}, our solution is fully tooled with
+Openflexo.  We use the Openflexo infrastructure to build models and metamodels
+together, and to provide dedicated tooling to edit a Process type, to enact a
+process and to execute it. Being able to provide a solution and its associated
+tools quickly and easily is a noticeable feature.  We could also have taken
+advantage of the model federation to connect our solution to other tools
+dedicated to process edition and to process execution (\eg a \BPMN engine).
+However we already had all the necessary components to provide the
+aforementioned graphical tools.
 
 \subsection{Model verification}
 
 %Discuss model verification (e.g., consistency analyses) or other quality
 %assessment mechanisms supported by the MLM technique employed.
 
-Our tooling includes mechanisms to verify the models. First, syntactical consistency is realised by cardinality checks and by typing. Second, the constraints the users have written are continuously checked. Thus, a part of the verification relies on the fact that users add behaviors when they build the metamodels and the models.
+Our tooling includes mechanisms to verify the models. First, syntactical
+consistency is realised by cardinality checks and by typing. Second, the
+constraints the users have written are continuously checked. Thus, a part of
+the verification relies on the fact that users add behaviors when they build
+the metamodels and the models.
