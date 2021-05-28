@@ -9,6 +9,11 @@
 \newcommand{\noteFabien}[1]{\todo[color=orange!40, author=\textbf{Fabien}, inline, caption={}]{#1}}
 \newcommand{\noteJoel}[1]{\todo[color=blue!20, author=\textbf{Joel}, inline, caption={}]{#1}}
 
+\emisainitialism{\EMF}{EMF}
+\emisainitialism{\MOF}{MOF}
+\emisainitialism{\MDE}{MDE}
+\emisainitialism{\FML}{FML}
+
 \newcommand{\mpc}{MULTI process challenge\xspace}
 
 \usepackage{listings}
@@ -38,31 +43,24 @@
     [3]concept,model,forEach,assert,%
   },%
   sensitive,%
-%  alsoletter={+-!*=<>/\%|\&\{\}?},%
-%  ndkeywords={/,+,-,!,--,++,*,=,==,!=,<,>,<=,>=,\%,|,||,\&,\&\&,\{,\}},%
   morecomment=[l]//,%
   morecomment=[s]{/*}{*/},%
   morestring=[b]",%
   morestring=[b]',%
-}%[keywords,comments,strings]%
+}
 
 \lstdefinestyle{mystyle}{
-    backgroundcolor=\color{backcolour},   
+    backgroundcolor=\color{backcolour},
     commentstyle=\color{codegreen},
     keywordstyle=\color{magenta},
     numberstyle=\tiny\color{codegray},
     stringstyle=\color{codepurple},
     basicstyle=\ttfamily\scriptsize,
-    breakatwhitespace=false,         
+    breakatwhitespace=false,
     breaklines=true,
     flexiblecolumns=true,
     captionpos=b,
     emptylines=0,
-    %keepspaces=true,                 
-    %numbers=left,    numbersep=5pt,                  
-    %showspaces=false,                
-    %showstringspaces=false,
-    %showtabs=false,                  
     tabsize=2
 }
 
@@ -71,17 +69,17 @@
 \begin{document}
 \begin{article}{
     % \title{\mpc: the FML solution}
-    \title{Multi-level modelling with Openflexo/FML - A contribution to the \mpc}
+    \title{Multi-level modeling with Openflexo/\FML - A contribution to the \mpc}
 
     %% or include affiliations in footnotes:
-    \author*{Sylvain Guérin}{firstname.lastname@ensta-bretagne.fr}
+    \author{Sylvain Guérin}%{firstname.lastname@ensta-bretagne.fr}
     \address{ENSTA Bretagne, Lab-STICC, UMR 6285, Brest, France}
     % \ead{firstname.lastname@ensta-bretagne.fr}
 
     \author{Joel Champeau}
     \address[a]{}
 
-    \author{Jean-Christophe Bach}
+    \author*{Jean-Christophe Bach}{jc.bach@imt-atlantique.fr}
     \address{IMT Atlantique, Lab-STICC, UMR 6285, 29238 Brest, France}
     % \ead{firstname.lastname@imt-atlantique.fr}
 
@@ -122,11 +120,11 @@
 \label{sec:model}
 \input{6-ModelPresentation.tex}
 
-\section{Satisfaction of Requirements}
+\section{Satisfaction of requirements}
 \label{sec:requirements}
 \input{7-RequirementsSatisfaction.tex}
 
-\section{Assessment of the Modeling Solution}
+\section{Assessment of the modeling solution}
 \label{sec:discussion}
 \input{8-Discussion.tex}
 

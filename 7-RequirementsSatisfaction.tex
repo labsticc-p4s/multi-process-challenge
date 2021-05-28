@@ -1,18 +1,106 @@
 %Satisfaction of Requirements: demonstration of how the solution satisfies the challenge requirements
-Now we discuss how the solution satisfies the challenge requirements.
 
-\noteSylvain{
-Je voulais dire ici qu'on avait construit la solution pas à pas en suivant les requirements les uns après les autres, et qu'on avait à chaque fois veillé à traduire et respecter les requirements. Ca me semble très lourd de tout rejustifier ici.
-
-On peut cependant expliciter les différentes techniques employées:
+In the previous section~\ref{sec:model}, we demonstrated that our solution satisfies all the challenge requirements. In this section, we summarize the different techniques used to satisfy them, without repeating all the justifications. We classify those techniques into three categories: 
 \begin{itemize}
-    \item Requirements satisfaits par conformance syntaxique: obligation de respecter le modèle structurel
-    \item Requirements satisfaits par ajout de contraintes: on peut instantier quelque chose de syntaxiquement correct, mais qui viole certaines contraintes (sur l'outillage les croix rouges)
-    \item Requirements satisfaits par l'outillage: ajout de comportements de manipulation du modèle qui "forcent" à respecter les contraintes d'intégrité resultant des requirements.
+    \item \textbf{syntactic conformance}: the requirements are structurally satisfied when the model conforms to its metamodel,
+    \item\textbf{constraints checking}: the requirements are fulfilled when all instances satisfy both syntactic conformance and the evaluation of invariants expressed for related concepts,
+    \item \textbf{tooling}: the requirements are enforced by the implementation of the associated tooling.
 \end{itemize}
 
-Peut-être peut-on faire un tableau qui rescence comment on a satisfait chaque contrainte ? Est ce que c'est intéressant ?
-}
+Table \ref{tab:RequirementsSatisfactionBaseMetamodel} summarizes requirement covering for the base metamodel illustrated by XSure insurance use case while table \ref{tab:RequirementsSatisfactionAcme} shows requirements satisfaction for Acme software engineering process. Syntactic conformance is more precisely classified into six subcategories:
+
+\begin{itemize}
+    \item \textbf{Conceptualization} (\textit{Conc.}): a concept carries the semantics exposed by the requirement (for example for \textbf{P1}: \textit{process type} is conceptualized in a \textit{FlexoConcept} \textit{ProcessType}).
+    \item \textbf{Specialization} (\textit{Spec.}): a concept is specialized in the sense of object-oriented modeling (for example for \textbf{P2}: \textit{Gateway} defines an abstract behavior \texttt{execute()} and \textit{Sequencing}, \textit{AndSplit}, \textit{AndJoin}, \textit{OrSplit} and \textit{OrJoin} are defined as inherited concepts implementing specific business logic).
+    \item \textbf{Composition} (\textit{Comp.}): some concepts are in relation, or specific attributes were added to some concepts (for example for \textbf{P3}: a \textit{process type} has one \textit{initial task type}).
+    \item \textbf{Linguistic instanciation} (\textit{L.Inst.}): requirement is satisfied by the instantiation of one or more concepts (for example for \textbf{S1}: \textit{requirement analysis} is defined as an instance of \textit{SETasktype}).
+    \item \textbf{Ontologic instanciation} (\textit{O.Inst.}): fulfillment of requirement is obtained by the relation between an instance and its type definition instance (for example for \textbf{S3} : \textit{developer} has the dual concept nature in \textit{Acme metamodel} and instance nature in \textit{Acme model}).
+    \item \textbf{Behavioral modeling} (\textit{B.Mod.}): requirement is satisfied by the definition of one more object-oriented behavioral features, which may combined with constraints checking and associated tooling (for example \textbf{P17}).
+\end{itemize}
+
+%Table~\ref{tab:RequirementsSatisfactionBaseMetamodel} 
+%Table~\ref{tab:RequirementsSatisfactionAcme}
+
+%Now we discuss how the solution satisfies the challenge requirements.
+
+%\noteSylvain{
+%Je voulais dire ici qu'on avait construit la solution pas à pas en suivant les requirements les uns après les autres, et qu'on avait à chaque fois veillé à traduire et respecter les requirements. Ca me semble très lourd de tout rejustifier ici.
+
+%On peut cependant expliciter les différentes techniques employées:
+%\begin{itemize}
+%    \item Requirements satisfaits par conformance syntaxique: obligation de respecter le modèle structurel
+%    \item Requirements satisfaits par ajout de contraintes: on peut instantier quelque chose de syntaxiquement correct, mais qui viole certaines contraintes (sur l'outillage les croix rouges)
+%    \item Requirements satisfaits par l'outillage: ajout de comportements de manipulation du modèle qui "forcent" à respecter les contraintes d'intégrité resultant des requirements.
+%\end{itemize}
+
+%Peut-être peut-on faire un tableau qui rescence comment on a satisfait chaque contrainte ? Est ce que c'est %intéressant ?
+%}
+%\todo[inline]{OK pour le tableau synthétique +un petit peu de texte + une mini intro qui référence la section précédente (vu que les req ont été couverts dans la section précédente ; pas de fusion des deux sections}
+
+%CT : Conceptualization
+%SP : Specialization
+%CP : Composition
+%LI : Linguistic instantiation
+%OI : Ontologic instantiation
+%BM : behavioral modeling
 
 
-\todo[inline]{OK pour le tableau synthétique +un petit peu de texte + une mini intro qui référence la section précédente (vu que les req ont été couverts dans la section précédente ; pas de fusion des deux sections}
+\begin{figure*}
+ \centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+   \hline
+    & \multicolumn{6}{c|}{Syntactic conformance} & Constraints checking & Tooling\\
+   \hline
+                 & Conc.      & Spec.      & Comp.      & L.Inst.     & O.Inst.     & B.Mod.      &            & \\
+  \hline
+    \textbf{P1}  & \checkmark &            & \checkmark &            &            &            &            & \\
+    \textbf{P2}  & \checkmark & \checkmark & \checkmark &            &            &            &            & \\
+    \textbf{P3}  &            &            & \checkmark &            &            &            &            & \\
+    \textbf{P4}  & \checkmark &            &            &            & \checkmark &            &            & \\
+    \textbf{P5}  & \checkmark &            & \checkmark &            &            &            &            & \\
+    \textbf{P6}  & \checkmark &            & \checkmark &            & \checkmark &            &            & \\
+    \textbf{P7}  & \checkmark &            & \checkmark &            &            &            &            & \\
+    \textbf{P8}  &            &            & \checkmark &            &            &            &            & \\
+    \textbf{P9}  &            &            & \checkmark &            &            &            & \checkmark & \\
+    \textbf{P10} & \checkmark &            &            &            & \checkmark &            &            & \\
+    \textbf{P11} & \checkmark &            & \checkmark &            & \checkmark &            &            & \\
+    \textbf{P12} &            &            & \checkmark &            &            &            &            & \\
+    \textbf{P13} & \checkmark &            & \checkmark &            & \checkmark &            &            & \\
+    \textbf{P14} & \checkmark &            &            &            & \checkmark &            &            & \\
+    \textbf{P15} & \checkmark &            &            &            & \checkmark &            &            & \\
+    \textbf{P16} & \checkmark &            &            &            & \checkmark &            &            & \\
+    \textbf{P17} &            &            &            &            &            & \checkmark & \checkmark & \checkmark \\
+    \textbf{P18} &            &            &            &            &            & \checkmark &            & \\
+    \textbf{P19} &            & \checkmark & \checkmark &            &            & \checkmark &            & \\
+  \hline
+\end{tabular}
+     \caption{Requirements satisfaction for base metamodel}
+    \label{tab:RequirementsSatisfactionBaseMetamodel}
+\end{figure*}
+
+\begin{figure*}
+ \centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+   \hline
+    & \multicolumn{6}{c|}{Syntactic conformance} & Constraints checking & Tooling\\
+   \hline
+                 & Conc.      & Spec.      & Comp.      & L.Inst     & O.Inst     & B.Mod      &            & \\
+  \hline
+    \textbf{S1}  &            &            &            & \checkmark &            &            &            & \\
+    \textbf{S2}  &            &            &            & \checkmark &            &            &            & \\
+    \textbf{S3}  & \checkmark & \checkmark & \checkmark & \checkmark &            &            &            & \checkmark \\
+    \textbf{S4}  & \checkmark & \checkmark & \checkmark & \checkmark &            &            &            & \\
+    \textbf{S5}  &            & \checkmark &            & \checkmark &            & \checkmark &            & \\
+    \textbf{S6}  &            & \checkmark &            & \checkmark &            & \checkmark & \checkmark & \\
+    \textbf{S7}  &            &            &            & \checkmark &            & \checkmark &            & \\
+    \textbf{S8}  &            &            &            & \checkmark &            &            &            & \\
+    \textbf{S9}  &            &            &            &            &            & \checkmark & \checkmark & \\
+    \textbf{S10} & \checkmark & \checkmark & \checkmark &            &            &            &            & \\
+    \textbf{S11} &            &            &            & \checkmark &            &            &            & \checkmark \\
+    \textbf{S12} &            &            &            & \checkmark &            &            &            & \checkmark \\
+    \textbf{S13} &            &            &            & \checkmark &            &            &            & \\
+  \hline
+\end{tabular}
+     \caption{Requirements satisfaction for Acme software engineering process}
+    \label{tab:RequirementsSatisfactionAcme}
+\end{figure*}
