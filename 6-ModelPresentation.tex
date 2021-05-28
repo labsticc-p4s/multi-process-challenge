@@ -33,7 +33,7 @@ We first present the process definition part of base metamodel, located left of 
 
 \texttt{ProcessType} is a specialization of the \texttt{Type} concept, and references a collection of \texttt{TaskType} through the composition relation \texttt{taskTypes} with (0..*) cardinality (\textbf{P1}). A \texttt{TaskType} is embedded in a \texttt{ProcessType} and inherits from its context. To illustrate this in \textit{XSure} insurance domain use case, \textit{XSure model} defines \textsf{Claim Handling}, instance of \texttt{ProcessType}, and \textsf{Receive Claim}, \textsf{Assess Claim} and \textsf{Pay premium}, instances of \texttt{TaskType}.
 
-\texttt{ProcessType} also references a collection of gateways, reified with the \texttt{Gateway} concept hierarchy. \texttt{Gateway} is a specialization of \texttt{Type} and is specialized by \texttt{Sequencing}, \texttt{AndSplit}, \texttt{AndJoin}, \texttt{OrSplit} and \texttt{OrJoin} concepts (\textbf{P2}). Depending on its type and following its underlying operational semantics, a gateway defines one or more inputs and one or more outputs. A \texttt{ProcessType} additionally exposes a unique initial \texttt{TaskType} and a collection of final \texttt{TaskType} with both roles \texttt{initialTaskType} (single cardinality) and \texttt{finalTaskType} (cardinality 0..*) (\textbf{P3}). \textt{TaskType} exposes a creator role as a reference to an \texttt{Actor} concept (\textbf{P4}), which is at the same conceptual level. 
+\texttt{ProcessType} also references a collection of gateways, reified with the \texttt{Gateway} concept hierarchy. \texttt{Gateway} is a specialization of \texttt{Type} and is specialized by \texttt{Sequencing}, \texttt{AndSplit}, \texttt{AndJoin}, \texttt{OrSplit} and \texttt{OrJoin} concepts (\textbf{P2}). Depending on its type and following its underlying operational semantics, a gateway defines one or more inputs and one or more outputs. A \texttt{ProcessType} additionally exposes a unique initial \texttt{TaskType} and a collection of final \texttt{TaskType} with both roles \texttt{initialTaskType} (single cardinality) and \texttt{finalTaskType} (cardinality 0..*) (\textbf{P3}). \texttt{TaskType} exposes a creator role as a reference to an \texttt{Actor} concept (\textbf{P4}), which is at the same conceptual level. 
 
 The following listing shows an excerpt of the \FML code modeling some core concepts of process modeling base metamodel. 
 
@@ -104,11 +104,13 @@ public Process newProcess(String name) {
 }    
 \end{lstlisting}
 
-This scheme rely on \FML dynamic binding mechanism to delegate to task types the responsibility of instances creation. An instance of \texttt{Process} references its unique type \texttt{ProcessType} by the specialized \texttt{/type} role. Each instance of \texttt{TaskType} is ontologically instantiated with a \textit{Task} (\textbf{P11}), using the same pattern where \textit{TaskType} has the responsability to manage this ontological instantiation. A \textit{Task} references its unique \textit{TaskType}, and defines a \textit{begin date} and an \textit{end date} as basic attributes of the concept (\textbf{P12}).
+This scheme rely on \FML dynamic binding mechanism to delegate to task types the responsibility of instances creation. An instance of \texttt{Process} references its unique type \texttt{ProcessType} by the specialized \texttt{/type} role. Each instance of \texttt{TaskType} is ontologically instantiated with a \texttt{Task} (\textbf{P11}), using the same pattern where \texttt{TaskType} has the responsibility to manage the ontological instantiation. A \texttt{Task} references its unique \texttt{TaskType}, and defines a \texttt{begin date} and an \texttt{end date} basic role (\textbf{P12}).
+\noteFabien{endDate en double}
 
-Same pattern applies for artifacts used and produced with roles \textit{usedArtifacts}, \textit{producedArtifacts} and \textit{performingActors} defined in \textit{Task} concept (\textbf{P13}). An instance of \textit{Artifact}, defined as a specialization of \textit{MultiInstance} concept, references a set of \textit{ArtifactType} through the specialized \textit{/types} role (\textbf{P14} and \textbf{P16}). Likewise, concept \textit{Actor} is defined as a specialization of \textit{MultiInstance} concept and references a set of \textit{ActorType} through the specialized \textit{/types} relation (\textbf{P15}).
+The same pattern applies for the used and produced artifacts by roles \texttt{usedArtifacts}, \texttt{producedArtifacts} and \texttt{performingActors} defined in \texttt{Task} (\textbf{P13}). An instance of \texttt{Artifact} specializes \textit{MultiInstance} and references a set of \texttt{ArtifactType} through the specialized \texttt{/types} role (\textbf{P14} and \textbf{P16}). Likewise, \texttt{Actor} specializes \texttt{MultiInstance} and references a set of \texttt{ActorType} through the specialized \texttt{/types} relation (\textbf{P15}).
 
-Semantics is unclear relatively to instantiation policy for artifacts. We assume that task execution implies that for each used and produced \textit{artifact type} defined in related \textit{task type}, it exists at least one \textit{artifact} declaring required ontologic instantiation (through \textit{type} role). Following excerpt of FML code shows partial implementation of this. Same patterns applied for produced artifacts.
+The semantics is unclear relatively to the instantiation policy for artifacts. We assume that task execution implies that for each used and produced \emph{artifact type} defined in a related \emph{task type}, it exists at least one \emph{artifact} declaring required ontologic instantiation (through \textit{type} role). The following excerpt of \FML code shows a partial implementation of this. The same pattern applies to produced artifacts.
+\noteFabien{Je ne suis pas bien sûr de comprendre le paragraphe}
 
 \begin{lstlisting}
 concept Task extends Instance {
@@ -128,7 +130,7 @@ concept Task extends Instance {
 }    
 \end{lstlisting}
 
-Authorization for an actor to perform a task (\textbf{P17}) is captured either through the roles \textit{allowedActors} and \textit{allowedActorTypes} defined in \textit{TaskType}. This mechanism is completed by following behaviors \textit{isAuthorizedActor(Actor)}, \textit{isValidActor(Actor)} and \textit{isValidActorType(ActorType)} defined in \textit{TaskType} : 
+Authorization for an actor to perform a task (\textbf{P17}) is captured either by the role \texttt{allowedActors} or the role \texttt{allowedActorTypes} defined in \texttt{TaskType}. This mechanism is completed by the behaviors \texttt{isAuthorizedActor}, \texttt{isValidActor} and \texttt{isValidActorType} defined in \texttt{TaskType}: 
 
 \begin{lstlisting}
 concept TaskType extends Type {
@@ -159,7 +161,7 @@ concept TaskType extends Type {
 }
 \end{lstlisting}
 
-\textit{Task} concept basically delegates this authorization to its related \textit{TaskType}, as shown in following FML excerpt:
+The \texttt{Task} concept delegates this authorization to its task type, as shown in the following \FML code:
 
 \begin{lstlisting}
 concept Task extends Instance {
@@ -171,7 +173,7 @@ concept Task extends Instance {
 }
 \end{lstlisting}
 
-Enforcing those constraints is finally performed by the definition of this invariant in \textit{Task} concept:
+Enforcing those constraints is finally performed by the definition of this invariant in the \texttt{Task} concept:
 
 \begin{lstlisting}
 forEach (actor : performingActors) {
@@ -179,9 +181,9 @@ forEach (actor : performingActors) {
 }
 \end{lstlisting}
 
-Default behavior states that all actors and actor types are valid for all task types. This modeling scheme offers many extension points, by the redefinition of one or some behaviors in inherited concepts (although none were required in the context of XSure insurance use case).
+The default behavior states that all actors and actor types are valid for all task types. This modeling scheme offers many extension points, by the redefinition of some behaviors in the inherited concepts (although none were required in the context of \emph{XSure} use case).
 
-Actor types specialization is captured by the \textit{parentActorTypes} relation defined in \textit{ActorType} (\textbf{P18}). This is completed by both the definition of \textit{hasActorType(ActorType)} behavior in \textit{Actor} concept and recursive behavior \textit{isOrSpecializes(ActorType)} in \textit{ActorType}:
+Actor types specialization is captured by the \texttt{parentActorTypes} relation defined in \texttt{ActorType} (\textbf{P18}). This is completed by both the definition of the \texttt{hasActorType(ActorType)} behavior in \texttt{Actor} and the recursive behavior \texttt{isOrSpecializes(ActorType)} in \texttt{ActorType}:
 
 \begin{lstlisting}
 concept ActorType extends Type {
@@ -212,7 +214,7 @@ concept Actor extends MultiInstance {
 }
 \end{lstlisting}
 
-All concepts inherits from \textit{ModelingElement}, which defines a \textit{lastUpdated} attribute with \textit{Date} type, and thus satisfies \textbf{P19} requirement. 
+All concepts inherits from \texttt{ModelingElement}, which defines a \texttt{lastUpdated} attribute with \texttt{Date} type, and thus satisfies \textbf{P19} requirement. 
 
 \subsection{The Acme software development process}
 \label{sec:AcmeSoftwareDevelopmentProcess}
@@ -316,7 +318,14 @@ We took advantage of model federation and the availability of diagramming featur
 
 Figure \ref{fig:ToolingArchitecture} shows the architecture of these two tools. Left of figure presents \textit{ProcessType graphical editor}. \textit{ProcessTypeEditor} is modeled as a \textit{VirtualModel} declaring two model slots (represented with bold circles). The first model slot references an instance of Acme metamodel, while the second model slot references an instance of diagram, conforms to the \textit{ProcessType diagram specification} (a diagram "metamodel" which defines and specify structure and graphical representations for edited items). While executed, this tool manages a graphical view for an instance of Acme metamodel (the \textit{Acme model}) and a specific \textit{ProcessType} instance. This tools allows to represent and edit a \textit{ProcessType}. One particular point should be noted regarding the highly reflective nature of FML and associated tooling : when drag and drop interactor is applied for a new item, the tool allows to choose the concept type to be instantiated (when a \textit{TaskType} is created for example, the user must choose the sub-concept of \textit{TaskType} to be selected - in Acme use case it can be \textit{SETaskTask} or \textit{CodingTaskType} or default value \textit{TaskType}). 
 
-The other tool, called \textit{Enacted process graphical editor}, provides process edition and tasks assignations through a graphical visualization displaying process being executed. This tool is represented on the right side of the figure \ref{fig:ToolingArchitecture}. It follows the same architecture pattern as explicited for the \textit{ProcessType graphical editor}, with two model slots referencing both the model and a diagram. Process enactment is operated from a \textit{ProcessType}, and must be defined using a name identifying the newly instantiated process. All tasks are created from their \textit{TaskType} definition, and required assignments applies (if for example "Coding" \textit{TaskType} defines COBOL as output programming language, related task is automatically assigned to "Ann Smith"). All tasks get a status as well as a set of performing actors, a begin and end date, and used and produced artifacts. 
+The other tool, called \textit{Enacted process graphical editor} and shown on figure \ref{fig:ScreenshotEnactedProcessEditor}, provides process edition and tasks assignations through a graphical visualization displaying process being executed. This tool is represented on the right side of the figure \ref{fig:ToolingArchitecture}. It follows the same architecture pattern as explicited for the \textit{ProcessType graphical editor}, with two model slots referencing both the model and a diagram. Process enactment is operated from a \textit{ProcessType}, and must be defined using a name identifying the newly instantiated process. All tasks are created from their \textit{TaskType} definition, and required assignments applies (if for example "Coding" \textit{TaskType} defines COBOL as output programming language, related task is automatically assigned to "Ann Smith"). All tasks get a status as well as a set of performing actors, a begin and end date, and used and produced artifacts. 
+
+\begin{figure*}
+ \centering
+     \includegraphics[width=1.0 \textwidth]{Figures/ScreenshotEnactedProcessEditor.png}
+     \caption{Screenshot of the enacted process graphical editor}
+    \label{fig:ScreenshotEnactedProcessEditor}
+\end{figure*}
 
 \todo[inline]{mettre ici le lien vers la page web qui montre la démo}
 
