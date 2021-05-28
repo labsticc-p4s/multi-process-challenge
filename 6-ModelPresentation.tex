@@ -91,7 +91,7 @@ This invariant should be completed with additional constraints defined in \texti
 \label{sec:ProcessEnactment}
 We now present the process enactment part of base metamodel, located right of figure \ref{fig:BaseMetamodel}. All concepts defined in this subsection are either specialization of \textit{Instance} concept (if they are associated with exactly one \textit{Type}) or \textit{MultiInstance} concept (for those which have several types).
 
-\textit{Process} represents an enacted \textit{ProcessType}, as defined in previous subsection (\textbf{P10}). FML defines behavioural features (operations in object-oriented modelling), called \texttt{FlexoBehaviour}. \textit{ProcessType} defines following behaviour \texttt{newProcess(String)}, taking a \texttt{String} argument (the name of the process to enact):
+\textit{Process} represents an enacted \textit{ProcessType}, as defined in previous subsection (\textbf{P10}). FML defines behavioral features (operations in object-oriented modeling), called \texttt{FlexoBehavior}. \textit{ProcessType} defines following behavior \texttt{newProcess(String)}, taking a \texttt{String} argument (the name of the process to enact):
 
 \begin{lstlisting}
 public Process newProcess(String name) {    
@@ -127,7 +127,7 @@ concept Task extends Instance {
 }    
 \end{lstlisting}
 
-Authorization for an actor to perform a task (\textbf{P17}) is captured either through the roles \textit{allowedActors} and \textit{allowedActorTypes} defined in \textit{TaskType}. This mechanism is completed by following behaviours \textit{isAuthorizedActor(Actor)}, \textit{isValidActor(Actor)} and \textit{isValidActorType(ActorType)} defined in \textit{TaskType} : 
+Authorization for an actor to perform a task (\textbf{P17}) is captured either through the roles \textit{allowedActors} and \textit{allowedActorTypes} defined in \textit{TaskType}. This mechanism is completed by following behaviors \textit{isAuthorizedActor(Actor)}, \textit{isValidActor(Actor)} and \textit{isValidActorType(ActorType)} defined in \textit{TaskType} : 
 
 \begin{lstlisting}
 concept TaskType extends Type {
@@ -178,9 +178,9 @@ forEach (actor : performingActors) {
 }
 \end{lstlisting}
 
-Default behaviour states that all actors and actor types are valid for all task types. This modelling scheme offers many extension points, by the redefinition of one or some behaviours in inherited concepts (although none were required in the context of XSure insurance use case).
+Default behavior states that all actors and actor types are valid for all task types. This modeling scheme offers many extension points, by the redefinition of one or some behaviors in inherited concepts (although none were required in the context of XSure insurance use case).
 
-Actor types specialization is captured by the \textit{parentActorTypes} relation defined in \textit{ActorType} (\textbf{P18}). This is completed by both the definition of \textit{hasActorType(ActorType)} behaviour in \textit{Actor} concept and recursive behaviour \textit{isOrSpecializes(ActorType)} in \textit{ActorType}:
+Actor types specialization is captured by the \textit{parentActorTypes} relation defined in \textit{ActorType} (\textbf{P18}). This is completed by both the definition of \textit{hasActorType(ActorType)} behavior in \textit{Actor} concept and recursive behavior \textit{isOrSpecializes(ActorType)} in \textit{ActorType}:
 
 \begin{lstlisting}
 concept ActorType extends Type {
@@ -249,7 +249,7 @@ The \textit{Software Development Process} for Acme company is presented in the f
 
 \textit{"Requirements analysis"} is defined as an instance of \textit{SETaskType}, \textit{Analyst} as an instance of \textit{ActorType} and \textit{Requirement specifications} as an instance of \textit{SEArtifactType}. \textit{"Requirements analysis"} instance defines property values \textit{producedArtifactTypes=\{Requirement specifications\}} and \textit{allowedActorTypes=\{Analyst\}} (\textbf{S1}). In the same way, \textit{"Test case design"} is defined as an instance of \textit{SETaskType}, marked as critical with property value \textit{isCritical=\{true\}}, and bound to \textit{Analyst} with \textit{allowedActorTypes} relation. \textit{"Test case design"} produces \textit{"Test cases"} defined as an instance of \textit{SETaskType}. The latter is used in "Test design review" (\textit{producedArtifactTypes} relation) (\textbf{S1} and \textbf{S13}, satisfied with \textbf{P9}). 
 
-The capture of \textbf{S3} requirement is performed while defining \textit{Coding} as an instance of concept \textit{CodingTaskType} extending \textit{SETaskType} and defining a relation \textit{languages} to \textit{ProgrammingLanguage} with 1..* cardinality. \textit{newTask(String)} behaviour overrides generic implementation while instantiating a \textit{Coding} concept, specializing \textit{SEArtifact}, as shown in following excerpt of FML code:
+The capture of \textbf{S3} requirement is performed while defining \textit{Coding} as an instance of concept \textit{CodingTaskType} extending \textit{SETaskType} and defining a relation \textit{languages} to \textit{ProgrammingLanguage} with 1..* cardinality. \textit{newTask(String)} behavior overrides generic implementation while instantiating a \textit{Coding} concept, specializing \textit{SEArtifact}, as shown in following excerpt of FML code:
 
 \begin{lstlisting}
 concept CodingTaskType extends SETaskType {
@@ -291,7 +291,7 @@ concept CodingTaskType extends SETaskType {
 
 All software engineering artifacts defined in the context of Acme Software Engineering Process (figure \ref{fig:AcmeSoftwareDevelopmentProcess}) are all instances of \textit{SEArtifact} which defines both attributes \textit{responsible} (an \textit{Actor} instance), and \textit{versionNumber} (an \textit{integer} value), and thus fulfills \textbf{S10}. \textit{Bob Brown} is declared as an instance of \textit{Actor}, and references \textit{Analyst} and \textit{Tester} (\textit{ActorType} instances). He is also referenced by all instances of \textit{SETaskType} as the creator for related task types (\textbf{S11}).
 
-\textbf{S12} is somehow ambiguous as it implies an implicit semantics regarding underlying business logic of process execution. We assume that all tasks may define an expected duration, which might be checked during process execution. This can be modelled through the addition of \textit{expectedDuration} attribute in \textit{TaskType}. Alternatively, this can be modelled through the definition of \textit{SETesting} concept, as a specialization of \textit{SETaskType}, and the instantiation of \textit{Testing} as an instance of \textit{SETesting}. The business logic expressed by \textbf{S12} requirement should be redefined in \textit{SETesting}.
+\textbf{S12} is somehow ambiguous as it implies an implicit semantics regarding underlying business logic of process execution. We assume that all tasks may define an expected duration, which might be checked during process execution. This can be modeled through the addition of \textit{expectedDuration} attribute in \textit{TaskType}. Alternatively, this can be modeled through the definition of \textit{SETesting} concept, as a specialization of \textit{SETaskType}, and the instantiation of \textit{Testing} as an instance of \textit{SETesting}. The business logic expressed by \textbf{S12} requirement should be redefined in \textit{SETesting}.
 
 \textbf{S13} requirement has been previously partially fulfilled. This must be completed with...
 
@@ -300,9 +300,9 @@ All software engineering artifacts defined in the context of Acme Software Engin
 \subsection{Openflexo tooling}
 \label{subsec:tooling}
 
-Our solution is fully implemented within Openflexo tool. Both usecases have been modelled in the interactive design environment and are executable by the FML execution engine.
+Our solution is fully implemented within Openflexo tool. Both usecases have been modeled in the interactive design environment and are executable by the FML execution engine.
 
-Base metamodel has been completed with some behaviors implementing execution semantic for executed processes. All tasks - instantiated from \textit{TaskType} for a given enacted process - manage a status which can be \textit{Not startable} (when not assigned to a performing actor or when required input artifacts are not available) , \textit{Startable}, \textit{Started}, \textit{Completable} (when all output artifacts are ready), \textit{Completed}). A \textit{Task} also manages a set of performing actors, a begin and end date, some used and produced artifacts. \textit{Gateways} business logic has also been implemented through the implementation of abstract \texttt{execute(Process)} behaviour. Management of artifacts whose semantics follows rules defined in section \ref{sec:ProcessEnactment} (\textbf{P13}) has also been implemented.
+Base metamodel has been completed with some behaviors implementing execution semantic for executed processes. All tasks - instantiated from \textit{TaskType} for a given enacted process - manage a status which can be \textit{Not startable} (when not assigned to a performing actor or when required input artifacts are not available) , \textit{Startable}, \textit{Started}, \textit{Completable} (when all output artifacts are ready), \textit{Completed}). A \textit{Task} also manages a set of performing actors, a begin and end date, some used and produced artifacts. \textit{Gateways} business logic has also been implemented through the implementation of abstract \texttt{execute(Process)} behavior. Management of artifacts whose semantics follows rules defined in section \ref{sec:ProcessEnactment} (\textbf{P13}) has also been implemented.
 
 We took advantage of model federation and the availability of diagramming features though the \textit{Diagramming TA} to implement two interactive graphical tools built on top of conceptual levels detailed in previous section. A first tool offers a graphical edition of a Process type, while the second tool offers enactment feature (the instantiation of a process from its process type), the ability within an enacted process to assign tasks to some actors, and the execution of this process with a graphical visualization.
 
