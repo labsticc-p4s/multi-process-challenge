@@ -10,10 +10,10 @@ In the previous section~\ref{sec:model}, we demonstrated that our solution satis
 Table \ref{tab:RequirementsSatisfactionBaseMetamodel} summarizes requirement covering for the base metamodel illustrated by XSure insurance use case while table \ref{tab:RequirementsSatisfactionAcme} shows requirements satisfaction for Acme software engineering process. Syntactic conformance is more precisely classified into six subcategories:
 
 \begin{itemize}
-    \item \textbf{Conceptualization} (\textit{Conc.}): a concept carries the semantics exposed by the requirement (for example for \textbf{P1}: \textit{process type} is conceptualized in a \textit{FlexoConcept} \textit{ProcessType}).
-    \item \textbf{Specialization} (\textit{Spec.}): a concept is specialized in the sense of object-oriented modeling (for example for \textbf{P2}: \textit{Gateway} defines an abstract behavior \texttt{execute()} and \textit{Sequencing}, \textit{AndSplit}, \textit{AndJoin}, \textit{OrSplit} and \textit{OrJoin} are defined as inherited concepts implementing specific business logic).
+    \item \textbf{Conceptualization} (\textit{Conc.}): a concept carries the semantics exposed by the requirement (for example for \textbf{P1}: \textit{process type} is conceptualized in a \textit{FlexoConcept} \texttt{ProcessType}).
+    \item \textbf{Specialization} (\textit{Spec.}): a concept is specialized in the sense of object-oriented modeling (for example for \textbf{P2}: \texttt{Gateway} defines an abstract behavior \texttt{execute()} and \texttt{Sequencing}, \texttt{AndSplit}, \texttt{AndJoin}, \texttt{OrSplit} and \texttt{OrJoin} are defined as inherited concepts implementing specific business logic).
     \item \textbf{Composition} (\textit{Comp.}): some concepts are in relation, or specific attributes were added to some concepts (for example for \textbf{P3}: a \textit{process type} has one \textit{initial task type}).
-    \item \textbf{Linguistic instanciation} (\textit{L.Inst.}): requirement is satisfied by the instantiation of one or more concepts (for example for \textbf{S1}: \textit{requirement analysis} is defined as an instance of \textit{SETasktype}).
+    \item \textbf{Linguistic instanciation} (\textit{L.Inst.}): requirement is satisfied by the instantiation of one or more concepts (for example for \textbf{S1}: \textit{requirement analysis} is defined as an instance of \texttt{SETasktype}).
     \item \textbf{Ontologic instanciation} (\textit{O.Inst.}): fulfillment of requirement is obtained by the relation between an instance and its type definition instance (for example for \textbf{S3} : \textit{developer} has the dual concept nature in \textit{Acme metamodel} and instance nature in \textit{Acme model}).
     \item \textbf{Behavioral modeling} (\textit{B.Mod.}): requirement is satisfied by the definition of one more object-oriented behavioral features, which may combined with constraints checking and associated tooling (for example \textbf{P17}).
 \end{itemize}
@@ -47,11 +47,11 @@ Table \ref{tab:RequirementsSatisfactionBaseMetamodel} summarizes requirement cov
 
 \begin{table*}
  \centering
- \rowcolors{3}{tableShade}{white}  %% start alternating shades from 3rd row
+ \rowcolors{4}{tableShade}{white}  %% start alternating shades from 3rd row
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
    \hline
-    & \multicolumn{6}{c|}{Syntactic conformance} & Constraints checking & Tooling\\
-   \hline
+    & \multicolumn{6}{c|}{Syntactic conformance} & \multirow{2}{*}{Constraints checking} & \multirow{2}{*}{Tooling}\\
+   \cline{1-7}
                  & Conc.      & Spec.      & Comp.      & L.Inst.     & O.Inst.     & B.Mod.      &            & \\
   \hline
     \textbf{P1}  & \checkmark &            & \checkmark &            &            &            &            & \\
@@ -81,11 +81,11 @@ Table \ref{tab:RequirementsSatisfactionBaseMetamodel} summarizes requirement cov
 
 \begin{table*}
  \centering
-  \rowcolors{3}{tableShade}{white}  %% start alternating shades from 3rd row
+  \rowcolors{4}{tableShade}{white}  %% start alternating shades from 3rd row
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
    \hline
-    & \multicolumn{6}{c|}{Syntactic conformance} & Constraints checking & Tooling\\
-   \hline
+    & \multicolumn{6}{c|}{Syntactic conformance} & \multirow{2}{*}{Constraints checking} & \multirow{2}{*}{Tooling}\\
+   \cline{1-7}
                  & Conc.      & Spec.      & Comp.      & L.Inst     & O.Inst     & B.Mod      &            & \\
   \hline
     \textbf{S1}  &            &            &            & \checkmark &            &            &            & \\

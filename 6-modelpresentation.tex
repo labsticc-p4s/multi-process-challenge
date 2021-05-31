@@ -233,9 +233,7 @@ The \textit{Acme} metamodel specializes the Base metamodel, and \textit{Acme mod
     \label{fig:AcmeFullArchitecture}
 \end{figure*}
 
-\todo[inline]{Ajouter les programming languages <- je les vois apparaitre dans la figure, ou alors c'était un todo pour autre chose ?}
-
-The Figure~\ref{fig:AcmeFullArchitecture} highlights all conceptual levels of the full architecture. This figure is only partial at instance level and not all instances are represented. It also contains an instance of enacted a \textit{Software Engineering Process} at the bottom. The Acme metamodel specializes some concepts of the Base metamodel, for example, \texttt{SETaskType} extends \texttt{TaskType} and \texttt{SEArtifactType} extends \texttt{ArtifactType}. These concepts are further specialized  \texttt{CodingTaskType} extends \texttt{SETaskType} and \texttt{CodeArtifactType} extends \texttt{SEArtifactType}. 
+The Figure~\ref{fig:AcmeFullArchitecture} highlights all conceptual levels of the architecture. This figure is only partial at instance level and not all instances are represented. It also contains an instance of enacted a \textit{Software Engineering Process} at the bottom. The Acme metamodel specializes some concepts of the Base metamodel, for example, \texttt{SETaskType} extends \texttt{TaskType} and \texttt{SEArtifactType} extends \texttt{ArtifactType}. These concepts are further specialized  \texttt{CodingTaskType} extends \texttt{SETaskType} and \texttt{CodeArtifactType} extends \texttt{SEArtifactType}. 
 The Acme metamodel also defines a specialized task type \texttt{Coding} extending \texttt{Task}, and provides the \texttt{Developer} concept extending \texttt{ActorType}. This metamodel is completed with the \texttt{ProgrammingLanguage} concept, defined as an enumeration (\texttt{Java}, \texttt{C}, \texttt{COBOL}). All the instances required to capture the challenge use case are defined in the final Acme model (lower part of the figure). Instances are represented with rounded boxes and linguistic instantiation is represented using dashed connectors.
 
 The \textit{Software Development Process} for Acme company is presented in the figure~\ref{fig:AcmeSoftwareDevelopmentProcess}. It is a screen-capture of the tool developed for the challenge and described in the next section. 
@@ -249,25 +247,25 @@ The \textit{Software Development Process} for Acme company is presented in the f
 
 % J'utilise sf pour les instances et '
 
-\inst{Requirements analysis} is an instance of \texttt{SETaskType}, \inst{Analyst} is an instance of \texttt{ActorType} and \inst{Requirement specifications} is an instance of \texttt{SEArtifactType}. The value of the property \texttt{producedArtifactTypes} of \inst{Requirements analysis} is \texttt{\{}\inst{Requirement specifications}\texttt{\}} and is \texttt{\{}\inst{Analyst}\texttt{\}} for \texttt{allowedActorTypes} (\textbf{S1}). Similarly, \inst{Test case design} is an instance of \texttt{SETaskType}, with a value of \texttt{true} for its property \texttt{isCritical}, and bound to \inst{Analyst} by the \texttt{allowedActorTypes} relation. \inst{Test case design} produces \inst{Test cases} instance of \texttt{SETaskType}. The latter is used in \inst{Test design review} (\texttt{producedArtifactTypes} relation) (\textbf{S1} and \textbf{S13}, satisfied with \textbf{P9}). 
+\inst{Requirements analysis} is an instance of \texttt{SETaskType}, \inst{Analyst} is an instance of \texttt{ActorType} and \inst{Requirement specifications} is an instance of \texttt{SEArtifactType}. The value of the property \texttt{producedArtifactTypes} of \inst{Requirements analysis} is \texttt{\{}\inst{Requirement specifications}\texttt{\}} and is \texttt{\{}\inst{Analyst}\texttt{\}} for \texttt{allowedActorTypes} (\textbf{S1}). Similarly, \inst{Test case design} is an instance of \texttt{SETaskType}, with a value of \texttt{true} for its property \texttt{isCritical}, and bound to \inst{Analyst} by the \texttt{allowedActorTypes} relation. \inst{Test case design} produces \inst{Test cases} instance of \texttt{SETaskType} (\textbf{S2}). The latter is used in \inst{Test design review} (\texttt{producedArtifactTypes} relation) (\textbf{S1} and \textbf{S13}, satisfied with \textbf{P9}). 
 
-The capture of \textbf{S3} requirement is performed while defining \texttt{Coding} as an instance of concept \texttt{CodingTaskType} and defining a relation \texttt{languages} to \texttt{ProgrammingLanguage} with 1..* cardinality. The \texttt{newTask(String)} behavior overrides the generic implementation by instantiating a \texttt{Coding} concept, specializing \texttt{Task}, as shown in following excerpt of FML code:
+The capture of \textbf{S3} requirement is performed while defining \inst{Coding} as an instance of concept \texttt{CodingTaskType} and defining a relation \texttt{languages} to \texttt{ProgrammingLanguage} with 1..* cardinality. 
+\noteFabien{* dans la figure} The \texttt{newTask(String)} behavior overrides the generic implementation by instantiating a \texttt{CodingTask} concept, specializing \texttt{Task}, as shown in following excerpt of FML code:
 
 \begin{lstlisting}
 concept CodingTaskType extends SETaskType {
   ProgrammingLanguage[1..*] languages;
   ...
-  public Coding newTask(String name) { 
-    return new Coding(name,this); 
+  public CodingTask newTask(String name) { 
+    return new CodingTask(name,this); 
   }
 }    
 \end{lstlisting}
 
-The \texttt{Code} concept extends \texttt{SEArtifact}, and defines a relation \texttt{language} to \textit{ProgrammingLanguage} with single cardinality (\textbf{S4}). 
-\noteFabien{Code devient CodeArtifact}
+The \texttt{CodeArtifact} concept extends \texttt{SEArtifact}, and defines a relation \texttt{language} to \textit{ProgrammingLanguage} with single cardinality (\textbf{S4}). 
+\noteFabien{pas la cardinalité de la figure}
 \textbf{S5} is more ambiguous as a task type \texttt{Coding} defines one or more programming languages but produces code which is expressed in one language only. This requirement is captured through the redefinition of the behavior \texttt{declaresRequiredProducedArtifacts} where programming language should also match. 
-\textbf{S6} is guaranteed though the \texttt{language} relation defined in \texttt{Code} and the following invariant declared in \texttt{Code}:  
-\noteFabien{Coding devient CodingTask}
+\textbf{S6} is guaranteed though the \texttt{language} relation defined in \texttt{CodeArtifact} and the following invariant declared in \texttt{CodeArtifact}: 
 \begin{lstlisting}
 forEach (artifactType : types) {
   assert !(artifactType instanceof CodeArtifactType) | artifactType.doesImplement(languages)
