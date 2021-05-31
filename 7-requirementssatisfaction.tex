@@ -1,6 +1,6 @@
 %Satisfaction of Requirements: demonstration of how the solution satisfies the challenge requirements
 
-In the previous section~\ref{sec:model}, we demonstrated that our solution satisfies all the challenge requirements. In this section, we summarize the different techniques used to satisfy them, without repeating all the justifications. We classify these techniques into three categories: 
+In the previous section~\ref{sec:model}, we demonstrated that our solution satisfies all the challenge requirements. In this section, we summarize the different techniques used to satisfy them, without repeating all the justifications. We classify these techniques into three categories:
 \begin{itemize}
     \item \emph{syntactic conformance}: the requirements are structurally satisfied when the model conforms to its metamodel,
     \item \emph{constraints checking}: the requirements are fulfilled when all instances satisfy both syntactic conformance and the evaluation of invariants expressed for related concepts,
@@ -45,11 +45,11 @@ Table~\ref{tab:RequirementsSatisfactionBaseMetamodel} summarizes the requirement
 
 \begin{itemize}
     \item \emph{Conceptualization} (\textit{Conc.}): a concept carries the semantics exposed by the requirement (for example for \textbf{P1}: \textit{process type} is conceptualized in a concept \texttt{ProcessType}).
-    
+
     \item \emph{Specialization} (\textit{Spec.}): a concept is specialized in the sense of object-oriented modeling (for example for \textbf{P2}: \texttt{Gateway} defines an abstract behavior \texttt{execute()} and \texttt{Sequencing}, \texttt{AndSplit}, \texttt{AndJoin}, \texttt{OrSplit} and \texttt{OrJoin} are defined as inherited concepts implementing specific business logic).
-    
+
     \item \emph{Composition} (\textit{Comp.}): some concepts are in relation, or specific attributes were added to some concepts (for example for \textbf{P3}: a \textit{process type} has one \textit{initial task type}).
-    
+
     \item \emph{Linguistic instantiation} (\textit{L.Inst.}): requirement is satisfied by the instantiation of one or more concepts (for example for \textbf{S1}: \inst{Requirement analysis} is defined as an instance of \texttt{SETaskType}).
 
     \item \emph{Ontologic instantiation} (\textit{O.Inst.}): fulfillment of requirement is obtained by the relation between an instance and its type definition instance (for example for \textbf{S3} : \textit{developer} has the dual concept nature in \textit{Acme metamodel} and instance nature in \textit{Acme model}).
@@ -57,7 +57,7 @@ Table~\ref{tab:RequirementsSatisfactionBaseMetamodel} summarizes the requirement
     \item \emph{Behavioral modeling} (\textit{B.Mod.}): requirement is satisfied by the definition of one or more behaviors, which may be combined with constraints checking and associated tooling (for example \textbf{P17}).
 \end{itemize}
 
-%Table~\ref{tab:RequirementsSatisfactionBaseMetamodel} 
+%Table~\ref{tab:RequirementsSatisfactionBaseMetamodel}
 %Table~\ref{tab:RequirementsSatisfactionAcme}
 
 %Now we discuss how the solution satisfies the challenge requirements.

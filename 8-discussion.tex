@@ -15,7 +15,7 @@
 %    \item[\checkmark] pas d'explicitation de niveaux de « concrétude » : conséquences ? facile de tracer des liens entre les niveaux ; difficile d'avoir le niveau ;
 %    \item outil adaptable
 %    \item niveau d'abstraction
-%    \item[\checkmark] réutilisabilité des modèles ; 
+%    \item[\checkmark] réutilisabilité des modèles ;
 %    \item ajouter quelques métriques "gros grains"
 %    \item[\checkmark] difficultés/facilités : contraintes faites à la main par rapport aux
 %      langages où on peut spécifier le niveau d'extension lorsque l'on trace un
@@ -26,7 +26,7 @@
 %    \item requiert de la méthode, ajouter des comportements, etc.
 %    \item[\checkmark] point saillant :  outillage "gratuit" = on fournit une solution + l'outil pour exécuter le processus
 %\end{itemize}}
- 
+
 %\todo[inline]{on pourrait aussi répondre ici aux 3 questions posées
 %explicitement (copiées dans l'intro pour le moment), a priori non, le chef
 %« trouve que c'est chiant »}
@@ -34,7 +34,7 @@
 %\noteJC{pour le moment, seulement réponse aux différents points, on ne voit pas
 %de discussion sur les choix, sur les potentiels compromis/déficiencies}
 
-In this section, we discuss our multilevel model solution with regard to the required aspects 
+In this section, we discuss our multilevel model solution with regard to the required aspects
 mentioned in the challenge.
 
   %plan plus ou moins imposé par l'appel
@@ -104,10 +104,10 @@ mentioned in the challenge.
   behavior to a model element. Therefore, if a constraint is mandatory when
   establishing a relationship between elements from different levels, the user
   has to create it manually. This can be a limit of our approach: the cost of
-  the flexibility of our tooling is a limited number of automated behaviors. 
-  
-  %the flexibility of our tooling at the cost of a limited number of automated behaviors. 
-  
+  the flexibility of our tooling is a limited number of automated behaviors.
+
+  %the flexibility of our tooling at the cost of a limited number of automated behaviors.
+
 
   \subsection{Integrity mechanism}
 
@@ -130,8 +130,8 @@ mentioned in the challenge.
   %intermediate levels.
 
   %\noteJC{pas trop clair pour moi pour le moment -> N/A ? }
-  Due to the nature of our approach and its level-agnosticism, \emph{deep characterization} does not 
-  apply to our solution. Such a mechanism could probably be encoded by specific behaviors, however, 
+  Due to the nature of our approach and its level-agnosticism, \emph{deep characterization} does not
+  apply to our solution. Such a mechanism could probably be encoded by specific behaviors, however,
   it would not be a generic mechanism, making it difficult to reuse for another problem.
 
   \subsection{Generality}
@@ -142,8 +142,8 @@ mentioned in the challenge.
 
   Due to the nature of model federation, the models are highly reusable.
   Although we build ad hoc metamodels in our approach, our solution separates
-  the domain-specific elements from general purpose ones, making possible to 
-  apply it to other domains. 
+  the domain-specific elements from general purpose ones, making possible to
+  apply it to other domains.
 
   \subsection{Extensibility}
 
@@ -165,18 +165,18 @@ mentioned in the challenge.
   Due to the level-agnostic aspect of our approach, we could insert a new
   level, for example. It would consist in creating new concepts we would link
   to other ones. Then, we would add any necessary constraints on those concepts
-  and on the relationships linking them to the other existing concepts. This type 
-  of change can be done without much effort. On the other hand, making changes 
-  to the existing models could be difficult. For example, given a requirement, 
-  an instance cannot be changed into a concept easily. This case could occur if 
-  the challenge had refined the specification by requiring specific design tasks. 
-  In this context, we would have to transform the \inst{Design Task} instance into a concept 
+  and on the relationships linking them to the other existing concepts. This type
+  of change can be done without much effort. On the other hand, making changes
+  to the existing models could be difficult. For example, given a requirement,
+  an instance cannot be changed into a concept easily. This case could occur if
+  the challenge had refined the specification by requiring specific design tasks.
+  In this context, we would have to transform the \inst{Design Task} instance into a concept
   whose instances could have been "using agile methodology".
-  
+
   %\noteJC{comment étendre : prendre l'exemple donné ?; level insertion possible
   %: oui, vu que pas de notion de level}
 
-  
+
 %\todo[inline]{recommended discussion aspects}
 \subsection{Tools}
 
