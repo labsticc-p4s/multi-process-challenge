@@ -250,7 +250,7 @@ The \textit{Software Development Process} for Acme company is presented in the f
 \inst{Requirements analysis} is an instance of \texttt{SETaskType}, \inst{Analyst} is an instance of \texttt{ActorType} and \inst{Requirement specifications} is an instance of \texttt{SEArtifactType}. The value of the property \texttt{producedArtifactTypes} of \inst{Requirements analysis} is \texttt{\{}\inst{Requirement specifications}\texttt{\}} and is \texttt{\{}\inst{Analyst}\texttt{\}} for \texttt{allowedActorTypes} (\textbf{S1}). Similarly, \inst{Test case design} is an instance of \texttt{SETaskType}, with a value of \texttt{true} for its property \texttt{isCritical}, and bound to \inst{Analyst} by the \texttt{allowedActorTypes} relation. \inst{Test case design} produces \inst{Test cases} instance of \texttt{SETaskType} (\textbf{S2}). The latter is used in \inst{Test design review} (\texttt{producedArtifactTypes} relation) (\textbf{S1} and \textbf{S13}, satisfied with \textbf{P9}).
 
 The capture of \textbf{S3} requirement is performed while defining \inst{Coding} as an instance of concept \texttt{CodingTaskType} and defining a relation \texttt{languages} to \texttt{ProgrammingLanguage} with 1..* cardinality.
-\noteFabien{* dans la figure} The \texttt{newTask(String)} behavior overrides the generic implementation by instantiating a \texttt{CodingTask} concept, specializing \texttt{Task}, as shown in the following excerpt of \FML code:
+The \texttt{newTask(String)} behavior overrides the generic implementation by instantiating a \texttt{CodingTask} concept, specializing \texttt{Task}, as shown in the following excerpt of \FML code:
 
 \begin{lstlisting}
 concept CodingTaskType extends SETaskType {
@@ -262,8 +262,8 @@ concept CodingTaskType extends SETaskType {
 }
 \end{lstlisting}
 
-The \texttt{CodeArtifact} concept extends \texttt{SEArtifact}, and defines a relation \texttt{language} to \textit{ProgrammingLanguage} with single cardinality (\textbf{S4}).
-\noteFabien{pas la cardinalité de la figure}
+The \texttt{CodeArtifact} concept extends \texttt{SEArtifact}, and defines a relation \texttt{language} to \textit{ProgrammingLanguage} with 1..* cardinality (\textbf{S4}).
+
 \textbf{S5} is more ambiguous as a task type \texttt{CodingTask} defines one or more programming languages but produces code which is expressed in one language only. This requirement is captured through the redefinition of the behavior \texttt{declaresRequiredProducedArtifacts} where programming language should also match.
 \textbf{S6} is guaranteed though the \texttt{language} relation defined in \texttt{CodeArtifact} and the following invariant declared in \texttt{CodeArtifact}:
 \begin{lstlisting}
