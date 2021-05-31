@@ -1,4 +1,4 @@
-TEXFILE=1-Main
+TEXFILE=1-main
 
 LATEXCMD=latexmk -f --synctex=1 -pdf
 
