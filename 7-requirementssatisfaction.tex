@@ -7,39 +7,6 @@ In the previous section~\ref{sec:model}, we demonstrated that our solution satis
     \item \emph{tooling}: the requirements are enforced by the implementation of the associated tooling.
 \end{itemize}
 
-\begin{table*}
- \centering
- \rowcolors{4}{tableShade}{white}  %% start alternating shades from 3rd row
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
-   \hline
-    & \multicolumn{6}{c|}{Syntactic conformance} & Constraints & \multirow{2}{*}{Tooling}\\
-   \cline{1-7}
-                 & Conc.      & Spec.      & Comp.      & L.Inst.     & O.Inst.     & B.Mod.   &  checking & \\
-  \hline
-    \textbf{P1}  & \checkmark &            & \checkmark &            &            &            &            & \\
-    \textbf{P2}  & \checkmark & \checkmark & \checkmark &            &            &            &            & \\
-    \textbf{P3}  &            &            & \checkmark &            &            &            &            & \\
-    \textbf{P4}  & \checkmark &            &            &            & \checkmark &            &            & \\
-    \textbf{P5}  & \checkmark &            & \checkmark &            &            &            &            & \\
-    \textbf{P6}  & \checkmark &            & \checkmark &            &  &            &            & \\
-    \textbf{P7}  & \checkmark &            & \checkmark &            &            &            &            & \\
-    \textbf{P8}  &            &            & \checkmark &            &            &            &            & \\
-    \textbf{P9}  &            &            & \checkmark &            &            &            & \checkmark & \\
-    \textbf{P10} & \checkmark &            &            &            & \checkmark &            &            & \\
-    \textbf{P11} & \checkmark &            & \checkmark &            & \checkmark &            &            & \\
-    \textbf{P12} &            &            & \checkmark &            &            &            &            & \\
-    \textbf{P13} & \checkmark &            & \checkmark &            & \checkmark &            &            & \\
-    \textbf{P14} & \checkmark &            &            &            & \checkmark &            &            & \\
-    \textbf{P15} & \checkmark &            &            &            & \checkmark &            &            & \\
-    \textbf{P16} & \checkmark &            &            &            & \checkmark &            &            & \\
-    \textbf{P17} & \checkmark           &            &            &            &            & \checkmark & \checkmark & \checkmark \\
-    \textbf{P18} & \checkmark           &            &            &            &            & \checkmark &            & \\
-    \textbf{P19} &            & \checkmark & \checkmark &            &            & \checkmark &            & \\
-  \hline
-\end{tabular}
-     \caption{Requirements satisfaction for base metamodel}
-    \label{tab:RequirementsSatisfactionBaseMetamodel}
-\end{table*}
 
 Table~\ref{tab:RequirementsSatisfactionBaseMetamodel} summarizes the requirement coverage for the base metamodel illustrated by XSure insurance use case while table~\ref{tab:RequirementsSatisfactionAcme} shows requirements satisfaction for Acme software engineering process. Syntactic conformance is more precisely classified into six subcategories:
 
@@ -83,6 +50,40 @@ Table~\ref{tab:RequirementsSatisfactionBaseMetamodel} summarizes the requirement
 %OI : Ontologic instantiation
 %BM : behavioral modeling
 
+\renewcommand{\arraystretch}{1.1}
+\begin{table*}
+ \centering
+ \rowcolors{4}{tableShade}{white}  %% start alternating shades from 3rd row
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+   \hline
+    & \multicolumn{6}{c|}{Syntactic conformance} & Constraints & \multirow{2}{*}{Tooling}\\
+   \cline{1-7}
+                 & Conc.      & Spec.      & Comp.      & L.Inst.     & O.Inst.     & B.Mod.   &  checking & \\
+  \hline
+    \textbf{P1}  & \checkmark &            & \checkmark &            &            &            &            & \\
+    \textbf{P2}  & \checkmark & \checkmark & \checkmark &            &            &            &            & \\
+    \textbf{P3}  &            &            & \checkmark &            &            &            &            & \\
+    \textbf{P4}  & \checkmark &            &            &            & \checkmark &            &            & \\
+    \textbf{P5}  & \checkmark &            & \checkmark &            &            &            &            & \\
+    \textbf{P6}  & \checkmark &            & \checkmark &            &  &            &            & \\
+    \textbf{P7}  & \checkmark &            & \checkmark &            &            &            &            & \\
+    \textbf{P8}  &            &            & \checkmark &            &            &            &            & \\
+    \textbf{P9}  &            &            & \checkmark &            &            &            & \checkmark & \\
+    \textbf{P10} & \checkmark &            &            &            & \checkmark &            &            & \\
+    \textbf{P11} & \checkmark &            & \checkmark &            & \checkmark &            &            & \\
+    \textbf{P12} &            &            & \checkmark &            &            &            &            & \\
+    \textbf{P13} & \checkmark &            & \checkmark &            & \checkmark &            &            & \\
+    \textbf{P14} & \checkmark &            &            &            & \checkmark &            &            & \\
+    \textbf{P15} & \checkmark &            &            &            & \checkmark &            &            & \\
+    \textbf{P16} & \checkmark &            &            &            & \checkmark &            &            & \\
+    \textbf{P17} & \checkmark           &            &            &            &            & \checkmark & \checkmark & \checkmark \\
+    \textbf{P18} & \checkmark           &            &            &            &            & \checkmark &            & \\
+    \textbf{P19} &            & \checkmark & \checkmark &            &            & \checkmark &            & \\
+  \hline
+\end{tabular}
+     \caption{Requirements satisfaction for base metamodel}
+    \label{tab:RequirementsSatisfactionBaseMetamodel}
+\end{table*}
 
 
 \begin{table*}
