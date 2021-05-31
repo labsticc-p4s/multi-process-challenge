@@ -31,7 +31,7 @@ We first present the process definition part of the base metamodel, located on t
 
 % Illustrer avec des instances de XSure
 
-\texttt{ProcessType} is a specialization of the \texttt{Type} concept, and references a collection of \texttt{TaskType} through the composition relation \texttt{taskTypes} with (0..*) cardinality (\textbf{P1}). A \texttt{TaskType} is embedded in a \texttt{ProcessType} and inherits from its context. To illustrate this in \textit{XSure} insurance domain use case, \textit{XSure model} defines \textsf{Claim Handling}, instance of \texttt{ProcessType}, and \textsf{Receive Claim}, \textsf{Assess Claim} and \textsf{Pay premium}, instances of \texttt{TaskType}.
+\texttt{ProcessType} is a specialization of the \texttt{Type} concept, and references a collection of \texttt{TaskType} through the composition relation \texttt{taskTypes} with (0..*) cardinality (\textbf{P1}). A \texttt{TaskType} is embedded in a \texttt{ProcessType} and inherits from its context. To illustrate this in \textit{XSure} insurance domain use case, \textit{XSure model} defines \inst{Claim Handling}, instance of \texttt{ProcessType}, and \inst{Receive Claim}, \inst{Assess Claim} and \inst{Pay premium}, instances of \texttt{TaskType}.
 
 \texttt{ProcessType} also references a collection of gateways, reified with the \texttt{Gateway} concept hierarchy. \texttt{Gateway} is a specialization of \texttt{Type} and is specialized by \texttt{Sequencing}, \texttt{AndSplit}, \texttt{AndJoin}, \texttt{OrSplit} and \texttt{OrJoin} concepts (\textbf{P2}). Depending on its type and following its underlying operational semantics, a gateway defines one or more inputs and one or more outputs. A \texttt{ProcessType} additionally exposes a unique initial \texttt{TaskType} and a collection of final \texttt{TaskType} with both roles \texttt{initialTaskType} (single cardinality) and \texttt{finalTaskType} (cardinality 0..*) (\textbf{P3}). \texttt{TaskType} exposes a creator role as a reference to an \texttt{Actor} concept (\textbf{P4}), which is at the same conceptual level. 
 
@@ -103,12 +103,10 @@ public Process newProcess(String name) {
 
 This scheme rely on \FML dynamic binding mechanism to delegate to task types the responsibility of instances creation. An instance of \texttt{Process} references its unique type \texttt{ProcessType} by the specialized \texttt{/type} role. Each instance of \texttt{TaskType} is ontologically instantiated with a \texttt{Task} (\textbf{P11}), using the same pattern where \texttt{TaskType} has the responsibility to manage the ontological instantiation. A \texttt{Task} references its unique \texttt{TaskType}, and defines a \texttt{begin date} and an \texttt{end date} basic role (\textbf{P12}).
 
-The same pattern applies for the used and produced artifacts by roles \texttt{usedArtifacts}, \texttt{producedArtifacts} and \texttt{performingActors} defined in \texttt{Task} (\textbf{P13}). An instance of \texttt{Artifact} specializes \textit{MultiInstance} and references a set of \texttt{ArtifactType} through the specialized \texttt{/types} role (\textbf{P14} and \textbf{P16}). Likewise, \texttt{Actor} specializes \texttt{MultiInstance} and references a set of \texttt{ActorType} through the specialized \texttt{/types} relation (\textbf{P15}).
+The same pattern applies for the used and produced artifacts by roles \texttt{usedArtifacts}, \texttt{producedArtifacts} and \texttt{performingActors} defined in \texttt{Task} (\textbf{P13}). An instance of \texttt{Artifact} specializes \texttt{MultiInstance} and references a set of \texttt{ArtifactType} through the specialized \texttt{/types} role (\textbf{P14} and \textbf{P16}). Likewise, \texttt{Actor} specializes \texttt{MultiInstance} and references a set of \texttt{ActorType} through the specialized \texttt{/types} relation (\textbf{P15}).
 
-The semantics is unclear relatively to the instantiation policy for artifacts. In the requirements, nothing is explicitly stated about the link between the \emph{artifact type} of a \emph{task type} and the type of the corresponding artifact
-
-We assume that task execution implies that for each used and produced \emph{artifact type} defined in a related \emph{task type}, it exists at least one \emph{artifact} declaring required ontologic instantiation (through \textit{type} role). The following excerpt of \FML code shows a partial implementation of this. The same pattern applies to produced artifacts.
-\noteFabien{Je ne suis pas bien sûr de comprendre le paragraphe}
+The semantics is unclear relatively to the instantiation policy for artifacts. In the requirements, nothing is explicitly stated about the link between the \emph{artifact type} of a \emph{task type} and the types of the artifacts of a corresponding task.
+Here, we assume that task execution implies that for each used and produced \emph{artifact type} defined in a related \emph{task type}, it exists at least one artifact of the right type. The following excerpt of \FML code shows a partial implementation of this. The same pattern applies to produced artifacts.
 
 \begin{lstlisting}
 concept Task extends Instance {
@@ -251,7 +249,7 @@ The \textit{Software Development Process} for Acme company is presented in the f
 
 % J'utilise sf pour les instances et '
 
-\textsf{'Requirements analysis'} is an instance of \texttt{SETaskType}, \textsf{'Analyst'} is an instance of \texttt{ActorType} and \textsf{'Requirement specifications'} is an instance of \texttt{SEArtifactType}. The value of the property \texttt{producedArtifactTypes} of \textsf{'Requirements analysis'} is \texttt{\{}\textsf{Requirement specifications}\texttt{\}} and is \texttt{\{}\textsf{Analyst}\texttt{\}} for \texttt{allowedActorTypes} (\textbf{S1}). Similarly, \textsf{'Test case design'} is an instance of \texttt{SETaskType}, with a value of \texttt{true} for its property \texttt{isCritical}, and bound to \textsf{'Analyst'} by the \texttt{allowedActorTypes} relation. \textsf{'Test case design'} produces \textsf{'Test cases'} instance of \texttt{SETaskType}. The latter is used in \textsf{'Test design review'} (\texttt{producedArtifactTypes} relation) (\textbf{S1} and \textbf{S13}, satisfied with \textbf{P9}). 
+\inst{Requirements analysis} is an instance of \texttt{SETaskType}, \inst{Analyst} is an instance of \texttt{ActorType} and \inst{Requirement specifications} is an instance of \texttt{SEArtifactType}. The value of the property \texttt{producedArtifactTypes} of \inst{Requirements analysis} is \texttt{\{}\inst{Requirement specifications}\texttt{\}} and is \texttt{\{}\inst{Analyst}\texttt{\}} for \texttt{allowedActorTypes} (\textbf{S1}). Similarly, \inst{Test case design} is an instance of \texttt{SETaskType}, with a value of \texttt{true} for its property \texttt{isCritical}, and bound to \inst{Analyst} by the \texttt{allowedActorTypes} relation. \inst{Test case design} produces \inst{Test cases} instance of \texttt{SETaskType}. The latter is used in \inst{Test design review} (\texttt{producedArtifactTypes} relation) (\textbf{S1} and \textbf{S13}, satisfied with \textbf{P9}). 
 
 The capture of \textbf{S3} requirement is performed while defining \texttt{Coding} as an instance of concept \texttt{CodingTaskType} and defining a relation \texttt{languages} to \texttt{ProgrammingLanguage} with 1..* cardinality. The \texttt{newTask(String)} behavior overrides the generic implementation by instantiating a \texttt{Coding} concept, specializing \texttt{Task}, as shown in following excerpt of FML code:
 
@@ -276,7 +274,7 @@ forEach (artifactType : types) {
 }
 \end{lstlisting}
 
-\textsf{Ann Smith} is the only one allowed to perform coding in COBOL (\textbf{S7}). This is implemented through the redefinition of \texttt{newTask(String)} in \texttt{CodingTaskType}:
+\inst{Ann Smith} is the only one allowed to perform coding in COBOL (\textbf{S7}). This is implemented through the redefinition of \texttt{newTask(String)} in \texttt{CodingTaskType}:
 
 \begin{lstlisting}
 concept CodingTaskType extends SETaskType {
@@ -290,7 +288,7 @@ concept CodingTaskType extends SETaskType {
 }    
 \end{lstlisting}
 
-The requirement \textbf{S8} is simply expressed by the definition of the \textsf{'Testing'} instance of \texttt{SETaskType}, \textsf{'Tester'} instance of \texttt{ActorType}, and \textsf{'Test report'} instance of \texttt{ArtifactType}.
+The requirement \textbf{S8} is simply expressed by the definition of the \inst{Testing} instance of \texttt{SETaskType}, \inst{Tester} instance of \texttt{ActorType}, and \inst{Test report} instance of \texttt{ArtifactType}.
 
 Critical task must additionnaly produce artifacts that must be associated with a validation task. This is modelled with a supplementary relation \texttt{validatedWith} defined in \texttt{Artifact} and referencing \texttt{Artifact} validating it (\textbf{S9}).
 
