@@ -1,6 +1,6 @@
 %Model Presentation: detailed  presentation of a model, including justifications for design decisions
 
-The presentation of our solution to the \mpc follows a systematic methodology where modeling choices are introduced step by step, as the requirements are stated. Satisfaction of requirements is explained throughout this presentation.
+The presentation of our solution to the \mpc follows a systematic methodology where modeling choices are introduced step by step, as the requirements are stated. The satisfaction of requirements is explained throughout this presentation.
 
 %\todo[inline]{phrase d'intro pour expliquer que les req étaient couverts au fur et à mesure (côté systématique)}
 
@@ -27,7 +27,7 @@ Our proposition relies on ontologic instantiation as presented in figure \ref{fi
 
 \subsubsection{Process type definition}
 
-We first present the process definition part of base metamodel, located left of figure \ref{fig:BaseMetamodel}.
+We first present the process definition part of the base metamodel, located on the left of Figure \ref{fig:BaseMetamodel}.
 
 % Illustrer avec des instances de XSure
 
@@ -35,7 +35,7 @@ We first present the process definition part of base metamodel, located left of 
 
 \texttt{ProcessType} also references a collection of gateways, reified with the \texttt{Gateway} concept hierarchy. \texttt{Gateway} is a specialization of \texttt{Type} and is specialized by \texttt{Sequencing}, \texttt{AndSplit}, \texttt{AndJoin}, \texttt{OrSplit} and \texttt{OrJoin} concepts (\textbf{P2}). Depending on its type and following its underlying operational semantics, a gateway defines one or more inputs and one or more outputs. A \texttt{ProcessType} additionally exposes a unique initial \texttt{TaskType} and a collection of final \texttt{TaskType} with both roles \texttt{initialTaskType} (single cardinality) and \texttt{finalTaskType} (cardinality 0..*) (\textbf{P3}). \texttt{TaskType} exposes a creator role as a reference to an \texttt{Actor} concept (\textbf{P4}), which is at the same conceptual level. 
 
-The following listing shows an excerpt of the \FML code modeling some core concepts of process modeling base metamodel. 
+The following listing shows an excerpt of the \FML code modeling some core concepts of the process modeling base metamodel. 
 
 \begin{lstlisting}
 model MetaModel {
@@ -109,6 +109,7 @@ The same pattern applies for the used and produced artifacts by roles \texttt{us
 
 The semantics is unclear relatively to the instantiation policy for artifacts. We assume that task execution implies that for each used and produced \emph{artifact type} defined in a related \emph{task type}, it exists at least one \emph{artifact} declaring required ontologic instantiation (through \textit{type} role). The following excerpt of \FML code shows a partial implementation of this. The same pattern applies to produced artifacts.
 \noteFabien{Je ne suis pas bien sûr de comprendre le paragraphe}
+\noteJC{autre remarque qui n'a rien à voir: si on suit les recommandations de l'appel, ce paragraphe devrait se retrouver dans la partie analyse étant donné qu'il établit un choix/une interprétation. Mais c'est délicat à intégrer sans le contexte du modèle de cette section. Ou alors il faudrait une liste, avec des références en avant}
 
 \begin{lstlisting}
 concept Task extends Instance {
@@ -217,15 +218,16 @@ All concepts inherits from \texttt{ModelingElement}, which defines a \texttt{las
 \subsection{The Acme software development process}
 \label{sec:AcmeSoftwareDevelopmentProcess}
 
-The challenge describes in a second part a Software engineering process for a fictional Acme company. Base metamodel as described in previous section is too generic to capture all domain-specific aspects of this use case. We choose to complete the architectual hierarchy with a specific VirtualModel, specific to Acme software development process metamodel, as shown in figure \ref{fig:AcmeArchitecture}. \textit{Acme} metamodel inherits and specializes base metamodel, and \textit{Acme model} is defined as an instance of \textit{Acme} metamodel. The metamodel inheritance is implemented as VirtualModel's inheritance. Any instance of Acme model is either an instance of a concept defined in base metamodel, or a concept defined in specialized Acme metamodel, which may or not inherit from a concept defined in base metamodel.
+The challenge describes in a second part a Software engineering process for a fictional Acme company. The Base metamodel described previously is too generic to capture all domain-specific aspects of this use case. We choose to complete the architectural hierarchy with a specific virtual model, specific to the Acme software development process metamodel, shown in figure~\ref{fig:AcmeFullArchitecture}. 
+The \textit{Acme} metamodel specializes the Base metamodel, and \textit{Acme model} is an instance of the \textit{Acme} metamodel. The metamodel inheritance is implemented by virtual model's inheritance. Any instance of the Acme model is either an instance of a concept defined in the Base metamodel, or a concept defined in the specialized \textit{Acme} metamodel.
 % FML follows a classical object-oriented semantics. ???
 
-\begin{figure}
- \centering
-    \includegraphics[width=1.0 \columnwidth]{Figures/AcmeArchitecture.pdf}
-     \caption{Acme software development process architecture}
-    \label{fig:AcmeArchitecture}
-\end{figure}
+%\begin{figure}[t]
+% \centering
+%    \includegraphics[width=1.0 \columnwidth]{Figures/AcmeArchitecture.pdf}
+%     \caption{Acme software development process architecture}
+%    \label{fig:AcmeArchitecture}
+%\end{figure}
 
 \begin{figure*}
  \centering
@@ -234,21 +236,25 @@ The challenge describes in a second part a Software engineering process for a fi
     \label{fig:AcmeFullArchitecture}
 \end{figure*}
 
-\todo[inline]{Augmenter la taille des fontes de la figure \ref{fig:AcmeFullArchitecture}}
-\todo[inline]{Ajouter les programming languages}
+\todo[inline]{Augmenter la taille des fontes de la figure \ref{fig:AcmeFullArchitecture} <- a priori non}
+\todo[inline]{Ajouter les programming languages <- je les vois apparaitre dans la figure, ou alors c'était un todo pour autre chose ?}
 
-Figure \ref{fig:AcmeFullArchitecture} shows the full architecture capturing Acme software development process, with an instance of enacted \textit{Software Engineering Process}, and highlights all conceptual levels. Acme metamodel enriches base metamodel by offering specializing concepts: \textit{SETaskType} extending \textit{TaskType}, a more specialized concept \textit{CodingTaskType} extending \textit{SETaskType}, \textit{SEArtifactType} extending \textit{ArtifactType}, a more specialized concept \textit{CodeArtifactType} extending \textit{SEArtifactType}. Acme metamodel also defines task type \textit{Coding} as a specialized concept of \textit{Task}, and provides concept \textit{Developer} extending \textit{ActorType}. This metamodel is completed with \textit{ProgrammingLanguage} concept, defined as an enumeration (\textit{Java}, \textit{C}, \textit{COBOL}). All instances required to capture challenge use case are still defined in final Acme model itself instance of Acme metamodel. Instances are represented with rounded boxes and linguistic instantiation are represented with dashed connectors.
+The Figure~\ref{fig:AcmeFullArchitecture} highlights all conceptual levels of the full architecture. It also contains an instance of enacted a \textit{Software Engineering Process} at the bottom. The Acme metamodel specializes some concepts of the Base metamodel, for example, \texttt{SETaskType} extends \texttt{TaskType} and \texttt{SEArtifactType} extends \texttt{ArtifactType}. These concepts are further specialized  \texttt{CodingTaskType} extends \texttt{SETaskType} and \texttt{CodeArtifactType} extends \texttt{SEArtifactType}. 
+The Acme metamodel also defines a specialized task type \texttt{Coding} extending \texttt{Task}, and provides the \texttt{Developer} concept extending \texttt{ActorType}. This metamodel is completed with the \texttt{ProgrammingLanguage} concept, defined as an enumeration (\texttt{Java}, \texttt{C}, \texttt{COBOL}). All the instances required to capture the challenge use case are defined in the final Acme model (lower part of the figure). Instances are represented with rounded boxes and linguistic instantiation is represented using dashed connectors.
 
-The \textit{Software Development Process} for Acme company is presented in the figure \ref{fig:AcmeSoftwareDevelopmentProcess} which is a screen-capture from the tooling developed in the context of the challenge and described in the next section. 
+The \textit{Software Development Process} for Acme company is presented in the figure~\ref{fig:AcmeSoftwareDevelopmentProcess}. It is a screen-capture of the tool developed for the challenge and described in the next section. 
 
-\begin{figure}
+\begin{figure}[t]
  \centering
     \includegraphics[width=1.0 \columnwidth]{Figures/SoftwareEngineeringProcessCroped.pdf}
      \caption{Acme software development process}
     \label{fig:AcmeSoftwareDevelopmentProcess}
 \end{figure}
 
-\textit{"Requirements analysis"} is defined as an instance of \textit{SETaskType}, \textit{Analyst} as an instance of \textit{ActorType} and \textit{Requirement specifications} as an instance of \textit{SEArtifactType}. \textit{"Requirements analysis"} instance defines property values \textit{producedArtifactTypes=\{Requirement specifications\}} and \textit{allowedActorTypes=\{Analyst\}} (\textbf{S1}). In the same way, \textit{"Test case design"} is defined as an instance of \textit{SETaskType}, marked as critical with property value \textit{isCritical=\{true\}}, and bound to \textit{Analyst} with \textit{allowedActorTypes} relation. \textit{"Test case design"} produces \textit{"Test cases"} defined as an instance of \textit{SETaskType}. The latter is used in "Test design review" (\textit{producedArtifactTypes} relation) (\textbf{S1} and \textbf{S13}, satisfied with \textbf{P9}). 
+% J'utilise sf pour les instances et '
+
+\textsf{'Requirements analysis'} is defined as an instance of \texttt{SETaskType}, \textsf{'Analyst'} is an instance of \texttt{ActorType} and \textsf{'Requirement specifications'} is an instance of \texttt{SEArtifactType}. The value of the property \texttt{producedArtifactTypes} of \textsf{'Requirements analysis'} is \texttt{\{}\textsf{Requirement specifications}\texttt{\}} and is \texttt{\{}\textsf{Analyst}\texttt{\}} for \texttt{allowedActorTypes} (\textbf{S1}). Similarly, \textsf{Test case design} is an instance of \texttt{SETaskType}, with a value of \texttt{true} for its property \texttt{isCritical}, and bound to \texttt{Analyst} by the \texttt{allowedActorTypes} relation. \textit{"Test case design"} produces \textsf{"Test cases"} defined as an instance of \textit{SETaskType}. The latter is used in "Test design review" (\textit{producedArtifactTypes} relation) (\textbf{S1} and \textbf{S13}, satisfied with \textbf{P9}). 
+\noteFabien{pas de Test case design dans la figure}
 
 The capture of \textbf{S3} requirement is performed while defining \textit{Coding} as an instance of concept \textit{CodingTaskType} extending \textit{SETaskType} and defining a relation \textit{languages} to \textit{ProgrammingLanguage} with 1..* cardinality. \textit{newTask(String)} behavior overrides generic implementation while instantiating a \textit{Coding} concept, specializing \textit{SEArtifact}, as shown in following excerpt of FML code:
 

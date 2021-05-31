@@ -6,7 +6,7 @@ In a first step, the federation approach is mainly based on modeling relationshi
 
 During the next step of our approach, we try to take into account the reusability of the relationships by identifying the semantics of each relationship. The goal is the identification of concepts with their behavior. The last step is to organize or structure these concepts to improve reusability and extensibility, to create virtual models in \FML terminology.     
 
-Like in lot of modeling approaches, these  steps could also be achieved in any order and iteratively. But our goal during the challenge's analysis remains to produce a \FML virtual model architecture for our federation. 
+Like in a lot of modeling approaches, these  steps could also be achieved in any order and iteratively. But our goal during the challenge's analysis remains to produce a \FML virtual model architecture for our federation. 
 As shown in figure~\ref{fig:MultilevelArchitecture}, we defined two virtual models (Base and Acme processes abstractions) instantiated by two virtual model instances (XSure and Acme processes). As the figure shows the virtual models play the role of metamodels, in the sense of concept definition with a level-agnostic approach. The virtual model instances play the role of models conforming to the metamodel definitions. In the rest of the paper, we use the term metamodel and model to simplify the presentation.
 The resulting architecture follows the way the challenge is presented and this
 organisation allows for the possibility of flexible extensions.
@@ -36,7 +36,7 @@ of any abstraction level as detailed in section \ref{sec:AcmeSoftwareDevelopment
     \label{fig:LinguisticAndOntologicInstantiation}
 \end{figure}
 
-Based on this approach, we organize our set of models following the architecture of the figure \ref{fig:MultilevelArchitecture}. The resulting multi-level architecture is organized in two virtual models, one for the core concepts metamodel containing the definition of Processes and Tasks, and one, the Acme metamodel, extending the previous model to integrate the Acme definitions. \FML language defines multiple inheritance concept between virtual models as illustrated in the section~\ref{sec:AcmeSoftwareDevelopmentProcess}.
+Based on this approach, we organize our set of models following the architecture of the aforementioned Figure \ref{fig:MultilevelArchitecture}. The resulting multi-level architecture is organized in two virtual models, one for the core concepts metamodel containing the definition of Processes and Tasks, and one, the Acme metamodel, extending the previous model to integrate the Acme definitions. The \FML language defines multiple inheritance concept between virtual models as illustrated in the section~\ref{sec:AcmeSoftwareDevelopmentProcess}.
 
 Finally as explained previously, the defined level for the Acme  and the XSure models is the result of the instantiation of virtual models. In our approach this virtual model instance level can't be specialized or extended but all the other virtual models could be extended by any concepts, as a new federated model. 
 Also, the instance level can be instantiated from any virtual model, which represent any metamodel level. 
@@ -44,7 +44,7 @@ Also, the instance level can be instantiated from any virtual model, which repre
 \noteAntoine{Pourquoi S9 et S13 sont ambigus, quels choix on a fait...}
 \todo[inline]{noms pas dans la spec, complètement implicite ; }
 
-We now analysis a few specifications that deserve a comment for the choices we made. 
+We now analyse a few specifications that deserve a comment for the choices we made. 
 
 \begin{itemize}
     \item We added an implicit specification (S0) saying that all things have names.
