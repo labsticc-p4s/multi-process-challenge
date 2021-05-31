@@ -292,9 +292,11 @@ A critical task must additionally produce artifacts that must be associated with
 
 All software engineering artifacts defined in the context of Acme Software Engineering Process are  instances of \texttt{SEArtifact}. This concept defines two attributes: \texttt{responsible} (an \texttt{Actor} instance), and \texttt{versionNumber} (an integer). It thus fulfills \textbf{S10}. \inst{Bob Brown} is declared as an instance of \texttt{Actor}, and references \inst{Analyst} and \inst{Tester} (\texttt{ActorType} instances). He is also referenced by all instances of \texttt{SETaskType} as the creator for related task types (\textbf{S11}).
 
+
 For \textbf{S12}, we assume that all tasks may define an expected duration, which might be checked during process execution. This is modeled by the \texttt{expectedDuration} attribute in \texttt{TaskType}. Alternatively, this could be modeled through the definition of a \texttt{SETesting} concept, as a specialization of \texttt{SETaskType}, and the instantiation of \inst{Testing} as an instance of \texttt{SETesting}. The business logic expressed by \textbf{S12} requirement should then be redefined in \texttt{SETesting}.
 
 \textbf{S13} requirement has been previously partially fulfilled. This must be completed with an association between a artifact produced and the task that validates it. This is modelled by the reference to \inst{Test Cases} as a produced artifact type in \inst{Test Case design} and the reference to \inst{Test Cases} as a used artifact in \inst{Test Design review}, as shown in figure~\ref{fig:AcmeSoftwareDevelopmentProcess}.
+
 
 \subsection{Openflexo tooling}
 \label{subsec:tooling}
@@ -306,28 +308,26 @@ For \textbf{S12}, we assume that all tasks may define an expected duration, whic
     \label{fig:ToolingArchitecture}
 \end{figure*}
 
-Our solution is fully implemented within the Openflexo tool. Both use cases have been modeled in the interactive design environment and can be executed by the \FML execution engine. 
-
-
-
-The Base metamodel is completed with some behaviors implementing an execution semantics for the executed processes. All tasks -- instantiated from \texttt{TaskType} for a given enacted process -- manage a status. This status is either \texttt{Not startable} (when not assigned to a performing actor or when required input artifacts are not available) , \texttt{Startable}, \texttt{Started}, \texttt{Completable} (when all output artifacts are ready) or \texttt{Completed}. A \texttt{Task} also manages a set of performing actors, a begin and end date, some used and produced artifacts. The \texttt{Gateway} business logic has also been implemented through the implementation of an abstract \texttt{execute(Process)} behavior. The management of artifacts whose semantics follows rules defined in section~\ref{sec:ProcessEnactment} (\textbf{P13}) is also implemented.
-
-
-
-We took advantage of model federation and the availability of diagramming features though the \textit{Diagramming Technology Adapter} to implement two interactive graphical tools built on top of the conceptual levels detailed in previous sections. A first tool offers a graphical edition of a Process type. The second one offers enactment feature (the instantiation of a process from its process type), the ability within an enacted process to assign tasks to actors, and a graphical visualization of this process execution.
-
-
-
-Figure \ref{fig:ToolingArchitecture} shows the architecture of these two tools. The left of the figure presents the \textit{ProcessType graphical editor}. \texttt{ProcessTypeEditor} is modeled as a virtual model declaring two model slots (represented with bold circles). The first model slot references an instance of Acme metamodel, while the second model slot references an instance of diagram, conforms to the \textit{ProcessType diagram specification}\footnote{a diagram "metamodel" which defines and specify structure and graphical representations for edited items}. When executed, this tool manages a graphical view for an instance of Acme metamodel (the \textit{Acme model}) and a specific \texttt{ProcessType} instance. This tools allows to represent and edit a \texttt{ProcessType}. The highly reflective nature of \FML and its tooling should be noted. When the drag and drop interactor is applied for a new item, the tool allows to choose the concept type to be instantiated. For example, when a \texttt{TaskType} is created, the user must choose a sub-concept of \texttt{TaskType} -- in Acme use case it can be \texttt{SETaskTask} or \texttt{CodingTaskType} or default value \texttt{TaskType}). 
-
-The other tool, called \textit{Enacted process graphical editor} and shown on figure~\ref{fig:ScreenshotEnactedProcessEditor}, provides process edition and tasks assignations through a graphical visualization displaying the process being executed. This tool is represented on the right side of the figure~\ref{fig:ToolingArchitecture}. It follows the same architecture pattern of the \textit{ProcessType graphical editor}, with two model slots referencing both the model and a diagram. Process enactment is operated from a \texttt{ProcessType}, and must be defined using a name identifying the newly instantiated process. All tasks are created from their \texttt{TaskType} definition, and required assignments applies (if for example \inst{Coding} \texttt{TaskType} defines COBOL as output programming language, related task is automatically assigned to \inst{Ann Smith}). Each task has a status as well as a set of performing actors, a begin and end date, and used and produced artifacts. 
-
 \begin{figure*}
  \centering
      \includegraphics[width=\textwidth]{Figures/ScreenshotEnactedProcessEditor.png}
      \caption{Screenshot of the enacted process graphical editor}
     \label{fig:ScreenshotEnactedProcessEditor}
 \end{figure*}
+
+Our solution is fully implemented within the Openflexo tool. Both use cases have been modeled in the interactive design environment and can be executed by the \FML execution engine. 
+
+
+We took advantage of model federation and the availability of diagramming features though the \textit{Diagramming Technology Adapter} to implement two interactive graphical tools built on top of the conceptual levels detailed in previous sections. A first tool offers a graphical edition of a Process type. The second one offers enactment feature (the instantiation of a process from its process type), the ability within an enacted process to assign tasks to actors, and a graphical visualization of this process execution.
+
+
+The Base metamodel is completed with some behaviors implementing an execution semantics for the executed processes. All tasks -- instantiated from \texttt{TaskType} for a given enacted process -- manage a status. This status is either \texttt{Not startable} (when not assigned to a performing actor or when required input artifacts are not available) , \texttt{Startable}, \texttt{Started}, \texttt{Completable} (when all output artifacts are ready) or \texttt{Completed}. A \texttt{Task} also manages a set of performing actors, a begin and end date, some used and produced artifacts. The \texttt{Gateway} business logic has also been implemented through the implementation of an abstract \texttt{execute(Process)} behavior. The management of artifacts whose semantics follows rules defined in section~\ref{sec:ProcessEnactment} (\textbf{P13}) is also implemented.
+
+Figure \ref{fig:ToolingArchitecture} shows the architecture of these two tools.
+ The left of the figure presents the \textit{ProcessType graphical editor}. \texttt{ProcessTypeEditor} is modeled as a virtual model declaring two model slots (represented with bold circles). The first model slot references an instance of Acme metamodel, while the second model slot references an instance of diagram, conforms to the \textit{ProcessType diagram specification}\footnote{a diagram "metamodel" which defines and specify structure and graphical representations for edited items}. When executed, this tool manages a graphical view for an instance of Acme metamodel (the \textit{Acme model}) and a specific \texttt{ProcessType} instance. This tools allows to represent and edit a \texttt{ProcessType}. The highly reflective nature of \FML and its tooling should be noted. When the drag and drop interactor is applied for a new item, the tool allows to choose the concept type to be instantiated. For example, when a \texttt{TaskType} is created, the user must choose a sub-concept of \texttt{TaskType} -- in Acme use case it can be \texttt{SETaskTask} or \texttt{CodingTaskType} or default value \texttt{TaskType}). 
+
+The other tool, called \textit{Enacted process graphical editor} and shown on figure~\ref{fig:ScreenshotEnactedProcessEditor}, provides process edition and tasks assignations through a graphical visualization displaying the process being executed. This tool is represented on the right side of the figure~\ref{fig:ToolingArchitecture}. It follows the same architecture pattern of the \textit{ProcessType graphical editor}, with two model slots referencing both the model and a diagram. Process enactment is operated from a \texttt{ProcessType}, and must be defined using a name identifying the newly instantiated process. All tasks are created from their \texttt{TaskType} definition, and required assignments applies (if for example \inst{Coding} \texttt{TaskType} defines COBOL as output programming language, related task is automatically assigned to \inst{Ann Smith}). Each task has a status as well as a set of performing actors, a begin and end date, and used and produced artifacts. 
+
 
 \todo[inline]{mettre ici le lien vers la page web qui montre la démo}
 
