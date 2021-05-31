@@ -264,7 +264,7 @@ concept CodingTaskType extends SETaskType {
 
 The \texttt{CodeArtifact} concept extends \texttt{SEArtifact}, and defines a relation \texttt{language} to \textit{ProgrammingLanguage} with single cardinality (\textbf{S4}). 
 \noteFabien{pas la cardinalité de la figure}
-\textbf{S5} is more ambiguous as a task type \texttt{Coding} defines one or more programming languages but produces code which is expressed in one language only. This requirement is captured through the redefinition of the behavior \texttt{declaresRequiredProducedArtifacts} where programming language should also match. 
+\textbf{S5} is more ambiguous as a task type \texttt{CodingTask} defines one or more programming languages but produces code which is expressed in one language only. This requirement is captured through the redefinition of the behavior \texttt{declaresRequiredProducedArtifacts} where programming language should also match. 
 \textbf{S6} is guaranteed though the \texttt{language} relation defined in \texttt{CodeArtifact} and the following invariant declared in \texttt{CodeArtifact}: 
 \begin{lstlisting}
 forEach (artifactType : types) {
@@ -277,20 +277,20 @@ forEach (artifactType : types) {
 \begin{lstlisting}
 concept CodingTaskType extends SETaskType {
   ...
-  public Coding newTask(String name) {
-    Coding returned = new Coding(name,this); 
+  public CodingTask newTask(String name) {
+    CodingTask result = new CodingTask(name,this); 
     if (languages.contains(ProgrammingLanguage.COBOL))
-      returned.addToPerformingActors(getActor("Ann Smith"));
-    return returned;
+      result.addToPerformingActors(getActor("Ann Smith"));
+    return result;
   }
 }    
 \end{lstlisting}
 
 The requirement \textbf{S8} is simply expressed by the definition of the \inst{Testing} instance of \texttt{SETaskType}, \inst{Tester} instance of \texttt{ActorType}, and \inst{Test report} instance of \texttt{ArtifactType}.
 
-Critical task must additionnaly produce artifacts that must be associated with a validation task. This is modelled with a supplementary relation \texttt{validatedWith} defined in \texttt{Artifact} and referencing \texttt{Artifact} validating it (\textbf{S9}).
+A critical task must additionally produce artifacts that must be associated with a validation task. This is modelled with a supplementary relation \texttt{validatedWith} defined in \texttt{Artifact} and referencing \texttt{Artifact} validating it (\textbf{S9}).
 
-All software engineering artifacts defined in the context of Acme Software Engineering Process (figure \ref{fig:AcmeSoftwareDevelopmentProcess}) are all instances of \textit{SEArtifact} which defines both attributes \textit{responsible} (an \textit{Actor} instance), and \textit{versionNumber} (an \textit{integer} value), and thus fulfills \textbf{S10}. \textit{Bob Brown} is declared as an instance of \textit{Actor}, and references \textit{Analyst} and \textit{Tester} (\textit{ActorType} instances). He is also referenced by all instances of \textit{SETaskType} as the creator for related task types (\textbf{S11}).
+All software engineering artifacts defined in the context of Acme Software Engineering Process are  instances of \textit{SEArtifact} which defines both attributes \textit{responsible} (an \textit{Actor} instance), and \textit{versionNumber} (an \textit{integer} value), and thus fulfills \textbf{S10}. \textit{Bob Brown} is declared as an instance of \textit{Actor}, and references \textit{Analyst} and \textit{Tester} (\textit{ActorType} instances). He is also referenced by all instances of \textit{SETaskType} as the creator for related task types (\textbf{S11}).
 
 \textbf{S12} is somehow ambiguous as it implies an implicit semantics regarding underlying business logic of process execution. We assume that all tasks may define an expected duration, which might be checked during process execution. This can be modeled through the addition of \textit{expectedDuration} attribute in \textit{TaskType}. Alternatively, this can be modeled through the definition of \textit{SETesting} concept, as a specialization of \textit{SETaskType}, and the instantiation of \textit{Testing} as an instance of \textit{SETesting}. The business logic expressed by \textbf{S12} requirement should be redefined in \textit{SETesting}.
 
