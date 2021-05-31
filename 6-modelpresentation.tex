@@ -18,7 +18,7 @@ The designed multilevel architecture shown in Figure~\ref{fig:MultilevelArchitec
     \label{fig:BaseMetamodel}
 \end{figure*}
 
-In this section, we present the base metamodel presented in figure~\ref{fig:BaseMetamodel} with \textit{XSure} insurance domain use case, whose partial description was provided in the challenge description. The requirements \textbf{P1} to \textbf{P19} of XSure insurance domain are straightforwardly implemented by instantiating the \emph{XSure model}, as an instance of base metamodel (the left side of figure~\ref{fig:MultilevelArchitecture}).
+In this section, we present the base metamodel presented in Figure~\ref{fig:BaseMetamodel} with \textit{XSure} insurance domain use case, whose partial description was provided in the challenge description. The requirements \textbf{P1} to \textbf{P19} of XSure insurance domain are straightforwardly implemented by instantiating the \emph{XSure model}, as an instance of base metamodel (the left side of figure~\ref{fig:MultilevelArchitecture}).
 
 Figure~\ref{fig:BaseMetamodel} represents this base metamodel with a \UML-like formalism, well adapted to represent \FML concepts and their instances. A \textit{Concept} of \FML is represented by a \UML class where roles of basic types are attributes. The roles whose types are concepts are represented by a combination of a name in their containing concept and an arrow from their name to their type. The cardinality follow the \UML practice.
 For example, the role \texttt{parentActorTypes} of the concept \texttt{ActorType} has the type \texttt{ActorType} and the * cardinality.
@@ -85,8 +85,6 @@ forEach (actor : allowedActors) {
 
 This invariant should be completed with additional constraints defined in the \texttt{Task} concept, which apply to performing actors assigned to enact tasks. 
 
-\todo{Gérer également la fin de P9, non traité pour le moment: artifact they produced must be associated with a validation task}
-
 \subsubsection{Process enactment}
 \label{sec:ProcessEnactment}
 We now present the process enactment part of base metamodel, located right of figure~\ref{fig:BaseMetamodel}. All concepts defined in this subsection are either specialization of the \texttt{Instance} concept (if they have exactly one type) or the \texttt{MultiInstance} concept (when they have several types).
@@ -107,9 +105,10 @@ This scheme rely on \FML dynamic binding mechanism to delegate to task types the
 
 The same pattern applies for the used and produced artifacts by roles \texttt{usedArtifacts}, \texttt{producedArtifacts} and \texttt{performingActors} defined in \texttt{Task} (\textbf{P13}). An instance of \texttt{Artifact} specializes \textit{MultiInstance} and references a set of \texttt{ArtifactType} through the specialized \texttt{/types} role (\textbf{P14} and \textbf{P16}). Likewise, \texttt{Actor} specializes \texttt{MultiInstance} and references a set of \texttt{ActorType} through the specialized \texttt{/types} relation (\textbf{P15}).
 
-The semantics is unclear relatively to the instantiation policy for artifacts. We assume that task execution implies that for each used and produced \emph{artifact type} defined in a related \emph{task type}, it exists at least one \emph{artifact} declaring required ontologic instantiation (through \textit{type} role). The following excerpt of \FML code shows a partial implementation of this. The same pattern applies to produced artifacts.
+The semantics is unclear relatively to the instantiation policy for artifacts. In the requirements, nothing is explicitly stated about the link between the \emph{artifact type} of a \emph{task type} and the type of the corresponding artifact
+
+We assume that task execution implies that for each used and produced \emph{artifact type} defined in a related \emph{task type}, it exists at least one \emph{artifact} declaring required ontologic instantiation (through \textit{type} role). The following excerpt of \FML code shows a partial implementation of this. The same pattern applies to produced artifacts.
 \noteFabien{Je ne suis pas bien sûr de comprendre le paragraphe}
-\noteJC{autre remarque qui n'a rien à voir: si on suit les recommandations de l'appel, ce paragraphe devrait se retrouver dans la partie analyse étant donné qu'il établit un choix/une interprétation. Mais c'est délicat à intégrer sans le contexte du modèle de cette section. Ou alors il faudrait une liste, avec des références en avant}
 
 \begin{lstlisting}
 concept Task extends Instance {
@@ -232,14 +231,13 @@ The \textit{Acme} metamodel specializes the Base metamodel, and \textit{Acme mod
 \begin{figure*}
  \centering
      \includegraphics[width=1.0 \textwidth]{Figures/AcmeFullArchitecture.pdf}
-     \caption{Acme software development process architecture}
+     \caption{Acme software development process architecture (not all instances are shown for readability reasons)}
     \label{fig:AcmeFullArchitecture}
 \end{figure*}
 
-\todo[inline]{Augmenter la taille des fontes de la figure \ref{fig:AcmeFullArchitecture} <- a priori non}
 \todo[inline]{Ajouter les programming languages <- je les vois apparaitre dans la figure, ou alors c'était un todo pour autre chose ?}
 
-The Figure~\ref{fig:AcmeFullArchitecture} highlights all conceptual levels of the full architecture. It also contains an instance of enacted a \textit{Software Engineering Process} at the bottom. The Acme metamodel specializes some concepts of the Base metamodel, for example, \texttt{SETaskType} extends \texttt{TaskType} and \texttt{SEArtifactType} extends \texttt{ArtifactType}. These concepts are further specialized  \texttt{CodingTaskType} extends \texttt{SETaskType} and \texttt{CodeArtifactType} extends \texttt{SEArtifactType}. 
+The Figure~\ref{fig:AcmeFullArchitecture} highlights all conceptual levels of the full architecture. This figure is only partial at instance level and not all instances are represented. It also contains an instance of enacted a \textit{Software Engineering Process} at the bottom. The Acme metamodel specializes some concepts of the Base metamodel, for example, \texttt{SETaskType} extends \texttt{TaskType} and \texttt{SEArtifactType} extends \texttt{ArtifactType}. These concepts are further specialized  \texttt{CodingTaskType} extends \texttt{SETaskType} and \texttt{CodeArtifactType} extends \texttt{SEArtifactType}. 
 The Acme metamodel also defines a specialized task type \texttt{Coding} extending \texttt{Task}, and provides the \texttt{Developer} concept extending \texttt{ActorType}. This metamodel is completed with the \texttt{ProgrammingLanguage} concept, defined as an enumeration (\texttt{Java}, \texttt{C}, \texttt{COBOL}). All the instances required to capture the challenge use case are defined in the final Acme model (lower part of the figure). Instances are represented with rounded boxes and linguistic instantiation is represented using dashed connectors.
 
 The \textit{Software Development Process} for Acme company is presented in the figure~\ref{fig:AcmeSoftwareDevelopmentProcess}. It is a screen-capture of the tool developed for the challenge and described in the next section. 
@@ -253,10 +251,9 @@ The \textit{Software Development Process} for Acme company is presented in the f
 
 % J'utilise sf pour les instances et '
 
-\textsf{'Requirements analysis'} is defined as an instance of \texttt{SETaskType}, \textsf{'Analyst'} is an instance of \texttt{ActorType} and \textsf{'Requirement specifications'} is an instance of \texttt{SEArtifactType}. The value of the property \texttt{producedArtifactTypes} of \textsf{'Requirements analysis'} is \texttt{\{}\textsf{Requirement specifications}\texttt{\}} and is \texttt{\{}\textsf{Analyst}\texttt{\}} for \texttt{allowedActorTypes} (\textbf{S1}). Similarly, \textsf{Test case design} is an instance of \texttt{SETaskType}, with a value of \texttt{true} for its property \texttt{isCritical}, and bound to \texttt{Analyst} by the \texttt{allowedActorTypes} relation. \textit{"Test case design"} produces \textsf{"Test cases"} defined as an instance of \textit{SETaskType}. The latter is used in "Test design review" (\textit{producedArtifactTypes} relation) (\textbf{S1} and \textbf{S13}, satisfied with \textbf{P9}). 
-\noteFabien{pas de Test case design dans la figure}
+\textsf{'Requirements analysis'} is an instance of \texttt{SETaskType}, \textsf{'Analyst'} is an instance of \texttt{ActorType} and \textsf{'Requirement specifications'} is an instance of \texttt{SEArtifactType}. The value of the property \texttt{producedArtifactTypes} of \textsf{'Requirements analysis'} is \texttt{\{}\textsf{Requirement specifications}\texttt{\}} and is \texttt{\{}\textsf{Analyst}\texttt{\}} for \texttt{allowedActorTypes} (\textbf{S1}). Similarly, \textsf{'Test case design'} is an instance of \texttt{SETaskType}, with a value of \texttt{true} for its property \texttt{isCritical}, and bound to \textsf{'Analyst'} by the \texttt{allowedActorTypes} relation. \textsf{'Test case design'} produces \textsf{'Test cases'} instance of \texttt{SETaskType}. The latter is used in \textsf{'Test design review'} (\texttt{producedArtifactTypes} relation) (\textbf{S1} and \textbf{S13}, satisfied with \textbf{P9}). 
 
-The capture of \textbf{S3} requirement is performed while defining \textit{Coding} as an instance of concept \textit{CodingTaskType} extending \textit{SETaskType} and defining a relation \textit{languages} to \textit{ProgrammingLanguage} with 1..* cardinality. \textit{newTask(String)} behavior overrides generic implementation while instantiating a \textit{Coding} concept, specializing \textit{SEArtifact}, as shown in following excerpt of FML code:
+The capture of \textbf{S3} requirement is performed while defining \texttt{Coding} as an instance of concept \texttt{CodingTaskType} and defining a relation \texttt{languages} to \texttt{ProgrammingLanguage} with 1..* cardinality. The \texttt{newTask(String)} behavior overrides the generic implementation by instantiating a \texttt{Coding} concept, specializing \texttt{Task}, as shown in following excerpt of FML code:
 
 \begin{lstlisting}
 concept CodingTaskType extends SETaskType {
@@ -268,16 +265,18 @@ concept CodingTaskType extends SETaskType {
 }    
 \end{lstlisting}
 
-\textit{Code} concept extends \textit{SEArtifact}, and defines a relation \textit{language} to \textit{ProgrammingLanguage} with single cardinality (\textbf{S4}). \textbf{S5} is more ambigous as task type \textit{Coding} defines one or more programming languages but produces code which is expressed in one language only. This requirement is captured through the redefinition of \textit{declaresRequiredProducedArtifacts()} where programming language should also match. 
-\textbf{S6} is guaranteed though the \textit{language} relation defined in \textit{Code} and following invariant declared in \textit{Code}:  
-
+The \texttt{Code} concept extends \texttt{SEArtifact}, and defines a relation \texttt{language} to \textit{ProgrammingLanguage} with single cardinality (\textbf{S4}). 
+\noteFabien{Code devient CodeArtifact}
+\textbf{S5} is more ambiguous as a task type \texttt{Coding} defines one or more programming languages but produces code which is expressed in one language only. This requirement is captured through the redefinition of the behavior \texttt{declaresRequiredProducedArtifacts} where programming language should also match. 
+\textbf{S6} is guaranteed though the \texttt{language} relation defined in \texttt{Code} and the following invariant declared in \texttt{Code}:  
+\noteFabien{Coding devient CodingTask}
 \begin{lstlisting}
 forEach (artifactType : types) {
   assert !(artifactType instanceof CodeArtifactType) | artifactType.doesImplement(languages)
 }
 \end{lstlisting}
 
-\textit{Ann Smith} is the only one allowed to perform coding in COBOL (\textbf{S7}). This is implemented through the redefinition of \textit{newTask(String)} in \textit{CodingTaskType}:
+\textsf{Ann Smith} is the only one allowed to perform coding in COBOL (\textbf{S7}). This is implemented through the redefinition of \texttt{newTask(String)} in \texttt{CodingTaskType}:
 
 \begin{lstlisting}
 concept CodingTaskType extends SETaskType {
@@ -291,18 +290,15 @@ concept CodingTaskType extends SETaskType {
 }    
 \end{lstlisting}
 
-\textbf{S8} requirement is simply captured with the definition of \textit{Testing} instance of \textit{SETaskType}, \textit{Tester} instance of \textit{ActorType}, and \textit{Test report} instance of \textit{ArtifactType}.
+The requirement \textbf{S8} is simply expressed by the definition of the \textsf{'Testing'} instance of \texttt{SETaskType}, \textsf{'Tester'} instance of \texttt{ActorType}, and \textsf{'Test report'} instance of \texttt{ArtifactType}.
 
-\todo[inline]{requirement S9 non couvert pour le moment: compléter}
-
+Critical task must additionnaly produce artifacts that must be associated with a validation task. This is modelled with a supplementary relation \texttt{validatedWith} defined in \texttt{Artifact} and referencing \texttt{Artifact} validating it (\textbf{S9}).
 
 All software engineering artifacts defined in the context of Acme Software Engineering Process (figure \ref{fig:AcmeSoftwareDevelopmentProcess}) are all instances of \textit{SEArtifact} which defines both attributes \textit{responsible} (an \textit{Actor} instance), and \textit{versionNumber} (an \textit{integer} value), and thus fulfills \textbf{S10}. \textit{Bob Brown} is declared as an instance of \textit{Actor}, and references \textit{Analyst} and \textit{Tester} (\textit{ActorType} instances). He is also referenced by all instances of \textit{SETaskType} as the creator for related task types (\textbf{S11}).
 
 \textbf{S12} is somehow ambiguous as it implies an implicit semantics regarding underlying business logic of process execution. We assume that all tasks may define an expected duration, which might be checked during process execution. This can be modeled through the addition of \textit{expectedDuration} attribute in \textit{TaskType}. Alternatively, this can be modeled through the definition of \textit{SETesting} concept, as a specialization of \textit{SETaskType}, and the instantiation of \textit{Testing} as an instance of \textit{SETesting}. The business logic expressed by \textbf{S12} requirement should be redefined in \textit{SETesting}.
 
-\textbf{S13} requirement has been previously partially fulfilled. This must be completed with...
-
-\todo[inline]{requirement S13 pas complètement couvert : compléter}
+\textbf{S13} requirement has been previously partially fulfilled. This must be completed with an association between artifact produced and the task that validates it. This is modelled by the reference to 'Test Cases' as a produced artifact type in 'Test Case design' and the reference to 'Test Cases' as a used artifact in 'Test Design review', as shown in figure \ref{fig:AcmeSoftwareDevelopmentProcess}.
 
 \subsection{Openflexo tooling}
 \label{subsec:tooling}
