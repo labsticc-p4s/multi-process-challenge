@@ -38,7 +38,7 @@ In this section, we discuss our multilevel model solution with regard to the req
 mentioned in the challenge.
 
   %plan plus ou moins imposé par l'appel
-%\todo[inline]{mandatory discussion aspects ↓}
+%\todo[inline]{mandatory discussion aspects}
 
   \subsection{Basic modeling constructs}
   %Explain the basic modeling constructs used in the solution.
@@ -47,14 +47,14 @@ mentioned in the challenge.
 
   Our solution uses the basic modeling constructs depicted by the \FML core
   metamodel (Figure~\ref{fig:mm}) and described in
-  section~\ref{sec:technology}. Models are \emph{virtual models}. They are
+  the section~\ref{sec:technology}. Models are \emph{virtual models}. They are
   composed of \emph{concepts}, being themselves concepts. Concepts may have
   \emph{roles} and \emph{behaviors} (actions one can perform).
 
   In order to provide the graphical tools, our solution also uses \emph{model
   slots} to connect some concept instances to external elements (in our case:
-  instance of diagram from our diagramming TA). The use of slots has been
-  described in section~\ref{sec:model} and is illustrated by bold circles in
+  instances of diagram from our diagraming TA). The use of slots has been
+  described in the section~\ref{sec:model} and is illustrated by bold circles in
   the Figure~\ref{fig:ToolingArchitecture}).
 
 
@@ -90,7 +90,7 @@ mentioned in the challenge.
   %Discuss if and how associations and links can connect model elements at
   %different levels. State well-formedness constraints, if any apply.
 
-  Thanks to the level-agnosticity nature of the Openflexo approach, cross-level
+  Thanks to the level-agnosticism nature of the Openflexo approach, cross-level
   relationships are not an issue. Model elements of different levels can be
   linked each other in a transparent way, using inheritance or instantiation.
 
@@ -119,7 +119,7 @@ mentioned in the challenge.
   users. Thus, the integrity of the contents relies on the users when they
   build the metamodels and the models.  Note that in our approach, the
   metamodels are built in an ad hoc way together with the models
-  (co-construction), therefore the user also validates on a ad hoc basis.
+  (co-construction), therefore the user also validates on an ad hoc basis.
 
   \subsection{Deep characterization}
 
@@ -130,8 +130,8 @@ mentioned in the challenge.
   %intermediate levels.
 
   %\noteJC{pas trop clair pour moi pour le moment -> N/A ? }
-  Due to the nature of our approach and its level-agnosticity, \emph{deep characterization} does not 
-  apply to our solution. Such a mechanism could probably be encoded by specific behaviors, however 
+  Due to the nature of our approach and its level-agnosticism, \emph{deep characterization} does not 
+  apply to our solution. Such a mechanism could probably be encoded by specific behaviors, however, 
   it would not be a generic mechanism, making it difficult to reuse for another problem.
 
   \subsection{Generality}
@@ -177,13 +177,13 @@ mentioned in the challenge.
   %: oui, vu que pas de notion de level}
 
   
-%\todo[inline]{recommended discussion aspects ↓}
+%\todo[inline]{recommended discussion aspects}
 \subsection{Tools}
 
 %Indicate whether there are formalisms to establish the semantics of the MLM
 %technique and/or tools that support the present solution
 
-As described in section~\ref{subsec:tooling}, our solution is fully tooled with
+As described in the section~\ref{subsec:tooling}, our solution is fully tooled with
 Openflexo.  We use the Openflexo infrastructure to build models and metamodels
 together, and to provide dedicated tooling to edit a Process type, to enact a
 process and to execute it. Being able to provide a solution and its associated
@@ -199,7 +199,7 @@ aforementioned graphical tools.
 %assessment mechanisms supported by the MLM technique employed.
 
 Our tooling includes mechanisms to verify the models. First, syntactical
-consistency is realised by cardinality checks and by typing. Second, the
+consistency is realized by cardinality checks and by typing. Second, the
 constraints the users have written are continuously checked. Thus, a part of
 the verification relies on the fact that users add behaviors when they build
 the metamodels and the models.
