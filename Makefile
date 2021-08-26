@@ -1,15 +1,20 @@
 TEXFILE=1-main
+TEXFILE1=responseLetter
 
 LATEXCMD=latexmk -f --synctex=1 -pdf
 
-all: main 
+default: main response
 
 main: 
 	$(LATEXCMD) $(TEXFILE)
 
-clean:
-	rm -Rf *.log *.aux *~ *.toc *.brf *.bbl *.blg *.ps *.fdb_latexmk \
-	*.nav *.out *.snm *.vrb *.pag auto *.maf *.mtc *.mtc0 *.fls *.synctex.gz
+response: $(TEXFILE1).tex
+	$(LATEXCMD) $(TEXFILE1)
 
-clean.all: clean
-	rm -f $(TEXFILE).{pdf,dvi}
+clean:
+	latexmk -c
+
+clean.all: #clean
+	latexmk -C
+	#rm -f $(TEXFILE).{pdf,dvi}
+	#rm -Rf $(TEXFILE1).pdf
