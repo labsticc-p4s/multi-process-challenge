@@ -87,7 +87,7 @@ This invariant should be completed with additional constraints defined in the \t
 
 \subsubsection{Process enactment}
 \label{sec:ProcessEnactment}
-We now present the process enactment part of base metamodel, located right of figure~\ref{fig:BaseMetamodel}. All concepts defined in this subsection are either specialization of the \texttt{Instance} concept (if they have exactly one type) or the \texttt{MultiInstance} concept (when they have several types).
+We now present the process enactment part of base metamodel, located right of figure~\ref{fig:BaseMetamodel}. All concepts defined in this subsection are either specializations of the \texttt{Instance} concept (if they have exactly one type) or the \texttt{MultiInstance} concept (when they have several types).
 
 \texttt{Process} represents an enacted \texttt{ProcessType}, as defined in previous subsection (\textbf{P10}). \FML defines behavioral features called behavior. \texttt{ProcessType} defines the behavior \texttt{newProcess(String)}, taking the name of the process to enact as argument:
 
@@ -215,7 +215,7 @@ Each concept inherits from \texttt{ModelingElement}, which defines a \texttt{las
 \subsection{The Acme software development process}
 \label{sec:AcmeSoftwareDevelopmentProcess}
 
-The challenge describes in a second part a Software engineering process for a fictional Acme company. The Base metamodel described previously is too generic to capture all domain-specific aspects of this use case. We choose to complete the architectural hierarchy with a specific virtual model, specific to the Acme software development process metamodel, shown in figure~\ref{fig:AcmeFullArchitecture}.
+The challenge describes in a second part a Software engineering process for a fictional Acme company. The Base metamodel described previously is too generic to capture all domain-specific aspects of this use case. We chose to complete the architectural hierarchy with a specific virtual model, specific to the Acme software development process metamodel, shown in figure~\ref{fig:AcmeFullArchitecture}.
 The \textit{Acme} metamodel specializes the Base metamodel, and \textit{Acme model} is an instance of the \textit{Acme} metamodel. The metamodel inheritance is implemented by virtual model's inheritance. Any instance of the Acme model is either an instance of a concept defined in the Base metamodel, or a concept defined in the specialized \textit{Acme} metamodel.
 % FML follows a classical object-oriented semantics. ???
 
