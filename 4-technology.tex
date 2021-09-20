@@ -2,6 +2,13 @@
 
 % Inspiré de la section 10 du papier formose
 
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\columnwidth]{Figures/federation.pdf}
+    \caption{The model federation approach}
+    \label{fig:mf}
+\end{figure}
+
 To meet the \mlpc, we have decided to use the general
 approach of model federation~\parencite{Golra2016-federation}. \emph{Model
   federation} is a way to assemble models using some kind of
@@ -25,12 +32,15 @@ in the Openflexo~\parencite{openflexo_link} framework.
 % figure
 % Dans la suite les références à la figure sont commentés
 
-\begin{figure}[t]
+
+\begin{figure*}
     \centering
-    \includegraphics[width=\columnwidth]{Figures/federation.pdf}
-    \caption{The model federation approach}
-    \label{fig:mf}
-\end{figure}
+    \includegraphics[width=1.0 \textwidth]{Figures/FMLMetaModel.pdf}
+    \caption{Internal representation of \FML language}
+    \label{fig:mm}
+\end{figure*}
+%\noteAntoine{Dans la figure ne manque-t-il pas les containements ? (VM vers Concepts)}
+%\noteSylvain{C'est le cas dans cette nouvelle figure}
 
 This framework relies on the architecture of Figure~\ref{fig:mf}. A federation
 gathers a set of conceptual models, named \emph{virtual models} and a
@@ -42,14 +52,7 @@ element that may evolve with its own tooling. The virtual models
 serve as control elements binding the federated models together.
 In this paper, we mainly use conceptual models and more precisely \FML its domain specific modeling language. The only use of the federation aspect is on the tooling made for the process language.
 
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=\columnwidth]{Figures/FMLMetaModel.pdf}
-    \caption{Internal representation of \FML language}
-    \label{fig:mm}
-\end{figure}
-%\noteAntoine{Dans la figure ne manque-t-il pas les containements ? (VM vers Concepts)}
-
+\noteSylvain{Parler plutot ici de représentation interne du language FML (plutot que metamodel qui embrouille le lecteur avec ce qui suit ?}
 \FML simplified metamodel is provided in Figure~\ref{fig:mm}. It is designed to define models as virtual models. A virtual model
 is composed of a set of \emph{concepts}, while itself being a concept.
 Hence, virtual models are structuring units forming architectures while concepts are the
@@ -70,6 +73,64 @@ technological space.}.
 also to define the collection of actions an engineer can perform on
 them. These actions are called \emph{behaviors} and can either be called (like usual methods) or triggered by events. The reactive behaviors are mainly useful when a federated model evolution needs to trigger a computation. We do not
 exploit this possibility in the challenge.
+
+\noteSylvain{Tentative de représenter ici un sous-ensemble de BPMN en montrant la capacité du language FML à faire de la modélisation conceptuelle d'une part, mais aussi à fédérer des nouveaux concepts avec un modèle et un métamodèle existant.}
+
+\noteSylvain{On explique dans la suite que dans le challenge, on ne va pas exploiter l'aspect fédération de modèle (sauf pour la partie diagramme - c'est expliqué plus haut également - ).}
+
+Figure \ref{fig:BBPMNSubsetExample} shows...
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\columnwidth]{Figures/BPMNSubsetExample.pdf}
+    \caption{An example of BPMN subset built on top of a BPMN/EMF model}
+    \label{fig:BPMNSubsetExample}
+\end{figure}
+
+\begin{lstlisting}
+use org.openflexo.technologyadapter.emf.EMFModelSlot as EMF;
+import ["http://www.omg.org/spec/BPMN/20100524/MODEL-XMI"] as BPMN_METAMODEL;
+
+// A simplified BPMN metamodel exposing
+// both concepts BPMNProcess and BPMNTask
+model SimplifiedBPMN {
+
+  // Connexion to a .bpmn file
+  EMFModel bpmnModel 
+    with EMF::EMFModelSlot(
+        metaModel = BPMN_METAMODEL);
+
+  // Abstract concept BPMNElement defining
+  // a name and a link to an eventual BPMNElement
+  // in .bpmn file
+  abstract concept BPMNElement {
+  	EMFObjectIndividual bpmnElement 
+  	    with EMF::EMFObjectIndividualRole (
+			source = bpmnModel
+		);
+    String name values bpmnElement.name;
+  }
+
+  concept BPMNProcess extends BPMNElement {
+
+    // Describe here properties and
+    // behaviours for BPMNProcess concept
+    ...
+
+    concept BPMNTask extends BPMNElement {
+
+        // Describe here properties and
+        // behaviours for BPMNTask concept
+        ...
+
+    }
+
+    // Other core concepts
+  }
+}
+\end{lstlisting}
+
+\noteSylvain{Faut-il montrer des exemples de comportement aussi ?}
 
 
 When the \FML execution engine runs a federation, it creates virtual
