@@ -11,7 +11,7 @@
 \usepackage{todonotes}
 
 \usepackage{microtype,xparse,tcolorbox}
-\newenvironment{reviewer-comment }{}{}
+\newenvironment{reviewer-commentX}{}{}
 \tcbuselibrary{skins}
 \tcolorboxenvironment{reviewer-comment }{empty,
   left = 1em, top = 1ex, bottom = 1ex,
@@ -20,11 +20,11 @@
 \ExplSyntaxOn
 \NewDocumentEnvironment {response} { +m O{black!20} } {
   \IfValueT {#1} {
-    \begin{reviewer-comment~ }
+    \begin{reviewer-commentX}
       \setlength\parindent{2em}
       \noindent
       \ttfamily #1
-    \end{reviewer-comment~ }
+    \end{reviewer-commentX}
   }
   \par\noindent\ignorespaces\color{blue}
 } { \bigskip\par }
