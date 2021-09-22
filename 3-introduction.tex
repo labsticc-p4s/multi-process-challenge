@@ -9,6 +9,17 @@ Model federation is a multi-model management approach based on the use of virtua
 Our solution is based on the model federation infrastructure. Concretely, we use Openflexo and its internal Flexo Modeling Language (\FML), a language to create, link and manage virtual models, in order to solve the MULTI process challenge while the federation aspect is used solely so as to provide tooling for the resulting process language. Our solution, which is fully implemented and executable, meets all the requirements.
 %\noteFabien{Le paragraphe qui précède me semble redire des choses de la section 2, comment fait-on ?}
 
+Our modeling approach is based on two levels. The meta level (\FML) provides the (linguistic) concepts that are used to define the model level (ontological). The ontological level is used to define the models and meta-models that are needed. \FML allows to define models as first class entities (which we call VirtualModel) and to link them together (by extension). In the \mpc case study, we exploit this possibility to:
+\begin{itemize}
+    \item Extend and adapt existing models, keeping the previous ones, to meet changing modeling needs,
+    \item Align this hierarchy of models with the process of their evolution.
+\end{itemize}
+This methodological choice allows us to adapt the models and keep track of their evolution each time the needs evolve.  
+
+Contrary to a classical multi-level approach, in which the notion of multi-level is integrated in the meta-model and must therefore be respected, our approach allows to build multi-levels on demand, and with the appropriate form. As a limitation, without multilevel-specific operators/concepts, the "custom" construction must be done explicitly during the model development and evolution process. 
+
+Our answer to the challenge is therefore not an answer using a classical multilevel approach that would allow an efficiency comparison with another classical multilevel answer, but an approach that proposes another organization of multilevels through the translation of needs into levels over time and the possibility to build an evolving hierarchy of adapted models. This is made possible by (1) the reification of the notion of model and the possibility to interconnect them (specialization) and (2) the freedom of meta-modeling (low model conformity, flexible meta-modeling).
+
 %Links among models can be within a same level of abstraction or across levels of abstractions which gives,
 
 %as our answer to the challenge shows, a great flexibility.
