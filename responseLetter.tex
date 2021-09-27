@@ -107,48 +107,48 @@ Voici la figure avec la connexion externe
     \label{fig:BPMNSubsetExample}
 \end{figure}
 
-\begin{lstlisting}
-use org.openflexo.technologyadapter.emf.EMFModelSlot as EMF;
-import ["http://www.omg.org/spec/BPMN/20100524/MODEL-XMI"] as BPMN_METAMODEL;
-
-// A simplified BPMN metamodel exposing
-// both concepts BPMNProcess and BPMNTask
-model SimplifiedBPMN {
-
-  // Connexion to a .bpmn file
-  EMFModel bpmnModel 
-    with EMF::EMFModelSlot(
-        metaModel = BPMN_METAMODEL);
-
-  // Abstract concept BPMNElement defining
-  // a name and a link to an eventual BPMNElement
-  // in .bpmn file
-  abstract concept BPMNElement {
-  	EMFObjectIndividual bpmnElement 
-  	    with EMF::EMFObjectIndividualRole (
-			source = bpmnModel
-		);
-    String name values bpmnElement.name;
-  }
-
-  concept BPMNProcess extends BPMNElement {
-
-    // Describe here properties and
-    // behaviours for BPMNProcess concept
-    ...
-
-    concept BPMNTask extends BPMNElement {
-
-        // Describe here properties and
-        // behaviours for BPMNTask concept
-        ...
-
-    }
-
-    // Other core concepts
-  }
-}
-\end{lstlisting}
+%\begin{lstlisting}
+%use org.openflexo.technologyadapter.emf.EMFModelSlot as EMF;
+%import ["http://www.omg.org/spec/BPMN/20100524/MODEL-XMI"] as BPMN_METAMODEL;
+%
+%// A simplified BPMN metamodel exposing
+%// both concepts BPMNProcess and BPMNTask
+%model SimplifiedBPMN {
+%
+%  // Connexion to a .bpmn file
+%  EMFModel bpmnModel 
+%    with EMF::EMFModelSlot(
+%        metaModel = BPMN_METAMODEL);
+%
+%  // Abstract concept BPMNElement defining
+%  // a name and a link to an eventual BPMNElement
+%  // in .bpmn file
+%  abstract concept BPMNElement {
+%  	EMFObjectIndividual bpmnElement 
+%  	    with EMF::EMFObjectIndividualRole (
+%			source = bpmnModel
+%		);
+%    String name values bpmnElement.name;
+%  }
+%
+%  concept BPMNProcess extends BPMNElement {
+%
+%    // Describe here properties and
+%    // behaviours for BPMNProcess concept
+%    ...
+%
+%    concept BPMNTask extends BPMNElement {
+%
+%        // Describe here properties and
+%        // behaviours for BPMNTask concept
+%        ...
+%
+%    }
+%
+%    // Other core concepts
+%  }
+%}
+%\textbf{}\end{lstlisting}
 
 \end{response}
 
