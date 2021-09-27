@@ -97,6 +97,16 @@ Sylvain, Guillaume, Caine, Joel, Jean-Christophe, Salvador, Fabien and Antoine
 \Reviewer{\#1}
 \begin{response}{In section 2 Technology the authors describe the foundations of the Openflexo approach. Here it would greatly help the reader to see an example how the approach works for traditional modeling languages. For example, how would you realize a small subset of BPMN with the approach? This could briefly be illustrated so as to give the reader an immediate understanding. Especially, the 'metamodel'-agnostic approach seems very interesting but I would like to see how that is used for traditional modeling approaches.}
 TODO.
+
+Voici la figure avec la connexion externe
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=1.0 \textwidth]{Figures/BPMNSubsetExampleWithExternalConnexion.pdf}
+    \caption{An example of BPMN subset built on top of a BPMN/EMF model}
+    \label{fig:BPMNSubsetExample}
+\end{figure}
+
 \end{response}
 
 \begin{response}{Also, at the stage of section 2, the characterization of the FML language should be made clearer. The metamodel in Figure 2 seems mainly conceptual - but at the same time you refer to it as a basis for implementation. Could that be clarified? eg you have the class "Behavior" - which is a concept and I did not understand right away what it is composed of. On the other hand you have for example the class "ModelSlot" which seems like a very technical realization. Also, you note that roles have types but I could not find any types in the metamodel (?). Thus, I propose to include a more detailed version of your metamodel at this stage. Please note that EMISAJ does not have a page limitation, so no worries if that should require more space.} 
@@ -161,7 +171,9 @@ TODO.
 \end{response}
 
 \begin{response}{Section 7 contains a rather short elaboration on related approaches. Although I agree that it is enough to focus on previous solutions here, much more detail and a comparison would be required.} 
-TODO.
+
+We have extended Section 7. It discusses now previously published solutions to the challenge in more detail. Comparisons with our approach have been also extended.
+
 \end{response}
 
 \begin{response}{As Section 6 shows, the authors know exactly, why their solution may have difficulties as a multi-level modeling approach despite solving the given challenge. The solution is basically a smart, two-level modeling solution of the MULTI challenge. Multi-level behavior is emulated by constraints and additional mechanisms particularly written to this challenge. The result is a working workbench fulfilling the requirements but having limited reusability and extensibility. For example, it would be hard to increase the number of abstraction levels as class-like and object-like concepts are handled differently. Another problem may arise if we would use the framework as a prototyping tool and change the metamodel and the models at the same time.} 
