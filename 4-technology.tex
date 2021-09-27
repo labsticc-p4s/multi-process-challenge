@@ -76,45 +76,32 @@ also to define the collection of actions an engineer can perform on
 them. These actions are called \emph{behaviors} and can either be called (like usual methods) or triggered by events. The reactive behaviors are mainly useful when a federated model evolution needs to trigger a computation. We do not
 exploit this possibility in the challenge.
 
-\noteSylvain{Tentative de représenter ici un sous-ensemble de BPMN en montrant la capacité du language FML à faire de la modélisation conceptuelle d'une part, mais aussi à fédérer des nouveaux concepts avec un modèle et un métamodèle existant.}
+%\noteSylvain{Tentative de représenter ici un sous-ensemble de BPMN en montrant la capacité du language FML à faire de la modélisation conceptuelle d'une part, mais aussi à fédérer des nouveaux concepts avec un modèle et un métamodèle existant.}
 
-\noteSylvain{On explique dans la suite que dans le challenge, on ne va pas exploiter l'aspect fédération de modèle (sauf pour la partie diagramme - c'est expliqué plus haut également - ).}
+%\noteSylvain{On explique dans la suite que dans le challenge, on ne va pas exploiter l'aspect fédération de modèle (sauf pour la partie diagramme - c'est expliqué plus haut également - ).}
 
 Figure \ref{fig:BPMNSubsetExample} shows...
 
-\noteSM{We use the current Figure 3 to answer reviewer 1 in the response letter just as to show how the model federation works, but not here.}
+%\noteSM{We use the current Figure 3 to answer reviewer 1 in the response letter just as to show how the model federation works, but not here.}
 
-\todo{Faire l'explication une fois que l'on aura décidé ce qu'on y montre...}
+\noteSylvain{Rédiger l'explication...}
 
 \begin{figure}[t]
     \centering
     \includegraphics[width=\columnwidth]{Figures/BPMNSubsetExample.pdf}
-    \caption{An example of BPMN subset built on top of a BPMN/EMF model}
+    \caption{An example of BPMN subset showing both the model and an instance of that model}
     \label{fig:BPMNSubsetExample}
 \end{figure}
 
 \begin{lstlisting}
-use org.openflexo.technologyadapter.emf.EMFModelSlot as EMF;
-import ["http://www.omg.org/spec/BPMN/20100524/MODEL-XMI"] as BPMN_METAMODEL;
-
 // A simplified BPMN metamodel exposing
 // both concepts BPMNProcess and BPMNTask
 model SimplifiedBPMN {
 
-  // Connexion to a .bpmn file
-  EMFModel bpmnModel 
-    with EMF::EMFModelSlot(
-        metaModel = BPMN_METAMODEL);
-
   // Abstract concept BPMNElement defining
-  // a name and a link to an eventual BPMNElement
-  // in .bpmn file
+  // a name
   abstract concept BPMNElement {
-  	EMFObjectIndividual bpmnElement 
-  	    with EMF::EMFObjectIndividualRole (
-			source = bpmnModel
-		);
-    String name values bpmnElement.name;
+    String name;
   }
 
   concept BPMNProcess extends BPMNElement {

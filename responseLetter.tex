@@ -107,6 +107,49 @@ Voici la figure avec la connexion externe
     \label{fig:BPMNSubsetExample}
 \end{figure}
 
+\begin{lstlisting}
+use org.openflexo.technologyadapter.emf.EMFModelSlot as EMF;
+import ["http://www.omg.org/spec/BPMN/20100524/MODEL-XMI"] as BPMN_METAMODEL;
+
+// A simplified BPMN metamodel exposing
+// both concepts BPMNProcess and BPMNTask
+model SimplifiedBPMN {
+
+  // Connexion to a .bpmn file
+  EMFModel bpmnModel 
+    with EMF::EMFModelSlot(
+        metaModel = BPMN_METAMODEL);
+
+  // Abstract concept BPMNElement defining
+  // a name and a link to an eventual BPMNElement
+  // in .bpmn file
+  abstract concept BPMNElement {
+  	EMFObjectIndividual bpmnElement 
+  	    with EMF::EMFObjectIndividualRole (
+			source = bpmnModel
+		);
+    String name values bpmnElement.name;
+  }
+
+  concept BPMNProcess extends BPMNElement {
+
+    // Describe here properties and
+    // behaviours for BPMNProcess concept
+    ...
+
+    concept BPMNTask extends BPMNElement {
+
+        // Describe here properties and
+        // behaviours for BPMNTask concept
+        ...
+
+    }
+
+    // Other core concepts
+  }
+}
+\end{lstlisting}
+
 \end{response}
 
 \begin{response}{Also, at the stage of section 2, the characterization of the FML language should be made clearer. The metamodel in Figure 2 seems mainly conceptual - but at the same time you refer to it as a basis for implementation. Could that be clarified? eg you have the class "Behavior" - which is a concept and I did not understand right away what it is composed of. On the other hand you have for example the class "ModelSlot" which seems like a very technical realization. Also, you note that roles have types but I could not find any types in the metamodel (?). Thus, I propose to include a more detailed version of your metamodel at this stage. Please note that EMISAJ does not have a page limitation, so no worries if that should require more space.} 
