@@ -9,8 +9,8 @@
     \label{fig:mf}
 \end{figure}
 
-To meet the \mlpc, we have decided to use the general
-approach of model federation~\parencite{Golra2016-federation}. \emph{Model
+To meet the \mlpc, we have decided to use the language infrastructure of
+model federation approach~\parencite{Golra2016-federation}. \emph{Model
   federation} is a way to assemble models using some kind of
 low-coupling links. It has been studied to answer the \OMG' RFP
 Semantic Modeling for Information Federation~\parencite{simf}. In
@@ -23,6 +23,8 @@ model/metamodel conformity -- that is presented
 in~\parencite{models2016-freemodel}. Another notable feature of
 this approach is the strong decoupling among tools that remain usable
 after federations are made.
+So to provide an adaptable framework, we have developed a flexible modeling language to provide modeling features without strict modeling levels. In a federation, the targeted modelling approaches can be unknown at the beginning and also can integrate several modeling levels.
+
 
 We decided to use this approach since it offers the possibility to
 link and to navigate among levels. Before we describe the overall
@@ -72,9 +74,9 @@ technological space.}.
 
 
 \FML is designed to define not only the structure of virtual models but
-also to define the collection of actions an engineer can perform on
-them. These actions are called \emph{behaviors} and can either be called (like usual methods) or triggered by events. The reactive behaviors are mainly useful when a federated model evolution needs to trigger a computation. We do not
-exploit this possibility in the challenge.
+also also the collection of actions that can be performed on them.
+These actions are called \emph{behaviors} and can either be called (like usual methods) or triggered by events. The reactive behaviors are mainly useful when a federated model evolution needs to trigger a computation. 
+%We do not exploit this possibility in the challenge.
 
 %\noteSylvain{Tentative de représenter ici un sous-ensemble de BPMN en montrant la capacité du language FML à faire de la modélisation conceptuelle d'une part, mais aussi à fédérer des nouveaux concepts avec un modèle et un métamodèle existant.}
 

@@ -82,7 +82,7 @@ mentioned in the challenge.
   %Elaborate whether the submitted solution could have had more or fewer levels
   %and explain how any potentially existing degrees of freedom were resolved.
 
-  Due to the fact that our approach is level-agnostic, our solution could have had more
+  Due to the fact that our approach is level-agnostic, our solution could have more
   or fewer levels depending on the variations of the use case. However, the number of levels is related
   to the problem, making the approach fixed (to 3).
 
@@ -93,7 +93,7 @@ mentioned in the challenge.
 
   Thanks to the level-agnosticism nature of the Openflexo approach, cross-level
   relationships are not an issue. Model elements of different levels can be
-  linked each other in a transparent way, using inheritance or instantiation. \textcolor{red}{For instance Developer\dots}
+  linked each other in a transparent way, using inheritance or instantiation. For instance the \texttt{Developer} concept, from \texttt{Acme} metamodel, specializes the \texttt{ActorType} of the base metamodel, and the \texttt{Developer} of the \texttt{Acme} model, is an instance of the metamodel concept. \textcolor{red}{Phrase faite a relire sur Developer\dots}
 
   \subsection{Cross-level constraints}
 
@@ -143,8 +143,7 @@ mentioned in the challenge.
 
   Due to the nature of model federation, the models are highly reusable.
   Although we build ad hoc metamodels in our approach, our solution separates
-  the domain-specific elements from general purpose ones, making possible to
-  apply it to other domains.
+  the domain-specific elements from general purpose ones, making possible to reuse the general concepts to other domains.
 
   \subsection{Extensibility}
 
@@ -200,6 +199,6 @@ aforementioned graphical tools.
 
 Our tooling includes mechanisms to verify the models. First, syntactical
 consistency is realized by cardinality checks and by typing. Second, the
-constraints the users have written are continuously checked. Thus, a part of
-the verification relies on the fact that users add behaviors when they build
+constraints the users have written are continuously checked during model edition and enactment. 
+Thus, a part of the verification relies on the fact that users add behaviors when they build
 the metamodels and the models. \textcolor{red}{An example of constraint\dots}

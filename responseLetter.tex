@@ -80,11 +80,11 @@ Sylvain, Guillaume, Caine, Joel, Jean-Christophe, Salvador, Fabien and Antoine
 
 \Editor{}
 
-\begin{response}{the reviewers have made suggestions for improving the presentation but also raised a number of issues requiring clarification. An overarching theme is the request for a more explicit description of how the multi-level modelling emulation is achieved and what its general advantages and limitations are, including a clarification of what the implications would be of supporting more "levels" than the challenge required.} TODO.
+\begin{response}{the reviewers have made suggestions for improving the presentation but also raised a number of issues requiring clarification. An overarching theme is the request for a more explicit description of how the multi-level modelling emulation is achieved and what its general advantages and limitations are, including a clarification of what the implications would be of supporting more "levels" than the challenge required.} We have been more explicit to explain how we use the FML language at the end of the introduction, and in various figures. TODO.
 \end{response}
 
 
-\begin{response}{We very much welcome a "conventional" response to the challenge but would like to see the respective reviewer questions addressed in a revised version which is explicit as possible about the advantages and the disadvantages of the emulation. You may find the references listed below useful to keep explanations concise by referencing related work (note that reviewer 3’s “Type-Instance pattern” is also known as the “Type Object” pattern). You should also respond to other concerns reviewers raise, either by making changes to the submission or in the form of an authors' response.} TODO. We may have to create a new section.
+\begin{response}{We very much welcome a "conventional" response to the challenge but would like to see the respective reviewer questions addressed in a revised version which is explicit as possible about the advantages and the disadvantages of the emulation. You may find the references listed below useful to keep explanations concise by referencing related work (note that reviewer 3’s “Type-Instance pattern” is also known as the “Type Object” pattern). You should also respond to other concerns reviewers raise, either by making changes to the submission or in the form of an authors' response.} The related work section has been modified to show that we are not the first conventional response with multi-level emulation, and to improve comparisons and limitations of different approaches. TODO. We may have to create a new section.
 \end{response}
 
 
@@ -96,9 +96,7 @@ Sylvain, Guillaume, Caine, Joel, Jean-Christophe, Salvador, Fabien and Antoine
 
 \Reviewer{\#1}
 \begin{response}{In section 2 Technology the authors describe the foundations of the Openflexo approach. Here it would greatly help the reader to see an example how the approach works for traditional modeling languages. For example, how would you realize a small subset of BPMN with the approach? This could briefly be illustrated so as to give the reader an immediate understanding. Especially, the 'metamodel'-agnostic approach seems very interesting but I would like to see how that is used for traditional modeling approaches.}
-TODO.
-
-Voici la figure avec la connexion externe
+The previous figure illustrates the connection with external sources. However, in the article, we choose not to give this level of details and to keep focus on the left part of the figure. It shows how a VirtualModel (SimplifiedBPMN) can filter a model (BPMN) and be instantiated. TODO.
 
 \begin{figure}[t]
     \centering
@@ -153,11 +151,11 @@ Voici la figure avec la connexion externe
 \end{response}
 
 \begin{response}{Also, at the stage of section 2, the characterization of the FML language should be made clearer. The metamodel in Figure 2 seems mainly conceptual - but at the same time you refer to it as a basis for implementation. Could that be clarified? eg you have the class "Behavior" - which is a concept and I did not understand right away what it is composed of. On the other hand you have for example the class "ModelSlot" which seems like a very technical realization. Also, you note that roles have types but I could not find any types in the metamodel (?). Thus, I propose to include a more detailed version of your metamodel at this stage. Please note that EMISAJ does not have a page limitation, so no worries if that should require more space.} 
-TODO.
+We've changed figure 2. It shows \texttt{Type} and the main concepts used by FML. TODO. Explanation of figure has been improved. 
 \end{response}
 
 \begin{response}{In Figure 5, the base metamodel for representing processes is shown - however it is not linked to the concepts you introduced before. Would it be possible to maybe graphically highlight how it relates to the metamodel in Figure 2? Besides, as multi-level modeling is much different to traditional modeling, you may want to consider using a different notation rather than UML class diagrams - as these are commonly known for traditional modeling approaches. When reading the paper, I actually marked the references to types in yellow in my copy - ie from ProcessType to TaskType and from ActorType to ActorType (on the attribute levels) - this helped me to see more clearly where you have references from attributes to types - but that's just my way of doing it.} 
-TODO.
+TODO. Faire le lien entre figure 2 et les représentations des figures 3, 4, 5, 6 et 7. Package = VirtualModel, Classes bleues = FlexoConcept, attribut =(~) Get/GetSetProperty, association = FlexoRole, no FlexoBehavior visible. (!! Dans la figure 2 il n'y a pas d'héritage possible visible entre FlexoConcept.) Le niveau orange est l'instantiation / interprétation du FML.
 \end{response}
 
 \begin{response}{Regarding Figure 6 and Figure 7: In Figure 7 you show the process incl. sequence connectors - however in Figure 6 these seem to be missing - maybe to reduce complexity? I would suggest to probably focus on a subset of the process from Figure 7 and also show how the connectors are realized. To me this would increase the comprehensibility / consistency. Ie I could then infer exactly, how elements from the concrete model have been realized in the background.} 
@@ -184,11 +182,11 @@ choose $\rightarrow$ chose OK ; axis $\rightarrow$  axes OK ; je ne comprends pa
 \end{response}
 
 \begin{response}{The paper gives us a short introduction (somewhat overlapping with the abstract, even at the level of sentences) and then the technology is detailed. The section is a bit hard to understand at first, the difference and the relationship between federated and virtual models could be explained in more detail especially considered that the challenge solution uses virtual models only. It is not clear, how federation works in this case.} 
-TODO.
+We have improved the description and we hope this is much clearer. TODO.
 \end{response}
 
 \begin{response}{The third section contains an overview of the solution. Here, virtual models are instantiated to virtual model instances conforming to the virtual models acting as the metamodel for the virtual model instances. The question naturally arises: how does it work, if we have more abstraction levels?  In this section, the authors also discuss linguistic and ontologic instantiation. The explanation refers to Section 4 resulting in a hardly understandable analysis of different instantiation methods. Figure 4. does not help in clarifying the concepts either (e.g. using the name InstanceInstance seems to be a very bad decision). From the point of the muli-level behavior of view, the interpretation of the instantiation relationship is the most crucial one that is why this section must be clarified. Where are the rules of ontological instantiation defined, how are they enforced? The text mentions the (linguistic) instantiation mechanism of the FML Language… how does it work exactly?} 
-TODO.
+We hope we have improved the explanation. \texttt{InstanceInstance} has been replace with \texttt{ObjectInstance}. TODO.
 \end{response}
 
 \begin{response}{Section 4 elaborates the solution in detail. Figure 5 presents an overview of the model elements handling P1 to P19. The diagram uses a UML-like annotation, which helps in making it understandable, but it also has a strange decision: roles (attributes) having a modeled concept as their type are visualized by links, but instead of using rolenames on the links, the concepts (classes) contain them. I strongly suggest following the UML guidelines here and use rolenames (similarly to multiplicity).}
