@@ -80,23 +80,33 @@ Sylvain, Guillaume, Caine, Joel, Jean-Christophe, Salvador, Fabien and Antoine
 
 \Editor{}
 
-\begin{response}{the reviewers have made suggestions for improving the presentation but also raised a number of issues requiring clarification. An overarching theme is the request for a more explicit description of how the multi-level modelling emulation is achieved and what its general advantages and limitations are, including a clarification of what the implications would be of supporting more "levels" than the challenge required.} We have been more explicit to explain how we use the FML language at the end of the introduction, and in various figures. TODO.
+\begin{response}{the reviewers have made suggestions for improving the presentation but also raised a number of issues requiring clarification. An overarching theme is the request for a more explicit description of how the multi-level modelling emulation is achieved and what its general advantages and limitations are, including a clarification of what the implications would be of supporting more "levels" than the challenge required.} 
+
+We have been more explicit to explain how we use the FML language at the end of the introduction, and in various figures. TODO.
+
+
+\todo[inline]{We have enhanced the presentation of both, Openflexo/FML and our solution to the challenge so that: 1) the techniques we use to \emph{achieve} multi-level capabilities are more explicit; and, 2) the advantages and disadvantages of using them in order to fulfil the challenge requirements become clearer. Notably, we have added many details in the final paragraphs of the introduction section, improved the Section 2, devoted to the description of OpenFlexo, refactored figures X, Y, Z.}
 \end{response}
 
 
-\begin{response}{We very much welcome a "conventional" response to the challenge but would like to see the respective reviewer questions addressed in a revised version which is explicit as possible about the advantages and the disadvantages of the emulation. You may find the references listed below useful to keep explanations concise by referencing related work (note that reviewer 3’s “Type-Instance pattern” is also known as the “Type Object” pattern). You should also respond to other concerns reviewers raise, either by making changes to the submission or in the form of an authors' response.} The related work section has been modified to show that we are not the first conventional response with multi-level emulation, and to improve comparisons and limitations of different approaches. TODO. We may have to create a new section.
+\begin{response}{We very much welcome a "conventional" response to the challenge but would like to see the respective reviewer questions addressed in a revised version which is explicit as possible about the advantages and the disadvantages of the emulation. You may find the references listed below useful to keep explanations concise by referencing related work (note that reviewer 3’s “Type-Instance pattern” is also known as the “Type Object” pattern). You should also respond to other concerns reviewers raise, either by making changes to the submission or in the form of an authors' response.} 
+The related work section has been modified to show that we are not the first conventional response with multi-level emulation, and to improve comparisons and limitations of different approaches.\todo[inline]{I do not understand this answer. We are saying that other approaches are also unconventional?}
 \end{response}
 
 
-\begin{response}{Finally, to achieve consistency with other submissions, could you please change the subtitle to "A Contribution to the Multi-Level Process Challenge"?} Of course we can.
-  DONE.
+\begin{response}{Finally, to achieve consistency with other submissions, could you please change the subtitle to "A Contribution to the Multi-Level Process Challenge"?}
+
+Done.
 \end{response}
 
 \pagebreak
 
 \Reviewer{\#1}
 \begin{response}{In section 2 Technology the authors describe the foundations of the Openflexo approach. Here it would greatly help the reader to see an example how the approach works for traditional modeling languages. For example, how would you realize a small subset of BPMN with the approach? This could briefly be illustrated so as to give the reader an immediate understanding. Especially, the 'metamodel'-agnostic approach seems very interesting but I would like to see how that is used for traditional modeling approaches.}
-The previous figure illustrates the connection with external sources. However, in the article, we choose not to give this level of details and to keep focus on the left part of the figure. It shows how a VirtualModel (SimplifiedBPMN) can filter a model (BPMN) and be instantiated. TODO.
+
+The Figure \ref{fig:BPMNSubsetExample} (above) shows how to realize a small subset of BPMN with Openflexo/FML (assuming a metamodel of the full specification of BPMN exists). Concretely, we show  how a VirtualModel (SimplifiedBPMN) can filter an existing model (BPMN) and be instantiated. Note that connection with external sources is not required for our solution to the challenge and is only represented in order to illustrate the capabilities of Openflexo/FML. Therefore, in the article we choose not to give this level of details and focus on the left part of the figure. 
+
+\todo[inline]{I've refactored the paragraph above. To be verified.}
 
 \begin{figure}[t]
     \centering
