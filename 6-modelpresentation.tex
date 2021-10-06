@@ -262,10 +262,10 @@ concept CodingTaskType extends SETaskType {
 }
 \end{lstlisting}
 
-The \texttt{CodeArtifact} concept extends \texttt{SEArtifact}, and defines a relation \texttt{language} to \texttt{ProgrammingLanguage} with 1..* cardinality (\textbf{S4}).
+The \texttt{CodeArtifact} concept extends \texttt{SEArtifact}, and defines a relation \texttt{languages} to \texttt{ProgrammingLanguage} with 1..* cardinality (\textbf{S4}).
 
 \textbf{S5} is more ambiguous as a task type \texttt{CodingTask} defines one or more programming languages but produces code which is expressed in one language only. This requirement is captured through the redefinition of the behavior \texttt{declaresRequiredProducedArtifacts} where programming language should also match.
-\textbf{S6} is guaranteed though the \texttt{language} relation defined in \texttt{CodeArtifact} and the following invariant declared in \texttt{CodeArtifact}:
+\textbf{S6} is guaranteed though the \texttt{languages} relation defined in \texttt{CodeArtifact} and the following invariant declared in \texttt{CodeArtifact}:
 \begin{lstlisting}
 forEach (artifactType : types) {
   assert !(artifactType instanceof CodeArtifactType) | artifactType.doesImplement(languages)
