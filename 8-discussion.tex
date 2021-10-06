@@ -73,8 +73,13 @@ mentioned in the challenge.
   The Openflexo approach is level-agnostic: ``levels'' have no specific nature
   and there are no numbered levels. In our solution, concepts of a given level
   are grouped into a virtual model. Inheritance and instantiation allow the
-  establishment of relationships between concepts from different levels. See figure~\ref{fig:BPMNSubsetExample}
-  and \ref{fig:AcmeFullArchitecture}. 
+  establishment of relationships between concepts from different levels.
+%\ref{fig:BPMNSubsetExample}
+%  Figure~\ref{fig:AcmeFullArchitecture} shows three levels: the metamodel, the
+%  ACME metamodel and the ACME model.
+Figure~\ref{fig:MultilevelArchitecture} shows the multilevel architecture of
+our solution.
+\noteJC{updated}
 
 %\todo[inline]{mais on peut dire que les niveaux sont empaquetés dans des virtual models ; pour passer d'un niveau à l'autre, on a des relations : héritage et instantiation}
 
@@ -82,9 +87,10 @@ mentioned in the challenge.
   %Elaborate whether the submitted solution could have had more or fewer levels
   %and explain how any potentially existing degrees of freedom were resolved.
 
-  Due to the fact that our approach is level-agnostic, our solution could have more
-  or fewer levels depending on the variations of the use case. However, the number of levels is related
-  to the problem, making the approach fixed (to 3).
+  Due to the fact that our approach is level-agnostic, our solution could have
+  more or fewer levels depending on the variations of the use case. However,
+  the number of levels is related to the problem, making the approach fixed (to
+  3).
 
   \subsection{Cross-level relationships}
 
@@ -93,7 +99,13 @@ mentioned in the challenge.
 
   Thanks to the level-agnosticism nature of the Openflexo approach, cross-level
   relationships are not an issue. Model elements of different levels can be
-  linked each other in a transparent way, using inheritance or instantiation. For instance the \texttt{Developer} concept, from \texttt{Acme} metamodel, specializes the \texttt{ActorType} of the base metamodel, and the \texttt{Developer} of the \texttt{Acme} model, is an instance of the metamodel concept. \textcolor{red}{Phrase faite a relire sur Developer\dots}
+  linked each other in a transparent way, using inheritance or instantiation.
+  For instance in the figure~\ref{fig:AcmeFullArchitecture}, the
+  \texttt{Developer} concept from \texttt{Acme} metamodel specializes the
+  \texttt{ActorType} of the base metamodel, and the \texttt{Developer} of the
+  \texttt{Acme} model is an instance of the metamodel concept.
+%  \textcolor{red}{Phrase faite a relire sur Developer\dots}
+\noteJC{updated}
 
   \subsection{Cross-level constraints}
 
@@ -118,9 +130,14 @@ mentioned in the challenge.
   Behaviors are continuously checked, ensuring the integrity of the models when
   changes occur. However, most of these behaviors have to be written by the
   users. Thus, the integrity of the contents relies on the users when they
-  build the metamodels and the models.  Note that in our approach, the
-  metamodels are built in an ad hoc way together with the models
-  (co-construction), therefore the user also validates on an ad hoc basis.
+  build the metamodels and the models. The section~\ref{sec:model} describes
+  how the requirements are captured and how behaviors are implemented with
+  \FML: for instance, \texttt{isAuthorizedActor} behavior is needed to enforce
+  \textbf{P17} requirement, leading to writing \FML code in \texttt{TaskType}
+  and \texttt{Task}. Note that in our approach, the metamodels are built in an
+  ad hoc way together with the models (co-construction), therefore the user
+  also validates on an ad hoc basis.
+\noteJC{updated}  
 
   \subsection{Deep characterization}
 
@@ -131,9 +148,15 @@ mentioned in the challenge.
   %intermediate levels.
 
   %\noteJC{pas trop clair pour moi pour le moment -> N/A ? }
-  Due to the nature of our approach and its level-agnosticism, \emph{deep characterization} does not
-  apply to our solution. Such a mechanism could probably be encoded by specific behaviors, however,
-  it would not be a generic mechanism, making it difficult to reuse for another problem.
+
+  Due to the nature of our approach and its level-agnosticism, \emph{deep
+  characterization} does not apply to our solution. Such a mechanism could
+  probably be encoded by specific concepts and constraints (behaviors).
+  However, it would not be a generic mechanism, making it difficult to reuse
+  for another problem.  Plus, programming the notion of \emph{depth} would
+  probably imply that a virtual model knows its sub-elements, which is not
+  desired and considered as bad design.
+\noteJC{updated}
 
   \subsection{Generality}
 
@@ -143,7 +166,8 @@ mentioned in the challenge.
 
   Due to the nature of model federation, the models are highly reusable.
   Although we build ad hoc metamodels in our approach, our solution separates
-  the domain-specific elements from general purpose ones, making possible to reuse the general concepts to other domains.
+  the domain-specific elements from general purpose ones, making possible to
+  reuse the general concepts to other domains.
 
   \subsection{Extensibility}
 
@@ -165,13 +189,14 @@ mentioned in the challenge.
   Due to the level-agnostic aspect of our approach, we could insert a new
   level, for example. It would consist in creating new concepts we would link
   to other ones. Then, we would add any necessary constraints on those concepts
-  and on the relationships linking them to the other existing concepts. This type
-  of change can be done without much effort. On the other hand, making changes
-  to the existing models could be difficult. For example, given a requirement,
-  an instance cannot be changed into a concept easily. This case could occur if
-  the challenge had refined the specification by requiring specific design tasks.
-  In this context, we would have to transform the \inst{Design Task} instance into a concept
-  whose instances could have been "using agile methodology".
+  and on the relationships linking them to the other existing concepts. This
+  type of change can be done without much effort. On the other hand, making
+  changes to the existing models could be difficult. For example, given a
+  requirement, an instance cannot be changed into a concept easily. This case
+  could occur if the challenge had refined the specification by requiring
+  specific design tasks.  In this context, we would have to transform the
+  \inst{Design Task} instance into a concept whose instances could have been
+  "using agile methodology".
 
   %\noteJC{comment étendre : prendre l'exemple donné ?; level insertion possible
   %: oui, vu que pas de notion de level}
@@ -183,14 +208,14 @@ mentioned in the challenge.
 %Indicate whether there are formalisms to establish the semantics of the MLM
 %technique and/or tools that support the present solution
 
-We use the Openflexo infrastructure to build models and metamodels
-together, and to provide dedicated tooling to edit a Process type, to enact a
-process and to execute it. Being able to provide a solution and its associated
-tools quickly and easily is a noticeable feature.  We could also have taken
-advantage of the model federation to connect our solution to other tools
-dedicated to process edition and to process execution (\eg a \BPMN engine).
-However we already had all the necessary components to provide the
-aforementioned graphical tools.
+We use the Openflexo infrastructure to build models and metamodels together,
+and to provide dedicated tooling to edit a Process type, to enact a process and
+to execute it. Being able to provide a solution and its associated tools
+quickly and easily is a noticeable feature.  We could also have taken advantage
+of the model federation to connect our solution to other tools dedicated to
+process edition and to process execution (\eg a \BPMN engine). However we
+already had all the necessary components to provide the aforementioned
+graphical tools.
 
 \subsection{Model verification}
 
@@ -199,6 +224,10 @@ aforementioned graphical tools.
 
 Our tooling includes mechanisms to verify the models. First, syntactical
 consistency is realized by cardinality checks and by typing. Second, the
-constraints the users have written are continuously checked during model edition and enactment. 
-Thus, a part of the verification relies on the fact that users add behaviors when they build
-the metamodels and the models. \textcolor{red}{An example of constraint\dots}
+constraints the users have written are continuously checked during model
+edition and enactment. Thus, a part of the verification relies on the fact that
+users add behaviors when they build the metamodels and the models. For
+instance, \textbf{S6} requirement is constrained by an invariant implemented in
+\texttt{CodeArtifact}. It ensures that \texttt{artifactType} has the right type
+and that it implements the \texttt{languages} relation.
+\noteJC{updated}
