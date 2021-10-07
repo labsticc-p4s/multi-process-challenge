@@ -54,13 +54,16 @@ element that may evolve with its own tooling. The virtual models
 serve as control elements binding the federated models together.
 In this paper, we mainly use conceptual models and more precisely \FML its domain specific modeling language. The only use of the federation aspect is on the tooling made for the process language.
 
-A UML like representation of a simplified metamodel of \FML is provided in Figure~\ref{fig:mm}. \FML is language designed to define models as virtual models. A \emph{virtual model} is composed of a set of \emph{concepts}, while itself being a \emph{concept}. Hence, \emph{virtual models} are structuring units forming architectures while \emph{concepts} are the core entities. A concept has a set of \emph{properties} and \emph{behaviors}. \emph{Properties} can be either simple variables, roles (pointers to a modeling element in a \emph{virtual model} or an external technology-specific model), or properties bound to complex control graphs. \FML is designed to define not only the structure of virtual models but also also the collection of actions that can be performed on them. These actions are called \emph{behaviors} and are composed with behavioural primitives called \emph{EditionAction} (core \FML primitives or behavioural primitives exposed by a specific technology). These \emph{behaviors} can either be called or triggered by events. The reactive behaviors are mainly useful when a federated model evolution needs to trigger a computation. Note that we do not exploit this possibility in the challenge.
+A UML like representation of a simplified metamodel of \FML is provided in Figure~\ref{fig:mm}. \FML is language designed to define models as virtual models. A \emph{virtual model} is composed of a set of \emph{concepts}, while itself being a \emph{concept}. Hence, \emph{virtual models} are structuring units forming architectures while \emph{concepts} are the core entities. A concept has a set of \emph{properties} and \emph{behaviors}. \emph{Properties} can be either simple variables, roles (pointers to a modeling element in a \emph{virtual model} or an external technology-specific model), or properties bound to complex control graphs. \FML is designed to define not only the structure of virtual models but also the collection of actions that can be performed on them. These actions are called \emph{behaviors} and rely on behavioural primitives called \emph{EditionAction}. These \emph{behaviors} can either be called or triggered by events. The reactive behaviors are useful when a federated model evolution needs to trigger a computation. Note that we do not exploit this possibility in the challenge.
 
-A parallel to object-oriented approach can be useful to understand \FML\footnote{Some aspects of \FML do not exist in object oriented approach.}. A concept corresponds to a class, its properties to the attributes of the class and its behaviors to the methods of the class. These properties have types defining the kind of value the role will point at runtime. Whenever a type external to the federation space is used, one needs to use a \emph{model slot}. A model slot is a mediation entity in charge of giving access to external elements using a \emph{technology adapter}\footnote{It is a reusable library that defines connections between the \FML execution engine and a particular technological space.}.
+A parallel to object-oriented approach can be useful to understand \FML\footnote{Some aspects of \FML do not exist in object oriented approach.}. A concept corresponds to a class, its properties to the attributes of the class and its behaviors to the methods of the class. These properties have types defining the kind of value the role will point at runtime. Whenever an element external to the federation space is used, one needs to use a \emph{model slot}. A model slot is a mediation entity in charge of giving access to external elements using a \emph{technology adapter}\footnote{It is a reusable library that defines connections between the \FML execution engine and a particular technological space.}.
+
+When the \FML execution engine runs a federation, it creates virtual
+model instances containing concept instances. Some concept instances
+are connected to external elements through model slot instances.
 
 % Sylvain : relire et vérifier
 
-\noteSylvain{A la fin s'arranger pour que la figure 3 (fig:BPMNSubsetExample) et le listing soient cote a cote}
 
 \begin{figure}[t]
     \centering
@@ -69,70 +72,57 @@ A parallel to object-oriented approach can be useful to understand \FML\footnote
     \label{fig:BPMNSubsetExample}
 \end{figure}
 
-Figure \ref{fig:BPMNSubsetExample} shows how to realize a small subset of BPMN with Openflexo/FML. Concretely, we have designed a \textit{virtual model} (SimplifiedBPMN) with 3 \textit{concepts} representing a process and its contained tasks. An instance of this \textit{virtual model} is presented in the bottom of the figure, showing instances with their instanceOf relationships with their model.
-
-Following listing shows the textual representation of the above described SimplifiedBPMN \textit{virtual model}.
-
-% Sylvain : relire et vérifier
+To illustrate this, figure \ref{fig:BPMNSubsetExample} shows how to realize a small subset of BPMN with Openflexo/FML. Concretely, we have designed a \textit{virtual model} (\texttt{SimplifiedBPMN}) with 3 \textit{concepts} representing a process and its contained tasks. An instance of this \textit{virtual model} is presented in the bottom of the figure, showing instances with their \textsf{instanceOf} relationships with their model.
+%
+The following listing shows the \FML code of this \textit{virtual model}.
 
 
 \begin{lstlisting}
-// A simplified BPMN metamodel exposing
-// both concepts BPMNProcess and BPMNTask
+// A simplified BPMN metamodel exposing the
+// concepts BPMNProcess and BPMNTask
 model SimplifiedBPMN {
 
   // Abstract concept BPMNElement defining a name
   abstract concept BPMNElement {
     String name;
     // A basic constructor
-    create(String name) {
-      this.name = name;
-    }
+    create(String name) { this.name = name; }
   }
 
   concept BPMNProcess extends BPMNElement {
 
     // A basic constructor
-    create(String name) {
-      super(name);
-    }
-    // Describe here other properties and
-    // behaviours for BPMNProcess concept
+    create(String name) { super(name); }
+    // Other properties and behaviours of the
+    // BPMNProcess concept
     ...
 
     concept BPMNTask extends BPMNElement {
 
       // A basic constructor
-      create(String name) {
-        super(name);
-      }
+      create(String name) { super(name); }
       // Encodes execution of task
       execute() {
         log("Execute task "+name);
         ...
       }
-      // Describe here other properties and
-      // behaviours for BPMNTask concept
+      // Other properties and behaviours of the
+      // BPMNTask concept
       ...
 
     }
 
-    // Other core concepts
+    // Other concepts
   }
 }
 \end{lstlisting}
 
-
-When the \FML execution engine runs a federation, it creates virtual
-model instances containing concept instances. Some concept instances
-are connected to external elements through model slot instances.
-
+\noteSylvain{A la fin de la rédaction, s'arranger pour que la figure 3 (fig:BPMNSubsetExample) et le listing soient cote a cote, et aussi que le listing tienne sur une seule page}
 
 The tool support for model federation framework,
 Openflexo\footnote{\url{https://github.com/openflexo-team}}, is
 developed as an open source initiative. This tool offers a \FML
 execution engine with an interactive virtual model design environment.
 
-Finally, tools have their own model. We have taken advantage of
-Openflexo features to build, in parallel with the models  required by the challenge, a drawing tool that makes our
+Finally, tools have their own model. We have taken advantage of Openflexo features to build, in addition to the models  required by the challenge, a drawing tool that makes our
 solution (partially) executable.

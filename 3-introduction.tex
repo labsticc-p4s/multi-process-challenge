@@ -6,20 +6,20 @@ In order to tackle this problem, the \emph{multi-level} modeling paradigm has be
 which consists in providing a solution to the problem of specifying and enacting processes. Solutions to the \emph{Multi-level Process Challenge} must fulfill a number of requirements for a process representation defined at an abstract process-definition level and at various more concrete domain-specific levels, resulting in a multi-level hierarchy of related models. We provide here a solution based on model federation~\parencite{Golra2016-federation}.
 
 Model federation is a multi-model management approach based on the use of virtual models and loosely coupled links. The models in a federation remain autonomous and represented in their original technological spaces whereas virtual models (also called conceptual models) and links serve as control components used to present different views to the users and maintain synchronization.
-Our solution is based on the model federation infrastructure. Concretely, we use Openflexo and its internal Flexo Modeling Language (\FML), a language to create, link and manage virtual models, in order to solve the MULTI process challenge while the federation aspect is used solely so as to provide tooling for the resulting process language. Our solution, which is fully implemented and executable, meets all the requirements.
+Our solution is based on the model federation infrastructure. Concretely, we use Openflexo and its internal Federation Modeling Language (\FML), a language to create, link and manage virtual models, in order to solve the MULTI process challenge while the federation aspect is used solely so as to provide tooling for the resulting process language. Our solution, which is fully implemented and executable, meets all the requirements.
 %\noteFabien{Le paragraphe qui précède me semble redire des choses de la section 2, comment fait-on ?}
 
-\textcolor{red}{Our modeling approach is based on a language (\FML) which provides the (linguistic) concepts that are used to define  the multi-levels models and meta-models that are needed. \FML allows to define models as first class entities (which we call VirtualModel) and to link them together (by extension). In the \mpc case study, we exploit this possibility to:
+Our modeling approach is based on a language (\FML) which provides the (linguistic) concepts that are used to define  the multi-levels models and meta-models that are needed. \FML allows to define models as first class entities (which we call VirtualModel) and to link them together (by extension). In the \mpc case study, we exploit this possibility to:
 \begin{itemize}
-    \item Define, extend and adapt models, keeping the history, to meet {\color{blue}the} %changing
+    \item Define, extend and adapt models, keeping the history, to meet the %changing
     modeling requirements of the case study,
     \item Align this hierarchy of models with requirements evolution ($P_1-P_{19}$ then $S_1-S_{13}$).
 \end{itemize}
-This methodological choice allows us to adapt the models and keep track of their evolution each time the requirements evolve.}
+This methodological choice allows us to adapt the models and keep track of their evolution each time the requirements evolve.
 
-\textcolor{red}{Contrary to a classical multi-level approach, in which the notion of multi-level is integrated in the language and must therefore be respected, our approach allows to build multi-levels on demand, and with the appropriate form. Without multilevel-specific operators/concepts, the "custom" construction must be done explicitly during the model development and evolution process.}
+Contrary to a classical multi-level approach, in which the notion of multi-level is integrated in the language and must therefore be respected, our approach allows to build multi-levels on demand, and with the appropriate form. Without multilevel-specific operators/concepts, the "custom" construction must be done explicitly during the model development and evolution process.
 
-\textcolor{red}{Our answer to the challenge is therefore not an answer using a classical multilevel approach that would allow an efficiency comparison with another classical multilevel answer, but an approach that proposes another organization of multilevels through the translation of needs into levels over time and the possibility to build an evolving hierarchy of adapted models. This is made possible by (1) the reification of the notion of model and the possibility to interconnect them (specialization) and (2) the freedom of meta-modeling (low model conformity, flexible meta-modeling).}
+Our answer to the challenge is therefore not an answer using a classical multilevel approach that would allow an efficiency comparison with another classical multilevel answer, but an approach that proposes another organization of multilevels through the translation of needs into levels over time and the possibility to build an evolving hierarchy of adapted models. This is made possible by (1) the reification of the notion of model and the possibility to interconnect them (specialization) and (2) the freedom of meta-modeling (low model conformity, flexible meta-modeling).
 
 %Links among models can be within a same level of abstraction or across levels of abstractions which gives,
 
