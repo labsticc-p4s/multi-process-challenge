@@ -101,10 +101,10 @@ our solution.
   linked each other in a transparent way, using inheritance or instantiation.
   For instance in the figure~\ref{fig:AcmeFullArchitecture}, the
   \texttt{Developer} concept from \texttt{Acme} metamodel specializes the
-  \texttt{ActorType} of the base metamodel, and the \texttt{Developer} of the
+  \texttt{ActorType} of the base metamodel, and the \texttt{Developer} {\color{red}?} of the
   \texttt{Acme} model is an instance of the metamodel concept.
 %  \textcolor{red}{Phrase faite a relire sur Developer\dots}
-\noteJC{updated}
+
 
   \subsection{Cross-level constraints}
 
@@ -131,12 +131,11 @@ our solution.
   users. Thus, the integrity of the contents relies on the users when they
   build the metamodels and the models. The section~\ref{sec:model} describes
   how the requirements are captured and how behaviors are implemented with
-  \FML: for instance, \texttt{isAuthorizedActor} behavior is needed to enforce
+  \FML. For instance, \texttt{isAuthorizedActor} behavior is needed to enforce
   \textbf{P17} requirement, leading to writing \FML code in \texttt{TaskType}
   and \texttt{Task}. Note that in our approach, the metamodels are built in an
-  ad hoc way together with the models (co-construction), therefore the user
-  also validates on an ad hoc basis.
-\noteJC{updated}  
+  {\color{red}ad hoc} way together with the models (co-construction), therefore the user
+  also validates on an {\color{red}ad hoc} basis.
 
   \subsection{Deep characterization}
 
@@ -155,7 +154,7 @@ our solution.
   for another problem.  Plus, programming the notion of \emph{depth} would
   probably imply that a virtual model knows its sub-elements, which is not
   desired and considered as bad design.
-\noteJC{updated}
+
 
   \subsection{Generality}
 
