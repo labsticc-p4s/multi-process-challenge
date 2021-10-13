@@ -82,15 +82,18 @@ Sylvain, Joel, Jean-Christophe, Antoine, Fabien and Salvador
 
 \begin{response}{the reviewers have made suggestions for improving the presentation but also raised a number of issues requiring clarification. An overarching theme is the request for a more explicit description of how the multi-level modelling emulation is achieved and what its general advantages and limitations are, including a clarification of what the implications would be of supporting more "levels" than the challenge required.} 
 
-We have been more explicit to explain how we use the FML language at the end of the introduction, and in various figures. TODO.
+%We have been more explicit to explain how we use the FML language at the end of the introduction, and in various figures. TODO.
 
 
-\todo[inline]{We have enhanced the presentation of both, Openflexo/FML and our solution to the challenge so that: 1) the techniques we use to \emph{achieve} multi-level capabilities are more explicit; and, 2) the advantages and disadvantages of using them in order to fulfil the challenge requirements become clearer. Notably, we have added many details in the final paragraphs of the introduction section, improved the Section 2, devoted to the description of OpenFlexo, refactored figures X, Y, Z.}
+We have enhanced the presentation of both, Openflexo/FML and our solution to the challenge so that: 1) the techniques we use to \emph{achieve} multi-level capabilities are more explicit; and, 2) the advantages and disadvantages of using them in order to fulfil the challenge requirements become clearer. Notably, we have added many details in the final paragraphs of the introduction section, improved the Section 2, devoted to the description of OpenFlexo, refactored figures 2, 4, 5, 6, 7 and 9 and, added figures 3 and 10.
 \end{response}
 
 
 \begin{response}{We very much welcome a "conventional" response to the challenge but would like to see the respective reviewer questions addressed in a revised version which is explicit as possible about the advantages and the disadvantages of the emulation. You may find the references listed below useful to keep explanations concise by referencing related work (note that reviewer 3’s “Type-Instance pattern” is also known as the “Type Object” pattern). You should also respond to other concerns reviewers raise, either by making changes to the submission or in the form of an authors' response.} 
-The related work section has been modified to show that we are not the first conventional response with multi-level emulation, and to improve comparisons and limitations of different approaches.\todo[inline]{I do not understand this answer. We are saying that other approaches are also unconventional?}
+The previous answer describes the improvements of our revision.
+Additionally, the related work section has been modified to show that we are not the first "conventional" response with multi-level emulation, and to improve comparisons and limitations of different approaches ("conventional" or not).
+
+%\todo[inline]{I do not understand this answer. We are saying that other approaches are also unconventional?}
 \end{response}
 
 
@@ -106,7 +109,7 @@ Done.
 
 The Figure \ref{fig:BPMNSubsetExample} (above) shows how to realize a small subset of BPMN with Openflexo/FML (assuming a metamodel of the full specification of BPMN exists). Concretely, we show  how a VirtualModel (SimplifiedBPMN) can filter an existing model (BPMN) and be instantiated. Note that connection with external sources is not required for our solution to the challenge and is only represented in order to illustrate the capabilities of Openflexo/FML. Therefore, in the article we choose not to give this level of details and focus on the left part of the figure. 
 
-\todo[inline]{I've refactored the paragraph above. To be verified.}
+%\todo[inline]{I've refactored the paragraph above. To be verified.}
 
 \begin{figure}[t]
     \centering
@@ -161,10 +164,12 @@ The Figure \ref{fig:BPMNSubsetExample} (above) shows how to realize a small subs
 \end{response}
 
 \begin{response}{Also, at the stage of section 2, the characterization of the FML language should be made clearer. The metamodel in Figure 2 seems mainly conceptual - but at the same time you refer to it as a basis for implementation. Could that be clarified? eg you have the class "Behavior" - which is a concept and I did not understand right away what it is composed of. On the other hand you have for example the class "ModelSlot" which seems like a very technical realization. Also, you note that roles have types but I could not find any types in the metamodel (?). Thus, I propose to include a more detailed version of your metamodel at this stage. Please note that EMISAJ does not have a page limitation, so no worries if that should require more space.} 
-We've changed figure 2. It shows \texttt{Type} and the main concepts used by FML. TODO. Explanation of figure has been improved. 
+We've changed figure 2. It shows \texttt{Type} and the main concepts used by FML. Explanation of figure has been improved. 
 \end{response}
 
 \begin{response}{In Figure 5, the base metamodel for representing processes is shown - however it is not linked to the concepts you introduced before. Would it be possible to maybe graphically highlight how it relates to the metamodel in Figure 2? Besides, as multi-level modeling is much different to traditional modeling, you may want to consider using a different notation rather than UML class diagrams - as these are commonly known for traditional modeling approaches. When reading the paper, I actually marked the references to types in yellow in my copy - ie from ProcessType to TaskType and from ActorType to ActorType (on the attribute levels) - this helped me to see more clearly where you have references from attributes to types - but that's just my way of doing it.} 
+
+
 TODO. Faire le lien entre figure 2 et les représentations des figures 3, 4, 5, 6 et 7. Package = VirtualModel, Classes bleues = FlexoConcept, attribut =(~) Get/GetSetProperty, association = FlexoRole, no FlexoBehavior visible. (!! Dans la figure 2 il n'y a pas d'héritage possible visible entre FlexoConcept.) Le niveau orange est l'instantiation / interprétation du FML.
 \end{response}
 
@@ -271,7 +276,7 @@ Concerning the fact that "MLM is the key to the ability of Openflexo to create t
 \end{response}
 
 \begin{response}{(5) The paper makes an issue of the model federation approach supported by Openflexo, including the use of model slots. However, after introducing these concepts they do not seem to be important to the rest of the article. Perhaps this is an implementation concern that could be elided as its inclusion does not seem key to the contributions of the article. } 
-TODO.
+\todo[inline]{While it is true that model slots and other features of Openflexo/FML are not used in order to build our solution,  we believe including them in our description help readers understand the framework. We therefore choose to keep the description as is.}
 \end{response}
 
 \begin{response}{Some minor issues:
