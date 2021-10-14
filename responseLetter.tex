@@ -205,7 +205,9 @@ Done.
 
 \begin{response}{The basic idea of model federation is interesting, its primary focus is not on creating multi-level models. However, as the approach is quite flexible, multi-level behavior can be emulated by model federation. This fact is possibly the most serious advantage and disadvantage of the paper at the same time. Advantage, since it brings us a completely new, different way of thinking, and disadvantage since it does not really help in categorizing/unifying multi-level methods and -- for me -- it also feels a little bit off-topic in this special issue. At this point, it should be mentioned that the authors managed to cover/solve all requirements of the challenge, thus the paper, as a solution to the challenge fits well.} 
 
-\textcolor{red}{We introduced at the end of the introduction a description of our approach. In a word, we use FML (linguistic level) as a tool to build models and meta-models that allows multi-level modelling emulation. The evolution of models (multi-levels) is encoded as a hierarchy of models and meta-models. We do multi-level modelling on demands, and propose an organization guided by models evolution. }
+\textcolor{orange}{We fully agree with the reviewer on the fact that it is the flexibility of the model federation approach what enables us to provide a solution to the multi-level process challenge while using a tool not specifically designed for multi-level modelling. Of course, this comes together with a number of trade-offs which we discuss in the paper (e.g., see the the end of the introduction section).}
+
+\textcolor{red}{We have included at the end of the introduction section a more detailed description of our approach. In a word, we use FML (linguistic level) as a tool to build models and meta-models permitting us to emulate multi-level modelling. The evolution of models (multi-levels) is encoded as a hierarchy of models and meta-models. In this sense, we do on-demand multi-level modelling, and propose an organization guided by the evolution of models.}
 
 \textcolor{red}{Propale de Fabien pour complèter la réponse ici. We have added a discussion (où?) on the fact that our approach reifies the levels using "generic" models and rely on the process of construction to implement the levels of the challenge. We hope, it makes it easier to see that it is a contribution to multi-level domain.}
 
@@ -213,12 +215,17 @@ Done.
 \end{response}
 
 \begin{response}{The paper gives us a short introduction (somewhat overlapping with the abstract, even at the level of sentences) and then the technology is detailed. The section is a bit hard to understand at first, the difference and the relationship between federated and virtual models could be explained in more detail especially considered that the challenge solution uses virtual models only. It is not clear, how federation works in this case.} 
-We use federation only for the tooling part of our answer. In practice, we only use the reification of models through VirtualModel to emulate multi-level as shown in figure 4. We have improved the description and we hope this is much clearer.
+
+\textcolor{orange}{We have refactored the Technology section in order to make it, hopefully, easier to follow. Apart from improvements in the text, we have notably improved Figure 2 so that now a lot more of details are visible and contributed a new figure (Figure 3) showing how the FML concepts are used in a classical modeling scenario. Note however that we use model federation only for the tooling part of our answer to the challenge. In practice, we rely solely in the reification of models through the VirtualModel concept in order to emulate multi-levels as shown in Figure 4.}
+
+%We use federation only for the tooling part of our answer. In practice, we only use %the reification of models through VirtualModel to emulate multi-level as shown in %figure 4. We have improved the description and we hope this is much clearer.
 \end{response}
 
 \begin{response}{The third section contains an overview of the solution. Here, virtual models are instantiated to virtual model instances conforming to the virtual models acting as the metamodel for the virtual model instances. The question naturally arises: how does it work, if we have more abstraction levels?  In this section, the authors also discuss linguistic and ontologic instantiation. The explanation refers to Section 4 resulting in a hardly understandable analysis of different instantiation methods. Figure 4. does not help in clarifying the concepts either (e.g. using the name InstanceInstance seems to be a very bad decision). From the point of the muli-level behavior of view, the interpretation of the instantiation relationship is the most crucial one that is why this section must be clarified. Where are the rules of ontological instantiation defined, how are they enforced? The text mentions the (linguistic) instantiation mechanism of the FML Language… how does it work exactly?} 
-We have improved the explanation in sections 2 and 3.
-Note that \texttt{InstanceInstance} has been replaced with \texttt{ObjectInstance}.
+
+\textcolor{orange}{As indicated in the answer to the previous reviewer's comment we have refactored Section 2 in order to provide more details and make explanations easier to follow. We have done the same with }
+
+We have improved the explanation in sections 2 and 3. Note that \texttt{InstanceInstance} has been replaced with \texttt{ObjectInstance}.
 \end{response}
 
 \begin{response}{Section 4 elaborates the solution in detail. Figure 5 presents an overview of the model elements handling P1 to P19. The diagram uses a UML-like annotation, which helps in making it understandable, but it also has a strange decision: roles (attributes) having a modeled concept as their type are visualized by links, but instead of using rolenames on the links, the concepts (classes) contain them. I strongly suggest following the UML guidelines here and use rolenames (similarly to multiplicity).}
