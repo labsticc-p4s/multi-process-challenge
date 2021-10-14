@@ -212,11 +212,11 @@ Done.
 
 \begin{response}{The basic idea of model federation is interesting, its primary focus is not on creating multi-level models. However, as the approach is quite flexible, multi-level behavior can be emulated by model federation. This fact is possibly the most serious advantage and disadvantage of the paper at the same time. Advantage, since it brings us a completely new, different way of thinking, and disadvantage since it does not really help in categorizing/unifying multi-level methods and -- for me -- it also feels a little bit off-topic in this special issue. At this point, it should be mentioned that the authors managed to cover/solve all requirements of the challenge, thus the paper, as a solution to the challenge fits well.}
 
-\textcolor{orange}{We fully agree with the reviewer on the fact that it is the flexibility of the model federation approach what enables us to provide a solution to the multi-level process challenge while using a tool not specifically designed for multi-level modelling. Of course, this comes together with a number of trade-offs which we discuss in the paper (e.g., see the the end of the introduction section).}
-
+\textcolor{orange}{We fully agree with the reviewer on the fact that it is the flexibility of the model federation approach that enables us to provide a solution to the multi-level process challenge while using a tool not specifically designed for multi-level modelling. Of course, this comes together with a number of trade-offs which we discuss in the paper (\emph{e.g.}, see the the end of the introduction section).}
+%fd ok
 \textcolor{red}{We have included at the end of the introduction section a more detailed description of our approach. In a word, we use FML (linguistic level) as a tool to build models and meta-models permitting us to emulate multi-level modelling. The evolution of models (multi-levels) is encoded as a hierarchy of models and meta-models. In this sense, we do on-demand multi-level modelling, and propose an organization guided by the evolution of models.}
 
-\textcolor{red}{Propale de Fabien pour complèter la réponse ici. We have added a discussion (où?) on the fact that our approach reifies the levels using "generic" models and rely on the process of construction to implement the levels of the challenge. We hope, it makes it easier to see that it is a contribution to multi-level domain.}
+\textcolor{teal}{Propale de Fabien pour complèter la réponse ici. We have added a discussion (où?) on the fact that our approach reifies the levels using "generic" models and rely on the process of construction to implement the levels of the challenge. We hope, it makes it easier to see that it is a contribution to multi-level domain.}
 
 %\todo{Answering this is going to be tricky!}
 \end{response}
@@ -224,7 +224,7 @@ Done.
 \begin{response}{The paper gives us a short introduction (somewhat overlapping with the abstract, even at the level of sentences) and then the technology is detailed. The section is a bit hard to understand at first, the difference and the relationship between federated and virtual models could be explained in more detail especially considered that the challenge solution uses virtual models only. It is not clear, how federation works in this case.}
 
 \textcolor{orange}{We have refactored the Technology section in order to make it, hopefully, easier to follow. Apart from improvements in the text, we have notably improved Figure 2 so that now a lot more of details are visible and contributed a new figure (Figure 3) showing how the FML concepts are used in a classical modeling scenario. Note however that we use model federation only for the tooling part of our answer to the challenge. In practice, we rely solely in the reification of models through the \textsf{VirtualModel} concept in order to emulate multi-levels as shown in Figure 4.}
-
+%fd ok
 %We use federation only for the tooling part of our answer. In practice, we only use %the reification of models through VirtualModel to emulate multi-level as shown in %figure 4. We have improved the description and we hope this is much clearer.
 \end{response}
 
@@ -232,12 +232,15 @@ Done.
 
 \textcolor{orange}{As indicated in the answer to the previous comment we have refactored Section 2 in order to provide more details and make explanations easier to follow. We have done the same with Section 3. Note that \texttt{InstanceInstance} has been replaced with \texttt{ObjectInstance}} \todo{Probably it would be nice to add here some concrete answers instead of directing the reviewer to read two sections.}
 
+{\color{red} FD: je pense aussi qu'il faut être plus précis dans cette réponse. J'aurais bien dit que l'instantiation linguistique consiste juste à utiliser le langage FML et respecter sa syntaxe et ses contraintes de typage et que pour l'ontologique, c'est uniquement par le process ou l'on s'impose de faire des factory depuis le type (Sylvain ?)}
+
 %We have improved the explanation in sections 2 and 3. Note that %\texttt{InstanceInstance} has been replaced with \texttt{ObjectInstance}.
 \end{response}
 
 \begin{response}{Section 4 elaborates the solution in detail. Figure 5 presents an overview of the model elements handling P1 to P19. The diagram uses a UML-like annotation, which helps in making it understandable, but it also has a strange decision: roles (attributes) having a modeled concept as their type are visualized by links, but instead of using rolenames on the links, the concepts (classes) contain them. I strongly suggest following the UML guidelines here and use rolenames (similarly to multiplicity).}
 
-\textcolor{orange}{Thanks for pointing this out. Initially we decided against using rolenames for the sake of readability (e.g., by avoiding clutter near the association ends). However, we have realized now that the alternative we used hampered readability even more. In that sense, we use now rolenames (an exception is made for the \emph{Gateway} associations with \emph{TaskType} as explained in the caption of Figure 6)}
+\textcolor{orange}{Thanks for pointing this out. Initially we decided against using rolenames for the sake of readability (e.g., by avoiding clutter near the association ends). However, we have realized now that the alternative we used hampered readability even more. In that sense, we use now rolenames (an exception is made for the \texttt{Gateway} associations with \texttt{TaskType} as explained in the caption of Figure 6)}
+%fd ok
 
 %\textcolor{red}{
 %We have improved figure 6. The notation is close to UML, but is not UML. We hope it %is understandable enough.}
@@ -248,11 +251,11 @@ Done.
 \begin{response}{Overall, the solutions for the requirements are correctly presented in this section, but there are some spots not clear enough. E. g. regarding ontological instantiation, the solution uses two kinds: single and multiple. More details would be welcome to see, what their exact semantics are and where do we enforce these semantic rules (is it enforced by the engine? Is the semantic hard-coded?). What are the contexts of the constraints (to which concept are they attached to)?}
 MultiInstance(s) are introduced in our answer metamodel (figure 6). As such, their semantic is defined at the ontological level, i.e. in the metamodel. It is an ad hoc mechanism introduced to fulfill requirements.
 
-{\color{red}hum, j'ai l'impression qu'il manque un peu de détail pour répondre sur la partie multi-instance. Il me semble qu'en plus d'être ad hoc, le mécanisme est manuel (mais je me trompe peut être). Si c'est vrai, il faudrait le dire.}
+{\color{red}fd: hum, j'ai l'impression qu'il manque un peu de détail pour répondre sur la partie multi-instance. Il me semble qu'en plus d'être ad hoc, le mécanisme est manuel (mais je me trompe peut être). Si c'est vrai, il faudrait le dire.}
 
 %On ne gère pas de multi-instances dans la sémantique FML, on gère ca seulement au niveau ontologique (FlexoConcept Instance et MultiInstance, figure 6). C'est un mécanisme ad-hoc utilisé pour le traitement des requirements.
 
-The constraints are defined at FlexoConcept level, and are designed of invariant being evaluated by the FML interpreter, which may raise constraint violation at run-time. An example of constraint is presented for requirement P9, in TaskType flexo concept (p 8).
+The constraints are defined at FlexoConcept level, and are designed of invariant being evaluated by the FML interpreter, which may raise constraint violation at run-time. An example of constraint is presented for requirement P9, in \texttt{TaskType} concept (p 8).
 
 \end{response}
 
@@ -274,7 +277,7 @@ We have improved the description of the relationship between FML and our metamod
 The tooling uses model federation, but the description of our answer relies only on \textsf{VirtualModel} and \textsf{FlexoConcept} of FML (figure 2). The tooling is suggested in figure (new) 9. The tooling is not detailed, but the virtual model \texttt{ProcessEditor} presented in figure (new) 9 defines a lot of interactions, where texts of (old) figure 9 are found.
 
 The business logic of the diagram tooling is encoded in FML, and more specifically for this editor in the \texttt{ProcessEditor} virtual model presented in figure 9. Structure of diagramming, interactions and presentation layer (\emph{e.g.} texts) are defined in various concepts defined in the virtual model \texttt{ProcessEditor}.
-
+%fd ok
 \end{response}
 
 \begin{response}{In Section 5, the meaning of the category Conceptualization is hard to understand, does this mean that a concept is created that covers the requirement completely? In the case of ontological instantiation, the term “dual concept nature” and “instance nature” is mentioned… what do these terms mean?}
@@ -293,17 +296,19 @@ We have extended Section 7. It discusses now previously published solutions to t
 
 \begin{response}{As Section 6 shows, the authors know exactly, why their solution may have difficulties as a multi-level modeling approach despite solving the given challenge. The solution is basically a smart, two-level modeling solution of the MULTI challenge. Multi-level behavior is emulated by constraints and additional mechanisms particularly written to this challenge. The result is a working workbench fulfilling the requirements but having limited reusability and extensibility. For example, it would be hard to increase the number of abstraction levels as class-like and object-like concepts are handled differently. Another problem may arise if we would use the framework as a prototyping tool and change the metamodel and the models at the same time.}
 TODO.
+
+{\color{teal}hum, je crois qu'il n'a pas bien compris mais c'est difficile de le dire comme cela. je pense que l'on pourrait indiquer que chaque niveau est représenté par un virtual model et donc ajouter un niveau se ferait en ajoutant un virtual model. En revanche, il y a peu de support automatisé et nous reposons sur une approche manuel pour gérer correctement ces niveaux. La limite est probablement plus dans la faible aide (me semble t il) Et pour le dernier point, comme notre outil repose sur de l'interpretation il est possible de travailler au deux niveaux à la fois. Par contre, il faut une certaine discipline pour ne pas tout casser (SYLVAIN ?)}
 \end{response}
 
 \begin{response}{Minor issues/questions:
 \begin{itemize}
     \item Are there any tools supporting model federation besides Openflexo? \textcolor{orange}{To the best of our knowledge there are not other model federation tools comparable to Openflexo/FML.}
-    \item Section 2. “In contrast to approaches that compose metamodels into a single large metamodel grouping all needed entities,…” - I do not see, why this is relevant here \textcolor{orange}{Our intention was to compare the federation approach to approaches that integrate all metamodels together. We argue that reifying models (with virtual models) helps structuring, organizing, federating models.}
-    \item Figure 5 – concept Sequencing – the roles “in” and “out” are not represented by lines… why? \textcolor{orange}{As explained in a previous answer, we do this for the sake of readability.}
-    \item What does the term “sub-concept” mean exactly? Please explain it before the first use \todo{TODO}
-    \item ProgrammingLanguage concept is an enumeration… how is it modelled? \textcolor{orange}{ProgrammingLanguages is modelled as an enumeration of names (Java, Cobol, etc) from FML. }
-    \item “The Acme metamodel also defines a specialized task type Coding” – isn’t it CodingTask? \textcolor{orange}{Yes, this is correct. Coding is actually a CodingTask, as shown in figure 7.}
-    \item “The value of the property producedArtifactTypes” – is it property, or role? \todo{TODO}
+    \item Section 2. "In contrast to approaches that compose metamodels into a single large metamodel grouping all needed entities,…" - I do not see, why this is relevant here \textcolor{orange}{Our intention was to compare the federation approach to approaches that integrate all metamodels together. We argue that reifying models (with virtual models) helps structuring, organizing, federating models.}
+    \item Figure 5 - concept Sequencing - the roles "in" and "out" are not represented by lines… why? \textcolor{orange}{As explained in a previous answer, we do this for the sake of readability.}
+    \item What does the term "sub-concept" mean exactly? Please explain it before the first use \todo{TODO}
+    \item ProgrammingLanguage concept is an enumeration… how is it modelled? \textcolor{orange}{ProgrammingLanguages is modelled as an enumeration of names (Java, Cobol, etc) using the notion of enumeration of the FML language. }
+    \item "The Acme metamodel also defines a specialized task type Coding" - isn’t it CodingTask? \textcolor{orange}{Yes, this is correct. Coding is actually a CodingTask, as shown in figure 7.}
+    \item "The value of the property producedArtifactTypes" - is it property, or role? \todo{TODO, Sylvain, il me semble que c'est la seule occurrence de property, on pourrait basculer sur role il me semble}
 \end{itemize}}
 
 
@@ -327,6 +332,7 @@ TODO.
 \begin{response}{(1) The Type-Instance pattern is key to the authors approach to the challenge. However, the benefits of this pattern are not explored in the context of MLM. For example, the authors do not really explain approaches such as Clabjects or potency levels as they compare to the Type-Instance pattern (or the challenge). Why it the pattern better? Is it just a different approach? What can it do that other approaches cannot? Perhaps the benefit is that the Type-Instance pattern can be implemented in most modelling and implementation technologies whereas other approaches need special facilities? Finally, in terms of the pattern, why should anyone care - why would should they use the pattern?}
 
 \textcolor{orange}{The reviewer is absolutely right. We decided to use the type-object pattern as it was easier to integrate as an ad-hoc mechanism in our solution to the challenge than other multi-level enabling mechanisms. In that sense we would like to remark that this, together with the \emph{virtual model} notion of the Openflexo/FML framework sufficed to meet all the requirements of the challenge. Note however that we intend to explore the integration of other mechanisms (such as clabjets or potency) as future work.}
+%fd ok
 
 %You are right. We intensively use the Type/Instance pattern.
 %We made this choice because it was easier to implement with Openflexo.
@@ -336,12 +342,21 @@ TODO.
 \begin{response}{(2) In section 1 the authors list 2 key reasons why a strict approach to modelling is sub-optimal. However, they do not establish the case that their approach uses these 2 features to any concrete benefit. It would be appropriate (perhaps at the end of the article) to revisit these features and to clearly demonstrate that their approach supports them and that they have concrete utility in some way in the context of the challenge.}
 
 We have added a paragraph in the Conclusions section indicating how Openflexo/FML permitted us to overcome the mentioned limitations of the strict modeling paradigm and how this was used in order to build our solution to the Multi-Level Process challenge. Notably, we mention how the type/object pattern allowed us to use model element instances as types in order to achieve ontological instantiation.
+%fd ok
 \end{response}
 
+
 \begin{response}{(3) One of the key benefits of the Type-Instance pattern is that it provides a 'hook' on which semantics can be defined using constraints. There is a reified relationships between a type and its instance and therefore conditions can be defined that establish both static and dynamic semantics. I am confused regarding why this is not a key feature of the semantics for the challenge as it is implemented by the authors. Constraints are provided very sparingly compared to implementation of behaviour in FML. Unfortunately, since the dynamic semantics of FML is not provided (and is bespoke) this is less clear than it might otherwise be for the reader. Perhaps it would be better to use constraints in the context of the Type-Instance pattern to specify semantics? It would be more abstract than the current 'method' style semantics.}
-\textcolor{red}{
+{\color{red}
 We designed our answer with the Type/Instance pattern. We think, we could have implemented it with another approach such as Clabject.
-We had to define the expected semantic of the challenge. To do that, FML offers constraints, but we can also define our own constraint at the ontological level (metamodel). We have here a trade-off. Reuse the constraint from FML which is efficient but may be too restricted, and define our own constraints, which is more adaptable, but has to be implemented. Due to the size of the problem and the expected freedom, we choose the second way. Le language FML permet de définir des comportements reifiant la sémantique ontologique (notamment du pattern type/instance, par exemple le comportement newProcess() dans ProcessType). Le language FML permet de définir également des contraintes sur les concepts. Les deux approches présentent chacune leurs avantages et leurs inconvénients. La première approche guide l'utilisateur dans une conception de modèle conforme, alors que la seconde permet plus de flexibilité (mais aussi de faire n'importe quoi). Tout est donc une question de choix, la question est plutot d'ordre méthodologique. Nous, on a plutot choisi de faire plus un outil "guidé", d'où l'utilisation de beaucoup de code impératif. On utilise tout de même les contraintes. On a essayé aussi de faire des choix multiples et variés pour montrer l'expressivité du langage FML.}
+We had to define the expected semantic of the challenge. To do that, FML offers constraints, but we can also define our own constraint at the ontological level (metamodel). We have here a trade-off. Reusing the constraint from FML is efficient but may be too restrictive for the user. Defining our own constraints is more adaptable, but it has to be implemented and the produced model may be incorrect. Due to the size of the problem and the expected freedom, we chose the second way. To make it easier to build correct models, we propose several built-in behavior in charge of the various operation and notably the instantiation operations. This result in a "constrained" tool rather than a "restrictive" metamodel.
+
+Our implementation of the challenge was also an opportunity to showcase the expressivity of FML. So we tried, in our solution, to reuse several mechanism of FML. For example, sometime we use behavior ({\color{teal} un exemple}) and sometimes we use constraints ({\color{teal} un exemple}).}
+
+%fd, j'ai essayé de traduire et complèter, j'espère ne pas avoir trahi
+
+%Le language FML permet de définir des comportements reifiant la sémantique ontologique (notamment du pattern type/instance, par exemple le comportement newProcess() dans ProcessType). Le language FML permet de définir également des contraintes sur les concepts. Les deux approches présentent chacune leurs avantages et leurs inconvénients. La première approche guide l'utilisateur dans une conception de modèle conforme, alors que la seconde permet plus de flexibilité (mais aussi de faire n'importe quoi). Tout est donc une question de choix, la question est plutot d'ordre méthodologique. Nous, on a plutot choisi de faire plus un outil "guidé", d'où l'utilisation de beaucoup de code impératif. On utilise tout de même les contraintes. On a essayé aussi de faire des choix multiples et variés pour montrer l'expressivité du langage FML.
+
 
 \end{response}
 
@@ -357,7 +372,7 @@ We had to define the expected semantic of the challenge. To do that, FML offers 
 
 \begin{response}{(5) The paper makes an issue of the model federation approach supported by Openflexo, including the use of model slots. However, after introducing these concepts they do not seem to be important to the rest of the article. Perhaps this is an implementation concern that could be elided as its inclusion does not seem key to the contributions of the article. }
 
-\textcolor{orange}{While it is true that model slots and other features of Openflexo/FML are not used in order to build our solution,  we believe including them in our description help readers understand the framework. We therefore choose to keep the description as is.}
+\textcolor{orange}{While it is true that model slots and other features of Openflexo/FML are not used in order to build our solution,  we believe including them in our description help readers understand the framework. We therefore chose to keep the description as is. While explicitly expressing that they are only marginally used in our solution (only for the tooling).}
 \end{response}
 
 \begin{response}{Some minor issues:
@@ -365,7 +380,7 @@ We had to define the expected semantic of the challenge. To do that, FML offers 
 (a) In fig 5: why are the in/out gateway features shown as properties and not as associations? \textcolor{orange}{This is done for the sake of readability in order to avoid cluttering the diagram with (possibly uninteresting) associations.}
 
 (b) On p. 7 'specialization' -> 'specializations'.}
-TODO.
+Done.
 \end{response}
 
 
