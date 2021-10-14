@@ -223,14 +223,17 @@ Done.
 
 \begin{response}{The third section contains an overview of the solution. Here, virtual models are instantiated to virtual model instances conforming to the virtual models acting as the metamodel for the virtual model instances. The question naturally arises: how does it work, if we have more abstraction levels?  In this section, the authors also discuss linguistic and ontologic instantiation. The explanation refers to Section 4 resulting in a hardly understandable analysis of different instantiation methods. Figure 4. does not help in clarifying the concepts either (e.g. using the name InstanceInstance seems to be a very bad decision). From the point of the muli-level behavior of view, the interpretation of the instantiation relationship is the most crucial one that is why this section must be clarified. Where are the rules of ontological instantiation defined, how are they enforced? The text mentions the (linguistic) instantiation mechanism of the FML Language… how does it work exactly?} 
 
-\textcolor{orange}{As indicated in the answer to the previous reviewer's comment we have refactored Section 2 in order to provide more details and make explanations easier to follow. We have done the same with }
+\textcolor{orange}{As indicated in the answer to the previous comment we have refactored Section 2 in order to provide more details and make explanations easier to follow. We have done the same with Section 3. Note that \texttt{InstanceInstance} has been replaced with \texttt{ObjectInstance}} \todo{Probably it would be nice to add here some concrete answers instead of directing the reviewer to read two sections.}
 
-We have improved the explanation in sections 2 and 3. Note that \texttt{InstanceInstance} has been replaced with \texttt{ObjectInstance}.
+%We have improved the explanation in sections 2 and 3. Note that %\texttt{InstanceInstance} has been replaced with \texttt{ObjectInstance}.
 \end{response}
 
 \begin{response}{Section 4 elaborates the solution in detail. Figure 5 presents an overview of the model elements handling P1 to P19. The diagram uses a UML-like annotation, which helps in making it understandable, but it also has a strange decision: roles (attributes) having a modeled concept as their type are visualized by links, but instead of using rolenames on the links, the concepts (classes) contain them. I strongly suggest following the UML guidelines here and use rolenames (similarly to multiplicity).}
-\textcolor{red}{
-We have improved figure 6. The notation is close to UML, but is not UML. We hope it is understandable enough.}
+
+\textcolor{orange}{Thanks for pointing this out. Initially we decided against using rolenames for the sake of readability (e.g., by avoiding clutter near the association ends). However, we have realized now that the alternative we used hampered readability even more. In that sense, we use now rolenames (an exception is made for the \emph{Gateway} associations with \emph{TaskType} as explained in the caption of Figure 6)}
+
+%\textcolor{red}{
+%We have improved figure 6. The notation is close to UML, but is not UML. We hope it %is understandable enough.}
 \end{response}
 
 % Fabien ok pour moi
@@ -248,11 +251,12 @@ The constraints are defined at FlexoConcept level, and are designed of invariant
 
 
 \begin{response}{In Section 4.1.2 a behavior called newProcess is defined. Is it called automatically (by the framework) when creating a new process, or should the users call it? Is this a convention, or are such methods configured somehow to replace the usual constructors? According to the text, "same pattern applies" in several cases, but these patterns could be also included, because it is not completely clear to what part of the behavior "same" refers. In same cases, the diagram uses "/type", while in the code it is "type" -- why? The specialization of Actors is encoded by FML, wouldn’t be easier to use the built-in specialization instead?} 
+
+{\color{teal}The behavior \texttt{newProcess} is defined in the \texttt{ProcessType} concept following a \emph{factory} design pattern. Rather than being created directly a process instance is therefore created from its type. This realizes the ontological instantiation. }
 \textcolor{red}{
-- newProcess est un vrai behaviour défini dans ProcessType (pattern factory) et permet de spécifier l'instantiation d'un Process à partir d'un ProcessType (c'est la partie réalisation de l'instantiation ontologique)
-- difficile de répondre sur le "same pattern applies"
-- /type raffine type défini à l'étage plus haut
-- pas compris la question sur la spécialisation des Actors
+%- newProcess est un vrai behaviour défini dans ProcessType (pattern factory) et permet de spécifier l'instantiation d'un Process à partir d'un ProcessType (c'est la partie réalisation de l'instantiation ontologique)
+- difficile de répondre sur le "same pattern applies" /type raffine type défini à l'étage plus haut (fd ne comprends pas la question)
+- pas compris la question sur la spécialisation des Actors (fd ne comprends pas la question)
 }
 
 \end{response}
@@ -286,26 +290,26 @@ TODO.
 
 \begin{response}{Minor issues/questions: 
 \begin{itemize}
-    \item Are there any tools supporting model federation besides Openflexo? 
-    \item Section 2. “In contrast to approaches that compose metamodels into a single large metamodel grouping all needed entities,…” - I do not see, why this is relevant here
-    \item Figure 5 – concept Sequencing – the roles “in” and “out” are not represented by lines… why?
-    \item What does the term “sub-concept” mean exactly? Please explain it before the first use
-    \item ProgrammingLanguage concept is an enumeration… how is it modelled?
-    \item “The Acme metamodel also defines a specialized task type Coding” – isn’t it CodingTask?
-    \item “The value of the property producedArtifactTypes” – is it property, or role?
-
+    \item Are there any tools supporting model federation besides Openflexo? \textcolor{orange}{To the best of our knowledge there are not other model federation tools comparable to Openflexo/FML.}
+    \item Section 2. “In contrast to approaches that compose metamodels into a single large metamodel grouping all needed entities,…” - I do not see, why this is relevant here \textcolor{orange}{Our intention was to compare the federation approach to approaches that integrate all metamodels together. We argue that reifying models (with virtual models) helps structuring, organizing, federating models.}
+    \item Figure 5 – concept Sequencing – the roles “in” and “out” are not represented by lines… why? \textcolor{orange}{As explained in a previous answer, we do this for the sake of readability.}
+    \item What does the term “sub-concept” mean exactly? Please explain it before the first use \todo{TODO}
+    \item ProgrammingLanguage concept is an enumeration… how is it modelled? \textcolor{orange}{ProgrammingLanguages is modelled as an enumeration of names (Java, Cobol, etc) from FML. }
+    \item “The Acme metamodel also defines a specialized task type Coding” – isn’t it CodingTask? \textcolor{orange}{Yes, this is correct. Coding is actually a CodingTask, as shown in figure 7.}
+    \item “The value of the property producedArtifactTypes” – is it property, or role? \todo{TODO}
 \end{itemize}}
-We do not know equivalent tools as far as we know. 
 
-In section 2 we wanted to compare our federation approach to other that integrate all metamodels together. We advocate reifying models (with virtual models) helps structuring, organizing, federating models.
 
-Figure 5. We explain that we ignore these link for the sake of readability.
+%We do not know equivalent tools as far as we know. 
 
-ProgrammingLanguages is modelled as an enumeration of names (Java, Cobol, etc) from FML. 
+%In section 2 we wanted to compare our federation approach to other that integrate all %metamodels together. We advocate reifying models (with virtual models) helps %structuring, organizing, federating models.
 
-You're right, Coding is actually a CodingTask, as shown in figure 7. 
+%Figure 5. We explain that we ignore these link for the sake of readability.
 
-%\todo{The idea is to group all the answers to the minor questions here.}
+%ProgrammingLanguages is modelled as an enumeration of names (Java, Cobol, etc) from %FML. 
+
+%You're right, Coding is actually a CodingTask, as shown in figure 7. 
+
 \end{response}
 
 
@@ -314,12 +318,16 @@ You're right, Coding is actually a CodingTask, as shown in figure 7.
 \Reviewer{\#3}
 
 \begin{response}{(1) The Type-Instance pattern is key to the authors approach to the challenge. However, the benefits of this pattern are not explored in the context of MLM. For example, the authors do not really explain approaches such as Clabjects or potency levels as they compare to the Type-Instance pattern (or the challenge). Why it the pattern better? Is it just a different approach? What can it do that other approaches cannot? Perhaps the benefit is that the Type-Instance pattern can be implemented in most modelling and implementation technologies whereas other approaches need special facilities? Finally, in terms of the pattern, why should anyone care - why would should they use the pattern?} 
-You are right. We intensively use the Type/Instance pattern. 
-We made this choice because it was easier to implement with Openflexo. 
-We make it more explicit in the text.
+
+\textcolor{orange}{The reviewer is absolutely right. We decided to use the type-object pattern as it was easier to integrate as an ad-hoc mechanism in our solution to the challenge than other multi-level enabling mechanisms. In that sense we would like to remark that this, together with the \emph{VirtualModel} concept of the Openflexo/FML framework sufficed to meet all the requirements of the challenge. Note however that we intend to explore the integration of other mechanisms (such as clabjets or potency) as future work.}
+
+%You are right. We intensively use the Type/Instance pattern. 
+%We made this choice because it was easier to implement with Openflexo. 
+%We make it more explicit in the text.
 \end{response}
 
 \begin{response}{(2) In section 1 the authors list 2 key reasons why a strict approach to modelling is sub-optimal. However, they do not establish the case that their approach uses these 2 features to any concrete benefit. It would be appropriate (perhaps at the end of the article) to revisit these features and to clearly demonstrate that their approach supports them and that they have concrete utility in some way in the context of the challenge.} 
+
 We have added a paragraph in the Conclusions section indicating how Openflexo/FML permitted us to overcome the mentioned limitations of the strict modeling paradigm and how this was used in order to build our solution to the Multi-Level Process challenge. Notably, we mention how the type/object pattern allowed us to use model element instances as types in order to achieve ontological instantiation.
 \end{response}
 
@@ -332,17 +340,22 @@ We had to define the expected semantic of the challenge. To do that, FML offers 
 
 \begin{response}{(4) Section 6 lists a number of benefits of the approach. Unfortunately, the presentation in the section is very general and none of the claims are justified in terms of concrete descriptions and/or examples. This section seems to be very important and could be of great interest to the reader. Perhaps it would be appropriate to reduce some of the rather implementation heavy descriptions earlier in the paper and increase the analysis in this section? In addition section 4.3 notes that MLM is key to the ability of Openflexo to create tooling. Again, this is very interesting, but no concrete details are provided as to how Openflexo uses the level agnotic features of the models to create tools. Can the essence of this be captured for Openflexo and then described in terms of how it facilitiates the tooling arising from the challenge?}
 
-\textcolor{red}{
-We tried to illustrate subsections of section 6 by giving examples, by referencing figures and sections (subsections 6.2, 6.3, 6.4, 6.6, 6.7 and 6.11 have been updated). Concerning the fact that "MLM is the key to the ability of Openflexo to create tooling", the reviewer probably read "MLM" instead of "FML" (Federation Modeling Language).}
+\textcolor{orange}{We have refactored the subsections of Section 6 in order to include concrete examples and references to the description of our solution whenever it was possible and/or relevant. Concretely, subsections 6.2, 6.3, 6.4, 6.6, 6.7 and 6.11 have been updated.}
+
+\todo[inline]{Here we have to explain how openflexo helps to create tooling!}
+
+%textcolor{red}{
+%We tried to illustrate subsections of section 6 by giving examples, by referencing %figures and sections (subsections 6.2, 6.3, 6.4, 6.6, 6.7 and 6.11 have been %updated). Concerning the fact that "MLM is the key to the ability of Openflexo to %create tooling", the reviewer probably read "MLM" instead of "FML" (Federation %Modeling Language).}
 \end{response}
 
 \begin{response}{(5) The paper makes an issue of the model federation approach supported by Openflexo, including the use of model slots. However, after introducing these concepts they do not seem to be important to the rest of the article. Perhaps this is an implementation concern that could be elided as its inclusion does not seem key to the contributions of the article. } 
-\textcolor{red}{While it is true that model slots and other features of Openflexo/FML are not used in order to build our solution,  we believe including them in our description help readers understand the framework. We therefore choose to keep the description as is.}
+
+\textcolor{orange}{While it is true that model slots and other features of Openflexo/FML are not used in order to build our solution,  we believe including them in our description help readers understand the framework. We therefore choose to keep the description as is.}
 \end{response}
 
 \begin{response}{Some minor issues:
 
-(a) In fig 5: why are the in/out gateway features shown as properties and not as associations?
+(a) In fig 5: why are the in/out gateway features shown as properties and not as associations? \textcolor{orange}{This is done for the sake of readability in order to avoid cluttering the diagram with (possibly uninteresting) associations.}
 
 (b) On p. 7 'specialization' -> 'specializations'.} 
 TODO.

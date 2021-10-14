@@ -23,11 +23,11 @@ model/metamodel conformity -- that is presented
 in~\parencite{models2016-freemodel}. Another notable feature of
 this approach is the strong decoupling among tools that remain usable
 after federations are made.
-So to provide an adaptable framework, we have developed a flexible modeling language to provide modeling features without strict modeling levels. In a federation, the targeted modelling approaches can be unknown at the beginning and also can integrate several modeling levels.
+So to provide an adaptable framework, we have developed a flexible modeling language to provide modeling features without strict modeling levels. In a federation, the targeted modeling approaches can be unknown at the beginning and also can integrate several modeling levels.
 
 
 We decided to use this approach since it offers the possibility to
-link and to navigate among levels. Before we describe the overall
+link and to navigate among levels. Before we describe the 
 architecture in next section, here are some key concepts implemented
 in the Openflexo~\parencite{openflexo_link} framework.
 
@@ -44,17 +44,17 @@ in the Openflexo~\parencite{openflexo_link} framework.
 %\noteAntoine{Dans la figure ne manque-t-il pas les containements ? (VM vers Concepts)}
 %\noteSylvain{C'est le cas dans cette nouvelle figure}
 
-This framework relies on the architecture of Figure~\ref{fig:mf}. A federation
+This framework relies on the architecture of figure~\ref{fig:mf}. A federation
 gathers a set of conceptual models, named \emph{virtual models} and a
 set of \emph{federated models}. Each federated model pertains to a
 \emph{technological space} and uses the language of its specific
-paradigm while a virtual model is built using the Flexo Modeling
+paradigm while a virtual model is built using the Federation Modeling
 Language (\FML). Each federated model is an autonomous
 element that may evolve with its own tooling. The virtual models
 serve as control elements binding the federated models together.
 In this paper, we mainly use conceptual models and more precisely \FML its domain specific modeling language. The only use of the federation aspect is on the tooling made for the process language.
 
-A UML like representation of a simplified metamodel of \FML is provided in Figure~\ref{fig:mm}. \FML is language designed to define models as virtual models. A \emph{virtual model} is composed of a set of \emph{concepts}, while itself being a \emph{concept}. Hence, \emph{virtual models} are structuring units forming architectures while \emph{concepts} are the core entities. A concept has a set of \emph{properties} and \emph{behaviors}. \emph{Properties} can be either simple variables, roles (pointers to a modeling element in a \emph{virtual model} or an external technology-specific model), or properties bound to complex control graphs. \FML is designed to define not only the structure of virtual models but also the collection of actions that can be performed on them. These actions are called \emph{behaviors} and rely on behavioural primitives called \emph{EditionAction}. These \emph{behaviors} can either be called or triggered by events. The reactive behaviors are useful when a federated model evolution needs to trigger a computation. Note that we do not exploit this possibility in the challenge.
+A UML like representation of a simplified metamodel of \FML is provided in figure~\ref{fig:mm}. \FML is language designed to define models as virtual models. A \emph{virtual model} is composed of a set of \emph{concepts}, while itself being a \emph{concept}. Hence, \emph{virtual models} are structuring units forming architectures while \emph{concepts} are the core entities. A concept has a set of \emph{properties} and \emph{behaviors}. \emph{Properties} can be either simple variables, roles (pointers to a modeling element in a \emph{virtual model} or an external technology-specific model), or properties bound to complex control graphs. \FML is designed to define not only the structure of virtual models but also the collection of actions that can be performed on them. These actions are called \emph{behaviors} and rely on behavioral primitives called \emph{EditionAction}. These \emph{behaviors} can either be called or triggered by events. The reactive behaviors are useful when a federated model evolution needs to trigger a computation. Note that we do not exploit this possibility in the challenge.
 
 A parallel to object-oriented approach can be useful to understand \FML\footnote{Some aspects of \FML do not exist in object oriented approach.}. A concept corresponds to a class, its properties to the attributes of the class and its behaviors to the methods of the class. These properties have types defining the kind of value the role will point at runtime. Whenever an element external to the federation space is used, one needs to use a \emph{model slot}. A model slot is a mediation entity in charge of giving access to external elements using a \emph{technology adapter}\footnote{It is a reusable library that defines connections between the \FML execution engine and a particular technological space.}.
 
