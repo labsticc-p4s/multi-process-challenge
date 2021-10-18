@@ -74,7 +74,7 @@ are connected to external elements through model slot instances.
 
 To illustrate this, figure~\ref{fig:BPMNSubsetExample} shows how to realize a small subset of BPMN with Openflexo/FML. Concretely, we have designed a \textit{virtual model} (\texttt{SimplifiedBPMN}) with 3 \textit{concepts} representing a process and its contained tasks. An instance of this \textit{virtual model} is presented in the bottom of the figure, showing instances with their \textsf{instanceOf} relationships with their model.
 %
-The following listing shows the \FML code of this \textit{virtual model}. {\color{red}Notice that the composition relation of figure~\ref{fig:BPMNSubsetExample} between \texttt{BPMNProcess} and \texttt{BPMNTask} is realized in the FML code by concept containment. Whenever an instance of \texttt{BPMNTask} is created, it must be in a container (instance of \texttt{BPMNProcess}) and the two instances get linked together.}\noteFabien{A valider}
+The following listing shows the \FML code of this \textit{virtual model}. Note that the composition relation of figure~\ref{fig:BPMNSubsetExample} between \texttt{BPMNProcess} and \texttt{BPMNTask} is realized in the FML code by concept containment. Whenever an instance of \texttt{BPMNTask} is created, it must be in a container (instance of \texttt{BPMNProcess}) and the two instances get linked together. %\noteFabien{A valider}
 
 
 \begin{lstlisting}

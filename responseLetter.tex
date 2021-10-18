@@ -89,7 +89,8 @@ We have improved the presentation of both, Openflexo/FML and our solution to the
 
 \begin{response}{We very much welcome a "conventional" response to the challenge but would like to see the respective reviewer questions addressed in a revised version which is explicit as possible about the advantages and the disadvantages of the emulation. You may find the references listed below useful to keep explanations concise by referencing related work (note that reviewer 3's "Type-Instance pattern" is also known as the "Type Object" pattern). You should also respond to other concerns reviewers raise, either by making changes to the submission or in the form of an authors' response.}
 
-\textcolor{orange}{In the answer to the previous editor's comment we describe the improvements of our revision, which includes an emphasis in discussing trade-offs related to the emulation of multi-level modeling by using the Openflexo/FML and the type-object pattern. Additionally, the related work section has been extended in order to enhance the comparison between our approach and previous solutions to the challenge.}
+%\textcolor{orange}{
+In the answer to the previous editor's comment we describe the improvements of our revision, which includes an emphasis in discussing trade-offs related to the emulation of multi-level modeling by using the Openflexo/FML and the type-object pattern. Additionally, the related work section has been extended in order to enhance the comparison between our approach and previous solutions to the challenge.%}
 % fd ok
 % sg ok
 % jc ok
@@ -170,9 +171,13 @@ The Figure \ref{fig:BPMNSubsetExample} (above) shows how to realize a small subs
 
 \begin{response}{Also, at the stage of section 2, the characterization of the FML language should be made clearer. The metamodel in Figure 2 seems mainly conceptual - but at the same time you refer to it as a basis for implementation. Could that be clarified? eg you have the class "Behavior" - which is a concept and I did not understand right away what it is composed of. On the other hand you have for example the class "ModelSlot" which seems like a very technical realization. Also, you note that roles have types but I could not find any types in the metamodel (?). Thus, I propose to include a more detailed version of your metamodel at this stage. Please note that EMISAJ does not have a page limitation, so no worries if that should require more space.}
 
-\textcolor{orange}{We agree with the reviewer. The previous version of the figure depicting the main concepts of the FML language (Figure 2) was too succinct. We have fully refactored it so that now important concepts such as \textsf{Type} are shown. We also have correspondingly improved the text explaining the figure. We hope this changes make understanding the core concepts of the FML language easier.}
+%\textcolor{orange}{
+We agree with the reviewer. The previous version of the figure depicting the main concepts of the FML language (Figure 2) was too succinct. We have fully refactored it so that now important concepts such as \textsf{Type} are shown. We also have correspondingly improved the text explaining the figure. We hope this changes make understanding the core concepts of the FML language easier.
+%}
 %fd ok, j'ajouterais bien aussi :
-{\color{teal} Furthermore, to make it easier to distinguish the concepts of FML, the figure 2 adopts a slightly different graphical syntax while the caption insists on the fact that it is a representation. Indeed, FML is implemented by an interpreter that understands these concepts. For example, defining a behavior consists in providing its code using the FML language syntax (like in a programming language).}
+%{\color{teal} 
+Furthermore, to make it easier to distinguish the concepts of FML, the figure 2 adopts a slightly different graphical syntax while the caption insists on the fact that it is a representation. Indeed, FML is implemented by an interpreter that understands these concepts. For example, defining a behavior consists in providing its code using the FML language syntax (like in a programming language).
+%}
 % sg d'accord avec cette proposition
 % jc ok
 % Ok avec l'ajout de Fabien
@@ -182,7 +187,9 @@ The Figure \ref{fig:BPMNSubsetExample} (above) shows how to realize a small subs
 
 \begin{response}{In Figure 5, the base metamodel for representing processes is shown - however it is not linked to the concepts you introduced before. Would it be possible to maybe graphically highlight how it relates to the metamodel in Figure 2? Besides, as multi-level modeling is much different to traditional modeling, you may want to consider using a different notation rather than UML class diagrams - as these are commonly known for traditional modeling approaches. When reading the paper, I actually marked the references to types in yellow in my copy - ie from ProcessType to TaskType and from ActorType to ActorType (on the attribute levels) - this helped me to see more clearly where you have references from attributes to types - but that's just my way of doing it.}
 
-\textcolor{orange}{The only two concepts from Figure 2 represented elsewhere in the paper are the \textsf{VirtualModel} and \textsf{FlexoConcept} elements, which are represented in blue in figures 3, 5, 6, 7 and 9. Then, we use the brown color to represent the instantiation of these concepts. We hope this makes the connection between the Figure 2 and the other representations in the paper clearer. Regarding the notation, it is indeed similar to UML but it has different semantics as explained in the paper.}
+%\textcolor{orange}{
+The only two concepts from Figure 2 represented elsewhere in the paper are the \textsf{VirtualModel} and \textsf{FlexoConcept} elements, which are represented in blue in figures 3, 5, 6, 7 and 9. Then, we use the brown color to represent the instantiation of these concepts. We hope this makes the connection between the Figure 2 and the other representations in the paper clearer. Regarding the notation, it is indeed similar to UML but it has different semantics as explained in the paper.
+%}
 %fd ok
 %sg ok
 % jc ok
@@ -197,7 +204,9 @@ The Figure \ref{fig:BPMNSubsetExample} (above) shows how to realize a small subs
 
 \begin{response}{Regarding Figure 6 and Figure 7: In Figure 7 you show the process incl. sequence connectors - however in Figure 6 these seem to be missing - maybe to reduce complexity? I would suggest to probably focus on a subset of the process from Figure 7 and also show how the connectors are realized. To me this would increase the comprehensibility / consistency. Ie I could then infer exactly, how elements from the concrete model have been realized in the background.}
 
-\textcolor{orange}{Thanks for pointing out this inconsistency. We have completed Figure 6 (now Figure 7) so that it contains all the necessary elements for Figure 7 (now Figure 8).}
+%\textcolor{orange}{
+Thanks for pointing out this inconsistency. We have completed Figure 6 (now Figure 7) so that it contains all the necessary elements for Figure 7 (now Figure 8).
+%}
 %fd ok
 %sg ok
 % jc ok
@@ -208,7 +217,8 @@ The Figure \ref{fig:BPMNSubsetExample} (above) shows how to realize a small subs
 
 \begin{response}{in Figure 9 you show the model editor. Could you please also add a screenshot of the metamodel editor?}
 
-\textcolor{orange}{Our manuscript now includes a new figure (Figure 10) that shows a screen capture of the FML metamodel editor.}
+%\textcolor{orange}{
+Our manuscript now includes a new figure (Figure 10) that shows a screen capture of the FML metamodel editor.%}
 %fd ok
 % jc ok
 %Figure 10 now shows a screen capture of the FML metamodel editor.
@@ -225,10 +235,12 @@ Done.
 
 \begin{response}{The basic idea of model federation is interesting, its primary focus is not on creating multi-level models. However, as the approach is quite flexible, multi-level behavior can be emulated by model federation. This fact is possibly the most serious advantage and disadvantage of the paper at the same time. Advantage, since it brings us a completely new, different way of thinking, and disadvantage since it does not really help in categorizing/unifying multi-level methods and -- for me -- it also feels a little bit off-topic in this special issue. At this point, it should be mentioned that the authors managed to cover/solve all requirements of the challenge, thus the paper, as a solution to the challenge fits well.}
 
-\textcolor{orange}{We fully agree with the reviewer on the fact that it is the flexibility of the model federation approach that enables us to provide a solution to the multi-level process challenge while using a tool not specifically designed for multi-level modelling. Of course, this comes together with a number of trade-offs which we discuss in the paper (\emph{e.g.}, see the the end of the introduction section).}
+%\textcolor{orange}{
+We fully agree with the reviewer on the fact that it is the flexibility of the model federation approach that enables us to provide a solution to the multi-level process challenge while using a tool not specifically designed for multi-level modelling. Of course, this comes together with a number of trade-offs which we discuss in the paper (\emph{e.g.}, see the the end of the introduction section).%}
 %fd ok
 % sg ok
-\textcolor{red}{We have included at the end of the introduction section a more detailed description of our approach. In a word, we use FML (linguistic level) as a tool to build models and meta-models permitting us to emulate multi-level modelling. The evolution of models (multi-levels) is encoded as a hierarchy of models and meta-models. In this sense, we do on-demand multi-level modelling, and propose an organization guided by the evolution of models.}
+%\textcolor{red}{
+We have included at the end of the introduction section a more detailed description of our approach. In a word, we use FML (linguistic level) as a tool to build models and meta-models permitting us to emulate multi-level modelling. The evolution of models (multi-levels) is encoded as a hierarchy of models and meta-models. In this sense, we do on-demand multi-level modelling, and propose an organization guided by the evolution of models.%}
 % jc ok
 
 \textcolor{teal}{Propale de Fabien pour compléter la réponse ici. We have added a discussion (où?) on the fact that our approach reifies the levels using "generic" models and relies on the process of construction to implement the levels of the challenge. We hope, it makes it easier to see that it is a contribution to multi-level domain.}
@@ -242,7 +254,8 @@ Done.
 
 \begin{response}{The paper gives us a short introduction (somewhat overlapping with the abstract, even at the level of sentences) and then the technology is detailed. The section is a bit hard to understand at first, the difference and the relationship between federated and virtual models could be explained in more detail especially considered that the challenge solution uses virtual models only. It is not clear, how federation works in this case.}
 
-\textcolor{orange}{We have refactored the Technology section in order to make it, hopefully, easier to follow. Apart from improvements in the text, we have notably improved Figure 2 so that now a lot more of details are visible and contributed a new figure (Figure 3) showing how the FML concepts are used in a classical modeling scenario. Note however that we use model federation only for the tooling part of our answer to the challenge. In practice, we rely solely in the reification of models through the \textsf{VirtualModel} concept in order to emulate multi-levels as shown in Figure 4.}
+%\textcolor{orange}{
+We have refactored the Technology section in order to make it, hopefully, easier to follow. Apart from improvements in the text, we have notably improved Figure 2 so that now a lot more of details are visible and contributed a new figure (Figure 3) showing how the FML concepts are used in a classical modeling scenario. Note however that we use model federation only for the tooling part of our answer to the challenge. In practice, we rely solely in the reification of models through the \textsf{VirtualModel} concept in order to emulate multi-levels as shown in Figure 4.%}
 %fd ok
 %sg ok
 % jc ok
@@ -251,9 +264,9 @@ Done.
 
 \begin{response}{The third section contains an overview of the solution. Here, virtual models are instantiated to virtual model instances conforming to the virtual models acting as the metamodel for the virtual model instances. The question naturally arises: how does it work, if we have more abstraction levels?  In this section, the authors also discuss linguistic and ontologic instantiation. The explanation refers to Section 4 resulting in a hardly understandable analysis of different instantiation methods. Figure 4. does not help in clarifying the concepts either (e.g. using the name InstanceInstance seems to be a very bad decision). From the point of the muli-level behavior of view, the interpretation of the instantiation relationship is the most crucial one that is why this section must be clarified. Where are the rules of ontological instantiation defined, how are they enforced? The text mentions the (linguistic) instantiation mechanism of the FML Language… how does it work exactly?}
 
-\textcolor{orange}{As indicated in the answer to the previous comment we have refactored Section 2 in order to provide more details and make explanations easier to follow. We have done the same with Section 3. Note that \texttt{InstanceInstance} has been replaced with \texttt{ObjectInstance}} \todo{Probably it would be nice to add here some concrete answers instead of directing the reviewer to read two sections.}
+%\textcolor{orange}{As indicated in the answer to the previous comment we have refactored Section 2 in order to provide more details and make explanations easier to follow. We have done the same with Section 3. Note that \texttt{InstanceInstance} has been replaced with \texttt{ObjectInstance}} \todo{Probably it would be nice to add here some concrete answers instead of directing the reviewer to read two sections.}
 
-{\color{red} FD: je pense aussi qu'il faut être plus précis dans cette réponse. J'aurais bien dit que l'instantiation linguistique consiste juste à utiliser le langage FML et respecter sa syntaxe et ses contraintes de typage et que pour l'ontologique, c'est uniquement par le process ou l'on s'impose de faire des factory depuis le type (Sylvain ?)}
+%{\color{red} FD: je pense aussi qu'il faut être plus précis dans cette réponse. J'aurais bien dit que l'instantiation linguistique consiste juste à utiliser le langage FML et respecter sa syntaxe et ses contraintes de typage et que pour l'ontologique, c'est uniquement par le process ou l'on s'impose de faire des factory depuis le type (Sylvain ?)}
 
 {\color{red} Sylvain: (Nouvelle proposition de réponse) As indicated in the answer to the previous comment we have refactored Section 2 and 3 in order to provide more details and make explanations easier to follow. Linguistic instantiation in this context refers to the use of FML language for our solution. This offers syntax and semantics, as well as type checking and various constraints checking. We tried to show how the use of FML helps in meeting requirements of the challenge. On the other side, we exploit the ontologic instantiation through an extensive use of the "Type Object" pattern in two versions (with single and multiple cardinalities), controlling the ontologic instantiation from the type, using a classical factory pattern. Additionaly, we agree that the choice of \texttt{InstanceInstance} was not a good decision, we have replaced it with \texttt{ObjectInstance}.}
 % jc ok (avec la nouvelle proposition de Sylvain)
@@ -264,7 +277,9 @@ Done.
 
 \begin{response}{Section 4 elaborates the solution in detail. Figure 5 presents an overview of the model elements handling P1 to P19. The diagram uses a UML-like annotation, which helps in making it understandable, but it also has a strange decision: roles (attributes) having a modeled concept as their type are visualized by links, but instead of using rolenames on the links, the concepts (classes) contain them. I strongly suggest following the UML guidelines here and use rolenames (similarly to multiplicity).}
 
-\textcolor{orange}{Thanks for pointing this out. Initially we decided against using rolenames for the sake of readability (e.g., by avoiding clutter near the association ends). However, we have realized now that the alternative we used hampered readability even more. In that sense, we use now rolenames (an exception is made for the \texttt{Gateway} associations with \texttt{TaskType} as explained in the caption of Figure 6)}
+%\textcolor{orange}{
+Thanks for pointing this out. Initially we decided against using rolenames for the sake of readability (e.g., by avoiding clutter near the association ends). However, we have realized now that the alternative we used hampered readability even more. In that sense, we use now rolenames (an exception is made for the \texttt{Gateway} associations with \texttt{TaskType} as explained in the caption of Figure 6).
+%}
 %fd ok
 %sg ok
 % jc ok
