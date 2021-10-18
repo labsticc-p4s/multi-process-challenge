@@ -103,12 +103,33 @@ public Process newProcess(String name) {
 }
 \end{lstlisting}
 
-This scheme relies on \FML dynamic binding mechanism to delegate to task types the responsibility of instances creation. An instance of \texttt{Process} references its unique type \texttt{ProcessType} by the specialized \texttt{/type} role. Each instance of \texttt{TaskType} is ontologically instantiated with a \texttt{Task} (\textbf{P11}), using the same pattern where \texttt{TaskType} has the responsibility to manage the ontological instantiation. A \texttt{Task} references its unique \texttt{TaskType}, and defines a \texttt{begin date} and an \texttt{end date} basic role (\textbf{P12}).
+This scheme relies on \FML dynamic binding mechanism to delegate to task types
+the responsibility of instances creation. An instance of \texttt{Process}
+references its unique type \texttt{ProcessType} by the specialized
+\texttt{/type} role. Each instance of \texttt{TaskType} is ontologically
+instantiated with a \texttt{Task} (\textbf{P11}), using the same factory
+pattern where \texttt{TaskType} has the responsibility to manage the
+ontological instantiation. A \texttt{Task} references its unique
+\texttt{TaskType}, and defines a \texttt{begin date} and an \texttt{end date}
+basic role (\textbf{P12}).
 
-The same pattern applies for the used and produced artifacts by roles \texttt{usedArtifacts}, \texttt{producedArtifacts} and \texttt{performingActors} defined in \texttt{Task} (\textbf{P13}). An instance of \texttt{Artifact} specializes \texttt{MultiInstance} and references a set of \texttt{ArtifactType} through the specialized \texttt{/types} role (\textbf{P14} and \textbf{P16}). Likewise, \texttt{Actor} specializes \texttt{MultiInstance} and references a set of \texttt{ActorType} through the specialized \texttt{/types} relation (\textbf{P15}).
+The used and produced artifacts are implemented by roles
+\texttt{usedArtifacts}, \texttt{producedArtifacts} and
+\texttt{performingActors} defined in \texttt{Task} (\textbf{P13}). An instance
+of \texttt{Artifact} specializes \texttt{MultiInstance} and references a set of
+\texttt{ArtifactType} through the specialized \texttt{/types} role
+(\textbf{P14} and \textbf{P16}). Likewise, \texttt{Actor} specializes
+\texttt{MultiInstance} and references a set of \texttt{ActorType} through the
+specialized \texttt{/types} relation (\textbf{P15}).
 
-The semantics is unclear relatively to the instantiation policy for artifacts. In the requirements, nothing is explicitly stated about the link between the \emph{artifact type} of a \emph{task type} and the types of the artifacts of a corresponding task.
-Here, we assume that task execution implies that for each used and produced \emph{artifact type} defined in a related \emph{task type}, it exists at least one artifact of the right type. The following excerpt of \FML code shows a partial implementation of this. The same pattern applies to produced artifacts.
+The semantics is unclear relatively to the instantiation policy for artifacts.
+In the requirements, nothing is explicitly stated about the link between the
+\emph{artifact type} of a \emph{task type} and the types of the artifacts of a
+corresponding task.  Here, we assume that task execution implies that for each
+used and produced \emph{artifact type} defined in a related \emph{task type},
+it exists at least one artifact of the right type. The following excerpt of
+\FML code shows a partial implementation of this. We proceed likewise for
+produced artifacts.
 
 \begin{lstlisting}
 concept Task extends Instance {
