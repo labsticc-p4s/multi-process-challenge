@@ -122,7 +122,8 @@ The Figure \ref{fig:BPMNSubsetExample} (above) shows how to realize a small subs
     \label{fig:BPMNSubsetExample}
 \end{figure}
 
-\todo{SG: Est ce possible de rajouter ce listing ou ca n'avance à rien ?. SM: If you want to add it, it should be ok, but remember then to update the answer text.}
+%non (jc)
+%\todo{SG: Est ce possible de rajouter ce listing ou ca n'avance à rien ?. SM: If you want to add it, it should be ok, but remember then to update the answer text.}
 
 %\begin{lstlisting}
 %use org.openflexo.technologyadapter.emf.EMFModelSlot as EMF;
@@ -225,6 +226,7 @@ Our manuscript now includes a new figure (Figure 10) that shows a screen capture
 \end{response}
 
 \begin{response}{There are some minor typos throughout the manuscript (eg also regarding the reference Jeusfeld2019; choose -> chose; axis -> axes; aN FML virtual model...; etc.)}
+
 Done.
 \end{response}
 
@@ -240,10 +242,10 @@ We fully agree with the reviewer on the fact that it is the flexibility of the m
 %fd ok
 % sg ok
 %\textcolor{red}{
-We have included at the end of the introduction section a more detailed description of our approach. In a word, we use FML (linguistic level) as a tool to build models and meta-models permitting us to emulate multi-level modelling. The evolution of models (multi-levels) is encoded as a hierarchy of models and meta-models. In this sense, we do on-demand multi-level modelling, and propose an organization guided by the evolution of models.%}
+We have included at the end of the introduction section a more detailed description of our approach. In a word, we use FML (linguistic level) as a tool to build models and meta-models permitting us to emulate multi-level modelling. We use virtual models to implement the levels. The evolution of models (multi-levels) is encoded as a hierarchy of models and meta-models. In this sense, we do on-demand multi-level modelling, and propose an organization guided by the evolution of models.%}
 % jc ok
 
-\textcolor{teal}{Propale de Fabien pour compléter la réponse ici. We have added a discussion (où?) on the fact that our approach reifies the levels using "generic" models and relies on the process of construction to implement the levels of the challenge. We hope, it makes it easier to see that it is a contribution to multi-level domain.}
+%\textcolor{teal}{Propale de Fabien pour compléter la réponse ici. We have added a discussion (où?) on the fact that our approach reifies the levels using "generic" models and relies on the process of construction to implement the levels of the challenge. We hope, it makes it easier to see that it is a contribution to multi-level domain.}
 
 % sg ok : je pense que c'est dans la section 3
 % jc euh… je ne vois pas dans la section 3.
@@ -268,7 +270,8 @@ We have refactored the Technology section in order to make it, hopefully, easier
 
 %{\color{red} FD: je pense aussi qu'il faut être plus précis dans cette réponse. J'aurais bien dit que l'instantiation linguistique consiste juste à utiliser le langage FML et respecter sa syntaxe et ses contraintes de typage et que pour l'ontologique, c'est uniquement par le process ou l'on s'impose de faire des factory depuis le type (Sylvain ?)}
 
-{\color{red} Sylvain: (Nouvelle proposition de réponse) As indicated in the answer to the previous comment we have refactored Section 2 and 3 in order to provide more details and make explanations easier to follow. Linguistic instantiation in this context refers to the use of FML language for our solution. This offers syntax and semantics, as well as type checking and various constraints checking. We tried to show how the use of FML helps in meeting requirements of the challenge. On the other side, we exploit the ontologic instantiation through an extensive use of the "Type Object" pattern in two versions (with single and multiple cardinalities), controlling the ontologic instantiation from the type, using a classical factory pattern. Additionaly, we agree that the choice of \texttt{InstanceInstance} was not a good decision, we have replaced it with \texttt{ObjectInstance}.}
+%{\color{red} Sylvain: (Nouvelle proposition de réponse) 
+As indicated in the answer to the previous comment we have refactored Section 2 and 3 in order to provide more details and make explanations easier to follow. Linguistic instantiation in this context refers to the use of FML language for our solution. This offers syntax and semantics, as well as type checking and various constraints checking. We tried to show how the use of FML helps in meeting requirements of the challenge. On the other side, we exploit the ontologic instantiation through an extensive use of the "Type Object" pattern in two versions (with single and multiple cardinalities), controlling the ontologic instantiation from the type, using a classical factory pattern. Additionaly, we agree that the choice of \texttt{InstanceInstance} was not a good decision, we have replaced it with \texttt{ObjectInstance}.%}
 % jc ok (avec la nouvelle proposition de Sylvain)
 % sm: ok
 
@@ -295,7 +298,8 @@ Thanks for pointing this out. Initially we decided against using rolenames for t
 
 %{\color{red}fd: hum, j'ai l'impression qu'il manque un peu de détail pour répondre sur la partie multi-instance. Il me semble qu'en plus d'être ad hoc, le mécanisme est manuel (mais je me trompe peut être). Si c'est vrai, il faudrait le dire.}
 
-{\color{red}Sylvain: (Nouvelle proposition de réponse) MultiInstance(s) are introduced in our answer metamodel (figure 6). As such, their semantic is defined at the ontological level, i.e. in the metamodel. It is an ad hoc mechanism introduced to fulfill requirements. This means that corresponding semantics is not handled by FML but in the designed virtual models, with specific behaviours implementing underlying semantics.}
+%{\color{red}Sylvain: (Nouvelle proposition de réponse) 
+MultiInstance(s) are introduced in our answer metamodel (figure 6). As such, their semantic is defined at the ontological level, i.e. in the metamodel. It is an ad hoc mechanism introduced to fulfill requirements. This means that corresponding semantics is not handled by FML but in the designed virtual models, with specific behaviours implementing underlying semantics.%}
 
 %On ne gère pas de multi-instances dans la sémantique FML, on gère ca seulement au niveau ontologique (FlexoConcept Instance et MultiInstance, figure 6). C'est un mécanisme ad-hoc utilisé pour le traitement des requirements.
 
@@ -308,9 +312,11 @@ The constraints are defined at FlexoConcept level, and are designed of invariant
 
 \begin{response}{In Section 4.1.2 a behavior called newProcess is defined. Is it called automatically (by the framework) when creating a new process, or should the users call it? Is this a convention, or are such methods configured somehow to replace the usual constructors? According to the text, "same pattern applies" in several cases, but these patterns could be also included, because it is not completely clear to what part of the behavior "same" refers. In same cases, the diagram uses "/type", while in the code it is "type" -- why? The specialization of Actors is encoded by FML, wouldn’t be easier to use the built-in specialization instead?}
 
-{\color{teal}The behavior \texttt{newProcess} is defined in the \texttt{ProcessType} concept following a \emph{factory} design pattern. Rather than being created directly a process instance is therefore created from its type. This realizes the ontological instantiation. There is no notion "usual" or "default" constructors in FML. Whenever a user creates a new instance, it has to chose one constructor. Here, we impose methodologically to the user to create a process instance through the chosen process type. There is no enforcement in our solution. SYLVAIN ?
+{\color{teal}The behavior \texttt{newProcess} is defined in the \texttt{ProcessType} concept following a \emph{factory} design pattern. Rather than being created directly a process instance is therefore created from its type. This realizes the ontological instantiation. There is no notion of "usual" or "default" constructors in FML. Whenever a user creates a new instance, it has to chose one constructor. Here, we impose methodologically to the user to create a process instance through the chosen process type. There is no enforcement in our solution. SYLVAIN ?
 
-Concerning the use of "/type" and "type", the former one is a way to stress that the relation is derived, i.e. it is a refinement of the "type" relation defined in another level. In the FML code, we use "type" due to the fact there is no notion of level. (It is explained in the lasta paragraph of 4.1 on page 8.)}
+As for the use of the formule \emph{smae pattern}, we have rewritten the concerned sentences so that they now explicitely name the us
+
+Concerning the use of "/type" and "type", the former one is a way to stress that the relation is derived, i.e. it is a refinement of the "type" relation defined in another level. In the FML code, we use "type" due to the fact there is no notion of level (this is explained in the last paragraph of 4.1 on page 8.)}
 \textcolor{red}{
 %- newProcess est un vrai behaviour défini dans ProcessType (pattern factory) et permet de spécifier l'instantiation d'un Process à partir d'un ProcessType (c'est la partie réalisation de l'instantiation ontologique)
 \begin{itemize}
