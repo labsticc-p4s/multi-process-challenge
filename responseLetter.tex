@@ -121,7 +121,7 @@ The Figure \ref{fig:BPMNSubsetExample} (above) shows how to realize a small subs
     \label{fig:BPMNSubsetExample}
 \end{figure}
 
-\todo{SG: Est ce possible de rajouter ce listing ou ca n'avance à rien ?}
+\todo{SG: Est ce possible de rajouter ce listing ou ca n'avance à rien ?. SM: If you want to add it, it should be ok, but remember then to update the answer text.}
 
 %\begin{lstlisting}
 %use org.openflexo.technologyadapter.emf.EMFModelSlot as EMF;
@@ -175,6 +175,7 @@ The Figure \ref{fig:BPMNSubsetExample} (above) shows how to realize a small subs
 {\color{teal} Furthermore, to make it easier to distinguish the concepts of FML, the figure 2 adopts a slightly different graphical syntax while the caption insists on the fact that it is a representation. Indeed, FML is implemented by an interpreter that understands these concepts. For example, defining a behavior consists in providing its code using the FML language syntax (like in a programming language).}
 % sg d'accord avec cette proposition
 % jc ok
+% Ok avec l'ajout de Fabien
 
 %We've changed figure 2. It shows \texttt{Type} and the main concepts used by FML. %Explanation of figure has been improved.
 \end{response}
@@ -234,6 +235,7 @@ Done.
 
 % sg ok : je pense que c'est dans la section 3
 % jc euh… je ne vois pas dans la section 3.
+% sm: ok.. if we find where it is ;)
 
 %\todo{Answering this is going to be tricky!}
 \end{response}
@@ -255,6 +257,7 @@ Done.
 
 {\color{red} Sylvain: (Nouvelle proposition de réponse) As indicated in the answer to the previous comment we have refactored Section 2 and 3 in order to provide more details and make explanations easier to follow. Linguistic instantiation in this context refers to the use of FML language for our solution. This offers syntax and semantics, as well as type checking and various constraints checking. We tried to show how the use of FML helps in meeting requirements of the challenge. On the other side, we exploit the ontologic instantiation through an extensive use of the "Type Object" pattern in two versions (with single and multiple cardinalities), controlling the ontologic instantiation from the type, using a classical factory pattern. Additionaly, we agree that the choice of \texttt{InstanceInstance} was not a good decision, we have replaced it with \texttt{ObjectInstance}.}
 % jc ok (avec la nouvelle proposition de Sylvain)
+% sm: ok
 
 %We have improved the explanation in sections 2 and 3. Note that %\texttt{InstanceInstance} has been replaced with \texttt{ObjectInstance}.
 \end{response}
@@ -284,6 +287,7 @@ MultiInstance(s) are introduced in our answer metamodel (figure 6). As such, the
 The constraints are defined at FlexoConcept level, and are designed of invariant being evaluated by the FML interpreter, which may raise constraint violation at run-time. An example of constraint is presented for requirement P9, in \texttt{TaskType} concept (p 8).
 
 % jc ok
+% sm ok
 \end{response}
 
 
@@ -304,6 +308,7 @@ Concerning the use of "/type" and "type", the former one is a way to stress that
 
 
 \begin{response}{In Section 4.2 it is mentioned, where the solution uses linguistic instantiation, but it is not clear by which component it is handled and what rules are followed when instantiating the concepts. In Section 4.3, tooling is elaborated. I suggest removing redundant information about the two editors and add more details on how the concrete syntax (e.g. the texts in the box of Fig. 9.) is defined.}
+
 We have improved the description of the relationship between FML and our metamodels (use of colors in many figures).
 The tooling uses model federation, but the description of our answer relies only on \textsf{VirtualModel} and \textsf{FlexoConcept} of FML (figure 2). The tooling is suggested in figure (new) 9. The tooling is not detailed, but the virtual model \texttt{ProcessEditor} presented in figure (new) 9 defines a lot of interactions, where texts of (old) figure 9 are found.
 
@@ -311,6 +316,7 @@ The business logic of the diagram tooling is encoded in FML, and more specifical
 %fd ok
 %sg ok
 %jc ok
+%sm ok
 \end{response}
 
 \begin{response}{In Section 5, the meaning of the category Conceptualization is hard to understand, does this mean that a concept is created that covers the requirement completely? In the case of ontological instantiation, the term “dual concept nature” and “instance nature” is mentioned… what do these terms mean?}
@@ -335,6 +341,7 @@ We have extended Section 7. It discusses now previously published solutions to t
 
 {\color{red}Sylvain: (Nouvelle proposition de réponse) Indeed, our solution relies on a ad-hoc architecture where multi-level is emulated. However, our solution presents reified layers though virtual model inheritance hierarchy. Although there is no automatized support, the proposed methodology allows to provide an arbitrary number of layers and some extension capabilities and reuse support (e.g. adding a level would mean creating a new virtual model extending an existing one). This is made possible by the fact that FML allows one to work on different levels at a time. The limitations of this approach resides in a good comprehension of the architecture and a strong expertise to maintain global consistency.}
 %jc ok (j'ai probablement loupé la première réponse)
+%sm ok.. but we could even ignore this comment as it does not really request action.
 \end{response}
 
 \begin{response}{Minor issues/questions:
@@ -389,11 +396,12 @@ We have added a paragraph in the Conclusions section indicating how Openflexo/FM
 \begin{response}{(3) One of the key benefits of the Type-Instance pattern is that it provides a 'hook' on which semantics can be defined using constraints. There is a reified relationships between a type and its instance and therefore conditions can be defined that establish both static and dynamic semantics. I am confused regarding why this is not a key feature of the semantics for the challenge as it is implemented by the authors. Constraints are provided very sparingly compared to implementation of behaviour in FML. Unfortunately, since the dynamic semantics of FML is not provided (and is bespoke) this is less clear than it might otherwise be for the reader. Perhaps it would be better to use constraints in the context of the Type-Instance pattern to specify semantics? It would be more abstract than the current 'method' style semantics.}
 {\color{red}
 We designed our answer with the Type/Instance pattern. We think, we could have implemented it with another approach such as Clabject.
-We had to define the expected semantic of the challenge. To do that, FML offers constraints, but we can also define our own constraint at the ontological level (metamodel). We have here a trade-off. Reusing the constraint from FML is efficient but may be too restrictive for the user. Defining our own constraints is more adaptable, but it has to be implemented and the produced model may be incorrect. Due to the size of the problem and the expected freedom, we chose the second way. To make it easier to build correct models, we propose several built-in behavior in charge of the various operation and notably the instantiation operations. This result in a "constrained" tool rather than a "restrictive" metamodel.
+We had to define the expected semantic of the challenge. To do that, FML offers constraints, but we can also define our own constraint at the ontological level (metamodel). We have here a trade-off. Reusing the constraint from FML is efficient but may be too restrictive for the user. Defining our own constraints is more adaptable, but it has to be implemented and the produced model may be incorrect. Due to the size of the problem and the expected freedom, we chose the second way. To make it easier to build correct models, we propose several built-in behavior in charge of the various operations and notably the instantiation operations. This result in a "constrained" tool rather than a "restrictive" metamodel.
 
 Our implementation of the challenge was also an opportunity to showcase the expressivity of FML. So we tried, in our solution, to reuse several mechanism of FML. For example, sometime we use behavior ({\color{teal} P17, P18 and P19}) and sometimes we use constraints ({\color{teal} P9 and P17}).}
 
 %fd, j'ai essayé de traduire et complèter, j'espère ne pas avoir trahi
+%sm ok
 
 %Le language FML permet de définir des comportements reifiant la sémantique ontologique (notamment du pattern type/instance, par exemple le comportement newProcess() dans ProcessType). Le language FML permet de définir également des contraintes sur les concepts. Les deux approches présentent chacune leurs avantages et leurs inconvénients. La première approche guide l'utilisateur dans une conception de modèle conforme, alors que la seconde permet plus de flexibilité (mais aussi de faire n'importe quoi). Tout est donc une question de choix, la question est plutot d'ordre méthodologique. Nous, on a plutot choisi de faire plus un outil "guidé", d'où l'utilisation de beaucoup de code impératif. On utilise tout de même les contraintes. On a essayé aussi de faire des choix multiples et variés pour montrer l'expressivité du langage FML.
 
@@ -404,7 +412,7 @@ Our implementation of the challenge was also an opportunity to showcase the expr
 
 \textcolor{orange}{We have refactored the subsections of Section 6 in order to include concrete examples and references to the description of our solution whenever it was possible and/or relevant. Concretely, subsections 6.2, 6.3, 6.4, 6.6, 6.7 and 6.11 have been updated.}
 
-\todo[inline]{Here we have to explain how openflexo helps to create tooling!}
+\todo[inline]{Here we have to explain how openflexo helps to create tooling. Just a line or two should suffice. Or maybe I have misanderstood the question... Is the reviewer really wrong and thought we were talking about MLM? Then just copy answer below from: Concerning...}
 
 %textcolor{red}{
 %We tried to illustrate subsections of section 6 by giving examples, by referencing %figures and sections (subsections 6.2, 6.3, 6.4, 6.6, 6.7 and 6.11 have been %updated). Concerning the fact that "MLM is the key to the ability of Openflexo to %create tooling", the reviewer probably read "MLM" instead of "FML" (Federation %Modeling Language).}
