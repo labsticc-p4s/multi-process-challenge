@@ -357,8 +357,8 @@ We took advantage of model federation and the availability of diagraming feature
 
 
 The Base metamodel is completed with some behaviors implementing an execution
-semantics for the executed processes. All tasks -- instantiated from
-\texttt{TaskType} for a given enacted process -- manage a status. This status
+semantics for the executed processes. All tasks --- instantiated from
+\texttt{TaskType} for a given enacted process --- manage a status. This status
 is either \texttt{Not startable} (when not assigned to a performing actor or
 when required input artifacts are not available), \texttt{Startable},
 \texttt{Started}, \texttt{Completable} (when all output artifacts are ready) or
@@ -383,7 +383,7 @@ allows representing and editing a \texttt{ProcessType}. The highly reflective
 nature of \FML and its tooling should be noted. When the drag and drop
 interactor is applied for a new item, the tool allows choosing the concept type
 to be instantiated. For example, when a \texttt{TaskType} is created, the user
-must choose a concept inheriting from \texttt{TaskType} -- in Acme use case it
+must choose a concept inheriting from \texttt{TaskType} (in Acme use case it
 can be \texttt{SETaskTask} or \texttt{CodingTaskType} or default value
 \texttt{TaskType}).
 
