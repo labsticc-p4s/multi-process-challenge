@@ -354,7 +354,23 @@ We took advantage of model federation and the availability of diagraming feature
 The Base metamodel is completed with some behaviors implementing an execution semantics for the executed processes. All tasks -- instantiated from \texttt{TaskType} for a given enacted process -- manage a status. This status is either \texttt{Not startable} (when not assigned to a performing actor or when required input artifacts are not available), \texttt{Startable}, \texttt{Started}, \texttt{Completable} (when all output artifacts are ready) or \texttt{Completed}. A \texttt{Task} also manages a set of performing actors, a begin and end date, some used and produced artifacts. The \texttt{Gateway} business logic has also been implemented through the implementation of an abstract \texttt{execute(Process)} behavior. The management of artifacts whose semantics follows rules defined in section~\ref{sec:ProcessEnactment} (\textbf{P13}) is also implemented.
 
 Figure \ref{fig:ToolingArchitecture} details the architecture of these two tools.
- The left of the figure presents the \textit{ProcessType graphical editor}. \texttt{ProcessTypeEditor} is modeled as a virtual model declaring two model slots (represented with bold circles). The first model slot references an instance of Acme metamodel, while the second model slot references an instance of diagram, conforms to the \textit{ProcessType diagram specification}\footnote{a diagram "metamodel" which defines and specify structure and graphical representations for edited items}. When executed, this tool manages a graphical view for an instance of Acme metamodel (the \textit{Acme model}) and a specific \texttt{ProcessType} instance. This tool allows representing and editing a \texttt{ProcessType}. The highly reflective nature of \FML and its tooling should be noted. When the drag and drop interactor is applied for a new item, the tool allows choosing the concept type to be instantiated. For example, when a \texttt{TaskType} is created, the user must choose a concept inheriting from \texttt{TaskType} -- in Acme use case it can be \texttt{SETaskTask} or \texttt{CodingTaskType} or default value \texttt{TaskType}).
+
+The left of the figure presents the \textit{ProcessType graphical editor}.
+\texttt{ProcessTypeEditor} is modeled as a virtual model declaring two model
+slots (represented with bold circles). The first model slot references an
+instance of Acme metamodel, while the second model slot references an instance
+of diagram, conforms to the \textit{ProcessType diagram
+specification}\footnote{a diagram \enquote{metamodel} which defines and specify
+structure and graphical representations for edited items}. When executed, this
+tool manages a graphical view for an instance of Acme metamodel (the
+\textit{Acme model}) and a specific \texttt{ProcessType} instance. This tool
+allows representing and editing a \texttt{ProcessType}. The highly reflective
+nature of \FML and its tooling should be noted. When the drag and drop
+interactor is applied for a new item, the tool allows choosing the concept type
+to be instantiated. For example, when a \texttt{TaskType} is created, the user
+must choose a concept inheriting from \texttt{TaskType} -- in Acme use case it
+can be \texttt{SETaskTask} or \texttt{CodingTaskType} or default value
+\texttt{TaskType}).
 
 The other tool, called \textit{Enacted process graphical editor} and shown on figure~\ref{fig:ScreenshotEnactedProcessEditor}, provides process edition and tasks assignations through a graphical visualization displaying the process being executed. This tool is represented on the right side of the figure~\ref{fig:ToolingArchitecture}. It follows the same architecture pattern of the \textit{ProcessType graphical editor}, with two model slots referencing both the model and a diagram. Process enactment is operated from a \texttt{ProcessType}, and must be defined using a name identifying the newly instantiated process. All tasks are created from their \texttt{TaskType} definition, and required assignments apply (if for example \inst{Coding} \texttt{TaskType} defines COBOL as output programming language, the related task is automatically assigned to \inst{Ann Smith}). Each task has a status as well as a set of performing actors, a begin and end dates, and used and produced artifacts.
 
