@@ -46,16 +46,16 @@ mentioned in the challenge.
 %  \noteJC{pas clair pour moi ce qui est entendu par « basic modeling constructs », ce qui est dans la partie 2 ?}
 
   Our solution uses the basic modeling constructs depicted by the \FML core
-  metamodel (Figure~\ref{fig:mm}) and described in
-  the section~\ref{sec:technology}. Models are \emph{virtual models}. They are
+  metamodel (Fig.~\ref{fig:mm}) and described in
+  the Sect.~\ref{sec:technology}. Models are \emph{virtual models}. They are
   composed of \emph{concepts}, being themselves concepts. Concepts may have
   \emph{roles} and \emph{behaviors} (actions one can perform).
 
   In order to provide the graphical tools, our solution also uses \emph{model
   slots} to connect some concept instances to external elements (in our case:
   instances of diagram from our diagraming TA). The use of slots has been
-  described in the section~\ref{sec:model} and is illustrated by bold circles in
-  the Figure~\ref{fig:ToolingArchitecture}.
+  described in the Sect.~\ref{sec:model} and is illustrated by bold circles in
+  the Fig.~\ref{fig:ToolingArchitecture}.
 
 
   \subsection{Levels}
@@ -75,9 +75,9 @@ mentioned in the challenge.
   are grouped into a virtual model. Inheritance and instantiation allow the
   establishment of relationships between concepts from different levels.
 %\ref{fig:BPMNSubsetExample}
-%  Figure~\ref{fig:AcmeFullArchitecture} shows three levels: the metamodel, the
+%  Fig.~\ref{fig:AcmeFullArchitecture} shows three levels: the metamodel, the
 %  ACME metamodel and the ACME model.
-Figure~\ref{fig:MultilevelArchitecture} shows the multi-level architecture of
+Fig.~\ref{fig:MultilevelArchitecture} shows the multi-level architecture of
 our solution.
 
 
@@ -99,7 +99,7 @@ our solution.
   Thanks to the level-agnosticism nature of the Openflexo approach, cross-level
   relationships are not an issue. Model elements of different levels can be
   linked each other in a transparent way, using inheritance or instantiation.
-  For instance, in the figure~\ref{fig:AcmeFullArchitecture}, the
+  For instance, in the Fig.~\ref{fig:AcmeFullArchitecture}, the
   \texttt{Developer} concept from \texttt{Acme} metamodel specializes the
   \texttt{ActorType} of the base metamodel. The \texttt{Software Engineering Process} of the
   \texttt{Acme} model is an instance of \texttt{ProcessType} in the metamodel.
@@ -129,7 +129,7 @@ our solution.
   Behaviors are continuously checked, ensuring the integrity of the models when
   changes occur. However, most of these behaviors have to be written by the
   users. Thus, the integrity of the contents relies on the users when they
-  build the metamodels and the models. Section~\ref{sec:model} describes
+  build the metamodels and the models. Sect.~\ref{sec:model} describes
   how the requirements are captured and how behaviors are implemented with
   \FML. For instance, \texttt{isAuthorizedActor} behavior is needed to enforce
   \textbf{P17} requirement, leading to writing \FML code in \texttt{TaskType}

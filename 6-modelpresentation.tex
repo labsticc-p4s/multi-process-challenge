@@ -4,9 +4,9 @@ The presentation of our solution to the \mlpc follows a systematic methodology w
 
 %\todo[inline]{phrase d'intro pour expliquer que les req étaient couverts au fur et à mesure (côté systématique)}
 
-The designed multilevel architecture shown in figure~\ref{fig:MultilevelArchitecture} captures the two use cases described in the Process Challenge.
+The designed multilevel architecture shown in Fig.~\ref{fig:MultilevelArchitecture} captures the two use cases described in the Process Challenge.
 
-Note that in all following figures, blue is used to represent \FML virtual models and concepts (\textsf{VirtualModel} and \textsf{FlexoConcept} in figure \ref{fig:mm}), see figures \ref{fig:BPMNSubsetExample}, \ref{fig:MultilevelArchitecture}, \ref{fig:LinguisticAndOntologicInstantiation}, \ref{fig:BaseMetamodel}, \ref{fig:AcmeFullArchitecture},  \ref{fig:ToolingArchitecture}, while brown is used for instances of \textsf{FlexoConcept}, see figures \ref{fig:BPMNSubsetExample}, \ref{fig:MultilevelArchitecture}, \ref{fig:LinguisticAndOntologicInstantiation}, \ref{fig:AcmeFullArchitecture},  \ref{fig:ToolingArchitecture}.
+Note that in all following figures, blue is used to represent \FML virtual models and concepts (\textsf{VirtualModel} and \textsf{FlexoConcept} in Fig.~\ref{fig:mm}), see figures \ref{fig:BPMNSubsetExample}, \ref{fig:MultilevelArchitecture}, \ref{fig:LinguisticAndOntologicInstantiation}, \ref{fig:BaseMetamodel}, \ref{fig:AcmeFullArchitecture},  \ref{fig:ToolingArchitecture}, while brown is used for instances of \textsf{FlexoConcept}, see figures \ref{fig:BPMNSubsetExample}, \ref{fig:MultilevelArchitecture}, \ref{fig:LinguisticAndOntologicInstantiation}, \ref{fig:AcmeFullArchitecture},  \ref{fig:ToolingArchitecture}.
 % 3, 4, 5, 6, 7, 8, 9
 % Expliquer que le use case XSure ne nécessitait pas l'extension de metamodèle requise pour le usecase Acme Software Developement Process
 
@@ -20,16 +20,16 @@ Note that in all following figures, blue is used to represent \FML virtual model
     \label{fig:BaseMetamodel}
 \end{figure*}
 
-In this section, we present the base metamodel presented in Figure~\ref{fig:BaseMetamodel} with the \textit{XSure} insurance domain use case, whose partial description was provided in the challenge description. The requirements \textbf{P1} to \textbf{P19} of XSure insurance domain are straightforwardly implemented by instantiating the \emph{XSure model}, as an instance of base metamodel (the left side of figure~\ref{fig:MultilevelArchitecture}).
+In this section, we present the base metamodel presented in Fig.~\ref{fig:BaseMetamodel} with the \textit{XSure} insurance domain use case, whose partial description was provided in the challenge description. The requirements \textbf{P1} to \textbf{P19} of XSure insurance domain are straightforwardly implemented by instantiating the \emph{XSure model}, as an instance of base metamodel (the left side of Fig.~\ref{fig:MultilevelArchitecture}).
 
-Figure~\ref{fig:BaseMetamodel} represents this base metamodel with a \UML-like formalism, well adapted to represent \FML concepts and their instances. A \textit{Concept} of \FML is represented by a \UML class where roles of basic types are attributes. The roles whose types are concepts are represented by an arrow from their concept to their type, with their name on the arrow. The cardinality follows the \UML practice.
+Fig.~\ref{fig:BaseMetamodel} represents this base metamodel with a \UML-like formalism, well adapted to represent \FML concepts and their instances. A \textit{Concept} of \FML is represented by a \UML class where roles of basic types are attributes. The roles whose types are concepts are represented by an arrow from their concept to their type, with their name on the arrow. The cardinality follows the \UML practice.
 For example, the role \texttt{parentActorTypes} of the concept \texttt{ActorType} has the type \texttt{ActorType} and the * cardinality.
 
-Our proposition relies on ontological instantiation as presented in figure \ref{fig:LinguisticAndOntologicInstantiation}, with a common root concept \texttt{ModelingElement}. Two types of ontological instantiation are needed to meet the requirements of the challenge. One provides that some instances conform to only one type (\texttt{Process} and \texttt{Task} do respectively conform to \texttt{ProcessType} and \texttt{TaskType}). While some entities define their conformity to several types (\texttt{Actor} and \texttt{Artifact} do respectively conform to several \texttt{ActorType} and \texttt{ArtifactType}). These instantiations are respectively expressed using the relations \texttt{type} and \texttt{types} between \texttt{Type}, \texttt{Instance} and \texttt{MultiInstance} concepts. In the diagram, the realization of these relations are indicated by a derived relation, \texttt{/type} or \texttt{/types}, as for example between \texttt{Process} and \texttt{ProcessType} or between \texttt{Actor} and \texttt{ActorType}.
+Our proposition relies on ontological instantiation as presented in Fig.~\ref{fig:LinguisticAndOntologicInstantiation}, with a common root concept \texttt{ModelingElement}. Two types of ontological instantiation are needed to meet the requirements of the challenge. One provides that some instances conform to only one type (\texttt{Process} and \texttt{Task} do respectively conform to \texttt{ProcessType} and \texttt{TaskType}). While some entities define their conformity to several types (\texttt{Actor} and \texttt{Artifact} do respectively conform to several \texttt{ActorType} and \texttt{ArtifactType}). These instantiations are respectively expressed using the relations \texttt{type} and \texttt{types} between \texttt{Type}, \texttt{Instance} and \texttt{MultiInstance} concepts. In the diagram, the realization of these relations are indicated by a derived relation, \texttt{/type} or \texttt{/types}, as for example between \texttt{Process} and \texttt{ProcessType} or between \texttt{Actor} and \texttt{ActorType}.
 
 \subsubsection{Process type definition}
 
-We first present the process definition part of the base metamodel, located on the left of Figure \ref{fig:BaseMetamodel}.
+We first present the process definition part of the base metamodel, located on the left of Fig.~\ref{fig:BaseMetamodel}.
 
 % Illustrer avec des instances de XSure
 
@@ -89,7 +89,7 @@ This invariant should be completed with additional constraints defined in the \t
 
 \subsubsection{Process enactment}
 \label{sec:ProcessEnactment}
-We now present the process enactment part of base metamodel, located right of figure~\ref{fig:BaseMetamodel}. All concepts defined in this subsection are either specializations of the \texttt{Instance} concept (if they have exactly one type) or the \texttt{MultiInstance} concept (when they have several types).
+We now present the process enactment part of base metamodel, located right of Fig.~\ref{fig:BaseMetamodel}. All concepts defined in this subsection are either specializations of the \texttt{Instance} concept (if they have exactly one type) or the \texttt{MultiInstance} concept (when they have several types).
 
 \texttt{Process} represents an enacted \texttt{ProcessType}, as defined in previous subsection (\textbf{P10}). \FML defines behavioral features called behavior. \texttt{ProcessType} defines the behavior \texttt{newProcess(String)}, taking the name of the process to enact as argument:
 
@@ -238,7 +238,7 @@ Each concept inherits from \texttt{ModelingElement}, which defines a \texttt{las
 \subsection{The Acme software development process}
 \label{sec:AcmeSoftwareDevelopmentProcess}
 
-The challenge describes in a second part a Software engineering process for a fictional Acme company. The Base metamodel described previously is too generic to capture all domain-specific aspects of this use case. We chose to complete the architectural hierarchy with a specific virtual model, specific to the Acme software development process metamodel, shown in figure~\ref{fig:AcmeFullArchitecture}.
+The challenge describes in a second part a Software engineering process for a fictional Acme company. The Base metamodel described previously is too generic to capture all domain-specific aspects of this use case. We chose to complete the architectural hierarchy with a specific virtual model, specific to the Acme software development process metamodel, shown in Fig.~\ref{fig:AcmeFullArchitecture}.
 The \textit{Acme} metamodel specializes the Base metamodel, and \textit{Acme model} is an instance of the \textit{Acme} metamodel. The metamodel inheritance is implemented by virtual model's inheritance. Any instance of the Acme model is either an instance of a concept defined in the Base metamodel, or a concept defined in the specialized \textit{Acme} metamodel.
 % FML follows a classical object-oriented semantics. ???
 
@@ -256,10 +256,10 @@ The \textit{Acme} metamodel specializes the Base metamodel, and \textit{Acme mod
     \label{fig:AcmeFullArchitecture}
 \end{figure*}
 
-The figure~\ref{fig:AcmeFullArchitecture} highlights all conceptual levels of the architecture. This figure is only partial at instance level and not all instances are represented. It also contains an instance of enacted a \textit{Software Engineering Process} at the bottom. The Acme metamodel specializes some concepts of the Base metamodel, for example, \texttt{SETaskType} extends \texttt{TaskType} and \texttt{SEArtifactType} extends \texttt{ArtifactType}. These concepts are further specialized  \texttt{CodingTaskType} extends \texttt{SETaskType} and \texttt{CodeArtifactType} extends \texttt{SEArtifactType}.
+The Fig.~\ref{fig:AcmeFullArchitecture} highlights all conceptual levels of the architecture. This figure is only partial at instance level and not all instances are represented. It also contains an instance of enacted a \textit{Software Engineering Process} at the bottom. The Acme metamodel specializes some concepts of the Base metamodel, for example, \texttt{SETaskType} extends \texttt{TaskType} and \texttt{SEArtifactType} extends \texttt{ArtifactType}. These concepts are further specialized  \texttt{CodingTaskType} extends \texttt{SETaskType} and \texttt{CodeArtifactType} extends \texttt{SEArtifactType}.
 The Acme metamodel also defines a specialized task type \texttt{Coding} extending \texttt{Task}, and provides the \texttt{Developer} concept extending \texttt{ActorType}. This metamodel is completed with the \texttt{ProgrammingLanguage} concept, defined as an enumeration (\texttt{Java}, \texttt{C}, \texttt{COBOL}). All the instances required to capture the challenge use case are defined in the final Acme model (lower part of the figure). Instances are represented with rounded boxes and linguistic instantiation is represented using dashed connectors.
 
-The \textit{Software Development Process} for Acme company is presented in the figure~\ref{fig:AcmeSoftwareDevelopmentProcess}. It is a screen capture of the tool developed for the challenge and described in the next section.
+The \textit{Software Development Process} for Acme company is presented in the Fig.~\ref{fig:AcmeSoftwareDevelopmentProcess}. It is a screen capture of the tool developed for the challenge and described in the next section.
 
 \begin{figure}[t]
  \centering
@@ -309,7 +309,7 @@ concept CodingTaskType extends SETaskType {
 }
 \end{lstlisting}
 
-The requirement \textbf{S8} is simply expressed by the definition of the \inst{Testing} instance of \texttt{SETaskType}, \inst{Tester} instance of \texttt{ActorType}, and \inst{Test report} instance of \texttt{ArtifactType}, as shown in the figure \ref{fig:AcmeSoftwareDevelopmentProcess}.
+The requirement \textbf{S8} is simply expressed by the definition of the \inst{Testing} instance of \texttt{SETaskType}, \inst{Tester} instance of \texttt{ActorType}, and \inst{Test report} instance of \texttt{ArtifactType}, as shown in the Fig.~\ref{fig:AcmeSoftwareDevelopmentProcess}.
 
 A critical task must additionally produce artifacts that must be associated with a validation task. This is modeled with a supplementary relation \texttt{validatedWith} defined in \texttt{Artifact} and referencing \texttt{Artifact} validating it (\textbf{S9}).
 
@@ -318,7 +318,7 @@ All software engineering artifacts defined in the context of Acme Software Engin
 
 For \textbf{S12}, we assume that all tasks may define an expected duration, which might be checked during process execution. This is modeled by the \texttt{expectedDuration} attribute in \texttt{TaskType}. Alternatively, this could be modeled through the definition of a \texttt{SETesting} concept, as a specialization of \texttt{SETaskType}, and the instantiation of \inst{Testing} as an instance of \texttt{SETesting}. The business logic expressed by \textbf{S12} requirement should then be redefined in \texttt{SETesting}.
 
-\textbf{S13} requirement has been previously partially fulfilled. This must be completed with an association between an artifact produced and the task that validates it. This is modeled by the reference to \inst{Test Cases} as a produced artifact type in \inst{Test Case design} and the reference to \inst{Test Cases} as a used artifact in \inst{Test Design review}, as shown in figure~\ref{fig:AcmeSoftwareDevelopmentProcess}.
+\textbf{S13} requirement has been previously partially fulfilled. This must be completed with an association between an artifact produced and the task that validates it. This is modeled by the reference to \inst{Test Cases} as a produced artifact type in \inst{Test Case design} and the reference to \inst{Test Cases} as a used artifact in \inst{Test Design review}, as shown in Fig.~\ref{fig:AcmeSoftwareDevelopmentProcess}.
 
 
 \subsection{Openflexo tooling}
@@ -348,12 +348,22 @@ For \textbf{S12}, we assume that all tasks may define an expected duration, whic
 Our solution is fully implemented within the Openflexo tool. Both use cases have been modeled in the interactive design environment and can be executed by the \FML execution engine.
 
 
-We took advantage of model federation and the availability of diagraming features though the \textit{Diagraming Technology Adapter} to implement two interactive graphical tools built on top of the conceptual levels detailed in previous sections. The figure \ref{fig:ToolingArchitecture} shows the overview of the tooling architecture and is detailed in the next section. A first tool offers a graphical edition of a Process type. The second one offers an enactment feature (the instantiation of a process from its process type), the ability within an enacted process to assign tasks to actors, and a graphical visualization of this process execution.
+We took advantage of model federation and the availability of diagraming features though the \textit{Diagraming Technology Adapter} to implement two interactive graphical tools built on top of the conceptual levels detailed in previous sections. The Fig.~\ref{fig:ToolingArchitecture} shows the overview of the tooling architecture and is detailed in the next section. A first tool offers a graphical edition of a Process type. The second one offers an enactment feature (the instantiation of a process from its process type), the ability within an enacted process to assign tasks to actors, and a graphical visualization of this process execution.
 
 
-The Base metamodel is completed with some behaviors implementing an execution semantics for the executed processes. All tasks -- instantiated from \texttt{TaskType} for a given enacted process -- manage a status. This status is either \texttt{Not startable} (when not assigned to a performing actor or when required input artifacts are not available), \texttt{Startable}, \texttt{Started}, \texttt{Completable} (when all output artifacts are ready) or \texttt{Completed}. A \texttt{Task} also manages a set of performing actors, a begin and end date, some used and produced artifacts. The \texttt{Gateway} business logic has also been implemented through the implementation of an abstract \texttt{execute(Process)} behavior. The management of artifacts whose semantics follows rules defined in section~\ref{sec:ProcessEnactment} (\textbf{P13}) is also implemented.
+The Base metamodel is completed with some behaviors implementing an execution
+semantics for the executed processes. All tasks -- instantiated from
+\texttt{TaskType} for a given enacted process -- manage a status. This status
+is either \texttt{Not startable} (when not assigned to a performing actor or
+when required input artifacts are not available), \texttt{Startable},
+\texttt{Started}, \texttt{Completable} (when all output artifacts are ready) or
+\texttt{Completed}. A \texttt{Task} also manages a set of performing actors, a
+begin and end date, some used and produced artifacts. The \texttt{Gateway}
+business logic has also been implemented through the implementation of an
+abstract \texttt{execute(Process)} behavior. The management of artifacts whose
+semantics follows rules defined in Sect.~\ref{sec:ProcessEnactment} (\textbf{P13}) is also implemented.
 
-Figure \ref{fig:ToolingArchitecture} details the architecture of these two tools.
+Fig.~\ref{fig:ToolingArchitecture} details the architecture of these two tools.
 
 The left of the figure presents the \textit{ProcessType graphical editor}.
 \texttt{ProcessTypeEditor} is modeled as a virtual model declaring two model
@@ -372,6 +382,6 @@ must choose a concept inheriting from \texttt{TaskType} -- in Acme use case it
 can be \texttt{SETaskTask} or \texttt{CodingTaskType} or default value
 \texttt{TaskType}).
 
-The other tool, called \textit{Enacted process graphical editor} and shown on figure~\ref{fig:ScreenshotEnactedProcessEditor}, provides process edition and tasks assignations through a graphical visualization displaying the process being executed. This tool is represented on the right side of the figure~\ref{fig:ToolingArchitecture}. It follows the same architecture pattern of the \textit{ProcessType graphical editor}, with two model slots referencing both the model and a diagram. Process enactment is operated from a \texttt{ProcessType}, and must be defined using a name identifying the newly instantiated process. All tasks are created from their \texttt{TaskType} definition, and required assignments apply (if for example \inst{Coding} \texttt{TaskType} defines COBOL as output programming language, the related task is automatically assigned to \inst{Ann Smith}). Each task has a status as well as a set of performing actors, a begin and end dates, and used and produced artifacts.
+The other tool, called \textit{Enacted process graphical editor} and shown on Fig.~\ref{fig:ScreenshotEnactedProcessEditor}, provides process edition and tasks assignations through a graphical visualization displaying the process being executed. This tool is represented on the right side of the Fig.~\ref{fig:ToolingArchitecture}. It follows the same architecture pattern of the \textit{ProcessType graphical editor}, with two model slots referencing both the model and a diagram. Process enactment is operated from a \texttt{ProcessType}, and must be defined using a name identifying the newly instantiated process. All tasks are created from their \texttt{TaskType} definition, and required assignments apply (if for example \inst{Coding} \texttt{TaskType} defines COBOL as output programming language, the related task is automatically assigned to \inst{Ann Smith}). Each task has a status as well as a set of performing actors, a begin and end dates, and used and produced artifacts.
 
 A demonstrative video for the developed tooling is available on our website\footnote{\url{https://research.openflexo.org/MLMChallenge.html}}, as well as download and installation instructions.

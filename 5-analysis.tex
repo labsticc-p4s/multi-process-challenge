@@ -10,7 +10,7 @@ The last step is to organize or structure these concepts to improve reusability 
 
 Like in a lot of modeling approaches, these  steps could also be achieved in any order and iteratively. But our goal during the challenge's analysis remains to produce an \FML virtual model architecture.
 %for our federation.
-As shown in the figure~\ref{fig:MultilevelArchitecture}, we defined two virtual models (Base and Acme processes abstractions) instantiated by two virtual model instances (XSure and Acme processes). As the figure shows the virtual models play the role of metamodels, in the sense of concept definition with a level-agnostic approach. The virtual model instances play the role of models conforming to the metamodel definitions. In the rest of the paper, we use the term metamodel and model to simplify the presentation.
+As shown in the Fig.~\ref{fig:MultilevelArchitecture}, we defined two virtual models (Base and Acme processes abstractions) instantiated by two virtual model instances (XSure and Acme processes). As the figure shows the virtual models play the role of metamodels, in the sense of concept definition with a level-agnostic approach. The virtual model instances play the role of models conforming to the metamodel definitions. In the rest of the paper, we use the term metamodel and model to simplify the presentation.
 The resulting architecture follows the way the challenge is presented and this
 organization allows for the possibility of flexible extensions.
 
@@ -22,11 +22,21 @@ organization allows for the possibility of flexible extensions.
     \label{fig:MultilevelArchitecture}
 \end{figure}
 
-Our analysis of the use case leads to identify two main modeling axes (as presented in the figure \ref{fig:LinguisticAndOntologicInstantiation}):
+Our analysis of the use case leads to identify two main modeling axes (as presented in the Fig.~\ref{fig:LinguisticAndOntologicInstantiation}):
 \begin{itemize}
-    \item The horizontal axis is characterized as the ontological instantiation axis, in the sense that the domain type definition (\ie \texttt{ProcessType}) is referenced by an instance definition (\ie \texttt{Process}). In our base metamodel, each domain type definition is referenced by its instance definition, as developed in the section \ref{sec:ProcessEnactment}
+    \item The horizontal axis is characterized as the ontological instantiation
+      axis, in the sense that the domain type definition (\ie
+      \texttt{ProcessType}) is referenced by an instance definition (\ie
+      \texttt{Process}). In our base metamodel, each domain type definition is
+      referenced by its instance definition, as developed in the Sect.~\ref{sec:ProcessEnactment}
 
-\item The vertical axis is viewed as the linguistic instantiation. The Metamodel (a virtual model) can be instantiated as a model thanks to the instantiation mechanism of \FML. This mechanism is similar to the classical object/instance mechanism of the object languages but without any constraint on the referenced virtual model, \ie metamodel. The set of resulting instances comes from several virtual models of any abstraction level as detailed in the section~\ref{sec:AcmeSoftwareDevelopmentProcess}
+\item The vertical axis is viewed as the linguistic instantiation. The
+  Metamodel (a virtual model) can be instantiated as a model thanks to the
+  instantiation mechanism of \FML. This mechanism is similar to the classical
+  object/instance mechanism of the object languages but without any constraint
+  on the referenced virtual model, \ie metamodel. The set of resulting
+  instances comes from several virtual models of any abstraction level as
+  detailed in the Sect.~\ref{sec:AcmeSoftwareDevelopmentProcess}
 
 %{Version Joel, à prendre ou à laisser}
 %\item The vertical axis is viewed as the linguistic specialization, relative to the use of the \FML language. The virtual model, defined as the core definition metamodel, generates a model founded on the instantiation mechanism of the \FML Language or can be extended by another virtual model. The instantiation mechanism is similar to the classical object/instance mechanism of the object languages but without any constraint on the referenced virtual model, \ie metamodel. The set of resulting instances comes from several virtual models of any abstraction level as detailed in the section. \ref{sec:AcmeSoftwareDevelopmentProcess}
@@ -41,7 +51,13 @@ Our analysis of the use case leads to identify two main modeling axes (as presen
     \label{fig:LinguisticAndOntologicInstantiation}
 \end{figure}
 
-Based on this approach, we organize our set of models following the architecture of the aforementioned figure \ref{fig:MultilevelArchitecture}. The resulting multi-level architecture is organized in two virtual models, one defining the core concepts metamodel including the definition of Processes and Tasks, and one, the Acme metamodel, extending the previous model to specialize the Acme definitions. The \FML language defines multiple inheritance concept between virtual models as illustrated in the section~\ref{sec:AcmeSoftwareDevelopmentProcess}.
+Based on this approach, we organize our set of models following the
+architecture of the aforementioned Fig.~\ref{fig:MultilevelArchitecture}. The
+resulting multi-level architecture is organized in two virtual models, one
+defining the core concepts metamodel including the definition of Processes and
+Tasks, and one, the Acme metamodel, extending the previous model to specialize
+the Acme definitions. The \FML language defines multiple inheritance concept
+between virtual models as illustrated in the Sect.~\ref{sec:AcmeSoftwareDevelopmentProcess}.
 
 Finally, as explained previously, the defined level for the Acme  and the XSure models is the result of the instantiation of virtual models. In our approach this virtual model instance level can not be specialized or extended but all the other virtual models could be extended by any concepts, as a new federated model.
 Also, the instance level can be instantiated from any virtual model, which represents any metamodel level.
