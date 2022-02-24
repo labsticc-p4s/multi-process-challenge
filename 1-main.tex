@@ -1,26 +1,27 @@
 \documentclass[american]{emisa}
 
-\usepackage{todonotes}
+% \usepackage{todonotes}
 
-\newcommand{\noteSM}[1]{\todo[color=red!40, author=\textbf{Salvador}, inline, caption={}]{#1}}
-\newcommand{\noteJC}[1]{\todo[color=pink!40, author=\textbf{JC}, inline, caption={}]{#1}}
-\newcommand{\noteSylvain}[1]{\todo[color=green!40, author=\textbf{Sylvain}, inline, caption={}]{#1}}
-\newcommand{\noteAntoine}[1]{\todo[color=yellow!40, author=\textbf{Antoine}, inline, caption={}]{#1}}
-\newcommand{\noteFabien}[1]{\todo[color=orange!40, author=\textbf{Fabien}, inline, caption={}]{#1}}
-\newcommand{\noteJoel}[1]{\todo[color=blue!20, author=\textbf{Joel}, inline, caption={}]{#1}}
+% \newcommand{\noteSM}[1]{\todo[color=red!40, author=\textbf{Salvador}, inline, caption={}]{#1}}
+% \newcommand{\noteJC}[1]{\todo[color=pink!40, author=\textbf{JC}, inline, caption={}]{#1}}
+% \newcommand{\noteSylvain}[1]{\todo[color=green!40, author=\textbf{Sylvain}, inline, caption={}]{#1}}
+% \newcommand{\noteAntoine}[1]{\todo[color=yellow!40, author=\textbf{Antoine}, inline, caption={}]{#1}}
+% \newcommand{\noteFabien}[1]{\todo[color=orange!40, author=\textbf{Fabien}, inline, caption={}]{#1}}
+% \newcommand{\noteJoel}[1]{\todo[color=blue!20, author=\textbf{Joel}, inline, caption={}]{#1}}
 
 \emisainitialism{\EMF}{EMF}
 \emisainitialism{\MOF}{MOF}
 \emisainitialism{\MDE}{MDE}
 \emisainitialism{\FML}{FML}
 
+\usepackage{bookmark}
 \usepackage{multirow}
 \usepackage{listings}
-\usepackage{xcolor}
-\usepackage{hyperref}
+%\usepackage{xcolor}
+%\usepackage{hyperref}
 %\usepackage{tikz-uml}
 %\usepackage{float}
-\usepackage{algorithmic,algorithm}
+%\usepackage{algorithmic,algorithm}
 
 \newcommand{\mpc}{MULTI process challenge\xspace}%keep it for the moment
 \newcommand{\mlpc}{Multi-Level Process Challenge\xspace}
@@ -33,7 +34,7 @@
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 \definecolor{tableShade}{gray}{0.9}
 
-\DeclareTextFontCommand{\mytexttt}{\ttfamily\hyphenchar\font=45\relax}
+%\DeclareTextFontCommand{\mytexttt}{\ttfamily\hyphenchar\font=45\relax}
 
 \lstdefinelanguage{fml}{
   keywords={
@@ -74,9 +75,7 @@
   pdfauthor={Sylvain Guérin, Joel Champeau, Jean-Christophe Bach, Antoine
   Beugnard, Fabien Dagnat, Salvador Martinez},
   pdftitle={Multi-level modeling with Openflexo/\FML -- A contribution to the \mlpc},
-  bookmarks=true,
   unicode=true,
-  pdfpagelabels=true,
   pdfkeywords={Multi-Level Modeling Challenge, Federation Modeling Language,
   Openflexo},
   %abstract
@@ -119,6 +118,7 @@
 
 \section{Introduction}
 \label{sec:introduction}
+\pdfbookmark[section]{Introduction}{sec:introduction}
 \input{3-introduction.tex}
 
 %\noteSM{test}
@@ -130,30 +130,37 @@
 
 \section{Technology}
 \label{sec:technology}
+\pdfbookmark[section]{Technology}{sec:technology}
 \input{4-technology.tex}
 
 \section{Analysis}
 \label{sec:analysis}
+\pdfbookmark[section]{Analysis}{sec:analysis}
 \input{5-analysis.tex}
 
 \section{Model presentation}
 \label{sec:model}
+\pdfbookmark[section]{Model presentation}{sec:model}
 \input{6-modelpresentation.tex}
 
 \section{Satisfaction of requirements}
 \label{sec:requirements}
+\pdfbookmark[section]{Satisfaction of requirements}{sec:requirements}
 \input{7-requirementssatisfaction.tex}
 
 \section{Assessment of the modeling solution}
 \label{sec:discussion}
+\pdfbookmark[section]{Assessment of the modeling solution}{sec:discussion}
 \input{8-discussion.tex}
 
 \section{Related work}
 \label{sec:relatedwork}
+\pdfbookmark[section]{Related work}{sec:relatedwork}
 \input{9-relatedworks.tex}
 
 \section{Conclusions}
 \label{sec:conclusions}
+\pdfbookmark[section]{Conclusions}{sec:conclusions}
 \input{10-conclusions.tex}
 
 \printbibliography
