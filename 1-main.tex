@@ -14,21 +14,18 @@
 \emisainitialism{\MDE}{MDE}
 \emisainitialism{\FML}{FML}
 
-\newcommand{\mpc}{MULTI process challenge\xspace}%keep it for the moment
-\newcommand{\mlpc}{Multi-Level Process Challenge\xspace}
-
 \usepackage{multirow}
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{hyperref}
-\usepackage{tikz-uml}
+%\usepackage{tikz-uml}
 %\usepackage{float}
+\usepackage{algorithmic,algorithm}
+
+\newcommand{\mpc}{MULTI process challenge\xspace}%keep it for the moment
+\newcommand{\mlpc}{Multi-Level Process Challenge\xspace}
 
 \newcommand{\inst}[1]{\textsf{'#1'}}
-
-
-%\usepackage{amsmath,mathtools}%amssymb,
-\usepackage{algorithmic,algorithm}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -77,6 +74,9 @@
   pdfauthor={Sylvain Guérin, Joel Champeau, Jean-Christophe Bach, Antoine
   Beugnard, Fabien Dagnat, Salvador Martinez},
   pdftitle={Multi-level modeling with Openflexo/\FML -- A contribution to the \mlpc},
+  bookmarks=true,
+  unicode=true,
+  pdfpagelabels=true,
   pdfkeywords={Multi-Level Modeling Challenge, Federation Modeling Language,
   Openflexo},
   %abstract
