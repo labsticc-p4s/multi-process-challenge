@@ -27,23 +27,14 @@
 %    \item[\checkmark] point saillant :  outillage "gratuit" = on fournit une solution + l'outil pour exécuter le processus
 %\end{itemize}}
 
-%\todo[inline]{on pourrait aussi répondre ici aux 3 questions posées
-%explicitement (copiées dans l'intro pour le moment), a priori non, le chef
-%« trouve que c'est chiant »}
-
-%\noteJC{pour le moment, seulement réponse aux différents points, on ne voit pas
-%de discussion sur les choix, sur les potentiels compromis/déficiencies}
-
-In this section, we discuss our multi-level model solution with regard to the required aspects
-mentioned in the challenge.
+In this section, we discuss our multi-level model solution with regard to the
+required aspects mentioned in the challenge.
 
   %plan plus ou moins imposé par l'appel
 %\todo[inline]{mandatory discussion aspects}
 
   \subsection{Basic modeling constructs}
   %Explain the basic modeling constructs used in the solution.
-
-%  \noteJC{pas clair pour moi ce qui est entendu par « basic modeling constructs », ce qui est dans la partie 2 ?}
 
   Our solution uses the basic modeling constructs depicted by the \FML core
   metamodel (Fig.~\ref{fig:mm}) and described in
@@ -101,8 +92,9 @@ our solution.
   linked each other in a transparent way, using inheritance or instantiation.
   For instance, in the Fig.~\ref{fig:AcmeFullArchitecture}, the
   \texttt{Developer} concept from \texttt{Acme} metamodel specializes the
-  \texttt{ActorType} of the base metamodel. The \texttt{Software Engineering Process} of the
-  \texttt{Acme} model is an instance of \texttt{ProcessType} in the metamodel.
+  \texttt{ActorType} of the base metamodel. The \texttt{Software Engineering
+  Process} of the \texttt{Acme} model is an instance of \texttt{ProcessType} in
+  the metamodel.
 %  \textcolor{red}{Phrase faite a relire sur Developer\dots}
 
 
@@ -116,7 +108,7 @@ our solution.
   behavior to a model element. Therefore, if a constraint is mandatory when
   establishing a relationship between elements from different levels, the user
   has to create it manually. This can be a limit of our approach: the cost of
-  the flexibility of our tooling is a limited number of automated behaviors.
+  the flexibility of our toolset is a limited number of automated behaviors.
 
   %the flexibility of our tooling at the cost of a limited number of automated behaviors.
 
@@ -178,7 +170,7 @@ our solution.
   solution easily. The challenge itself can be seen as a validation of the
   extensibility ability of our solution: it was decomposed into two steps
   (Xsure process, then ACME process) which can be seen as a simulation of the
-  evolution of the  specification. We observed that our approach has been
+  evolution of the specification. We observed that our approach has been
   resilient to change.
 
   Due to the level-agnostic aspect of our approach, we could insert a new
@@ -189,7 +181,7 @@ our solution.
   changes to the existing models could be difficult. For example, given a
   requirement, an instance cannot be changed into a concept easily. This case
   could occur if the challenge had refined the specification by requiring
-  specific design tasks.  In this context, we would have to transform the
+  specific design tasks. In this context, we would have to transform the
   \inst{Design Task} instance into a concept whose instances could have been
   \enquote{using agile methodology}.
 
@@ -204,7 +196,7 @@ our solution.
 %technique and/or tools that support the present solution
 
 We use the Openflexo infrastructure to build models and metamodels together,
-and to provide dedicated tooling to edit a Process type, to enact a process and
+and to provide dedicated tools to edit a Process type, to enact a process and
 to execute it. Being able to provide a solution and its associated tools
 quickly and easily is a noticeable feature.  We could also have taken advantage
 of the model federation to connect our solution to other tools dedicated to
@@ -217,7 +209,7 @@ graphical tools.
 %Discuss model verification (e.g., consistency analyses) or other quality
 %assessment mechanisms supported by the MLM technique employed.
 
-Our tooling includes mechanisms to verify the models. First, syntactical
+Our toolset includes mechanisms to verify the models. First, syntactical
 consistency is realized by cardinality checks and by typing. Second, the
 constraints the users have written are continuously checked during model
 edition and enactment. Thus, a part of the verification relies on the fact that

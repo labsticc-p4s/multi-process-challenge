@@ -4,7 +4,13 @@
 
 
 
-A plethora of multi-level modeling approaches and tools\footnote{\url{https://homepages.ecs.vuw.ac.nz/Groups/MultiLevelModeling/MultiTools}} with different foundations have appeared in recent years~\parencite{somogyi2021playground}. Comparing them lies out of the scope of this paper. In this sense, we limit the following discussion to the presentation and comparison of previous solutions to the MULTI Process Challenge.
+A plethora of multi-level modeling approaches and
+tools\footnote{\url{https://homepages.ecs.vuw.ac.nz/Groups/MultiLevelModeling/MultiTools}}
+with different foundations have appeared in recent
+years~\parencite{somogyi2021playground}. Comparing them lies out of the scope
+of this paper. In this sense, we limit the following discussion to the
+presentation and comparison of previous solutions to the MULTI Process
+Challenge.
 
 A first description of process modeling as a multi-level modeling problem was
 proposed by~\textcite{lara2018refactoring} in the context of a catalogue of
@@ -12,21 +18,40 @@ refactoring for multi-level models (in a simpler form with fewer constraints
 and requirements w.r.t. the challenge version). A solution is provided with
 MetaDepth~\parencite{metadepth}, which supports modeling with any number of
 levels, dual ontological/linguistic typing and deep characterization through
-potency~\parencite{atkinson2001essence}. For their solution to the multi-level process problem
-they use three levels. The first level describes generic processes, the second
-level software engineering processes, and the third level, software engineering
-enacted processes. Additionally, the authors use~\emph{linguistic
-extensions}~\parencite{metadepth}, a mechanism to  linguistically extend
-ontological instance models at any level, in order to introduce artifact types
-and tasks duration in the second level. Our solution is similar to theirs
-w.r.t. the grouping and organization of concepts (\eg, a model for general process, concepts, an extension for software engineering process) but it replaces the use of clabjets and potency with the use of the type-object pattern~\parencite{typeObject}. The so-called \emph{linguistic extensions} are natively supported in Openflexo/\FML.
+potency~\parencite{atkinson2001essence}. For their solution to the multi-level
+process problem they use three levels. The first level describes generic
+processes, the second level software engineering processes, and the third
+level, software engineering enacted processes. Additionally, the authors
+use~\emph{linguistic extensions}~\parencite{metadepth}, a mechanism to
+linguistically extend ontological instance models at any level, in order to
+introduce artifact types and tasks duration in the second level. Our solution
+is similar to theirs w.r.t. the grouping and organization of concepts (\eg, a
+model for general process, concepts, an extension for software engineering
+process) but it replaces the use of clabjets and potency with the use of the
+type-object pattern~\parencite{typeObject}. The so-called \emph{linguistic
+extensions} are natively supported in Openflexo/\FML.
 
 
 %\textcolor{red}{Our solution to the Multi-Level process challenge relies on the use of %the type/object pattern~\parencite{typeObject} for achieving ontological instantiation and %the core capacity of Openflexo/FML to reference models disregarding abstraction levels. %Concretely, we use a metamodel to group the required concepts for describing universal %processes and an extending metamodel that adapts it to the domain of software %engineering processes. Process instances may reference elements from both metamodels.}
 
-\textcite{multiecore2019} use MultEcore \parencite{multecore2016} to provide a solution to the challenge. MultEcore uses (un)pluggable linguistic levels (\eg, there is not a \emph{fixed} core metamodel defining the concept of clabjet), an extension of the two-level cascading technique \parencite{atkinson2005concepts} (this is achieved with model transformations to transform instance models into instantiable models) and potency. Regarding the challenge, their solution uses 4 levels. 
-The first level represents generic processes and constitutes the root level for two ontological hierarchies, one for the software engineering domain and the other for the insurance domain. Each hierarchy contains three other ontological levels. The second level refines generic process to software engineering and insurance processes. The third level refines the aforementioned models to adapt them to the ACME and Xsure processes. Finally, process instances lie in level 4. Additionally, the authors use an orthogonal linguistic hierarchy to support alternative names for every model element. 
-With respect to our solution, the authors use more models, as we require less refinement steps. However accidental complexity is introduced by our approach as we need additional constructs and constraints for the typing relations which are otherwise built-in in MultEcore. 
+\textcite{multiecore2019} use MultEcore \parencite{multecore2016} to provide a
+solution to the challenge. MultEcore uses (un)pluggable linguistic levels (\eg,
+there is not a \emph{fixed} core metamodel defining the concept of clabjet), an
+extension of the two-level cascading technique \parencite{atkinson2005concepts}
+(this is achieved with model transformations to transform instance models into
+instantiable models) and potency. Regarding the challenge, their solution uses
+4 levels. The first level represents generic processes and constitutes the
+root level for two ontological hierarchies, one for the software engineering
+domain and the other for the insurance domain. Each hierarchy contains three
+other ontological levels. The second level refines generic process to software
+engineering and insurance processes. The third level refines the aforementioned
+models to adapt them to the ACME and Xsure processes. Finally, process
+instances lie in level 4. Additionally, the authors use an orthogonal
+linguistic hierarchy to support alternative names for every model element.
+With respect to our solution, the authors use more models, as we require less
+refinement steps. However accidental complexity is introduced by our approach
+as we need additional constructs and constraints for the typing relations which
+are otherwise built-in in MultEcore. 
 
 %\noteSM{P19 has changed in the new challenge... to remove references to it.
 %JOel : pour simplifier la description j'ai juste mis en commentaire le détail des 4 %niveaux et ca supprime P19. A valider}.
@@ -45,11 +70,28 @@ submodules can see all the concepts defined in parent modules. The authors use
 this module system in order to \emph{organize} their solution for the
 Multi-level process challenge. Concretely they created a hierarchy of modules
 such as the top module contains base concepts and formulas required for
-multi-level modeling (\eg, the support for \emph{most general instances}), and a sub-module contains process definitions fulfilling requirements P1 to P19. This sub-module contains in turn a sub-module representing the coding process type whereas concrete coding processes are represented in subsequent sub-modules. There are two main differences between the DeepTelos and Openflexo/\FML: 1) we use the type-object pattern instead of the powertype pattern; 2) DeepTelos reifies their support for multi-level modeling while our remains ad hoc.
+multi-level modeling (\eg, the support for \emph{most general instances}), and
+a sub-module contains process definitions fulfilling requirements P1 to P19.
+This sub-module contains in turn a sub-module representing the coding process
+type whereas concrete coding processes are represented in subsequent
+sub-modules. There are two main differences between the DeepTelos and
+Openflexo/\FML: 1) we use the type-object pattern instead of the powertype
+pattern; 2) DeepTelos reifies their support for multi-level modeling while our
+remains ad hoc.
 
 %Their solution to the challenge includes 5 (ontological) levels and 8 models, including Ecore at the top. %They include two supplementary hierarchies (linguistic extensions) that are not bound to any of the %aforementioned 5 levels. Finally, they use multi-level couple model transformations for the definition and %enforcement of constraints. Their approach is implemented on top of EMF and achieves integration with its %strict modeling paradigm by extending the two-level cascading mechanism to all the hierarchy.
 
-Finally, \textcite{dmla2019} use the Dynamic Multi-Layer Algebra (DMLA) \parencite{dmla2017} in order to solve the process challenge. DMLA is a level blind modeling framework which is fully customizable (\eg different types of instantiation may be implemented) and includes support for deep characterization (instantiation may refer to any other element disregarding hierarchy levels and a sort of potency in the form of fluid metamodeling at the entity level exists). Their proposed solution separates the process challenge in two separate domains, namely, the task definition domain and the process definition domain. Wrappers are used in order to reuse tasks in processes. Their solution does not use inheritance, as it is not supported by the framework. It does not use explicitly separated models either.
+Finally, \textcite{dmla2019} use the Dynamic Multi-Layer Algebra (DMLA)
+\parencite{dmla2017} in order to solve the process challenge. DMLA is a level
+blind modeling framework which is fully customizable (\eg different types of
+instantiation may be implemented) and includes support for deep
+characterization (instantiation may refer to any other element disregarding
+hierarchy levels and a sort of potency in the form of fluid metamodeling at the
+entity level exists). Their proposed solution separates the process challenge
+in two separate domains, namely, the task definition domain and the process
+definition domain. Wrappers are used in order to reuse tasks in processes.
+Their solution does not use inheritance, as it is not supported by the
+framework. It does not use explicitly separated models either.
 
 %DMLA does not directly supports inheritance nor bi-directional navigation which prevents an easy solution to %some of the challenge requirements (e.g., p9 and s13).
 
