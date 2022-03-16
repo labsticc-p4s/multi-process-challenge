@@ -10,7 +10,6 @@ presentation.
 The designed multilevel architecture shown in
 Fig.~\ref{fig:MultilevelArchitecture} captures the two use cases described in
 the Process Challenge.
-
 Note that in all following figures, blue is used to represent \FML virtual
 models and concepts (\textsf{VirtualModel} and \textsf{FlexoConcept} in
 Fig.~\ref{fig:mm}), see
@@ -50,7 +49,7 @@ cardinality follows the \UML practice.  For example, the role
 
 Our proposition relies on ontological instantiation as presented in
 Fig.~\ref{fig:LinguisticAndOntologicInstantiation}, with a common root concept
-\texttt{ModelingElement}. Two types of ontological instantiation are needed to
+\texttt{ModelingElement}. Two types of ontological instantiations are needed to
 meet the requirements of the challenge. One provides that some instances
 conform to only one type (\texttt{Process} and \texttt{Task} do respectively
 conform to \texttt{ProcessType} and \texttt{TaskType}). While some entities
@@ -65,8 +64,8 @@ realization of these relations are indicated by a derived relation,
 
 \subsubsection{Process type definition}
 
-We first present the process definition part of the base metamodel, located on
-the left of Fig.~\ref{fig:BaseMetamodel}.
+In this subsection, we present the process definition part of the base
+metamodel, located on the left of Fig.~\ref{fig:BaseMetamodel}.
 
 % Illustrer avec des instances de XSure
 
@@ -163,10 +162,11 @@ tasks.
 
 \subsubsection{Process enactment}
 \label{sec:ProcessEnactment}
-We now present the process enactment part of base metamodel, located right of
-Fig.~\ref{fig:BaseMetamodel}. All concepts defined in this subsection are
-either specializations of the \texttt{Instance} concept (if they have exactly
-one type) or the \texttt{MultiInstance} concept (when they have several types).
+In this subsection, we present the process enactment part of base metamodel,
+located right of Fig.~\ref{fig:BaseMetamodel}. All concepts defined in this
+subsection are either specializations of the \texttt{Instance} concept (if they
+  have exactly one type) or the \texttt{MultiInstance} concept (when they have
+  several types).
 
 \texttt{Process} represents an enacted \texttt{ProcessType}, as defined in
 previous subsection (\textbf{P10}). \FML defines behavioral features called
@@ -375,8 +375,9 @@ and provides the \texttt{Developer} concept extending \texttt{ActorType}. This
 metamodel is completed with the \texttt{ProgrammingLanguage} concept, defined
 as an enumeration (\texttt{Java}, \texttt{C}, \texttt{COBOL}). All the
 instances required to capture the challenge use case are defined in the final
-Acme model (lower part of the figure). Instances are represented with rounded
-boxes and linguistic instantiation is represented using dashed connectors.
+Acme model (lower part of the Fig.~\ref{fig:AcmeFullArchitecture}). Instances
+are represented with rounded boxes and linguistic instantiation is represented
+using dashed connectors.
 
 The \textit{Software Development Process} for Acme company is presented in the
 Fig.~\ref{fig:AcmeSoftwareDevelopmentProcess}. It is a screen capture of the
