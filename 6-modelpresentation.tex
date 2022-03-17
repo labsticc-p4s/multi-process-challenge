@@ -129,7 +129,6 @@ model MetaModel {
 }
 \end{lstlisting}
 
-
 The \texttt{ActorType} concept inherits from the \texttt{Type} concept and the
 \texttt{allowedActorTypes} relation to \texttt{ActorType} defined in
 \texttt{TaskType} (with 0..* cardinality) captures \textbf{P5} requirement.
@@ -149,7 +148,6 @@ flagged as critical and must be performed by senior actors. To fulfill
 \textbf{P9} requirement, a supplementary constraint is required for
 \texttt{TaskType} and is captured through the following invariant expressed in
 the \FML language:
-
 \begin{lstlisting}
 forEach (actor : allowedActors) {
     assert !isCritical | actor.isSenior
@@ -203,7 +201,7 @@ of \texttt{Artifact} specializes \texttt{MultiInstance} and references a set of
 \texttt{MultiInstance} and references a set of \texttt{ActorType} through the
 specialized \texttt{/types} relation (\textbf{P15}).
 
-The semantics is unclear relatively to the instantiation policy for artifacts.
+The semantics is relatively unclear to the instantiation policy for artifacts.
 In the requirements, nothing is explicitly stated about the link between the
 \emph{artifact type} of a \emph{task type} and the types of the artifacts of a
 corresponding task.  Here, we assume that task execution implies that for each
