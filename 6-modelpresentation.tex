@@ -35,7 +35,7 @@ Fig.~\ref{fig:BPMNSubsetExample},~\ref{fig:MultilevelArchitecture},~\ref{fig:Lin
 In this section, we present the base metamodel presented in
 Fig.~\ref{fig:BaseMetamodel} with the \textit{XSure} insurance domain use case,
 whose partial description was provided in the challenge description. The
-requirements \textbf{P1} to \textbf{P19} of XSure insurance domain are
+requirements \reqp{1} to \reqp{19} of XSure insurance domain are
 straightforwardly implemented by instantiating the \emph{XSure model}, as an
 instance of base metamodel (the left side of
 Fig.~\ref{fig:MultilevelArchitecture}).
@@ -81,7 +81,7 @@ metamodel, located on the left of Fig.~\ref{fig:BaseMetamodel}.
 
 \texttt{ProcessType} is a specialization of the \texttt{Type} concept, and
 references a collection of \texttt{TaskType} through the composition relation
-\texttt{taskTypes} with (0..*) cardinality (\textbf{P1}). A \texttt{TaskType}
+\texttt{taskTypes} with (0..*) cardinality (\reqp{1}). A \texttt{TaskType}
 is embedded in a \texttt{ProcessType} and inherits from its context. To
 illustrate this in \textit{XSure} insurance domain use case, \textit{XSure
 model} defines \inst{Claim Handling}, instance of \texttt{ProcessType}, and
@@ -91,14 +91,14 @@ model} defines \inst{Claim Handling}, instance of \texttt{ProcessType}, and
 \texttt{ProcessType} also references a collection of gateways, reified with the
 \texttt{Gateway} concept hierarchy. \texttt{Gateway} is a specialization of
 \texttt{Type} and is specialized by \texttt{Sequencing}, \texttt{AndSplit},
-\texttt{AndJoin}, \texttt{OrSplit} and \texttt{OrJoin} concepts (\textbf{P2}).
+\texttt{AndJoin}, \texttt{OrSplit} and \texttt{OrJoin} concepts (\reqp{2}).
 Depending on its type and following its underlying operational semantics, a
 gateway defines one or more inputs and one or more outputs. A
 \texttt{ProcessType} additionally exposes a unique initial \texttt{TaskType}
 and a collection of final \texttt{TaskType} with both roles
 \texttt{initialTaskType} (single cardinality) and \texttt{finalTaskType}
-(cardinality 0..*) (\textbf{P3}). \texttt{TaskType} exposes a creator role as a
-reference to an \texttt{Actor} concept (\textbf{P4}), which is at the same
+(cardinality 0..*) (\reqp{3}). \texttt{TaskType} exposes a creator role as a
+reference to an \texttt{Actor} concept (\reqp{4}), which is at the same
 conceptual level.
 
 The following listing shows an excerpt of the \FML code modeling some core
@@ -141,21 +141,21 @@ model MetaModel {
 
 The \texttt{ActorType} concept inherits from the \texttt{Type} concept and the
 \texttt{allowedActorTypes} relation to \texttt{ActorType} defined in
-\texttt{TaskType} (with 0..* cardinality) captures \textbf{P5} requirement.
-Requirement \textbf{P6} is symmetrically satisfied with \texttt{allowedActors}
+\texttt{TaskType} (with 0..* cardinality) captures \reqp{5} requirement.
+Requirement \reqp{6} is symmetrically satisfied with \texttt{allowedActors}
 relation to \texttt{Actor} also defined in \texttt{TaskType} (with 0..*
 cardinality). The same modeling pattern applies to \texttt{ArtefactType} also
 extending the concept \texttt{Type}, and both relations
 \texttt{usedArtifactTypes} and \texttt{producedArtifactTypes} defined in
-\texttt{TaskType} (\textbf{P7}). \texttt{TaskType} additionally exposes an
+\texttt{TaskType} (\reqp{7}). \texttt{TaskType} additionally exposes an
 \texttt{expectedDuration} role (expressed in number of days), satisfying
-\textbf{P8}.
+\reqp{8}.
 
 The \texttt{Actor} concept defines a boolean attribute called
 \texttt{isSenior}, while \texttt{TaskType} defines an additional
 \texttt{isCritical} boolean attribute, indicating that some instances are
 flagged as critical and must be performed by senior actors. To fulfill
-\textbf{P9} requirement, a supplementary constraint is required for
+\reqp{9} requirement, a supplementary constraint is required for
 \texttt{TaskType} and is captured through the following invariant expressed in
 the \FML language:
 \begin{lstlisting}
@@ -177,7 +177,7 @@ subsection are either specializations of the \texttt{Instance} concept (if they
   several types).
 
 \texttt{Process} represents an enacted \texttt{ProcessType}, as defined in
-previous subsection (\textbf{P10}). \FML defines behavioral features called
+previous subsection (\reqp{10}). \FML defines behavioral features called
 behavior. \texttt{ProcessType} defines the behavior
 \texttt{newProcess(String)}, taking the name of the process to enact as
 argument:
@@ -196,20 +196,20 @@ This scheme relies on \FML dynamic binding mechanism to delegate to task types
 the responsibility of instances creation. An instance of \texttt{Process}
 references its unique type \texttt{ProcessType} by the specialized
 \texttt{/type} role. Each instance of \texttt{TaskType} is ontologically
-instantiated with a \texttt{Task} (\textbf{P11}), using the same factory
+instantiated with a \texttt{Task} (\reqp{11}), using the same factory
 pattern where \texttt{TaskType} has the responsibility to manage the
 ontological instantiation. A \texttt{Task} references its unique
 \texttt{TaskType}, and defines a \texttt{begin date} and an \texttt{end date}
-basic role (\textbf{P12}).
+basic role (\reqp{12}).
 
 The used and produced artifacts are implemented by roles
 \texttt{usedArtifacts}, \texttt{producedArtifacts} and
-\texttt{performingActors} defined in \texttt{Task} (\textbf{P13}). An instance
+\texttt{performingActors} defined in \texttt{Task} (\reqp{13}). An instance
 of \texttt{Artifact} specializes \texttt{MultiInstance} and references a set of
 \texttt{ArtifactType} through the specialized \texttt{/types} role
-(\textbf{P14} and \textbf{P16}). Likewise, \texttt{Actor} specializes
+(\reqp{14} and \reqp{16}). Likewise, \texttt{Actor} specializes
 \texttt{MultiInstance} and references a set of \texttt{ActorType} through the
-specialized \texttt{/types} relation (\textbf{P15}).
+specialized \texttt{/types} relation (\reqp{15}).
 
 The semantics is relatively unclear to the instantiation policy for artifacts.
 In the requirements, nothing is explicitly stated about the link between the
@@ -238,7 +238,7 @@ concept Task extends Instance {
 }
 \end{lstlisting}
 
-Authorization for an actor to perform a task (\textbf{P17}) is captured either
+Authorization for an actor to perform a task (\reqp{17}) is captured either
 by the role \texttt{allowedActors} or the role \texttt{allowedActorTypes}
 defined in \texttt{TaskType}. This mechanism is completed by the behaviors
 \texttt{isAuthorizedActor}, \texttt{isValidActor} and \texttt{isValidActorType}
@@ -301,7 +301,7 @@ redefinition of some behaviors in the inherited concepts (although none were
 required in the context of \emph{XSure} use case).
 
 Actor types specialization is captured by the \texttt{parentActorTypes}
-relation defined in \texttt{ActorType} (\textbf{P18}). This is completed by
+relation defined in \texttt{ActorType} (\reqp{18}). This is completed by
 both the definition of the \texttt{hasActorType(ActorType)} behavior in
 \texttt{Actor} and the recursive behavior \texttt{isOrSpecializes(ActorType)}
 in \texttt{ActorType}:
@@ -337,7 +337,7 @@ concept Actor extends MultiInstance {
 
 Each concept inherits from \texttt{ModelingElement}, which defines a
 \texttt{lastUpdated} attribute with \texttt{Date} type, and thus satisfies
-\textbf{P19} requirement.
+\reqp{19} requirement.
 
 \subsection{The Acme software development process}
 \label{sec:AcmeSoftwareDevelopmentProcess}
@@ -406,15 +406,15 @@ specifications} is an instance of \texttt{SEArtifactType}. The value of the
 property \texttt{producedArtifactTypes} of \inst{Requirements analysis} is
 \texttt{\{}\inst{Requirement specifications}\texttt{\}} and is
 \texttt{\{}\inst{Analyst}\texttt{\}} for \texttt{allowedActorTypes}
-(\textbf{S1}). Similarly, \inst{Test case design} is an instance of
+(\reqs{1}). Similarly, \inst{Test case design} is an instance of
 \texttt{SETaskType}, with a value of \texttt{true} for its property
 \texttt{isCritical}, and bound to \inst{Analyst} by the
 \texttt{allowedActorTypes} relation. \inst{Test case design} produces
-\inst{Test cases} instance of \texttt{SETaskType} (\textbf{S2}). The latter is
+\inst{Test cases} instance of \texttt{SETaskType} (\reqs{2}). The latter is
 used in \inst{Test design review} (\texttt{producedArtifactTypes} relation)
-(\textbf{S1} and \textbf{S13}, satisfied with \textbf{P9}).
+(\reqs{1} and \reqs{13}, satisfied with \reqp{9}).
 
-The capture of \textbf{S3} requirement is performed while defining
+The capture of \reqs{3} requirement is performed while defining
 \inst{Coding} as an instance of concept \texttt{CodingTaskType} and defining a
 relation \texttt{languages} to \texttt{ProgrammingLanguage} with 1..*
 cardinality.  The \texttt{newTask(String)} behavior overrides the generic
@@ -433,13 +433,13 @@ concept CodingTaskType extends SETaskType {
 
 The \texttt{CodeArtifact} concept extends \texttt{SEArtifact}, and defines a
 relation \texttt{languages} to \texttt{ProgrammingLanguage} with 1..*
-cardinality (\textbf{S4}).
+cardinality (\reqs{4}).
 
-\textbf{S5} is more ambiguous as a task type \texttt{CodingTask} defines one or
+\reqs{5} is more ambiguous as a task type \texttt{CodingTask} defines one or
 more programming languages but produces code which is expressed in one language
 only. This requirement is captured through the redefinition of the behavior
 \texttt{declaresRequiredProducedArtifacts} where programming language should
-also match.  \textbf{S6} is guaranteed though the \texttt{languages} relation
+also match.  \reqs{6} is guaranteed though the \texttt{languages} relation
 defined in \texttt{CodeArtifact} and the following invariant declared in
 \texttt{CodeArtifact}:
 \begin{lstlisting}
@@ -448,7 +448,7 @@ forEach (artifactType : types) {
 }
 \end{lstlisting}
 
-\inst{Ann Smith} is the only one allowed to perform coding in COBOL (\textbf{S7}). This is implemented through the redefinition of \texttt{newTask(String)} in \texttt{CodingTaskType}:
+\inst{Ann Smith} is the only one allowed to perform coding in COBOL (\reqs{7}). This is implemented through the redefinition of \texttt{newTask(String)} in \texttt{CodingTaskType}:
 
 \begin{lstlisting}
 concept CodingTaskType extends SETaskType {
@@ -462,7 +462,7 @@ concept CodingTaskType extends SETaskType {
 }
 \end{lstlisting}
 
-The requirement \textbf{S8} is simply expressed by the definition of the
+The requirement \reqs{8} is simply expressed by the definition of the
 \inst{Testing} instance of \texttt{SETaskType}, \inst{Tester} instance of
 \texttt{ActorType}, and \inst{Test report} instance of \texttt{ArtifactType},
 as shown in the Fig.~\ref{fig:AcmeSoftwareDevelopmentProcess}.
@@ -470,26 +470,26 @@ as shown in the Fig.~\ref{fig:AcmeSoftwareDevelopmentProcess}.
 A critical task must additionally produce artifacts that must be associated
 with a validation task. This is modeled with a supplementary relation
 \texttt{validatedWith} defined in \texttt{Artifact} and referencing
-\texttt{Artifact} validating it (\textbf{S9}).
+\texttt{Artifact} validating it (\reqs{9}).
 
 All software engineering artifacts defined in the context of Acme Software
 Engineering Process are  instances of \texttt{SEArtifact}. This concept defines
 two attributes: \texttt{responsible} (an \texttt{Actor} instance), and
-\texttt{versionNumber} (an integer). It thus fulfills \textbf{S10}. \inst{Bob
+\texttt{versionNumber} (an integer). It thus fulfills \reqs{10}. \inst{Bob
 Brown} is declared as an instance of \texttt{Actor}, and references
 \inst{Analyst} and \inst{Tester} (\texttt{ActorType} instances). He is also
 referenced by all instances of \texttt{SETaskType} as the creator for related
-task types (\textbf{S11}).
+task types (\reqs{11}).
 
-For \textbf{S12}, we assume that all tasks may define an expected duration,
+For \reqs{12}, we assume that all tasks may define an expected duration,
 which might be checked during process execution. This is modeled by the
 \texttt{expectedDuration} attribute in \texttt{TaskType}. Alternatively, this
 could be modeled through the definition of a \texttt{SETesting} concept, as a
 specialization of \texttt{SETaskType}, and the instantiation of \inst{Testing}
 as an instance of \texttt{SETesting}. The business logic expressed by
-\textbf{S12} requirement should then be redefined in \texttt{SETesting}.
+\reqs{12} requirement should then be redefined in \texttt{SETesting}.
 
-\textbf{S13} requirement has been previously partially fulfilled. This must be
+\reqs{13} requirement has been previously partially fulfilled. This must be
 completed with an association between an artifact produced and the task that
 validates it. This is modeled by the reference to \inst{Test Cases} as a
 produced artifact type in \inst{Test Case design} and the reference to
@@ -547,7 +547,7 @@ begin and end date, some used and produced artifacts. The \texttt{Gateway}
 business logic has also been implemented through the implementation of an
 abstract \texttt{execute(Process)} behavior. The management of artifacts whose
 semantics follows rules defined in Sect.~\ref{sec:ProcessEnactment}
-(\textbf{P13}) is also implemented.
+(\reqp{13}) is also implemented.
 
 Fig.~\ref{fig:ToolingArchitecture} details the architecture of these two tools.
 

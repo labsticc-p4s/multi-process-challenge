@@ -23,12 +23,12 @@ classified into six subcategories:
 
 \begin{itemize}
     \item \emph{Conceptualization} (\textit{Conc.}): a concept is created to
-      fulfill or meet the requirement (for example for \textbf{P1}:
+      fulfill or meet the requirement (for example for \reqp{1}:
       \textit{process type} is conceptualized in a concept
     \texttt{ProcessType}).
 
     \item \emph{Specialization} (\textit{Spec.}): a concept is specialized in
-      the sense of object-oriented modeling (for example for \textbf{P2}:
+      the sense of object-oriented modeling (for example for \reqp{2}:
       \texttt{Gateway} defines an abstract behavior \texttt{execute()} and
     \texttt{Sequencing}, \texttt{AndSplit}, \texttt{AndJoin}, \texttt{OrSplit}
   and \texttt{OrJoin} are defined as inherited concepts implementing specific
@@ -36,23 +36,23 @@ business logic).
 
     \item \emph{Composition} (\textit{Comp.}): some concepts are in relation,
       or specific attributes were added to some concepts (for example for
-      \textbf{P3}: a \textit{process type} has one \textit{initial task type}).
+      \reqp{3}: a \textit{process type} has one \textit{initial task type}).
 
     \item \emph{Linguistic instantiation} (\textit{L.Inst.}): a requirement is
       satisfied by the instantiation of one or more concepts (for example for
-      \textbf{S1}: \inst{Requirement analysis} is defined as an instance of
+      \reqs{1}: \inst{Requirement analysis} is defined as an instance of
     \texttt{SETaskType}).
 
     \item \emph{Ontological instantiation} (\textit{O.Inst.}): fulfillment of a
       requirement is obtained by the relation between an instance and its type
       definition instance (for example the notion of \textit{developer} of
-      \textbf{S3} is implemented by both a concept in \textit{Acme metamodel}
+      \reqs{3} is implemented by both a concept in \textit{Acme metamodel}
     and an instance in \textit{Acme model}, see bottom left of
   Fig.~\ref{fig:AcmeFullArchitecture}).
 
     \item \emph{Behavioral modeling} (\textit{B.Mod.}): a requirement is
   satisfied by the definition of one or more behaviors, which may be combined
-  with constraints checking and associated tools (for example \textbf{P17}).
+  with constraints checking and associated tools (for example \reqp{17}).
   \end{itemize}
 
 %\noteSylvain{updated}
@@ -93,25 +93,25 @@ business logic).
    \cline{1-7}
                  & Conc.      & Spec.      & Comp.      & L.Inst.     & O.Inst.     & B.Mod.   &  checking & \\
   \hline
-    \textbf{P1}  & \checkmark &            & \checkmark &            &            &            &            & \\
-    \textbf{P2}  & \checkmark & \checkmark & \checkmark &            &            &            &            & \\
-    \textbf{P3}  &            &            & \checkmark &            &            &            &            & \\
-    \textbf{P4}  & \checkmark &            &            &            & \checkmark &            &            & \\
-    \textbf{P5}  & \checkmark &            & \checkmark &            &            &            &            & \\
-    \textbf{P6}  & \checkmark &            & \checkmark &            &  &            &            & \\
-    \textbf{P7}  & \checkmark &            & \checkmark &            &            &            &            & \\
-    \textbf{P8}  &            &            & \checkmark &            &            &            &            & \\
-    \textbf{P9}  &            &            & \checkmark &            &            &            & \checkmark & \\
-    \textbf{P10} & \checkmark &            &            &            & \checkmark &            &            & \\
-    \textbf{P11} & \checkmark &            & \checkmark &            & \checkmark &            &            & \\
-    \textbf{P12} &            &            & \checkmark &            &            &            &            & \\
-    \textbf{P13} & \checkmark &            & \checkmark &            & \checkmark &            &            & \\
-    \textbf{P14} & \checkmark &            &            &            & \checkmark &            &            & \\
-    \textbf{P15} & \checkmark &            &            &            & \checkmark &            &            & \\
-    \textbf{P16} & \checkmark &            &            &            & \checkmark &            &            & \\
-    \textbf{P17} & \checkmark           &            &            &            &            & \checkmark & \checkmark & \checkmark \\
-    \textbf{P18} & \checkmark           &            &            &            &            & \checkmark &            & \\
-    \textbf{P19} &            & \checkmark & \checkmark &            &            & \checkmark &            & \\
+    \reqp{1}  & \checkmark &            & \checkmark &            &            &            &            & \\
+    \reqp{2}  & \checkmark & \checkmark & \checkmark &            &            &            &            & \\
+    \reqp{3}  &            &            & \checkmark &            &            &            &            & \\
+    \reqp{4}  & \checkmark &            &            &            & \checkmark &            &            & \\
+    \reqp{5}  & \checkmark &            & \checkmark &            &            &            &            & \\
+    \reqp{6}  & \checkmark &            & \checkmark &            &  &            &            & \\
+    \reqp{7}  & \checkmark &            & \checkmark &            &            &            &            & \\
+    \reqp{8}  &            &            & \checkmark &            &            &            &            & \\
+    \reqp{9}  &            &            & \checkmark &            &            &            & \checkmark & \\
+    \reqp{10} & \checkmark &            &            &            & \checkmark &            &            & \\
+    \reqp{11} & \checkmark &            & \checkmark &            & \checkmark &            &            & \\
+    \reqp{12} &            &            & \checkmark &            &            &            &            & \\
+    \reqp{13} & \checkmark &            & \checkmark &            & \checkmark &            &            & \\
+    \reqp{14} & \checkmark &            &            &            & \checkmark &            &            & \\
+    \reqp{15} & \checkmark &            &            &            & \checkmark &            &            & \\
+    \reqp{16} & \checkmark &            &            &            & \checkmark &            &            & \\
+    \reqp{17} & \checkmark           &            &            &            &            & \checkmark & \checkmark & \checkmark \\
+    \reqp{18} & \checkmark           &            &            &            &            & \checkmark &            & \\
+    \reqp{19} &            & \checkmark & \checkmark &            &            & \checkmark &            & \\
   \hline
 \end{tabular}
      \caption{Requirements satisfaction for base metamodel}
@@ -128,19 +128,19 @@ business logic).
    \cline{1-7}
                  & Conc.      & Spec.      & Comp.      & L.Inst     & O.Inst     & B.Mod      & checking   & \\
   \hline
-    \textbf{S1}  &            &            &            & \checkmark &            &            &            & \\
-    \textbf{S2}  &            &            &            & \checkmark &            &            &            & \\
-    \textbf{S3}  & \checkmark & \checkmark & \checkmark & \checkmark &            &            &            & \checkmark \\
-    \textbf{S4}  & \checkmark & \checkmark & \checkmark & \checkmark &            &            &            & \\
-    \textbf{S5}  &            & \checkmark &            & \checkmark &            & \checkmark &            & \\
-    \textbf{S6}  &            & \checkmark &            & \checkmark &            & \checkmark & \checkmark & \\
-    \textbf{S7}  &            &            &            & \checkmark &            & \checkmark &            & \\
-    \textbf{S8}  &            &            &            & \checkmark &            &            &            & \\
-    \textbf{S9}  &            &            &            &            &            & \checkmark & \checkmark & \\
-    \textbf{S10} & \checkmark & \checkmark & \checkmark &            &            &            &            & \\
-    \textbf{S11} &            &            &            & \checkmark &            &            &            & \checkmark \\
-    \textbf{S12} &            &            &            & \checkmark &            &            &            & \checkmark \\
-    \textbf{S13} &            &            &            & \checkmark &            &            &            & \\
+    \reqs{1}  &            &            &            & \checkmark &            &            &            & \\
+    \reqs{2}  &            &            &            & \checkmark &            &            &            & \\
+    \reqs{3}  & \checkmark & \checkmark & \checkmark & \checkmark &            &            &            & \checkmark \\
+    \reqs{4}  & \checkmark & \checkmark & \checkmark & \checkmark &            &            &            & \\
+    \reqs{5}  &            & \checkmark &            & \checkmark &            & \checkmark &            & \\
+    \reqs{6}  &            & \checkmark &            & \checkmark &            & \checkmark & \checkmark & \\
+    \reqs{7}  &            &            &            & \checkmark &            & \checkmark &            & \\
+    \reqs{8}  &            &            &            & \checkmark &            &            &            & \\
+    \reqs{9}  &            &            &            &            &            & \checkmark & \checkmark & \\
+    \reqs{10} & \checkmark & \checkmark & \checkmark &            &            &            &            & \\
+    \reqs{11} &            &            &            & \checkmark &            &            &            & \checkmark \\
+    \reqs{12} &            &            &            & \checkmark &            &            &            & \checkmark \\
+    \reqs{13} &            &            &            & \checkmark &            &            &            & \\
   \hline
 \end{tabular}
      \caption{Requirements satisfaction for Acme software engineering process}
