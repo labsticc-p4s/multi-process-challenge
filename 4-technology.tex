@@ -23,7 +23,7 @@ in~\parencite{models2016-freemodel} that frees the designer from the bonds of
 model/metamodel conformity. Another notable feature of
 this approach is the strong decoupling among tools that remain usable
 after federations are made.
-So to provide an adaptable framework, we have developed a flexible modeling language to provide modeling features without strict modeling levels. In a federation, the targeted modeling approaches can be unknown at the beginning and also can integrate several modeling levels.
+So to provide an adaptable framework, we have developed a flexible modeling language offering modeling features without strict modeling levels. In a federation, the targeted modeling approaches can be unknown at the beginning and also can integrate several modeling levels.
 
 
 We decided to use this approach since it offers the possibility to
@@ -37,7 +37,7 @@ in the Openflexo~\parencite{openflexo_link} framework.
 
 \begin{figure*}
     \centering
-    \includegraphics[width=1.0 \textwidth]{Figures/FMLMetaModel-1.5.pdf}
+    \includegraphics[width=0.95 \textwidth]{Figures/FMLMetaModel-1.5.pdf}
     \caption{Representation of the main concepts of {FML} language}
     \label{fig:mm}
 \end{figure*}
@@ -73,7 +73,7 @@ triggered by events. The reactive behaviors are useful when a federated model
 evolution needs to trigger a computation. Note that we do not exploit this
 possibility in the challenge.
 
-A parallel to object-oriented approach can be useful to understand
+A parallel to object-oriented approach is useful to understand
 \FML\footnote{Some features of \FML do not exist in object oriented
 approach.}\!.  A concept corresponds to a class, its properties to the
 attributes of the class and its behaviors to the methods of the class. These
@@ -87,17 +87,7 @@ adapter}\footnote{It is a reusable library that defines connections between the
 When the \FML execution engine runs a federation, it creates virtual
 model instances containing concept instances. Some concept instances
 are connected to external elements through model slot instances.
-
-% Sylvain : relire et vérifier
-
-
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=\columnwidth]{Figures/BPMNSubsetExample-1.5.pdf}
-    \caption{An example of \BPMN subset showing both the model and an instance of that model}
-    \label{fig:BPMNSubsetExample}
-\end{figure}
-
+%
 To illustrate this, Fig.~\ref{fig:BPMNSubsetExample} shows how to realize a
 small subset of \BPMN with Openflexo/FML. Concretely, we have designed a
 \textit{virtual model} (\texttt{SimplifiedBPMN}) with 3 \textit{concepts}
@@ -138,13 +128,10 @@ model SimplifiedBPMN {
       create(String name) { super(name); }
       // Encodes execution of task
       execute() {
-        log("Execute task "+name);
         ...
       }
       // Other properties and behaviours of the
       // BPMNTask concept
-      ...
-
     }
 
     // Other concepts
@@ -152,11 +139,16 @@ model SimplifiedBPMN {
 }
 \end{lstlisting}
 
-%\noteSylvain{A la fin de la rédaction, s'arranger pour que la figure 3 (fig:BPMNSubsetExample) et le listing soient cote a cote, et aussi que le listing tienne sur une seule page}
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\columnwidth]{Figures/BPMNSubsetExample-1.5.pdf}
+    \caption{An example of \BPMN subset showing both the model and an instance of that model}
+    \label{fig:BPMNSubsetExample}
+\end{figure}
 
-The tool support for model federation framework,
-Openflexo\footnote{\url{https://github.com/openflexo-team}}, is
-developed as an open source initiative. This tool offers an \FML
+
+An open source tool,
+Openflexo\footnote{\url{https://github.com/openflexo-team}}\!, supports model federation. This tool offers an \FML
 execution engine with an interactive virtual model design environment.
 
 Finally, tools have their own model. We have taken advantage of Openflexo
