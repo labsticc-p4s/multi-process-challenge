@@ -37,7 +37,7 @@ in the Openflexo~\parencite{openflexo_link} framework.
 
 \begin{figure*}
     \centering
-    \includegraphics[width=1.0 \textwidth]{Figures/FMLMetaModel-1.5.pdf}
+    \includegraphics[width=0.95 \textwidth]{Figures/FMLMetaModel-1.5.pdf}
     \caption{Representation of the main concepts of {FML} language}
     \label{fig:mm}
 \end{figure*}
@@ -73,7 +73,7 @@ triggered by events. The reactive behaviors are useful when a federated model
 evolution needs to trigger a computation. Note that we do not exploit this
 possibility in the challenge.
 
-A parallel to object-oriented approach can be useful to understand
+A parallel to object-oriented approach is useful to understand
 \FML\footnote{Some features of \FML do not exist in object oriented approach.}.
 A concept corresponds to a class, its properties to the attributes of the class
 and its behaviors to the methods of the class. These properties have types
@@ -87,17 +87,7 @@ technological space.}.
 When the \FML execution engine runs a federation, it creates virtual
 model instances containing concept instances. Some concept instances
 are connected to external elements through model slot instances.
-
-% Sylvain : relire et vérifier
-
-
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=\columnwidth]{Figures/BPMNSubsetExample-1.5.pdf}
-    \caption{An example of \BPMN subset showing both the model and an instance of that model}
-    \label{fig:BPMNSubsetExample}
-\end{figure}
-
+%
 To illustrate this, Fig.~\ref{fig:BPMNSubsetExample} shows how to realize a
 small subset of \BPMN with Openflexo/FML. Concretely, we have designed a
 \textit{virtual model} (\texttt{SimplifiedBPMN}) with 3 \textit{concepts}
@@ -149,7 +139,13 @@ model SimplifiedBPMN {
 }
 \end{lstlisting}
 
-%\noteSylvain{A la fin de la rédaction, s'arranger pour que la figure 3 (fig:BPMNSubsetExample) et le listing soient cote a cote, et aussi que le listing tienne sur une seule page}
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\columnwidth]{Figures/BPMNSubsetExample-1.5.pdf}
+    \caption{An example of \BPMN subset showing both the model and an instance of that model}
+    \label{fig:BPMNSubsetExample}
+\end{figure}
+
 
 The tool support for model federation framework,
 Openflexo\footnote{\url{https://github.com/openflexo-team}}, is
