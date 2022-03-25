@@ -164,8 +164,8 @@ forEach (actor : allowedActors) {
 }
 \end{lstlisting}
 
-This invariant should be completed with additional constraints defined in the
-\texttt{Task} concept, which apply to performing actors assigned to enact
+This invariant should be extended with additional constraints defined in the
+\texttt{Task} concept, which apply to actors assigned to enact
 tasks.
 
 \subsubsection{Process enactment}
@@ -202,9 +202,9 @@ ontological instantiation. A \texttt{Task} references its unique
 \texttt{TaskType}, and defines a \texttt{begin date} and an \texttt{end date}
 basic role (\reqp{12}).
 
-The used and produced artifacts are implemented by roles
+A \texttt{Task} defines the roles
 \texttt{usedArtifacts}, \texttt{producedArtifacts} and
-\texttt{performingActors} defined in \texttt{Task} (\reqp{13}). An instance
+\texttt{performingActors}  (\reqp{13}). An instance
 of \texttt{Artifact} specializes \texttt{MultiInstance} and references a set of
 \texttt{ArtifactType} through the specialized \texttt{/types} role
 (\reqp{14} and \reqp{16}). Likewise, \texttt{Actor} specializes
@@ -274,7 +274,7 @@ concept TaskType extends Type {
 \end{lstlisting}
 
 The \texttt{Task} concept delegates this authorization to its task type, as
-shown in the following \FML code:
+shown below.
 
 \begin{lstlisting}
 concept Task extends Instance {
@@ -286,8 +286,8 @@ concept Task extends Instance {
 }
 \end{lstlisting}
 
-Enforcing those constraints is finally performed by the definition of this
-invariant in the \texttt{Task} concept:
+Enforcing those constraints is finally performed by the following
+invariant of the \texttt{Task} concept:
 
 \begin{lstlisting}
 forEach (actor : performingActors) {
