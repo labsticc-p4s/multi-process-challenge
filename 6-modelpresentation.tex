@@ -537,20 +537,19 @@ visualization of this process execution.
 
 
 The Base metamodel is completed with some behaviors implementing an execution
-semantics for the executed processes. All tasks --- instantiated from
-\texttt{TaskType} for a given enacted process --- manage a status. This status
-is either \texttt{Not startable} (when not assigned to a performing actor or
-when required input artifacts are not available), \texttt{Startable},
+semantics for the executed processes. All tasks manage a status and are
+instantiated from \texttt{TaskType} for a given enacted process. This status is
+either \texttt{Not startable} (when not assigned to a performing actor or when
+required input artifacts are not available), \texttt{Startable},
 \texttt{Started}, \texttt{Completable} (when all output artifacts are ready) or
 \texttt{Completed}. A \texttt{Task} also manages a set of performing actors, a
 begin and end date, some used and produced artifacts. The \texttt{Gateway}
 business logic has also been implemented through the implementation of an
 abstract \texttt{execute(Process)} behavior. The management of artifacts whose
-semantics follows rules defined in Sect.~\ref{sec:ProcessEnactment}
-(\reqp{13}) is also implemented.
+semantics follows rules defined in Sect.~\ref{sec:ProcessEnactment} (\reqp{13})
+is also implemented.
 
 Fig.~\ref{fig:ToolingArchitecture} details the architecture of these two tools.
-
 The left of the figure presents the \textit{ProcessType graphical editor}.
 \texttt{ProcessTypeEditor} is modeled as a virtual model declaring two model
 slots (represented with bold circles). The first model slot references an
@@ -561,11 +560,11 @@ structure and graphical representations for edited items}. When executed, this
 tool manages a graphical view for an instance of Acme metamodel (the
 \textit{Acme model}) and a specific \texttt{ProcessType} instance. This tool
 allows representing and editing a \texttt{ProcessType}. The highly reflective
-nature of \FML and its tools should be noted. When the drag and drop
-interactor is applied for a new item, the tool allows choosing the concept type
-to be instantiated. For example, when a \texttt{TaskType} is created, the user
-must choose a concept inheriting from \texttt{TaskType} (in Acme use case it
-can be \texttt{SETaskTask} or \texttt{CodingTaskType} or default value
+nature of \FML and its tools should be noted. When the drag and drop interactor
+is applied for a new item, the tool allows choosing the concept type to be
+instantiated. For example, when a \texttt{TaskType} is created, the user must
+choose a concept inheriting from \texttt{TaskType} (in Acme use case it can be
+  \texttt{SETaskTask} or \texttt{CodingTaskType} or default value
 \texttt{TaskType}).
 
 The other tool, called \textit{Enacted process graphical editor} and shown on
