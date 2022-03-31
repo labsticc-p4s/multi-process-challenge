@@ -6,12 +6,17 @@ different techniques used to satisfy them, without repeating all the
 justifications. We classify these techniques into three categories:
 \begin{itemize}
     \item \emph{syntactic conformance}: the requirements are structurally
-      satisfied when the model conforms to its metamodel,
+      satisfied when the model conforms to its metamodel
+
     \item \emph{constraints checking}: the requirements are fulfilled when all
       instances satisfy both syntactic conformance and the evaluation of
-      invariants expressed for related concepts,
-    \item \emph{tooling}: the requirements are enforced by the implementation
-      of the associated tool.
+      invariants expressed for related concepts
+
+    \item \emph{process tools}: the requirements are enforced by the
+      implementation of the process tools illustrated by
+      Fig.~\ref{fig:ToolingArchitecture}. It can be done by using behaviors
+      defined in the models or by using the process tools manually.
+
 \end{itemize}
 
 
@@ -89,7 +94,7 @@ business logic).
  \rowcolors{4}{tableShade}{white}  %% start alternating shades from 3rd row
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
    \hline
-    & \multicolumn{6}{c|}{Syntactic conformance} & Constraints & \multirow{2}{*}{Tooling}\\
+    & \multicolumn{6}{c|}{Syntactic conformance} & Constraints & \multirow{2}{*}{Process tools}\\
    \cline{1-7}
                  & Conc.      & Spec.      & Comp.      & L.Inst.     & O.Inst.     & B.Mod.   &  checking & \\
   \hline
@@ -124,7 +129,7 @@ business logic).
   \rowcolors{4}{tableShade}{white}  %% start alternating shades from 3rd row
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
    \hline
-    & \multicolumn{6}{c|}{Syntactic conformance} & Constraints & \multirow{2}{*}{Tooling}\\
+    & \multicolumn{6}{c|}{Syntactic conformance} & Constraints & \multirow{2}{*}{Process tools}\\
    \cline{1-7}
                  & Conc.      & Spec.      & Comp.      & L.Inst     & O.Inst     & B.Mod      & checking   & \\
   \hline
