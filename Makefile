@@ -1,4 +1,4 @@
-TEXFILE=1-main
+TEXFILE=main
 TEXFILE1=responseLetter
 
 LATEXCMD=latexmk -f --synctex=1 -pdf
@@ -16,5 +16,6 @@ clean:
 
 clean.all: #clean
 	latexmk -C
-	#rm -f $(TEXFILE).{pdf,dvi}
-	#rm -Rf $(TEXFILE1).pdf
+	rm -f ${TEXFILE}.bbl ${TEXFILE}.run.xml ${TEXFILE}.thm ${TEXFILE}.aux
+	rm -f biblio.aux biblio.fdb_latexmk biblio.fls biblio.log
+
