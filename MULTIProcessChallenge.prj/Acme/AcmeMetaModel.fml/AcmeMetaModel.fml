@@ -1,196 +1,152 @@
+namespace "http://www.openflexo.org/MULTIProcessChallenge" as MULTIPROCESSCHALLENGE;
 
-/**
- * 
- * @author sylvain
- * @version 0.1
- */
-@VirtualModel(uri="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml")
-public class AcmeMetaModel extends MetaModel  {
+use org.openflexo.foundation.fml.rt.FMLRTVirtualModelInstanceModelSlot as FMLRT;
 
-  
-  public AcmeMetaModel acmeMetaModel = this;
+import [MULTIPROCESSCHALLENGE + "/MetaModel.fml"] as MetaModel;
 
-  @FlexoConcept  
-  public class CodingTaskType extends SoftwareEngineeringTaskType  {  
-  
-    public ProgrammingLanguage language;  
-  
-    @CreationScheme    
-    CodingTaskType:create(String name) {    
-      super.create(parameters.name)    
-    }    
-  
-    @DeletionScheme    
-    Void delete() {    
-      
-    }    
-  
-    @ActionScheme    
-    Coding newTask(String name, Process process) {    
-      Coding returned = Coding.create(parameters.name,this);      
-      log ("prout: " + language.concept.name)      
-      if (language.concept.name = "COBOL") {      
-        returned.addToPerformingActor(container.container.getActor("Ann Smith"))      
-      }      
-      return returned;    
-    }    
-  
-    @ActionScheme    
-    Boolean isValidActorType(ActorType actorType) {    
-      return (parameters.actorType.concept.name = "Developer");    
-    }    
-  
-    @ActionScheme    
-    Boolean isValidProducedArtifactType(ArtifactType artifactType) {    
-      return (parameters.artifactType.concept.name = "CodeArtifactType");    
-    }    
-  
-  }  
+@URI("http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml")
+@Version("0.1")
+@Author("sylvain")
+public model AcmeMetaModel extends MetaModel {
+	
+	AcmeMetaModel acmeMetaModel values this;
 
-  @FlexoConcept  
-  public class Developer extends ActorType  {  
-  
-    @CreationScheme    
-    Developer:create() {    
-      
-    }    
-  
-    @DeletionScheme    
-    Void delete() {    
-      
-    }    
-  
-  }  
+	public concept CodingTaskType extends SoftwareEngineeringTaskType {
 
-  @FlexoConcept  
-  public class CodeArtifactType extends SoftwareEngineeringArtifactType  {  
-  
-    @CreationScheme    
-    CodeArtifactType:create(String name) {    
-      super.create(parameters.name)    
-    }    
-  
-    @DeletionScheme    
-    Void delete() {    
-      
-    }    
-  
-    @ActionScheme    
-    Code newArtifact(String name) {    
-      Code returned = Code.create(parameters.name);      
-      returned.types.add(this)      
-      return returned;    
-    }    
-  
-  }  
+		ProgrammingLanguage language with ConceptInstance(virtualModelInstance=acmeMetaModel);
+		
+		create(String name) {
+			super(parameters.name);
+		}
+		
+		delete() {
+		}
 
-  @FlexoConcept  
-  public class ProgrammingLanguage {  
-  }  
+		Coding newTask(required String name, required Process process) {
+			Coding returned = parameters.process.new Coding(parameters.process,this);
+			log "prout: " + language.concept.name;
+			if (language.conceptType.name == "COBOL") {
+				returned.addToPerformingActor(container.container.getActor("Ann Smith"));
+			}
+			return returned;
+		}
+		boolean isValidActorType(required ActorType actorType) {
+			return parameters.actorType.conceptType.name == "Developer";
+		}
+		boolean isValidProducedArtifactType(required ArtifactType artifactType) {
+			return parameters.artifactType.conceptType.name == "CodeArtifactType";
+		}
+	}
 
-  @FlexoConcept  
-  public class COBOLCode extends Code  {  
-  
-    @DeletionScheme    
-    Void delete() {    
-      
-    }    
-  
-    @CreationScheme    
-    COBOLCode:create(String name) {    
-      super.create(parameters.name)      
-      programmingLanguage = container.virtualModel;    
-    }    
-  
-  }  
+	public concept Developer extends ActorType {
+		create() {
+		}
+		delete() {
+		}
+	}
 
-  @FlexoConcept  
-  public class SoftwareEngineeringArtifactType extends ArtifactType  {  
-  
-    @CreationScheme    
-    SoftwareEngineeringArtifactType:create(String name) {    
-      super.create(parameters.name)    
-    }    
-  
-    @DeletionScheme    
-    Void delete() {    
-      
-    }    
-  
-    @ActionScheme    
-    SoftwareEngineeringArtifact newArtifact(String name) {    
-      SoftwareEngineeringArtifact returned = SoftwareEngineeringArtifact.create(parameters.name);      
-      returned.types.add(this)      
-      return returned;    
-    }    
-  
-  }  
+	public concept CodeArtifactType extends SoftwareEngineeringArtifactType{
+		@UI(
+			@TextField(value="name")
+		)
+		create(String name) {
+			super(parameters.name);
+		}
+		delete() {
+		}
+		@UI(
+			@TextField(value="name")
+		)
+		Code newArtifact(String name) {
+			Code returned = new Code(parameters.name);
+			returned.types.add(this);
+			return returned;
+		}
+	}
 
-  @FlexoConcept  
-  public class SoftwareEngineeringArtifact extends Artifact  {  
-  
-    public Actor responsible;  
-    public int versionNumber;  
-  
-    @CreationScheme    
-    SoftwareEngineeringArtifact:create(String name) {    
-      super.create(parameters.name)    
-    }    
-  
-    @DeletionScheme    
-    Void delete() {    
-      
-    }    
-  
-  }  
+	enum ProgrammingLanguage {
+		JAVA,
+		C,
+		COBOL
+	}
 
-  @FlexoConcept  
-  public class Code extends SoftwareEngineeringArtifact  {  
-  
-    public ProgrammingLanguage programmingLanguage;  
-  
-    @DeletionScheme    
-    Void delete() {    
-      
-    }    
-  
-    @CreationScheme    
-    Code:create(String name) {    
-      super.create(parameters.name)    
-    }    
-  
-  }  
+	public concept COBOLCode extends Code {
+		delete() {
+		}
+		@UI(
+			@TextField(value="name")
+		)
+		create(String name) {
+			super(parameters.name);
+			//programmingLanguage = ProgrammingLanguage.COBOL;
+		}
+	}
 
-  @FlexoConcept  
-  public class Coding extends Task  {  
-  
-    public List programmingLanguages;  
-  
-    @CreationScheme    
-    Coding:create(String name, TaskType taskType) {    
-      super.create(parameters.name,parameters.taskType)    
-    }    
-  
-    @ActionScheme    
-    Void isAuthorizedProducedArtifact(Artifact artifact) {    
-      Boolean returned = super.isAuthorizedProducedArtifact(parameters.artifact);    
-    }    
-  
-  }  
+	public concept SoftwareEngineeringArtifactType extends ArtifactType {
+		@UI(
+			@TextField(value="name")
+		)
+		create(String name) {
+			super(parameters.name);
+		}
+		delete() {
+		}
+		@UI(
+			@TextField(value="name")
+		)
+		SoftwareEngineeringArtifact newArtifact(String name) {
+			SoftwareEngineeringArtifact returned = new SoftwareEngineeringArtifact(parameters.name);
+			returned.types.add(this);
+			return returned;
+		}
+	}
 
-  @FlexoConcept  
-  public class SoftwareEngineeringTaskType extends TaskType  {  
-  
-    @DeletionScheme    
-    Void delete() {    
-      
-    }    
-  
-    @CreationScheme    
-    SoftwareEngineeringTaskType:create(String name) {    
-      super.create(parameters.name)    
-    }    
-  
-  }  
+	public concept SoftwareEngineeringArtifact extends Artifact {
+		Actor responsible with ConceptInstance(virtualModelInstance=super.container);
+		int versionNumber;
+		@UI(
+			@TextField(value="name")
+		)
+		create(String name) {
+			super(parameters.name);
+		}
+		delete() {
+		}
+	}
 
+	public concept Code extends SoftwareEngineeringArtifact {
+		ProgrammingLanguage programmingLanguage with ConceptInstance(virtualModelInstance=container);
+		delete() {
+		}
+		@UI(
+			@TextField(value="name")
+		)
+		create(String name) {
+			super(parameters.name);
+		}
+	}
+
+	public concept Coding extends Task {
+		ProgrammingLanguage[1,*] programmingLanguages with ConceptInstance(virtualModelInstance=container.container);
+		@UI(
+			@TextField(value="name")
+		)
+		create(String name, TaskType taskType) {
+			super(parameters.name,parameters.taskType);
+		}
+		void isAuthorizedProducedArtifact(required Artifact artifact) {
+			boolean returned = super.isAuthorizedProducedArtifact(parameters.artifact);
+		}
+	}
+
+	public concept SoftwareEngineeringTaskType extends TaskType {
+		delete() {
+		}
+		@UI(
+			@TextField(value="name")
+		)
+		create(String name) {
+			super(parameters.name);
+		}
+	}
 }
