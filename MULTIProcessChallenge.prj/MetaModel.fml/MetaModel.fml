@@ -6,6 +6,7 @@ import java.lang.String;
 @URI("http://www.openflexo.org/MULTIProcessChallenge/MetaModel.fml")
 @Version("0.1")
 public model MetaModel {
+	
 	/**
 	 * A generic modeling element: support for a name and lastUpdated
 	 */
