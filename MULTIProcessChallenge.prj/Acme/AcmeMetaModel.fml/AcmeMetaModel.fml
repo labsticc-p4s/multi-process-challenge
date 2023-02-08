@@ -23,8 +23,8 @@ public model AcmeMetaModel extends MetaModel {
 		}
 
 		Coding newTask(required String name, required Process process) {
-			Coding returned = parameters.process.new Coding(parameters.process,this);
-			log "prout: " + language.concept.name;
+			Coding returned = parameters.process.new Coding(parameters.name,this);
+			log "prout: " + language.conceptType.name;
 			if (language.conceptType.name == "COBOL") {
 				returned.addToPerformingActor(container.container.getActor("Ann Smith"));
 			}
