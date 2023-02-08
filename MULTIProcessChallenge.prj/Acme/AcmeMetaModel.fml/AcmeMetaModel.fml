@@ -4,7 +4,7 @@ use org.openflexo.foundation.fml.rt.FMLRTVirtualModelInstanceModelSlot as FMLRT;
 
 import [MULTIPROCESSCHALLENGE + "/MetaModel.fml"] as MetaModel;
 
-@URI("http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/Acme/AcmeMetaModel.fml")
+@URI("http://www.openflexo.org/MULTIProcessChallenge/Acme/AcmeMetaModel.fml")
 @Version("0.1")
 @Author("sylvain")
 public model AcmeMetaModel extends MetaModel {
