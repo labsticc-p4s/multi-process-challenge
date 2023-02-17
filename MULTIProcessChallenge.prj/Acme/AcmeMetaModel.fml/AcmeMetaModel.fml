@@ -39,24 +39,23 @@ public model AcmeMetaModel extends MetaModel {
 	}
 
 	public concept Developer extends ActorType {
+		
 		create() {
 		}
+		
 		delete() {
 		}
 	}
 
 	public concept CodeArtifactType extends SoftwareEngineeringArtifactType{
-		@UI(
-			@TextField(value="name")
-		)
+
 		create(String name) {
 			super(parameters.name);
 		}
+		
 		delete() {
 		}
-		@UI(
-			@TextField(value="name")
-		)
+
 		Code newArtifact(String name) {
 			Code returned = new Code(parameters.name);
 			returned.types.add(this);
@@ -71,29 +70,25 @@ public model AcmeMetaModel extends MetaModel {
 	}
 
 	public concept COBOLCode extends Code {
-		delete() {
-		}
-		@UI(
-			@TextField(value="name")
-		)
+		
 		create(String name) {
 			super(parameters.name);
 			//programmingLanguage = ProgrammingLanguage.COBOL;
 		}
+
+		delete() {
+		}
 	}
 
 	public concept SoftwareEngineeringArtifactType extends ArtifactType {
-		@UI(
-			@TextField(value="name")
-		)
+
 		create(String name) {
 			super(parameters.name);
 		}
+		
 		delete() {
 		}
-		@UI(
-			@TextField(value="name")
-		)
+
 		SoftwareEngineeringArtifact newArtifact(String name) {
 			SoftwareEngineeringArtifact returned = new SoftwareEngineeringArtifact(parameters.name);
 			returned.types.add(this);
@@ -102,51 +97,51 @@ public model AcmeMetaModel extends MetaModel {
 	}
 
 	public concept SoftwareEngineeringArtifact extends Artifact {
+		
 		Actor responsible with ConceptInstance(virtualModelInstance=super.container);
 		int versionNumber;
-		@UI(
-			@TextField(value="name")
-		)
+
 		create(String name) {
 			super(parameters.name);
 		}
+		
 		delete() {
 		}
 	}
 
 	public concept Code extends SoftwareEngineeringArtifact {
+		
 		ProgrammingLanguage programmingLanguage with ConceptInstance(virtualModelInstance=container);
-		delete() {
-		}
-		@UI(
-			@TextField(value="name")
-		)
+
 		create(String name) {
 			super(parameters.name);
+		}
+
+		delete() {
 		}
 	}
 
 	public concept Coding extends Task {
+		
 		ProgrammingLanguage[1,*] programmingLanguages with ConceptInstance(virtualModelInstance=container.container);
-		@UI(
-			@TextField(value="name")
-		)
+
 		create(String name, TaskType taskType) {
 			super(parameters.name,parameters.taskType);
 		}
+		
 		void isAuthorizedProducedArtifact(required Artifact artifact) {
 			boolean returned = super.isAuthorizedProducedArtifact(parameters.artifact);
 		}
 	}
 
 	public concept SoftwareEngineeringTaskType extends TaskType {
-		delete() {
-		}
-		@UI(
-			@TextField(value="name")
-		)
+
 		create(String name) {
 			super(parameters.name);
 		}
+
+		delete() {
+		}
+
 	}
 }
