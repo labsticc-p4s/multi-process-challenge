@@ -49,10 +49,10 @@ model ProcessTypeEditor {
 	}
 
 	BeginGR getTaskTypeGR(required TaskType taskType) {
-		if (parameters.taskType.concept.name == "Begin") {
+		if (parameters.taskType.conceptType.name == "Begin") {
 			return this.getBeginGR(parameters.taskType);
 		}
-		if (parameters.taskType.concept.name == "End") {
+		if (parameters.taskType.conceptType.name == "End") {
 			return this.getEndGR(parameters.taskType);
 		}
 		return select unique TaskTypeGR from this;
@@ -67,11 +67,11 @@ model ProcessTypeEditor {
 	}
 
 	ShapeBasedGR getGatewayGR(required Gateway gateway) {
-		if (parameters.gateway.concept.name == "AndSplit") {
+		if (parameters.gateway.conceptType.name == "AndSplit") {
 			return select unique AndSplitGR from this;
 		}
 		else {
-			if (parameters.gateway.concept.name == "AndJoin") {
+			if (parameters.gateway.conceptType.name == "AndJoin") {
 				return select unique AndJoinGR from this;
 			}
 		}
@@ -83,9 +83,9 @@ model ProcessTypeEditor {
 	}
 
 	concept BeginGR {
-		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE,exampleLabel="Shape");
+		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE,exampleLabel="Begin");
 		Begin beginEvent with ConceptInstance(virtualModelInstance=processModel);
-		BeginGR dropBeginNodeAtTopLevel() with DropScheme(targetType=ProcessTypeGR) {
+		BeginGR dropBeginNodeAtTopLevel() with DropScheme(targetType=null) {
 			shape = DIAGRAM::AddShape(container=target.shape) in diagram;
 			beginEvent = target.processType.new Begin();
 			target.processType.taskTypes.add(beginEvent);
@@ -410,7 +410,7 @@ model ProcessTypeEditor {
 			@TextField(value="processName")
 		)
 		public void newProcess(required String processName) {
-			ProcessEditor newProcessEditor = new ProcessEditor(parameters.processName) with (virtualModelInstanceName="parameters.processName");
+			ProcessEditor newProcessEditor = new ProcessEditor(parameters.processName);
 		}
 	}
 
