@@ -1,355 +1,308 @@
-use org.openflexo.technologyadapter.diagram.TypedDiagramModelSlot;
-use org.openflexo.foundation.fml.rt.FMLRTVirtualModelInstanceModelSlot;
+namespace "http://www.openflexo.org/MULTIProcessChallenge" as MULTIPROCESSCHALLENGE;
 
-/**
- * 
- * @version 0.1
- */
-@VirtualModel(uri="http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/ProcessEditor/ProcessEditor.fml")
-public class ProcessEditor {
+use org.openflexo.technologyadapter.diagram.TypedDiagramModelSlot as DIAGRAM;
+use org.openflexo.foundation.fml.rt.FMLRTVirtualModelInstanceModelSlot as FMLRT;
 
-  public Diagram diagram;
-  public MetaModel model;
-  public Process process;
-  public ProcessTypeEditor processTypeEditor;
+import org.openflexo.technologyadapter.diagram.model.DiagramShape;
+import org.openflexo.technologyadapter.diagram.model.Diagram;
+import org.openflexo.technologyadapter.diagram.model.DiagramConnector;
 
-  @CreationScheme  
-  ProcessEditor:init(MetaModel model, ProcessType processType, String processName, ProcessTypeEditor processTypeEditor) {  
-    diagram = CreateDiagram();    
-    model = parameters.model;    
-    processTypeEditor = parameters.processTypeEditor;    
-    ProcessGR newProcessGR = ProcessGR.instantiateProcess(parameters.processType,parameters.processName);    
-    process = newProcessGR.process;    
-    log ("Les tasks= " + newProcessGR.process.tasks)    
-    for (task : process.tasks) {    
-      log ("Task=" + task)      
-      if (task.type.concept.name = "Begin") {      
-        BeginGR.representTask(task)        
-        log "New begin"      
-      } else {      
-        if (task.type.concept.name = "End") {        
-          EndGR.representTask(task)          
-          log "New end"        
-        } else {        
-          TaskGR.representTask(task)          
-          log "New task"        
-        }      
-      }    
-    }    
-    for (gateway : process.type.gateways) {    
-      if ((gateway.concept.name = "AndSplit") | (gateway.concept.name = "AndJoin")) {      
-        GatewayGR.representGateway(gateway,process)      
-      }    
-    }    
-    for (sequencing : process.type.sequencingList) {    
-      log ("On cherche a representer la sequence " + sequencing)      
-      SequencingGR.representSequencing(sequencing,process)    
-    }    
-    for (andSplit : process.type.andSplitList) {    
-      AndSplitConnectorsGR.representAndSplit(andSplit,process)    
-    }    
-    for (actor : model.actorList) {    
-      ActorGR.representActor(actor)    
-    }    
-    for (andJoin : process.type.andJoinList) {    
-      AndJoinConnectorsGR.representAndSplit(andJoin,process)    
-    }    
-    for (task : process.tasks) {    
-      for (actor : task.performingActors) {      
-        ActorAssignationGR.representAssignation(actor,task)      
-      }    
-    }  
-  }  
+import [MULTIPROCESSCHALLENGE + "/MetaModel.fml"] as MetaModel;
+import [MULTIPROCESSCHALLENGE+"/ProcessEditor/Process/ExampleDiagram.diagram"] as EXAMPLE_DIAGRAM;
+import [EXAMPLE_DIAGRAM:"SYL-29"] as DIAGRAM_SHAPE;
+import [MULTIPROCESSCHALLENGE+"/ProcessEditor/Process"] as PROCESS;
+import [EXAMPLE_DIAGRAM:"SYL-23"] as DIAGRAM_SHAPE2;
+import [EXAMPLE_DIAGRAM:"SYL-30"] as DIAGRAM_SHAPE3;
+import [EXAMPLE_DIAGRAM:"SYL-2"] as DIAGRAM_SHAPE4;
+import [EXAMPLE_DIAGRAM:"SYL-3"] as DIAGRAM_SHAPE5;
+import [EXAMPLE_DIAGRAM:"SYL-32"] as DIAGRAM_SHAPE6;
+import [EXAMPLE_DIAGRAM:"SYL-33"] as DIAGRAM_SHAPE7;
+import [EXAMPLE_DIAGRAM:"SYL-34"] as DIAGRAM_SHAPE8;
+import [EXAMPLE_DIAGRAM:"SYL-6"] as DIAGRAM_SHAPE9;
+import [EXAMPLE_DIAGRAM:"SYL-4"] as DIAGRAM_SHAPE10;
+import [EXAMPLE_DIAGRAM:"SYL-5"] as DIAGRAM_CONNECTOR;
+import [EXAMPLE_DIAGRAM:"SYL-28"] as DIAGRAM_CONNECTOR2;
+import [MULTIPROCESSCHALLENGE+"/ProcessTypeEditor.fml"] as ProcessTypeEditor;
 
-  @DeletionScheme  
-  Void delete() {  
-  
-  }  
+@URI("http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/ProcessEditor/ProcessEditor.fml")
+@Version("0.1")
+model ProcessEditor {
+	Diagram diagram with TypedDiagram(diagramSpecification=PROCESS,isRequired=true,paletteElementBindings={PaletteElementBinding:(call=new null::null()), PaletteElementBinding:(call=new ActorGR::dropActorGRAtTopLevel(null), paletteElementId="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/Palette.palette#ActorGR")});
+	MetaModel _model with ModelInstance(isRequired=true);
+	ConceptInstance process with ConceptInstance(virtualModelInstance=model);
+	ProcessTypeEditor processTypeEditor with ModelInstance(isRequired=true);
 
-  @ActionScheme  
-  ProcessGR getProcessGR(Process process) {  
-    return this.SelectUniqueFlexoConceptInstance(type=ProcessGR,where=where=(selected.process = parameters.process));  
-  }  
+	@UI(
+		@TextField(value="processName")
+	)
+	create::init(required MetaModel _model, required ProcessType processType, required String processName, required ProcessTypeEditor processTypeEditor) {
+		diagram = DIAGRAM::CreateDiagram(resourceName=parameters.processType.name + "_" + parameters.processName,resourceCenter=this.resourceCenter,relativePath="/Diagrams");
+		model = parameters.model;
+		processTypeEditor = parameters.processTypeEditor;
+		ProcessGR newProcessGR = new ProcessGR::instantiateProcess(parameters.processType,parameters.processName);
+		process = newProcessGR.process;
+		log "Les tasks= " + newProcessGR.process.tasks;
+		for (Object task : process.tasks) {
+			log "Task=" + task;
+			if (task.type.concept.name == "Begin") {
+				new BeginGR::representTask(task);
+				log "New begin";
+			}
+			else {
+				if (task.type.concept.name == "End") {
+					new EndGR::representTask(task);
+					log "New end";
+				}
+				else {
+					new TaskGR::representTask(task);
+					log "New task";
+				}
+			}
+		}
+		for (Object gateway : process.type.gateways) {
+			if ((gateway.concept.name = "AndSplit") || (gateway.concept.name = "AndJoin")) {
+				new GatewayGR::representGateway(gateway,process);
+			}
+		}
+		for (Object sequencing : process.type.sequencingList) {
+			log "On cherche a representer la sequence " + sequencing;
+			new SequencingGR::representSequencing(sequencing,process);
+		}
+		for (Object andSplit : process.type.andSplitList) {
+			new AndSplitConnectorsGR::representAndSplit(andSplit,process);
+		}
+		for (Object actor : model.actorList) {
+			new ActorGR(actor);
+		}
+		for (Object andJoin : process.type.andJoinList) {
+			new AndJoinConnectorsGR::representAndSplit(andJoin,process);
+		}
+		for (Object task : process.tasks) {
+			for (Object actor : task.performingActors) {
+				new ActorAssignationGR::representAssignation(actor,task);
+			}
+		}
+	}
 
-  @ActionScheme  
-  BeginGR getTaskGR(Task task) {  
-    if (parameters.task.type.concept.name = "Begin") {    
-      return this.getBeginGR(parameters.task);    
-    }    
-    if (parameters.task.type.concept.name = "End") {    
-      return this.getEndGR(parameters.task);    
-    }    
-    return this.SelectUniqueFlexoConceptInstance(type=TaskGR,where=where=(selected.task = parameters.task));  
-  }  
+	delete() {
+	}
 
-  @ActionScheme  
-  BeginGR getBeginGR(Task task) {  
-    return this.SelectUniqueFlexoConceptInstance(type=BeginGR,where=where=(selected.task = parameters.task));  
-  }  
+	ProcessGR getProcessGR(required Process process) {
+		return select unique ProcessGR from this;
+	}
 
-  @ActionScheme  
-  EndGR getEndGR(Task task) {  
-    return this.SelectUniqueFlexoConceptInstance(type=EndGR,where=where=(selected.task = parameters.task));  
-  }  
+	BeginGR getTaskGR(required Task task) {
+		if (parameters.task.type.concept.name == "Begin") {
+			return this.getBeginGR(parameters.task);
+		}
+		if (parameters.task.type.concept.name == "End") {
+			return this.getEndGR(parameters.task);
+		}
+		return select unique TaskGR from this;
+	}
 
-  @ActionScheme  
-  GatewayGR getGatewayGR(Gateway gateway) {  
-    return this.SelectUniqueFlexoConceptInstance(type=GatewayGR,where=where=(selected.gateway = parameters.gateway));    
-    return null;  
-  }  
+	BeginGR getBeginGR(required Task task) {
+		return select unique BeginGR from this;
+	}
 
-  @ActionScheme  
-  ActorGR getActorGR(Actor actor) {  
-    return this.SelectUniqueFlexoConceptInstance(type=ActorGR,where=where=(selected.actor = parameters.actor));  
-  }  
+	EndGR getEndGR(required Task task) {
+		return select unique EndGR from this;
+	}
 
+	GatewayGR getGatewayGR(required Gateway gateway) {
+		return select unique GatewayGR from this;
+		return null;
+	}
 
-  @FlexoConcept  
-  public class ProcessGR {  
-  
-    public DiagramShape shape;  
-    public DiagramShape header;  
-    public Process process;  
-  
-    @CreationScheme    
-    ProcessGR:instantiateProcess(ProcessType processType, String processName) {    
-      process = Process.create(parameters.processName,parameters.processType);      
-      shape = diagram.AddShape();      
-      header = diagram.AddShape();      
-      ProcessTypeGR processTypeGR = processTypeEditor.getProcessTypeGR(parameters.processType);      
-      shape.x=processTypeGR.shape.graphicalRepresentation.x      
-      shape.y=processTypeGR.shape.graphicalRepresentation.y      
-      shape.width=processTypeGR.shape.graphicalRepresentation.width      
-      shape.height=processTypeGR.shape.graphicalRepresentation.height    
-    }    
-  
-    @ActionScheme    
-    public Void start() {    
-      process.startProcess()    
-    }    
-  
-  }  
+	ActorGR getActorGR(required Actor actor) {
+		return select unique ActorGR from this;
+	}
 
-  @FlexoConcept  
-  public class BeginGR {  
-  
-    public DiagramShape shape;  
-    public Task task;  
-  
-    @DeletionScheme    
-    public Void delete() {    
-      delete shape;      
-      task.delete();    
-    }    
-  
-    @CreationScheme    
-    BeginGR:representTask(Task task) {    
-      task = parameters.task;      
-      shape = diagram.AddShape();      
-      BeginGR beginTypeGR = processTypeEditor.getBeginGR(parameters.task.type);      
-      shape.x=beginTypeGR.shape.graphicalRepresentation.x      
-      shape.y=beginTypeGR.shape.graphicalRepresentation.y      
-      shape.width=beginTypeGR.shape.graphicalRepresentation.width      
-      shape.height=beginTypeGR.shape.graphicalRepresentation.height    
-    }    
-  
-  }  
+	concept ProcessGR {
+		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE,exampleLabel="Shape");
+		DiagramShape header with ShapeRole(metamodelElement=DIAGRAM_SHAPE3,exampleLabel="Shape",label=process.name);
+		ConceptInstance process with ConceptInstance(virtualModelInstance=model);
+		@UI(
+			@TextField(value="processName")
+		)
+		create::instantiateProcess(required ProcessType processType, required String processName) {
+			process = new Process(parameters.processName,parameters.processType);
+			shape = DIAGRAM::AddShape(container=diagram) in diagram;
+			header = DIAGRAM::AddShape(container=diagram) in diagram;
+			ProcessTypeGR processTypeGR = processTypeEditor.getProcessTypeGR(parameters.processType);
+			DIAGRAM::GraphicalAction() in diagram;
+			DIAGRAM::GraphicalAction() in diagram;
+			DIAGRAM::GraphicalAction() in diagram;
+			DIAGRAM::GraphicalAction() in diagram;
+		}
+		public void start() {
+			process.startProcess();
+		}
+	}
 
-  @FlexoConcept  
-  public class TaskGR {  
-  
-    public DiagramShape shape;  
-    public Task task;  
-    public DiagramShape title;  
-    public DiagramShape performingActors;  
-    public DiagramShape status;  
-  
-    @DeletionScheme    
-    public Void delete() {    
-      delete shape;      
-      task.delete();    
-    }    
-  
-    @CreationScheme    
-    TaskGR:representTask(Task task) {    
-      task = parameters.task;      
-      shape = diagram.AddShape();      
-      title = diagram.AddShape();      
-      performingActors = diagram.AddShape();      
-      status = diagram.AddShape();      
-      BeginGR taskTypeGR = processTypeEditor.getTaskTypeGR(parameters.task.type);      
-      log ((("pour " + task) + " taskTypeGR=") + taskTypeGR)      
-      shape.x=taskTypeGR.shape.graphicalRepresentation.x      
-      shape.y=taskTypeGR.shape.graphicalRepresentation.y      
-      shape.width=taskTypeGR.shape.graphicalRepresentation.width      
-      shape.height=(taskTypeGR.shape.graphicalRepresentation.height + 20)    
-    }    
-  
-    @ActionScheme    
-    public Void completeTask() {    
-      task.finishTask()    
-    }    
-  
-  }  
+	concept BeginGR {
+		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE4,exampleLabel="");
+		ConceptInstance task with ConceptInstance(virtualModelInstance=model);
+		public delete() {
+			delete shape;
+			delete task;
+		}
+		create::representTask(required Task task) {
+			task = parameters.task;
+			shape = DIAGRAM::AddShape(container=container.getProcessGR(task.container).shape) in diagram;
+			BeginGR beginTypeGR = processTypeEditor.getBeginGR(parameters.task.type);
+			DIAGRAM::GraphicalAction() in diagram;
+			DIAGRAM::GraphicalAction() in diagram;
+			DIAGRAM::GraphicalAction() in diagram;
+			DIAGRAM::GraphicalAction() in diagram;
+		}
+	}
 
-  @FlexoConcept  
-  public class EndGR {  
-  
-    public DiagramShape shape;  
-    public Task task;  
-  
-    @DeletionScheme    
-    public Void delete() {    
-      delete shape;      
-      task.delete();    
-    }    
-  
-    @CreationScheme    
-    EndGR:representTask(Task task) {    
-      task = parameters.task;      
-      shape = diagram.AddShape();      
-      EndGR endTypeGR = processTypeEditor.getEndGR(parameters.task.type);      
-      shape.x=endTypeGR.shape.graphicalRepresentation.x      
-      shape.y=endTypeGR.shape.graphicalRepresentation.y      
-      shape.width=endTypeGR.shape.graphicalRepresentation.width      
-      shape.height=endTypeGR.shape.graphicalRepresentation.height    
-    }    
-  
-  }  
+	concept TaskGR {
+		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE5,exampleLabel="");
+		ConceptInstance task with ConceptInstance(virtualModelInstance=model);
+		DiagramShape title with ShapeRole(metamodelElement=DIAGRAM_SHAPE6,exampleLabel="Task",label=task.name);
+		DiagramShape performingActors with ShapeRole(metamodelElement=DIAGRAM_SHAPE7,exampleLabel="Actors",label=task.performingActorsLabel);
+		DiagramShape status with ShapeRole(metamodelElement=DIAGRAM_SHAPE8,exampleLabel="Status",label=task.statusLabel);
+		public delete() {
+			delete shape;
+			delete task;
+		}
+		create::representTask(required Task task) {
+			task = parameters.task;
+			shape = DIAGRAM::AddShape(container=container.getProcessGR(task.container).shape) in diagram;
+			title = DIAGRAM::AddShape(container=container.getProcessGR(task.container).shape) in diagram;
+			performingActors = DIAGRAM::AddShape(container=container.getProcessGR(task.container).shape) in diagram;
+			status = DIAGRAM::AddShape(container=container.getProcessGR(task.container).shape) in diagram;
+			BeginGR taskTypeGR = processTypeEditor.getTaskTypeGR(parameters.task.type);
+			log "pour " + task + " taskTypeGR=" + taskTypeGR;
+			DIAGRAM::GraphicalAction() in diagram;
+			DIAGRAM::GraphicalAction() in diagram;
+			DIAGRAM::GraphicalAction() in diagram;
+			DIAGRAM::GraphicalAction() in diagram;
+		}
+		public void completeTask() {
+			task.finishTask();
+		}
+	}
 
-  @FlexoConcept  
-  public class GatewayGR {  
-  
-    public DiagramShape shape;  
-    public Gateway gateway;  
-  
-    @DeletionScheme    
-    Void delete() {    
-      delete shape;    
-    }    
-  
-    @CreationScheme    
-    GatewayGR:representGateway(Gateway gateway, Process process) {    
-      gateway = parameters.gateway;      
-      shape = diagram.AddShape();      
-      ShapeBasedGR gatewayGR = processTypeEditor.getGatewayGR(parameters.gateway);      
-      shape.x=gatewayGR.shape.graphicalRepresentation.x      
-      shape.y=gatewayGR.shape.graphicalRepresentation.y      
-      shape.width=shape.graphicalRepresentation.width      
-      shape.height=gatewayGR.shape.graphicalRepresentation.height    
-    }    
-  
-  }  
+	concept EndGR {
+		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE9,exampleLabel="");
+		ConceptInstance task with ConceptInstance(virtualModelInstance=model);
+		public delete() {
+			delete shape;
+			delete task;
+		}
+		create::representTask(required Task task) {
+			task = parameters.task;
+			shape = DIAGRAM::AddShape(container=container.getProcessGR(task.container).shape) in diagram;
+			EndGR endTypeGR = processTypeEditor.getEndGR(parameters.task.type);
+			DIAGRAM::GraphicalAction() in diagram;
+			DIAGRAM::GraphicalAction() in diagram;
+			DIAGRAM::GraphicalAction() in diagram;
+			DIAGRAM::GraphicalAction() in diagram;
+		}
+	}
 
-  @FlexoConcept  
-  public class SequencingGR {  
-  
-    public DiagramConnector connector;  
-    public Sequencing sequencing;  
-  
-    @CreationScheme    
-    SequencingGR:representSequencing(Sequencing sequencing, Process process) {    
-      sequencing = parameters.sequencing;      
-      Task startTask = process.type.getTask(sequencing.in,process);      
-      Task endTask = process.type.getTask(sequencing.out,process);      
-      BeginGR startTaskGR = container.getTaskGR(startTask);      
-      BeginGR endTaskGR = container.getTaskGR(endTask);      
-      log ("Start=" + startTaskGR)      
-      log ("End=" + endTaskGR)      
-      connector = diagram.AddConnector();    
-    }    
-  
-  }  
+	concept GatewayGR {
+		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE10,exampleLabel="");
+		ConceptInstance gateway with ConceptInstance(virtualModelInstance=model);
+		delete() {
+			delete shape;
+		}
+		create::representGateway(required Gateway gateway, Process process) {
+			gateway = parameters.gateway;
+			shape = DIAGRAM::AddShape(container=container.getProcessGR(parameters.process).shape) in diagram;
+			ShapeBasedGR gatewayGR = processTypeEditor.getGatewayGR(parameters.gateway);
+			DIAGRAM::GraphicalAction() in diagram;
+			DIAGRAM::GraphicalAction() in diagram;
+			DIAGRAM::GraphicalAction() in diagram;
+			DIAGRAM::GraphicalAction() in diagram;
+		}
+	}
 
-  @FlexoConcept  
-  public class AndSplitConnectorsGR {  
-  
-    public DiagramConnector inConnector;  
-    public AndSplit andSplit;  
-    public DiagramConnector outConnector;  
-  
-    @CreationScheme    
-    AndSplitConnectorsGR:representAndSplit(AndSplit andSplit, Process process) {    
-      andSplit = parameters.andSplit;      
-      Task startTask = process.type.getTask(andSplit.in,process);      
-      BeginGR startTaskGR = container.getTaskGR(startTask);      
-      GatewayGR gatewayGR = container.getGatewayGR(parameters.andSplit);      
-      inConnector = diagram.AddConnector();      
-      for (taskType : andSplit.out) {      
-        Task endTask = process.type.getTask(taskType,process);        
-        BeginGR endTaskGR = container.getTaskGR(endTask);        
-        outConnector = diagram.AddConnector();      
-      }    
-    }    
-  
-  }  
+	concept SequencingGR {
+		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR,exampleLabel="");
+		ConceptInstance sequencing with ConceptInstance(virtualModelInstance=model);
+		create::representSequencing(required Sequencing sequencing, Process process) {
+			sequencing = parameters.sequencing;
+			org.openflexo.connie.type.UndefinedType@38c0354a startTask = process.type.getTask(sequencing.in,process);
+			org.openflexo.connie.type.UndefinedType@38c0354a endTask = process.type.getTask(sequencing.out,process);
+			BeginGR startTaskGR = container.getTaskGR(startTask);
+			BeginGR endTaskGR = container.getTaskGR(endTask);
+			log "Start=" + startTaskGR;
+			log "End=" + endTaskGR;
+			connector = DIAGRAM::AddConnector(fromShape=startTaskGR.shape,toShape=endTaskGR.shape) in diagram;
+		}
+	}
 
-  @FlexoConcept  
-  public class AndJoinConnectorsGR {  
-  
-    public DiagramConnector inConnector;  
-    public AndJoin andJoin;  
-    public DiagramConnector outConnector;  
-  
-    @CreationScheme    
-    AndJoinConnectorsGR:representAndSplit(AndJoin andJoin, Process process) {    
-      andJoin = parameters.andJoin;      
-      Task endTask = process.type.getTask(andJoin.out,process);      
-      BeginGR endTaskGR = container.getTaskGR(endTask);      
-      GatewayGR gatewayGR = container.getGatewayGR(parameters.andJoin);      
-      outConnector = diagram.AddConnector();      
-      for (taskType : andJoin.in) {      
-        Task startTask = process.type.getTask(taskType,process);        
-        BeginGR startTaskGR = container.getTaskGR(startTask);        
-        inConnector = diagram.AddConnector();      
-      }    
-    }    
-  
-  }  
+	concept AndSplitConnectorsGR {
+		DiagramConnector inConnector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR,exampleLabel="");
+		ConceptInstance andSplit with ConceptInstance(virtualModelInstance=model);
+		DiagramConnector outConnector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR,exampleLabel="");
+		create::representAndSplit(required AndSplit andSplit, Process process) {
+			andSplit = parameters.andSplit;
+			org.openflexo.connie.type.UndefinedType@38c0354a startTask = process.type.getTask(andSplit.in,process);
+			BeginGR startTaskGR = container.getTaskGR(startTask);
+			GatewayGR gatewayGR = container.getGatewayGR(parameters.andSplit);
+			inConnector = DIAGRAM::AddConnector(fromShape=startTaskGR.shape,toShape=gatewayGR.shape) in diagram;
+			for (Object taskType : andSplit.out) {
+				org.openflexo.connie.type.UndefinedType@38c0354a endTask = process.type.getTask(taskType,process);
+				BeginGR endTaskGR = container.getTaskGR(endTask);
+				outConnector = DIAGRAM::AddConnector(fromShape=gatewayGR.shape,toShape=endTaskGR.shape) in diagram;
+			}
+		}
+	}
 
-  @FlexoConcept  
-  public class ActorGR {  
-  
-    public DiagramShape shape;  
-    public Actor actor;  
-  
-    @DropScheme    
-    ActorGR:dropActorGRAtTopLevel(String name) {    
-      shape = diagram.AddShape();      
-      actor = Actor.create(parameters.name);    
-    }    
-  
-    @CreationScheme    
-    ActorGR:representActor(Actor actor) {    
-      actor = parameters.actor;      
-      shape = diagram.AddShape();      
-      ActorGR actorInProcessTypeGR = processTypeEditor.getActorGR(parameters.actor);      
-      shape.x=actorInProcessTypeGR.shape.graphicalRepresentation.x      
-      shape.y=actorInProcessTypeGR.shape.graphicalRepresentation.y      
-      shape.width=actorInProcessTypeGR.shape.graphicalRepresentation.width      
-      shape.height=actorInProcessTypeGR.shape.graphicalRepresentation.height    
-    }    
-  
-  }  
+	concept AndJoinConnectorsGR {
+		DiagramConnector inConnector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR,exampleLabel="");
+		ConceptInstance andJoin with ConceptInstance(virtualModelInstance=model);
+		DiagramConnector outConnector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR,exampleLabel="");
+		create::representAndSplit(required AndJoin andJoin, Process process) {
+			andJoin = parameters.andJoin;
+			org.openflexo.connie.type.UndefinedType@38c0354a endTask = process.type.getTask(andJoin.out,process);
+			BeginGR endTaskGR = container.getTaskGR(endTask);
+			GatewayGR gatewayGR = container.getGatewayGR(parameters.andJoin);
+			outConnector = DIAGRAM::AddConnector(fromShape=gatewayGR.shape,toShape=endTaskGR.shape) in diagram;
+			for (Object taskType : andJoin.in) {
+				org.openflexo.connie.type.UndefinedType@38c0354a startTask = process.type.getTask(taskType,process);
+				BeginGR startTaskGR = container.getTaskGR(startTask);
+				inConnector = DIAGRAM::AddConnector(fromShape=startTaskGR.shape,toShape=gatewayGR.shape) in diagram;
+			}
+		}
+	}
 
-  @FlexoConcept  
-  public class ActorAssignationGR {  
-  
-    public DiagramConnector connector;  
-  
-    @LinkScheme    
-    ActorAssignationGR:linkActorGRToTaskGR() {    
-      connector = diagram.AddConnector();      
-      toTarget.task.addToPerformingActor(fromTarget.actor)    
-    }    
-  
-    @CreationScheme    
-    ActorAssignationGR:representAssignation(Actor actor, Task task) {    
-      ActorGR actorGR = container.getActorGR(parameters.actor);      
-      BeginGR taskGR = container.getTaskGR(parameters.task);      
-      connector = diagram.AddConnector();    
-    }    
-  
-  }  
+	concept ActorGR {
+		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE2,exampleLabel="Actor",label=actor.name);
+		ConceptInstance actor with ConceptInstance(virtualModelInstance=model);
+		@UI(
+			@TextField(value="name")
+		)
+		ActorGR dropActorGRAtTopLevel(required String name) with DropScheme() {
+			shape = DIAGRAM::AddShape(container=topLevel) in diagram;
+			actor = new Actor(parameters.name);
+		}
+		create::representActor(required Actor actor) {
+			actor = parameters.actor;
+			shape = DIAGRAM::AddShape(container=container.diagram) in diagram;
+			ActorGR actorInProcessTypeGR = processTypeEditor.getActorGR(parameters.actor);
+			DIAGRAM::GraphicalAction() in diagram;
+			DIAGRAM::GraphicalAction() in diagram;
+			DIAGRAM::GraphicalAction() in diagram;
+			DIAGRAM::GraphicalAction() in diagram;
+		}
+	}
 
+	concept ActorAssignationGR {
+		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR2,exampleLabel="Connector28");
+		ActorAssignationGR linkActorGRToTaskGR() with LinkScheme(fromType=ActorGR,toType=TaskGR) {
+			connector = DIAGRAM::AddConnector(fromShape=fromTarget.shape,toShape=toTarget.shape) in diagram;
+			toTarget.task.addToPerformingActor(fromTarget.actor);
+		}
+		create::representAssignation(required Actor actor, required Task task) {
+			ActorGR actorGR = container.getActorGR(parameters.actor);
+			BeginGR taskGR = container.getTaskGR(parameters.task);
+			connector = DIAGRAM::AddConnector(fromShape=actorGR.shape,toShape=taskGR.shape) in diagram;
+		}
+	}
 }
