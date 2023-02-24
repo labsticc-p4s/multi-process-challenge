@@ -30,25 +30,50 @@ import [EXAMPLE_DIAGRAM:"SYL-26"] as DIAGRAM_CONNECTOR6;
 import [EXAMPLE_DIAGRAM:"SYL-27"] as DIAGRAM_CONNECTOR7;
 import [EXAMPLE_DIAGRAM:"SYL-28"] as DIAGRAM_CONNECTOR8;
 
+/**
+ *  A model which aims at providing a graphical editor for a process model (an instance of MetaModel)
+ *  To do so, we federate a model and a diagram
+ */
 @URI("http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml")
 @Version("0.1")
 model ProcessTypeEditor {
-	MetaModel processModel with ModelInstance(isRequired=true);
-	Diagram diagram with TypedDiagram(diagramSpecification=PROCESS_TYPE,isRequired=true,paletteElementBindings={PaletteElementBinding:(call=new BeginGR::dropBeginNodeAtTopLevel(), paletteElementId="http://www.openflexo.org/MULTIProcessChallenge/ProcessType/Palette.palette#BeginNode"), PaletteElementBinding:(call=new TaskTypeGR::dropTaskTypeGRAtTopLevel(null,null), paletteElementId="http://www.openflexo.org/MULTIProcessChallenge/ProcessType/Palette.palette#TaskTypeGR"), PaletteElementBinding:(call=new EndGR::dropEndGRAtTopLevel(), paletteElementId="http://www.openflexo.org/MULTIProcessChallenge/ProcessType/Palette.palette#EndGR"), PaletteElementBinding:(call=new AndSplitGR::dropAndSplitGRAtTopLevel(), paletteElementId="http://www.openflexo.org/MULTIProcessChallenge/ProcessType/Palette.palette#AndSplitGR"), PaletteElementBinding:(call=new AndJoinGR::dropAndJoinGRAtTopLevel(), paletteElementId="http://www.openflexo.org/MULTIProcessChallenge/ProcessType/Palette.palette#AndJoinGR"), PaletteElementBinding:(call=new ArtifactTypeGR::dropArtifactTypeGRAtTopLevel(null,null), paletteElementId="http://www.openflexo.org/MULTIProcessChallenge/ProcessType/Palette.palette#ArtifactTypeGR"), PaletteElementBinding:(call=new ActorTypeGR::dropActorTypeGRAtTopLevel(null,null), paletteElementId="http://www.openflexo.org/MULTIProcessChallenge/ProcessType/Palette.palette#ActorTypeGR"), PaletteElementBinding:(call=new ActorGR::dropActorGRAtTopLevel(null), paletteElementId="http://www.openflexo.org/MULTIProcessChallenge/ProcessType/Palette.palette#ActorGR"), PaletteElementBinding:(call=new ProcessTypeGR::dropProcessTypeGRAtTopLevel(null), paletteElementId="http://www.openflexo.org/MULTIProcessChallenge/ProcessType/Palette.palette#ProcessTypeGR")});
 
-	@UI(
-		@TextField(value="diagramName")
-	)
+	// The model beeing edited
+	MetaModel processModel with ModelInstance(isRequired=true);
+	// The diagram representing the model
+	Diagram diagram with TypedDiagram(
+		diagramSpecification=PROCESS_TYPE,
+		isRequired=true,
+		paletteElementBindings={
+			PaletteElementBinding:(call=new BeginGR::dropBeginNodeAtTopLevel(), paletteElementId="http://www.openflexo.org/MULTIProcessChallenge/ProcessType/Palette.palette#BeginNode"), 
+			PaletteElementBinding:(call=new TaskTypeGR::dropTaskTypeGRAtTopLevel(null,null), paletteElementId="http://www.openflexo.org/MULTIProcessChallenge/ProcessType/Palette.palette#TaskTypeGR"), 
+			PaletteElementBinding:(call=new EndGR::dropEndGRAtTopLevel(), paletteElementId="http://www.openflexo.org/MULTIProcessChallenge/ProcessType/Palette.palette#EndGR"), 
+			PaletteElementBinding:(call=new AndSplitGR::dropAndSplitGRAtTopLevel(), paletteElementId="http://www.openflexo.org/MULTIProcessChallenge/ProcessType/Palette.palette#AndSplitGR"), 
+			PaletteElementBinding:(call=new AndJoinGR::dropAndJoinGRAtTopLevel(), paletteElementId="http://www.openflexo.org/MULTIProcessChallenge/ProcessType/Palette.palette#AndJoinGR"), 
+			PaletteElementBinding:(call=new ArtifactTypeGR::dropArtifactTypeGRAtTopLevel(null,null), paletteElementId="http://www.openflexo.org/MULTIProcessChallenge/ProcessType/Palette.palette#ArtifactTypeGR"), 
+			PaletteElementBinding:(call=new ActorTypeGR::dropActorTypeGRAtTopLevel(null,null), paletteElementId="http://www.openflexo.org/MULTIProcessChallenge/ProcessType/Palette.palette#ActorTypeGR"), 
+			PaletteElementBinding:(call=new ActorGR::dropActorGRAtTopLevel(null), paletteElementId="http://www.openflexo.org/MULTIProcessChallenge/ProcessType/Palette.palette#ActorGR"),
+			PaletteElementBinding:(call=new ProcessTypeGR::dropProcessTypeGRAtTopLevel(null), paletteElementId="http://www.openflexo.org/MULTIProcessChallenge/ProcessType/Palette.palette#ProcessTypeGR")});
+
+	/**
+	 * Constructor for a ProcessTypeEditor given a process model, the diagram will be created
+	 */
 	create::init(required MetaModel processModel, required String diagramName) {
 		diagram = DIAGRAM::CreateDiagram(resourceName=parameters.diagramName,resourceCenter=this.resourceCenter,relativePath="/Diagrams");
 		processModel = parameters.processModel;
 	}
 
+	/**
+	 * Utility method: return representation of supplied processType
+	 */
 	ProcessTypeGR getProcessTypeGR(required ProcessType processType) {
 		return select unique ProcessTypeGR from this;
 	}
 
-	BeginGR getTaskTypeGR(required TaskType taskType) {
+	/**
+	 * Utility method: return representation of supplied taskType
+	 */
+	ShapeBasedGR getTaskTypeGR(required TaskType taskType) {
 		if (parameters.taskType.conceptType.name == "Begin") {
 			return this.getBeginGR(parameters.taskType);
 		}
@@ -58,6 +83,9 @@ model ProcessTypeEditor {
 		return select unique TaskTypeGR from this;
 	}
 
+	/**
+	 * Utility method: return representation of supplied taskType
+	 */
 	BeginGR getBeginGR(required TaskType taskType) {
 		return select unique BeginGR from this;
 	}
@@ -82,7 +110,15 @@ model ProcessTypeEditor {
 		return select unique ActorGR from this;
 	}
 
-	concept BeginGR {
+	public abstract concept ShapeBasedGR {
+		abstract DiagramShape shape;
+	}
+
+	public abstract concept ConnectorBasedGR {
+		abstract DiagramConnector connector;
+	}
+
+	concept BeginGR extends ShapeBasedGR {
 		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE,exampleLabel="Begin");
 		Begin beginEvent with ConceptInstance(virtualModelInstance=processModel);
 		BeginGR dropBeginNodeAtTopLevel() with DropScheme(targetType=ProcessTypeGR) {
@@ -97,7 +133,7 @@ model ProcessTypeEditor {
 		}
 	}
 
-	concept StartSequencingGR {
+	concept StartSequencingGR extends ConnectorBasedGR {
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR,exampleLabel="");
 		Sequencing sequencing with ConceptInstance(virtualModelInstance=processModel);
 		StartSequencingGR linkBeginGRToTaskTypeGR() with LinkScheme(fromType=BeginGR,toType=TaskTypeGR) {
@@ -113,7 +149,7 @@ model ProcessTypeEditor {
 		}
 	}
 
-	concept EndGR {
+	concept EndGR extends ShapeBasedGR {
 		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE5,exampleLabel="Shape");
 		DiagramShape insideShape with ShapeRole(metamodelElement=DIAGRAM_SHAPE6,exampleLabel="Shape");
 		End endEvent with ConceptInstance(virtualModelInstance=processModel);
@@ -131,7 +167,7 @@ model ProcessTypeEditor {
 		}
 	}
 
-	concept SequencingGR {
+	concept SequencingGR extends ConnectorBasedGR {
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR,exampleLabel="");
 		Sequencing sequencing with ConceptInstance(virtualModelInstance=processModel);
 		SequencingGR linkTaskTypeGRToTaskTypeGR() with LinkScheme(fromType=TaskTypeGR,toType=TaskTypeGR) {
@@ -143,7 +179,7 @@ model ProcessTypeEditor {
 		}
 	}
 
-	concept EndSequencingGR {
+	concept EndSequencingGR extends ConnectorBasedGR {
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR,exampleLabel="");
 		Sequencing sequencing with ConceptInstance(virtualModelInstance=processModel);
 		EndSequencingGR linkTaskTypeGRtoEndGR() with LinkScheme(fromType=TaskTypeGR,toType=EndGR) {
@@ -168,7 +204,7 @@ model ProcessTypeEditor {
 		}
 	}
 
-	concept InAndSplitGR {
+	concept InAndSplitGR extends ConnectorBasedGR {
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR2,exampleLabel="");
 		TaskType taskType with ConceptInstance(virtualModelInstance=container.processModel);
 		AndSplit andSplit with ConceptInstance(virtualModelInstance=container.processModel);
@@ -184,7 +220,7 @@ model ProcessTypeEditor {
 		}
 	}
 
-	concept OutAndSplitGR {
+	concept OutAndSplitGR extends ConnectorBasedGR {
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR2,exampleLabel="");
 		AndSplit andSplit with ConceptInstance(virtualModelInstance=container.processModel);
 		TaskType taskType with ConceptInstance(virtualModelInstance=container.processModel);
@@ -210,7 +246,7 @@ model ProcessTypeEditor {
 		}
 	}
 
-	concept OutAndJoinGR {
+	concept OutAndJoinGR extends ConnectorBasedGR {
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR2,exampleLabel="");
 		AndJoin andJoin with ConceptInstance(virtualModelInstance=container.processModel);
 		TaskType taskType with ConceptInstance(virtualModelInstance=container.processModel);
@@ -226,7 +262,7 @@ model ProcessTypeEditor {
 		}
 	}
 
-	concept InAndJoinGR {
+	concept InAndJoinGR extends ConnectorBasedGR {
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR2,exampleLabel="");
 		TaskType taskType with ConceptInstance(virtualModelInstance=container.processModel);
 		AndJoin andJoin with ConceptInstance(virtualModelInstance=container.processModel);
@@ -242,7 +278,7 @@ model ProcessTypeEditor {
 		}
 	}
 
-	concept ArtifactTypeGR {
+	concept ArtifactTypeGR extends ShapeBasedGR {
 		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE9,exampleLabel="ArtefactType",label=artifactType.name);
 		ArtifactType artifactType with ConceptInstance(virtualModelInstance=processModel);
 		@UI(
@@ -259,7 +295,7 @@ model ProcessTypeEditor {
 		}
 	}
 
-	concept UsedArtefactType {
+	concept UsedArtefactType extends ConnectorBasedGR {
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR3,exampleLabel="uses",label="uses");
 		TaskType taskType with ConceptInstance(virtualModelInstance=container.processModel);
 		ArtifactType artefactType with ConceptInstance(virtualModelInstance=container.processModel);
@@ -275,7 +311,7 @@ model ProcessTypeEditor {
 		}
 	}
 
-	concept ProducedArtefactType {
+	concept ProducedArtefactType extends ConnectorBasedGR {
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR4,exampleLabel="produces",label="produces");
 		TaskType taskType with ConceptInstance(virtualModelInstance=container.processModel);
 		ArtifactType artefactType with ConceptInstance(virtualModelInstance=container.processModel);
@@ -291,7 +327,7 @@ model ProcessTypeEditor {
 		}
 	}
 
-	concept ActorTypeGR {
+	concept ActorTypeGR extends ShapeBasedGR {
 		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE10,exampleLabel="ActorType",label=actorType.name);
 		ActorType actorType with ConceptInstance(virtualModelInstance=processModel);
 		@UI(
@@ -308,7 +344,7 @@ model ProcessTypeEditor {
 		}
 	}
 
-	concept ActorGR {
+	concept ActorGR extends ShapeBasedGR {
 		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE11,exampleLabel="Actor",label=actor.name);
 		Actor actor with ConceptInstance(virtualModelInstance=processModel);
 		@UI(
@@ -320,7 +356,7 @@ model ProcessTypeEditor {
 		}
 	}
 
-	concept HasActorTypeGR {
+	concept HasActorTypeGR extends ConnectorBasedGR {
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR5,exampleLabel="",label="");
 		Actor actor with ConceptInstance(virtualModelInstance=container.processModel);
 		ActorType actorType with ConceptInstance(virtualModelInstance=container.processModel);
@@ -336,7 +372,7 @@ model ProcessTypeEditor {
 		}
 	}
 
-	concept ParentActorTypeGR {
+	concept ParentActorTypeGR extends ConnectorBasedGR {
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR6,exampleLabel="");
 		ParentActorTypeGR linkActorTypeGRToActorTypeGR() with LinkScheme(fromType=ActorTypeGR,toType=ActorTypeGR) {
 			connector = DIAGRAM::AddConnector(fromShape=fromTarget.shape,toShape=toTarget.shape) in diagram;
@@ -344,7 +380,7 @@ model ProcessTypeEditor {
 		}
 	}
 
-	concept AllowedActorTypeGR {
+	concept AllowedActorTypeGR extends ConnectorBasedGR {
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR7,exampleLabel="");
 		TaskType taskType with ConceptInstance(virtualModelInstance=container.processModel);
 		ActorType actorType with ConceptInstance(virtualModelInstance=container.processModel);
@@ -364,7 +400,7 @@ model ProcessTypeEditor {
 		}
 	}
 
-	concept AllowedActorGR {
+	concept AllowedActorGR extends ConnectorBasedGR {
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR8,exampleLabel="");
 		AllowedActorGR linkActorGRToTaskTypeGR() with LinkScheme(fromType=ActorGR,toType=TaskTypeGR) {
 			connector = DIAGRAM::AddConnector(fromShape=fromTarget.shape,toShape=toTarget.shape) in diagram;
@@ -372,7 +408,7 @@ model ProcessTypeEditor {
 		}
 	}
 
-	concept TaskTypeGR {
+	concept TaskTypeGR extends ShapeBasedGR {
 		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE4,exampleLabel="TaskType",label=taskType.name);
 		TaskType taskType with ConceptInstance(virtualModelInstance=processModel);
 		@UI(
@@ -390,7 +426,7 @@ model ProcessTypeEditor {
 		}
 	}
 
-	concept ProcessTypeGR {
+	concept ProcessTypeGR extends ShapeBasedGR {
 		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE2,exampleLabel="");
 		DiagramShape header with ShapeRole(metamodelElement=DIAGRAM_SHAPE3,exampleLabel="Process",label=processType.name,containerElement=shape);
 		ProcessType processType with ConceptInstance(virtualModelInstance=processModel);
@@ -414,7 +450,4 @@ model ProcessTypeEditor {
 		}
 	}
 
-	public abstract concept ShapeBasedGR {
-		abstract DiagramShape shape;
-	}
 }
