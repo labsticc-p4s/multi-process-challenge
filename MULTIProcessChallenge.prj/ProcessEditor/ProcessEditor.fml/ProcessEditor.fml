@@ -235,11 +235,11 @@ model ProcessEditor {
 
 	concept SequencingGR {
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR,exampleLabel="");
-		ConceptInstance sequencing with ConceptInstance(virtualModelInstance=processModel);
+		Sequencing sequencing with ConceptInstance(virtualModelInstance=processModel);
 		create::representSequencing(required Sequencing sequencing, Process process) {
 			sequencing = parameters.sequencing;
-			Task startTask = process.type.getTask(sequencing.in,process);
-			Task endTask = process.type.getTask(sequencing.out,process);
+			Task startTask = process.type.getTask(sequencing.inTaskType,process);
+			Task endTask = process.type.getTask(sequencing.outTaskType,process);
 			BeginGR startTaskGR = container.getTaskGR(startTask);
 			BeginGR endTaskGR = container.getTaskGR(endTask);
 			log "Start=" + startTaskGR;
@@ -250,15 +250,15 @@ model ProcessEditor {
 
 	concept AndSplitConnectorsGR {
 		DiagramConnector inConnector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR,exampleLabel="");
-		ConceptInstance andSplit with ConceptInstance(virtualModelInstance=processModel);
+		AndSplit andSplit with ConceptInstance(virtualModelInstance=processModel);
 		DiagramConnector outConnector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR,exampleLabel="");
 		create::representAndSplit(required AndSplit andSplit, Process process) {
 			andSplit = parameters.andSplit;
-			Task startTask = process.type.getTask(andSplit.in,process);
+			Task startTask = process.type.getTask(andSplit.inTaskType,process);
 			BeginGR startTaskGR = container.getTaskGR(startTask);
 			GatewayGR gatewayGR = container.getGatewayGR(parameters.andSplit);
 			inConnector = DIAGRAM::AddConnector(fromShape=startTaskGR.shape,toShape=gatewayGR.shape) in diagram;
-			for (Object taskType : andSplit.out) {
+			for (TaskType taskType : andSplit.outTaskTypes) {
 				Task endTask = process.type.getTask(taskType,process);
 				BeginGR endTaskGR = container.getTaskGR(endTask);
 				outConnector = DIAGRAM::AddConnector(fromShape=gatewayGR.shape,toShape=endTaskGR.shape) in diagram;
@@ -268,15 +268,15 @@ model ProcessEditor {
 
 	concept AndJoinConnectorsGR {
 		DiagramConnector inConnector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR,exampleLabel="");
-		ConceptInstance andJoin with ConceptInstance(virtualModelInstance=processModel);
+		AndJoin andJoin with ConceptInstance(virtualModelInstance=processModel);
 		DiagramConnector outConnector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR,exampleLabel="");
 		create::representAndSplit(required AndJoin andJoin, Process process) {
 			andJoin = parameters.andJoin;
-			Task endTask = process.type.getTask(andJoin.out,process);
+			Task endTask = process.type.getTask(andJoin.outTaskType,process);
 			BeginGR endTaskGR = container.getTaskGR(endTask);
 			GatewayGR gatewayGR = container.getGatewayGR(parameters.andJoin);
 			outConnector = DIAGRAM::AddConnector(fromShape=gatewayGR.shape,toShape=endTaskGR.shape) in diagram;
-			for (Object taskType : andJoin.in) {
+			for (TaskType taskType : andJoin.inTaskTypes) {
 				Task startTask = process.type.getTask(taskType,process);
 				BeginGR startTaskGR = container.getTaskGR(startTask);
 				inConnector = DIAGRAM::AddConnector(fromShape=startTaskGR.shape,toShape=gatewayGR.shape) in diagram;
@@ -285,11 +285,10 @@ model ProcessEditor {
 	}
 
 	concept ActorGR {
+		
 		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE2,exampleLabel="Actor",label=actor.name);
-		ConceptInstance actor with ConceptInstance(virtualModelInstance=processModel);
-		@UI(
-			@TextField(value="name")
-		)
+		Actor actor with ConceptInstance(virtualModelInstance=processModel);
+
 		ActorGR dropActorGRAtTopLevel(required String name) with DropScheme(targetType=ProcessEditor) {
 			shape = DIAGRAM::AddShape(container=topLevel) in diagram;
 			actor = new Actor(parameters.name);
