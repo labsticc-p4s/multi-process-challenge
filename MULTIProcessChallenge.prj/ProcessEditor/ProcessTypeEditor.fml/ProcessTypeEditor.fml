@@ -84,16 +84,22 @@ model ProcessTypeEditor {
 	}
 
 	/**
-	 * Utility method: return representation of supplied taskType
+	 * Utility method: return representation of supplied beginEvent
 	 */
-	BeginGR getBeginGR(required TaskType taskType) {
+	BeginGR getBeginGR(required Begin beginEvent) {
 		return select unique BeginGR from this;
 	}
 
-	EndGR getEndGR(required TaskType taskType) {
+	/**
+	 * Utility method: return representation of supplied endEvent
+	 */
+	EndGR getEndGR(required End endEvent) {
 		return select unique EndGR from this;
 	}
 
+	/**
+	 * Utility method: return representation of supplied gateway
+	 */
 	ShapeBasedGR getGatewayGR(required Gateway gateway) {
 		if (parameters.gateway.conceptType.name == "AndSplit") {
 			return select unique AndSplitGR from this;
@@ -106,16 +112,50 @@ model ProcessTypeEditor {
 		return null;
 	}
 
+	/**
+	 * Utility method: return representation of supplied actor
+	 */
 	ActorGR getActorGR(required Actor actor) {
 		return select unique ActorGR from this;
 	}
 
+	/**
+	 * Abstract concept defining a shape-based representation
+	 */
 	public abstract concept ShapeBasedGR {
 		abstract DiagramShape shape;
 	}
 
+	/**
+	 * Abstract concept defining a connector-based representation
+	 */
 	public abstract concept ConnectorBasedGR {
 		abstract DiagramConnector connector;
+	}
+
+	/**
+	 * Representation of a ProcessType: federation of an instance of ProcessType and two shapes
+	 */
+	concept ProcessTypeGR extends ShapeBasedGR {
+		
+		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE2,exampleLabel="");
+		DiagramShape header with ShapeRole(metamodelElement=DIAGRAM_SHAPE3,exampleLabel="Process",label=processType.name,containerElement=shape);
+		ProcessType processType with ConceptInstance(virtualModelInstance=processModel);
+
+		ProcessTypeGR dropProcessTypeGRAtTopLevel(required String name) with DropScheme(targetType=ProcessTypeEditor) {
+			shape = DIAGRAM::AddShape(container=topLevel) in diagram;
+			header = DIAGRAM::AddShape(container=container) in diagram;
+			processType = new ProcessType(parameters.name);
+		}
+		
+		delete() {
+			delete shape;
+			delete header;
+		}
+
+		public void newProcess(required String processName) {
+			ProcessEditor newProcessEditor = new ProcessEditor(parameters.processName);
+		}
 	}
 
 	concept BeginGR extends ShapeBasedGR {
@@ -426,28 +466,5 @@ model ProcessTypeEditor {
 		}
 	}
 
-	concept ProcessTypeGR extends ShapeBasedGR {
-		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE2,exampleLabel="");
-		DiagramShape header with ShapeRole(metamodelElement=DIAGRAM_SHAPE3,exampleLabel="Process",label=processType.name,containerElement=shape);
-		ProcessType processType with ConceptInstance(virtualModelInstance=processModel);
-		@UI(
-			@TextField(value="name")
-		)
-		ProcessTypeGR dropProcessTypeGRAtTopLevel(required String name) with DropScheme(targetType=ProcessTypeEditor) {
-			shape = DIAGRAM::AddShape(container=topLevel) in diagram;
-			header = DIAGRAM::AddShape(container=container) in diagram;
-			processType = new ProcessType(parameters.name);
-		}
-		delete() {
-			delete shape;
-			delete header;
-		}
-		@UI(
-			@TextField(value="processName")
-		)
-		public void newProcess(required String processName) {
-			ProcessEditor newProcessEditor = new ProcessEditor(parameters.processName);
-		}
-	}
 
 }
