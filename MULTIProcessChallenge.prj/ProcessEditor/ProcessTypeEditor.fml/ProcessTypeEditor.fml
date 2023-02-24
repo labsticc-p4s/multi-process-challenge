@@ -159,6 +159,28 @@ model ProcessTypeEditor {
 	}
 
 	/**
+	 * Representation of a TaskType
+	 */
+	concept TaskTypeGR extends ShapeBasedGR {
+
+		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE4,exampleLabel="TaskType",label=taskType.name);
+		TaskType taskType with ConceptInstance(virtualModelInstance=processModel);
+
+		TaskTypeGR dropTaskTypeGRAtTopLevel(required String name, required TaskType taskType) with DropScheme(targetType=ProcessTypeGR) {
+			shape = DIAGRAM::AddShape(container=target.shape) in diagram;
+			taskType = target.processType.new TaskType(parameters.name);
+			taskType.name = parameters.name;
+			target.processType.addToTaskTypes(taskType);
+		}
+		
+		public delete() {
+			delete shape;
+			delete taskType;
+		}
+	}
+
+
+	/**
 	 * Representation of a BeginEvent
 	 */
 	concept BeginGR extends ShapeBasedGR {
@@ -278,41 +300,58 @@ model ProcessTypeEditor {
 		}
 	}
 
+	/**
+	 * Representation of a connexion between a TaskType and a AndSplit
+	 */
 	concept InAndSplitGR extends ConnectorBasedGR {
+		
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR2,exampleLabel="");
 		TaskType taskType with ConceptInstance(virtualModelInstance=container.processModel);
 		AndSplit andSplit with ConceptInstance(virtualModelInstance=container.processModel);
+		
 		InAndSplitGR linkTaskTypeGRToAndSplitGR() with LinkScheme(fromType=TaskTypeGR,toType=AndSplitGR) {
 			connector = DIAGRAM::AddConnector(fromShape=fromTarget.shape,toShape=toTarget.shape) in diagram;
 			taskType = fromTarget.taskType;
 			andSplit = toTarget.andSplit;
 			andSplit.inTaskType = taskType;
 		}
+		
 		public delete() {
 			delete connector;
 			andSplit.inTaskType = null;
 		}
 	}
 
+	/**
+	 * Representation of a connexion between a AndSplit and a TaskType
+	 */
 	concept OutAndSplitGR extends ConnectorBasedGR {
+		
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR2,exampleLabel="");
 		AndSplit andSplit with ConceptInstance(virtualModelInstance=container.processModel);
 		TaskType taskType with ConceptInstance(virtualModelInstance=container.processModel);
+		
 		OutAndSplitGR linkAndSplitGRToTaskTypeGR() with LinkScheme(fromType=AndSplitGR,toType=TaskTypeGR) {
 			connector = DIAGRAM::AddConnector(fromShape=fromTarget.shape,toShape=toTarget.shape) in diagram;
 			andSplit = fromTarget.andSplit;
 			taskType = toTarget.taskType;
 			andSplit.outTaskTypes.add(taskType);
 		}
+		
 		public delete() {
 			delete connector;
 			andSplit.outTaskTypes.remove(taskType);
 		}
 	}
 
+	/**
+	 * Representation of a AndJoin
+	 */
 	concept AndJoinGR extends ShapeBasedGR {
+		
 		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE7,exampleLabel="");
 		AndJoin andJoin with ConceptInstance(virtualModelInstance=processModel);
+		
 		AndJoinGR dropAndJoinGRAtTopLevel() with DropScheme(targetType=ProcessTypeGR) {
 			shape = DIAGRAM::AddShape(container=target.shape) in diagram;
 			andJoin = target.processType.new AndJoin();
@@ -320,144 +359,192 @@ model ProcessTypeEditor {
 		}
 	}
 
+	/**
+	 * Representation of a connexion between a AndJoin and a TaskType
+	 */
 	concept OutAndJoinGR extends ConnectorBasedGR {
+		
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR2,exampleLabel="");
 		AndJoin andJoin with ConceptInstance(virtualModelInstance=container.processModel);
 		TaskType taskType with ConceptInstance(virtualModelInstance=container.processModel);
+		
 		OutAndJoinGR linkAndJoinGRToTaskTypeGR() with LinkScheme(fromType=AndJoinGR,toType=TaskTypeGR) {
 			connector = DIAGRAM::AddConnector(fromShape=fromTarget.shape,toShape=toTarget.shape) in diagram;
 			andJoin = fromTarget.andJoin;
 			taskType = toTarget.taskType;
 			andJoin.outTaskType = taskType;
 		}
+		
 		public delete() {
 			delete connector;
 			andJoin.outTaskType = null;
 		}
 	}
 
+	/**
+	 * Representation of a connexion between a TaskType and a AndJoin
+	 */
 	concept InAndJoinGR extends ConnectorBasedGR {
+		
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR2,exampleLabel="");
 		TaskType taskType with ConceptInstance(virtualModelInstance=container.processModel);
 		AndJoin andJoin with ConceptInstance(virtualModelInstance=container.processModel);
+		
 		InAndJoinGR linkTaskTypeGRToAndJoinGR() with LinkScheme(fromType=TaskTypeGR,toType=AndJoinGR) {
 			connector = DIAGRAM::AddConnector(fromShape=fromTarget.shape,toShape=toTarget.shape) in diagram;
 			taskType = fromTarget.taskType;
 			andJoin = toTarget.andJoin;
 			andJoin.inTaskTypes.add(taskType);
 		}
+		
 		public delete() {
 			delete connector;
 			andJoin.inTaskTypes.remove(taskType);
 		}
 	}
 
+	/**
+	 * Representation of a ArtifactType
+	 */
 	concept ArtifactTypeGR extends ShapeBasedGR {
+		
 		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE9,exampleLabel="ArtefactType",label=artifactType.name);
 		ArtifactType artifactType with ConceptInstance(virtualModelInstance=processModel);
-		@UI(
-			@TextField(value="name")
-		)
+		
 		ArtifactTypeGR dropArtifactTypeGRAtTopLevel(required String name, required ArtifactType artefactType) with DropScheme(targetType=ProcessTypeEditor) {
 			shape = DIAGRAM::AddShape(container=topLevel) in diagram;
 			artifactType = new ArtifactType(parameters.name);
 			artifactType.name = parameters.name;
 		}
+		
 		public delete() {
 			delete shape;
 			delete artifactType;
 		}
 	}
 
+	/**
+	 * Representation of a ArtifactType used by a TaskType
+	 */
 	concept UsedArtefactType extends ConnectorBasedGR {
+		
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR3,exampleLabel="uses",label="uses");
 		TaskType taskType with ConceptInstance(virtualModelInstance=container.processModel);
 		ArtifactType artefactType with ConceptInstance(virtualModelInstance=container.processModel);
+		
 		UsedArtefactType linkArtifactTypeGRToTaskTypeGR() with LinkScheme(fromType=ArtifactTypeGR,toType=TaskTypeGR) {
 			connector = DIAGRAM::AddConnector(fromShape=fromTarget.shape,toShape=toTarget.shape) in diagram;
 			taskType = toTarget.taskType;
 			artefactType = fromTarget.artifactType;
 			taskType.usedArtifactTypes.add(artefactType);
 		}
+		
 		public delete() {
 			delete connector;
 			taskType.usedArtifactTypes.remove(artefactType);
 		}
 	}
 
+	/**
+	 * Representation of a ArtifactType produced by a TaskType
+	 */
 	concept ProducedArtefactType extends ConnectorBasedGR {
+		
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR4,exampleLabel="produces",label="produces");
 		TaskType taskType with ConceptInstance(virtualModelInstance=container.processModel);
 		ArtifactType artefactType with ConceptInstance(virtualModelInstance=container.processModel);
+		
 		ProducedArtefactType linkTaskTypeGRToArtifactTypeGR() with LinkScheme(fromType=TaskTypeGR,toType=ArtifactTypeGR) {
 			connector = DIAGRAM::AddConnector(fromShape=fromTarget.shape,toShape=toTarget.shape) in diagram;
 			taskType = fromTarget.taskType;
 			artefactType = toTarget.artifactType;
 			taskType.producedArtifactTypes.add(artefactType);
 		}
+		
 		public delete() {
 			delete connector;
 			taskType.producedArtifactTypes.remove(artefactType);
 		}
 	}
 
+	/**
+	 * Representation of a ActorType
+	 */
 	concept ActorTypeGR extends ShapeBasedGR {
+		
 		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE10,exampleLabel="ActorType",label=actorType.name);
 		ActorType actorType with ConceptInstance(virtualModelInstance=processModel);
-		@UI(
-			@TextField(value="name")
-		)
+
 		ActorTypeGR dropActorTypeGRAtTopLevel(required String name, required ActorType actorType) with DropScheme(targetType=ProcessTypeEditor) {
 			shape = DIAGRAM::AddShape(container=topLevel) in diagram;
 			actorType = new ActorType(parameters.name);
 			actorType.name = parameters.name;
 		}
+		
 		public delete() {
 			delete shape;
 			delete actorType;
 		}
 	}
 
+	/**
+	 * Representation of an Actor
+	 */
 	concept ActorGR extends ShapeBasedGR {
+		
 		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE11,exampleLabel="Actor",label=actor.name);
 		Actor actor with ConceptInstance(virtualModelInstance=processModel);
-		@UI(
-			@TextField(value="name")
-		)
+
 		ActorGR dropActorGRAtTopLevel(required String name) with DropScheme(targetType=ProcessTypeEditor) {
 			shape = DIAGRAM::AddShape(container=topLevel) in diagram;
 			actor = new Actor(parameters.name);
 		}
 	}
 
+	/**
+	 * Represents an Actor having an ActorType
+	 */
 	concept HasActorTypeGR extends ConnectorBasedGR {
+		
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR5,exampleLabel="",label="");
 		Actor actor with ConceptInstance(virtualModelInstance=container.processModel);
 		ActorType actorType with ConceptInstance(virtualModelInstance=container.processModel);
+		
 		HasActorTypeGR linkActorGRToActorTypeGR() with LinkScheme(fromType=ActorGR,toType=ActorTypeGR) {
 			connector = DIAGRAM::AddConnector(fromShape=fromTarget.shape,toShape=toTarget.shape) in diagram;
 			actor = fromTarget.actor;
 			actorType = toTarget.actorType;
 			actor.addActorType(actorType);
 		}
+		
 		public delete() {
 			delete connector;
 			actor.removeActorType(actorType);
 		}
 	}
 
+	/**
+	 * Represents an ActorType specialization
+	 */
 	concept ParentActorTypeGR extends ConnectorBasedGR {
+		
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR6,exampleLabel="");
+		
 		ParentActorTypeGR linkActorTypeGRToActorTypeGR() with LinkScheme(fromType=ActorTypeGR,toType=ActorTypeGR) {
 			connector = DIAGRAM::AddConnector(fromShape=fromTarget.shape,toShape=toTarget.shape) in diagram;
 			fromTarget.actorType.addParentActorType(toTarget.actorType);
 		}
 	}
 
+	/**
+	 * Represents a TaskType allowed for a given ActorType
+	 */
 	concept AllowedActorTypeGR extends ConnectorBasedGR {
+		
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR7,exampleLabel="");
 		TaskType taskType with ConceptInstance(virtualModelInstance=container.processModel);
 		ActorType actorType with ConceptInstance(virtualModelInstance=container.processModel);
+		
 		AllowedActorTypeGR linkActorTypeGRToTaskTypeGR() with LinkScheme(fromType=ActorTypeGR,toType=TaskTypeGR) {
 			taskType = toTarget.taskType;
 			actorType = fromTarget.actorType;
@@ -474,31 +561,17 @@ model ProcessTypeEditor {
 		}
 	}
 
+	/**
+	 * Represents a TaskType allowed for a given Actor
+	 */
 	concept AllowedActorGR extends ConnectorBasedGR {
+		
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR8,exampleLabel="");
+		
 		AllowedActorGR linkActorGRToTaskTypeGR() with LinkScheme(fromType=ActorGR,toType=TaskTypeGR) {
 			connector = DIAGRAM::AddConnector(fromShape=fromTarget.shape,toShape=toTarget.shape) in diagram;
 			toTarget.taskType.addAllowedActor(fromTarget.actor);
 		}
 	}
-
-	concept TaskTypeGR extends ShapeBasedGR {
-		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE4,exampleLabel="TaskType",label=taskType.name);
-		TaskType taskType with ConceptInstance(virtualModelInstance=processModel);
-		@UI(
-			@TextField(value="name")
-		)
-		TaskTypeGR dropTaskTypeGRAtTopLevel(required String name, required TaskType taskType) with DropScheme(targetType=ProcessTypeGR) {
-			shape = DIAGRAM::AddShape(container=target.shape) in diagram;
-			taskType = target.processType.new TaskType(parameters.name);
-			taskType.name = parameters.name;
-			target.processType.addToTaskTypes(taskType);
-		}
-		public delete() {
-			delete shape;
-			delete taskType;
-		}
-	}
-
 
 }
