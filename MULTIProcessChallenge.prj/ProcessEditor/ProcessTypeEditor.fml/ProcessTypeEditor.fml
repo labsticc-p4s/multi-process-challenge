@@ -8,9 +8,11 @@ import org.openflexo.technologyadapter.diagram.model.Diagram;
 import org.openflexo.technologyadapter.diagram.model.DiagramConnector;
 
 import [MULTIPROCESSCHALLENGE + "/MetaModel.fml"] as MetaModel;
+import [MULTIPROCESSCHALLENGE + "/ProcessEditor.fml"] as ProcessEditor;
+
+import [MULTIPROCESSCHALLENGE + "/ProcessType"] as PROCESS_TYPE_DIAGRAM_SPECIFICATION;
 import [MULTIPROCESSCHALLENGE + "/ProcessType/ExampleDiagram.diagram"] as EXAMPLE_DIAGRAM;
 import [EXAMPLE_DIAGRAM:"SYL-2"] as DIAGRAM_SHAPE;
-import [MULTIPROCESSCHALLENGE + "/ProcessType"] as PROCESS_TYPE;
 import [EXAMPLE_DIAGRAM:"SYL-29"] as DIAGRAM_SHAPE2;
 import [EXAMPLE_DIAGRAM:"SYL-30"] as DIAGRAM_SHAPE3;
 import [EXAMPLE_DIAGRAM:"SYL-3"] as DIAGRAM_SHAPE4;
@@ -42,7 +44,7 @@ model ProcessTypeEditor {
 	MetaModel processModel with ModelInstance(isRequired=true);
 	// The diagram representing the model
 	Diagram diagram with TypedDiagram(
-		diagramSpecification=PROCESS_TYPE,
+		diagramSpecification=PROCESS_TYPE_DIAGRAM_SPECIFICATION,
 		isRequired=true,
 		paletteElementBindings={
 			PaletteElementBinding:(call=new BeginGR::dropBeginNodeAtTopLevel(), paletteElementId="http://www.openflexo.org/MULTIProcessChallenge/ProcessType/Palette.palette#BeginNode"), 
@@ -153,8 +155,9 @@ model ProcessTypeEditor {
 			delete header;
 		}
 
-		public void newProcess(required String processName) {
-			ProcessEditor newProcessEditor = new ProcessEditor(parameters.processName);
+		public ProcessEditor newProcess(required String processName) {
+			ProcessEditor newProcessEditor = new ProcessEditor::init(processModel,processType,parameters.processName,container) with (virtualModelInstanceName=parameters.processName);
+			return newProcessEditor;
 		}
 	}
 
