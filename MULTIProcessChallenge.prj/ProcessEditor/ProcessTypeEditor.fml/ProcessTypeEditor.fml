@@ -85,7 +85,7 @@ model ProcessTypeEditor {
 	concept BeginGR {
 		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE,exampleLabel="Begin");
 		Begin beginEvent with ConceptInstance(virtualModelInstance=processModel);
-		BeginGR dropBeginNodeAtTopLevel() with DropScheme(targetType=null) {
+		BeginGR dropBeginNodeAtTopLevel() with DropScheme(targetType=ProcessTypeGR) {
 			shape = DIAGRAM::AddShape(container=target.shape) in diagram;
 			beginEvent = target.processType.new Begin();
 			target.processType.taskTypes.add(beginEvent);
@@ -100,7 +100,7 @@ model ProcessTypeEditor {
 	concept StartSequencingGR {
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR,exampleLabel="");
 		Sequencing sequencing with ConceptInstance(virtualModelInstance=processModel);
-		StartSequencingGR linkBeginGRToTaskTypeGR() with LinkScheme(fromType=BeginGR,toType=null) {
+		StartSequencingGR linkBeginGRToTaskTypeGR() with LinkScheme(fromType=BeginGR,toType=TaskTypeGR) {
 			connector = DIAGRAM::AddConnector(fromShape=fromTarget.shape,toShape=toTarget.shape) in diagram;
 			sequencing = new Sequencing();
 			fromTarget.beginEvent.container.addToGateways(sequencing);
@@ -134,7 +134,7 @@ model ProcessTypeEditor {
 	concept SequencingGR {
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR,exampleLabel="");
 		Sequencing sequencing with ConceptInstance(virtualModelInstance=processModel);
-		SequencingGR linkTaskTypeGRToTaskTypeGR() with LinkScheme(fromType=null,toType=null) {
+		SequencingGR linkTaskTypeGRToTaskTypeGR() with LinkScheme(fromType=TaskTypeGR,toType=TaskTypeGR) {
 			connector = DIAGRAM::AddConnector(fromShape=fromTarget.shape,toShape=toTarget.shape) in diagram;
 			sequencing = fromTarget.taskType.container.new Sequencing();
 			fromTarget.taskType.container.addToGateways(sequencing);
@@ -146,7 +146,7 @@ model ProcessTypeEditor {
 	concept EndSequencingGR {
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR,exampleLabel="");
 		Sequencing sequencing with ConceptInstance(virtualModelInstance=processModel);
-		EndSequencingGR linkTaskTypeGRtoEndGR() with LinkScheme(fromType=null,toType=EndGR) {
+		EndSequencingGR linkTaskTypeGRtoEndGR() with LinkScheme(fromType=TaskTypeGR,toType=EndGR) {
 			connector = DIAGRAM::AddConnector(fromShape=fromTarget.shape,toShape=toTarget.shape) in diagram;
 			sequencing = fromTarget.taskType.container.new Sequencing();
 			fromTarget.taskType.container.addToGateways(sequencing);
@@ -172,7 +172,7 @@ model ProcessTypeEditor {
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR2,exampleLabel="");
 		TaskType taskType with ConceptInstance(virtualModelInstance=container.processModel);
 		AndSplit andSplit with ConceptInstance(virtualModelInstance=container.processModel);
-		InAndSplitGR linkTaskTypeGRToAndSplitGR() with LinkScheme(fromType=null,toType=AndSplitGR) {
+		InAndSplitGR linkTaskTypeGRToAndSplitGR() with LinkScheme(fromType=TaskTypeGR,toType=AndSplitGR) {
 			connector = DIAGRAM::AddConnector(fromShape=fromTarget.shape,toShape=toTarget.shape) in diagram;
 			taskType = fromTarget.taskType;
 			andSplit = toTarget.andSplit;
@@ -188,15 +188,15 @@ model ProcessTypeEditor {
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR2,exampleLabel="");
 		AndSplit andSplit with ConceptInstance(virtualModelInstance=container.processModel);
 		TaskType taskType with ConceptInstance(virtualModelInstance=container.processModel);
-		OutAndSplitGR linkAndSplitGRToTaskTypeGR() with LinkScheme(fromType=AndSplitGR,toType=null) {
+		OutAndSplitGR linkAndSplitGRToTaskTypeGR() with LinkScheme(fromType=AndSplitGR,toType=TaskTypeGR) {
 			connector = DIAGRAM::AddConnector(fromShape=fromTarget.shape,toShape=toTarget.shape) in diagram;
 			andSplit = fromTarget.andSplit;
 			taskType = toTarget.taskType;
-			andSplit.out.add(taskType);
+			andSplit.outTaskTypes.add(taskType);
 		}
 		public delete() {
 			delete connector;
-			andSplit.out.remove(taskType);
+			andSplit.outTaskTypes.remove(taskType);
 		}
 	}
 
@@ -214,15 +214,15 @@ model ProcessTypeEditor {
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR2,exampleLabel="");
 		AndJoin andJoin with ConceptInstance(virtualModelInstance=container.processModel);
 		TaskType taskType with ConceptInstance(virtualModelInstance=container.processModel);
-		OutAndJoinGR linkAndJoinGRToTaskTypeGR() with LinkScheme(fromType=AndJoinGR,toType=null) {
+		OutAndJoinGR linkAndJoinGRToTaskTypeGR() with LinkScheme(fromType=AndJoinGR,toType=TaskTypeGR) {
 			connector = DIAGRAM::AddConnector(fromShape=fromTarget.shape,toShape=toTarget.shape) in diagram;
 			andJoin = fromTarget.andJoin;
 			taskType = toTarget.taskType;
-			andJoin.out = taskType;
+			andJoin.outTaskType = taskType;
 		}
 		public delete() {
 			delete connector;
-			andJoin.out = null;
+			andJoin.outTaskType = null;
 		}
 	}
 
@@ -230,7 +230,7 @@ model ProcessTypeEditor {
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR2,exampleLabel="");
 		TaskType taskType with ConceptInstance(virtualModelInstance=container.processModel);
 		AndJoin andJoin with ConceptInstance(virtualModelInstance=container.processModel);
-		InAndJoinGR linkTaskTypeGRToAndJoinGR() with LinkScheme(fromType=null,toType=AndJoinGR) {
+		InAndJoinGR linkTaskTypeGRToAndJoinGR() with LinkScheme(fromType=TaskTypeGR,toType=AndJoinGR) {
 			connector = DIAGRAM::AddConnector(fromShape=fromTarget.shape,toShape=toTarget.shape) in diagram;
 			taskType = fromTarget.taskType;
 			andJoin = toTarget.andJoin;
@@ -248,7 +248,7 @@ model ProcessTypeEditor {
 		@UI(
 			@TextField(value="name")
 		)
-		ArtifactTypeGR dropArtifactTypeGRAtTopLevel(required String name, required ArtifactType artefactType) with DropScheme() {
+		ArtifactTypeGR dropArtifactTypeGRAtTopLevel(required String name, required ArtifactType artefactType) with DropScheme(targetType=ProcessTypeEditor) {
 			shape = DIAGRAM::AddShape(container=topLevel) in diagram;
 			artifactType = new ArtifactType(parameters.name);
 			artifactType.name = parameters.name;
@@ -263,7 +263,7 @@ model ProcessTypeEditor {
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR3,exampleLabel="uses",label="uses");
 		TaskType taskType with ConceptInstance(virtualModelInstance=container.processModel);
 		ArtifactType artefactType with ConceptInstance(virtualModelInstance=container.processModel);
-		UsedArtefactType linkArtifactTypeGRToTaskTypeGR() with LinkScheme(fromType=ArtifactTypeGR,toType=null) {
+		UsedArtefactType linkArtifactTypeGRToTaskTypeGR() with LinkScheme(fromType=ArtifactTypeGR,toType=TaskTypeGR) {
 			connector = DIAGRAM::AddConnector(fromShape=fromTarget.shape,toShape=toTarget.shape) in diagram;
 			taskType = toTarget.taskType;
 			artefactType = fromTarget.artifactType;
@@ -279,7 +279,7 @@ model ProcessTypeEditor {
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR4,exampleLabel="produces",label="produces");
 		TaskType taskType with ConceptInstance(virtualModelInstance=container.processModel);
 		ArtifactType artefactType with ConceptInstance(virtualModelInstance=container.processModel);
-		ProducedArtefactType linkTaskTypeGRToArtifactTypeGR() with LinkScheme(fromType=null,toType=ArtifactTypeGR) {
+		ProducedArtefactType linkTaskTypeGRToArtifactTypeGR() with LinkScheme(fromType=TaskTypeGR,toType=ArtifactTypeGR) {
 			connector = DIAGRAM::AddConnector(fromShape=fromTarget.shape,toShape=toTarget.shape) in diagram;
 			taskType = fromTarget.taskType;
 			artefactType = toTarget.artifactType;
@@ -297,7 +297,7 @@ model ProcessTypeEditor {
 		@UI(
 			@TextField(value="name")
 		)
-		ActorTypeGR dropActorTypeGRAtTopLevel(required String name, required ActorType actorType) with DropScheme() {
+		ActorTypeGR dropActorTypeGRAtTopLevel(required String name, required ActorType actorType) with DropScheme(targetType=ProcessTypeEditor) {
 			shape = DIAGRAM::AddShape(container=topLevel) in diagram;
 			actorType = new ActorType(parameters.name);
 			actorType.name = parameters.name;
@@ -314,7 +314,7 @@ model ProcessTypeEditor {
 		@UI(
 			@TextField(value="name")
 		)
-		ActorGR dropActorGRAtTopLevel(required String name) with DropScheme() {
+		ActorGR dropActorGRAtTopLevel(required String name) with DropScheme(targetType=ProcessTypeEditor) {
 			shape = DIAGRAM::AddShape(container=topLevel) in diagram;
 			actor = new Actor(parameters.name);
 		}
@@ -348,7 +348,7 @@ model ProcessTypeEditor {
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR7,exampleLabel="");
 		TaskType taskType with ConceptInstance(virtualModelInstance=container.processModel);
 		ActorType actorType with ConceptInstance(virtualModelInstance=container.processModel);
-		AllowedActorTypeGR linkActorTypeGRToTaskTypeGR() with LinkScheme(fromType=ActorTypeGR,toType=null) {
+		AllowedActorTypeGR linkActorTypeGRToTaskTypeGR() with LinkScheme(fromType=ActorTypeGR,toType=TaskTypeGR) {
 			taskType = toTarget.taskType;
 			actorType = fromTarget.actorType;
 			if (taskType.addAllowedActorType(actorType)) {
@@ -366,7 +366,7 @@ model ProcessTypeEditor {
 
 	concept AllowedActorGR {
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR8,exampleLabel="");
-		AllowedActorGR linkActorGRToTaskTypeGR() with LinkScheme(fromType=ActorGR,toType=null) {
+		AllowedActorGR linkActorGRToTaskTypeGR() with LinkScheme(fromType=ActorGR,toType=TaskTypeGR) {
 			connector = DIAGRAM::AddConnector(fromShape=fromTarget.shape,toShape=toTarget.shape) in diagram;
 			toTarget.taskType.addAllowedActor(fromTarget.actor);
 		}
@@ -392,12 +392,12 @@ model ProcessTypeEditor {
 
 	concept ProcessTypeGR {
 		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE2,exampleLabel="");
-		DiagramShape header with ShapeRole(metamodelElement=DIAGRAM_SHAPE3,exampleLabel="Process",label=processType.name);
+		DiagramShape header with ShapeRole(metamodelElement=DIAGRAM_SHAPE3,exampleLabel="Process",label=processType.name,containerElement=shape);
 		ProcessType processType with ConceptInstance(virtualModelInstance=processModel);
 		@UI(
 			@TextField(value="name")
 		)
-		ProcessTypeGR dropProcessTypeGRAtTopLevel(required String name) with DropScheme() {
+		ProcessTypeGR dropProcessTypeGRAtTopLevel(required String name) with DropScheme(targetType=ProcessTypeEditor) {
 			shape = DIAGRAM::AddShape(container=topLevel) in diagram;
 			header = DIAGRAM::AddShape(container=container) in diagram;
 			processType = new ProcessType(parameters.name);
