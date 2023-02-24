@@ -30,7 +30,7 @@ import [EXAMPLE_DIAGRAM:"SYL-30"] as DIAGRAM_SHAPE13;
 import [EXAMPLE_DIAGRAM:"SYL-32"] as DIAGRAM_SHAPE14;
 import [EXAMPLE_DIAGRAM:"SYL-33"] as DIAGRAM_SHAPE15;
 import [EXAMPLE_DIAGRAM:"SYL-34"] as DIAGRAM_SHAPE16;
-@URI("http://www.openflexo.org/MULTIProcessChallenge/MULTIProcessChallenge.prj/ProcessEditor/ProcessEditor.fml")
+@URI("http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor.fml")
 @Version("0.1")
 model ProcessEditor {
 	
@@ -44,9 +44,6 @@ model ProcessEditor {
 		paletteElementBindings={
 			PaletteElementBinding:(call=new ActorGR::dropActorGRAtTopLevel(null), paletteElementId="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/Palette.palette#ActorGR")});
 
-	@UI(
-		@TextField(value="processName")
-	)
 	create::init(required MetaModel processModel, required ProcessType processType, required String processName, required ProcessTypeEditor processTypeEditor) {
 		diagram = DIAGRAM::CreateDiagram(resourceName=parameters.processType.name + "_" + parameters.processName,resourceCenter=this.resourceCenter,relativePath="/Diagrams");
 		processModel = parameters.processModel;
@@ -57,12 +54,12 @@ model ProcessEditor {
 		for (Task task : process.tasks) {
 			log "Task=" + task;
 			if (task.type.conceptType.name == "Begin") {
-				new BeginGR::representTask(task);
+				new BeginEventGR::representTask(task);
 				log "New begin";
 			}
 			else {
 				if (task.type.conceptType.name == "End") {
-					new EndGR::representTask(task);
+					new EndEventGR::representTask(task);
 					log "New end";
 				}
 				else {
@@ -84,7 +81,7 @@ model ProcessEditor {
 			new AndSplitConnectorsGR::representAndSplit(andSplit,process);
 		}
 		for (Actor actor : processModel.actorList) {
-			new ActorGR::representActor(actor);
+			new ActorInstanceGR::representActor(actor);
 		}
 		for (AndJoin andJoin : process.type.andJoinList) {
 			new AndJoinConnectorsGR::representAndSplit(andJoin,process);
@@ -152,7 +149,7 @@ model ProcessEditor {
 		}
 	}
 
-	concept BeginGR {
+	concept BeginEventGR {
 		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE4,exampleLabel="");
 		Task task with ConceptInstance(virtualModelInstance=processModel);
 		public delete() {
@@ -163,10 +160,10 @@ model ProcessEditor {
 			task = parameters.task;
 			shape = DIAGRAM::AddShape(container=container.getProcessGR(task.container).shape) in diagram;
 			BeginGR beginTypeGR = processTypeEditor.getBeginGR((Begin)parameters.task.type);
-			DIAGRAM::GraphicalAction() in diagram;
-			DIAGRAM::GraphicalAction() in diagram;
-			DIAGRAM::GraphicalAction() in diagram;
-			DIAGRAM::GraphicalAction() in diagram;
+			shape.graphicalRepresentation.x = beginTypeGR.shape.graphicalRepresentation.x;
+			shape.graphicalRepresentation.y = beginTypeGR.shape.graphicalRepresentation.y;
+			shape.graphicalRepresentation.width = beginTypeGR.shape.graphicalRepresentation.width;
+			shape.graphicalRepresentation.height = beginTypeGR.shape.graphicalRepresentation.height;
 		}
 	}
 
@@ -186,21 +183,20 @@ model ProcessEditor {
 			title = DIAGRAM::AddShape(container=container.getProcessGR(task.container).shape) in diagram;
 			performingActors = DIAGRAM::AddShape(container=container.getProcessGR(task.container).shape) in diagram;
 			status = DIAGRAM::AddShape(container=container.getProcessGR(task.container).shape) in diagram;
-			BeginGR taskTypeGR = processTypeEditor.getTaskTypeGR(parameters.task.type);
-			log "pour " + task + " taskTypeGR=" + taskTypeGR;
-			DIAGRAM::GraphicalAction() in diagram;
-			DIAGRAM::GraphicalAction() in diagram;
-			DIAGRAM::GraphicalAction() in diagram;
-			DIAGRAM::GraphicalAction() in diagram;
+			ShapeBasedGR taskTypeGR = processTypeEditor.getTaskTypeGR(parameters.task.type);
+			shape.graphicalRepresentation.x = taskTypeGR.shape.graphicalRepresentation.x;
+			shape.graphicalRepresentation.y = taskTypeGR.shape.graphicalRepresentation.y;
+			shape.graphicalRepresentation.width = taskTypeGR.shape.graphicalRepresentation.width;
+			shape.graphicalRepresentation.height = taskTypeGR.shape.graphicalRepresentation.height;
 		}
 		public void completeTask() {
 			task.finishTask();
 		}
 	}
 
-	concept EndGR {
+	concept EndEventGR {
 		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE9,exampleLabel="");
-		ConceptInstance task with ConceptInstance(virtualModelInstance=processModel);
+		Task task with ConceptInstance(virtualModelInstance=processModel);
 		public delete() {
 			delete shape;
 			delete task;
@@ -208,17 +204,17 @@ model ProcessEditor {
 		create::representTask(required Task task) {
 			task = parameters.task;
 			shape = DIAGRAM::AddShape(container=container.getProcessGR(task.container).shape) in diagram;
-			EndGR endTypeGR = processTypeEditor.getEndGR(parameters.task.type);
-			DIAGRAM::GraphicalAction() in diagram;
-			DIAGRAM::GraphicalAction() in diagram;
-			DIAGRAM::GraphicalAction() in diagram;
-			DIAGRAM::GraphicalAction() in diagram;
+			EndGR endTypeGR = processTypeEditor.getEndGR((End)parameters.task.type);
+			shape.graphicalRepresentation.x = endTypeGR.shape.graphicalRepresentation.x;
+			shape.graphicalRepresentation.y = endTypeGR.shape.graphicalRepresentation.y;
+			shape.graphicalRepresentation.width = endTypeGR.shape.graphicalRepresentation.width;
+			shape.graphicalRepresentation.height = endTypeGR.shape.graphicalRepresentation.height;
 		}
 	}
 
 	concept GatewayGR {
 		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE10,exampleLabel="");
-		ConceptInstance gateway with ConceptInstance(virtualModelInstance=processModel);
+		Gateway gateway with ConceptInstance(virtualModelInstance=processModel);
 		delete() {
 			delete shape;
 		}
@@ -226,10 +222,10 @@ model ProcessEditor {
 			gateway = parameters.gateway;
 			shape = DIAGRAM::AddShape(container=container.getProcessGR(parameters.process).shape) in diagram;
 			ShapeBasedGR gatewayGR = processTypeEditor.getGatewayGR(parameters.gateway);
-			DIAGRAM::GraphicalAction() in diagram;
-			DIAGRAM::GraphicalAction() in diagram;
-			DIAGRAM::GraphicalAction() in diagram;
-			DIAGRAM::GraphicalAction() in diagram;
+			shape.graphicalRepresentation.x = gatewayGR.shape.graphicalRepresentation.x;
+			shape.graphicalRepresentation.y = gatewayGR.shape.graphicalRepresentation.y;
+			shape.graphicalRepresentation.width = gatewayGR.shape.graphicalRepresentation.width;
+			shape.graphicalRepresentation.height = gatewayGR.shape.graphicalRepresentation.height;
 		}
 	}
 
@@ -284,12 +280,12 @@ model ProcessEditor {
 		}
 	}
 
-	concept ActorGR {
+	concept ActorInstanceGR {
 		
 		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE2,exampleLabel="Actor",label=actor.name);
 		Actor actor with ConceptInstance(virtualModelInstance=processModel);
 
-		ActorGR dropActorGRAtTopLevel(required String name) with DropScheme(targetType=ProcessEditor) {
+		ActorInstanceGR dropActorGRAtTopLevel(required String name) with DropScheme(targetType=ProcessEditor) {
 			shape = DIAGRAM::AddShape(container=topLevel) in diagram;
 			actor = new Actor(parameters.name);
 		}
@@ -297,10 +293,10 @@ model ProcessEditor {
 			actor = parameters.actor;
 			shape = DIAGRAM::AddShape(container=container.diagram) in diagram;
 			ActorGR actorInProcessTypeGR = processTypeEditor.getActorGR(parameters.actor);
-			DIAGRAM::GraphicalAction() in diagram;
-			DIAGRAM::GraphicalAction() in diagram;
-			DIAGRAM::GraphicalAction() in diagram;
-			DIAGRAM::GraphicalAction() in diagram;
+			shape.graphicalRepresentation.x = actorInProcessTypeGR.shape.graphicalRepresentation.x;
+			shape.graphicalRepresentation.y = actorInProcessTypeGR.shape.graphicalRepresentation.y;
+			shape.graphicalRepresentation.width = actorInProcessTypeGR.shape.graphicalRepresentation.width;
+			shape.graphicalRepresentation.height = actorInProcessTypeGR.shape.graphicalRepresentation.height;
 		}
 	}
 
