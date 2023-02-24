@@ -142,10 +142,10 @@ model ProcessEditor {
 			shape = DIAGRAM::AddShape(container=diagram) in diagram;
 			header = DIAGRAM::AddShape(container=diagram) in diagram;
 			ProcessTypeGR processTypeGR = processTypeEditor.getProcessTypeGR(parameters.processType);
-			DIAGRAM::GraphicalAction() in diagram;
-			DIAGRAM::GraphicalAction() in diagram;
-			DIAGRAM::GraphicalAction() in diagram;
-			DIAGRAM::GraphicalAction() in diagram;
+			shape.graphicalRepresentation.x = processTypeGR.shape.graphicalRepresentation.x;
+			shape.graphicalRepresentation.y = processTypeGR.shape.graphicalRepresentation.y;
+			shape.graphicalRepresentation.width = processTypeGR.shape.graphicalRepresentation.width;
+			shape.graphicalRepresentation.height = processTypeGR.shape.graphicalRepresentation.height;
 		}
 		public void start() {
 			process.startProcess();
@@ -162,7 +162,7 @@ model ProcessEditor {
 		create::representTask(required Task task) {
 			task = parameters.task;
 			shape = DIAGRAM::AddShape(container=container.getProcessGR(task.container).shape) in diagram;
-			BeginGR beginTypeGR = processTypeEditor.getBeginGR(parameters.task.type);
+			BeginGR beginTypeGR = processTypeEditor.getBeginGR((Begin)parameters.task.type);
 			DIAGRAM::GraphicalAction() in diagram;
 			DIAGRAM::GraphicalAction() in diagram;
 			DIAGRAM::GraphicalAction() in diagram;
