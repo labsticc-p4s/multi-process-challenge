@@ -158,24 +158,35 @@ model ProcessTypeEditor {
 		}
 	}
 
+	/**
+	 * Representation of a BeginEvent
+	 */
 	concept BeginGR extends ShapeBasedGR {
+		
 		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE,exampleLabel="Begin");
 		Begin beginEvent with ConceptInstance(virtualModelInstance=processModel);
+		
 		BeginGR dropBeginNodeAtTopLevel() with DropScheme(targetType=ProcessTypeGR) {
 			shape = DIAGRAM::AddShape(container=target.shape) in diagram;
 			beginEvent = target.processType.new Begin();
 			target.processType.taskTypes.add(beginEvent);
 			target.processType.setInitialTaskType(beginEvent);
 		}
+		
 		public delete() {
 			delete shape;
 			delete beginEvent;
 		}
 	}
 
+	/**
+	 * Representation of a Sequencing starting from a Begin event
+	 */
 	concept StartSequencingGR extends ConnectorBasedGR {
+		
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR,exampleLabel="");
 		Sequencing sequencing with ConceptInstance(virtualModelInstance=processModel);
+		
 		StartSequencingGR linkBeginGRToTaskTypeGR() with LinkScheme(fromType=BeginGR,toType=TaskTypeGR) {
 			connector = DIAGRAM::AddConnector(fromShape=fromTarget.shape,toShape=toTarget.shape) in diagram;
 			sequencing = new Sequencing();
@@ -183,16 +194,22 @@ model ProcessTypeEditor {
 			sequencing.inTaskType = fromTarget.beginEvent;
 			sequencing.outTaskType = toTarget.taskType;
 		}
+		
 		public delete() {
 			delete connector;
 			delete sequencing;
 		}
 	}
 
+	/**
+	 * Representation of a EndEvent
+	 */
 	concept EndGR extends ShapeBasedGR {
+		
 		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE5,exampleLabel="Shape");
 		DiagramShape insideShape with ShapeRole(metamodelElement=DIAGRAM_SHAPE6,exampleLabel="Shape");
 		End endEvent with ConceptInstance(virtualModelInstance=processModel);
+		
 		EndGR dropEndGRAtTopLevel() with DropScheme(targetType=ProcessTypeGR) {
 			shape = DIAGRAM::AddShape(container=target.shape) in diagram;
 			insideShape = DIAGRAM::AddShape(container=target.shape) in diagram;
@@ -200,6 +217,7 @@ model ProcessTypeEditor {
 			target.processType.addToTaskTypes(endEvent);
 			target.processType.addToFinalTaskTypes(endEvent);
 		}
+		
 		public delete() {
 			delete shape;
 			delete insideShape;
@@ -207,9 +225,14 @@ model ProcessTypeEditor {
 		}
 	}
 
+	/**
+	 * Representation of a Sequencing
+	 */
 	concept SequencingGR extends ConnectorBasedGR {
+		
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR,exampleLabel="");
 		Sequencing sequencing with ConceptInstance(virtualModelInstance=processModel);
+		
 		SequencingGR linkTaskTypeGRToTaskTypeGR() with LinkScheme(fromType=TaskTypeGR,toType=TaskTypeGR) {
 			connector = DIAGRAM::AddConnector(fromShape=fromTarget.shape,toShape=toTarget.shape) in diagram;
 			sequencing = fromTarget.taskType.container.new Sequencing();
@@ -219,9 +242,14 @@ model ProcessTypeEditor {
 		}
 	}
 
+	/**
+	 * Representation of a Sequencing ending on a End event
+	 */
 	concept EndSequencingGR extends ConnectorBasedGR {
+		
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR,exampleLabel="");
 		Sequencing sequencing with ConceptInstance(virtualModelInstance=processModel);
+		
 		EndSequencingGR linkTaskTypeGRtoEndGR() with LinkScheme(fromType=TaskTypeGR,toType=EndGR) {
 			connector = DIAGRAM::AddConnector(fromShape=fromTarget.shape,toShape=toTarget.shape) in diagram;
 			sequencing = fromTarget.taskType.container.new Sequencing();
@@ -231,14 +259,20 @@ model ProcessTypeEditor {
 		}
 	}
 
+	/**
+	 * Representation of a AndSplit
+	 */
 	concept AndSplitGR extends ShapeBasedGR {
+		
 		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE8,exampleLabel="");
 		AndSplit andSplit with ConceptInstance(virtualModelInstance=processModel);
+		
 		AndSplitGR dropAndSplitGRAtTopLevel() with DropScheme(targetType=ProcessTypeGR) {
 			shape = DIAGRAM::AddShape(container=target.shape) in diagram;
 			andSplit = target.processType.new AndSplit();
 			target.processType.addToGateways(andSplit);
 		}
+		
 		delete() {
 			delete shape;
 		}
