@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Diagram id="0" diagramSpecificationURI="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process" uri="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/ExampleDiagram.diagram" name="ExampleDiagram.diagram" userID="SYL" flexoID="1">
+<Diagram id="0" diagramSpecificationURI="http://www.openflexo.org/MULTIProcessChallenge/Process" uri="http://www.openflexo.org/MULTIProcessChallenge/Process/ExampleDiagram.diagram" name="ExampleDiagram.diagram" userID="SYL" flexoID="1">
   <Connector id="1" name="Connector5" userID="SYL" flexoID="5">
     <StartShape idref="2" />
     <EndShape idref="13" />
