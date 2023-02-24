@@ -39,7 +39,7 @@ model ProcessEditor {
 	ProcessTypeEditor processTypeEditor with ModelInstance(isRequired=true);
 	
 	Diagram diagram with TypedDiagram(
-		diagramSpecification=null,
+		diagramSpecification=DIAGRAM_SPECIFICATION,
 		isRequired=true,
 		paletteElementBindings={
 			PaletteElementBinding:(call=new ActorGR::dropActorGRAtTopLevel(null), paletteElementId="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/Palette.palette#ActorGR")});
@@ -47,21 +47,21 @@ model ProcessEditor {
 	@UI(
 		@TextField(value="processName")
 	)
-	create::init(required MetaModel _model, required ProcessType processType, required String processName, required ProcessTypeEditor processTypeEditor) {
+	create::init(required MetaModel processModel, required ProcessType processType, required String processName, required ProcessTypeEditor processTypeEditor) {
 		diagram = DIAGRAM::CreateDiagram(resourceName=parameters.processType.name + "_" + parameters.processName,resourceCenter=this.resourceCenter,relativePath="/Diagrams");
 		processModel = parameters.processModel;
 		processTypeEditor = parameters.processTypeEditor;
 		ProcessGR newProcessGR = new ProcessGR::instantiateProcess(parameters.processType,parameters.processName);
 		process = newProcessGR.process;
 		log "Les tasks= " + newProcessGR.process.tasks;
-		for (Object task : process.tasks) {
+		for (Task task : process.tasks) {
 			log "Task=" + task;
-			if (task.type.concept.name == "Begin") {
+			if (task.type.conceptType.name == "Begin") {
 				new BeginGR::representTask(task);
 				log "New begin";
 			}
 			else {
-				if (task.type.concept.name == "End") {
+				if (task.type.conceptType.name == "End") {
 					new EndGR::representTask(task);
 					log "New end";
 				}
@@ -71,26 +71,26 @@ model ProcessEditor {
 				}
 			}
 		}
-		for (Object gateway : process.type.gateways) {
-			if ((gateway.concept.name = "AndSplit") || (gateway.concept.name = "AndJoin")) {
+		for (Gateway gateway : process.type.gateways) {
+			if (gateway.conceptType.name == "AndSplit" || gateway.conceptType.name == "AndJoin") {
 				new GatewayGR::representGateway(gateway,process);
 			}
 		}
-		for (Object sequencing : process.type.sequencingList) {
+		for (Sequencing sequencing : process.type.sequencingList) {
 			log "On cherche a representer la sequence " + sequencing;
 			new SequencingGR::representSequencing(sequencing,process);
 		}
-		for (Object andSplit : process.type.andSplitList) {
+		for (AndSplit andSplit : process.type.andSplitList) {
 			new AndSplitConnectorsGR::representAndSplit(andSplit,process);
 		}
-		for (Object actor : model.actorList) {
-			new ActorGR(actor);
+		for (Actor actor : processModel.actorList) {
+			new ActorGR::representActor(actor);
 		}
-		for (Object andJoin : process.type.andJoinList) {
+		for (AndJoin andJoin : process.type.andJoinList) {
 			new AndJoinConnectorsGR::representAndSplit(andJoin,process);
 		}
-		for (Object task : process.tasks) {
-			for (Object actor : task.performingActors) {
+		for (Task task : process.tasks) {
+			for (Actor actor : task.performingActors) {
 				new ActorAssignationGR::representAssignation(actor,task);
 			}
 		}
@@ -104,10 +104,10 @@ model ProcessEditor {
 	}
 
 	BeginGR getTaskGR(required Task task) {
-		if (parameters.task.type.concept.name == "Begin") {
+		if (parameters.task.type.conceptType.name == "Begin") {
 			return this.getBeginGR(parameters.task);
 		}
-		if (parameters.task.type.concept.name == "End") {
+		if (parameters.task.type.conceptType.name == "End") {
 			return this.getEndGR(parameters.task);
 		}
 		return select unique TaskGR from this;
@@ -290,7 +290,7 @@ model ProcessEditor {
 		@UI(
 			@TextField(value="name")
 		)
-		ActorGR dropActorGRAtTopLevel(required String name) with DropScheme() {
+		ActorGR dropActorGRAtTopLevel(required String name) with DropScheme(targetType=ProcessEditor) {
 			shape = DIAGRAM::AddShape(container=topLevel) in diagram;
 			actor = new Actor(parameters.name);
 		}
