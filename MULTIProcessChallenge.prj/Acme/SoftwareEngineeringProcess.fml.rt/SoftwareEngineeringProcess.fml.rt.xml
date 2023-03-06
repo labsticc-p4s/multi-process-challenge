@@ -193,5 +193,5 @@
     <ModelObjectActorReference id="149" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_141" roleName="artefactType" userID="SYL" flexoID="249" />
   </FlexoConceptInstance>
   <TypeAwareModelSlotInstance id="150" modelURI="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/SoftwareEngineeringProcessDiagram.diagram" modelSlotName="diagram" roleName="diagram" userID="SYL" flexoID="2" />
-  <VirtualModelModelSlotInstance id="151" virtualModelInstanceURI="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt" modelSlotName="model" roleName="model" userID="SYL" flexoID="3" />
+  <VirtualModelModelSlotInstance id="151" virtualModelInstanceURI="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt" modelSlotName="processModel" roleName="processModel" userID="SYL" flexoID="3" />
 </FMLRTVirtualModelInstance>
