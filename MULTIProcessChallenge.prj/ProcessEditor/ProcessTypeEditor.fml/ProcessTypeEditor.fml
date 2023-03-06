@@ -2,6 +2,7 @@ namespace "http://www.openflexo.org/MULTIProcessChallenge" as MULTIPROCESSCHALLE
 
 use org.openflexo.technologyadapter.diagram.TypedDiagramModelSlot as DIAGRAM;
 use org.openflexo.foundation.fml.rt.FMLRTVirtualModelInstanceModelSlot as FMLRT;
+use org.openflexo.foundation.fml.ta.FMLModelSlot as FML;
 
 import org.openflexo.technologyadapter.diagram.model.DiagramShape;
 import org.openflexo.technologyadapter.diagram.model.Diagram;
@@ -169,9 +170,13 @@ model ProcessTypeEditor {
 		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE4,exampleLabel="TaskType",label=taskType.name);
 		TaskType taskType with ConceptInstance(virtualModelInstance=processModel);
 
-		TaskTypeGR dropTaskTypeGRAtTopLevel(required String name, required TaskType taskType) with DropScheme(targetType=ProcessTypeGR) {
+		TaskTypeGR dropTaskTypeGRAtTopLevel(required String name, required Concept<? extends TaskType> taskTypeConcept) with DropScheme(targetType=ProcessTypeGR) {
+			// log"dropTaskTypeGRAtTopLevel taskTypeConcept=" + parameters.taskTypeConcept;
 			shape = DIAGRAM::AddShape(container=target.shape) in diagram;
-			taskType = target.processType.new TaskType(parameters.name);
+			List<?> arguments = new ArrayList();
+			arguments.add(parameters.name);
+			taskType = FMLRT::NewInstance(conceptType=parameters.taskTypeConcept,container=target.processType,args=arguments);
+			// taskType = target.processType.new TaskType(parameters.name);
 			taskType.name = parameters.name;
 			target.processType.addToTaskTypes(taskType);
 		}
