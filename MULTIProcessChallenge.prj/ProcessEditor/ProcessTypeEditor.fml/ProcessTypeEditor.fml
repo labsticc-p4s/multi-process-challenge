@@ -157,7 +157,13 @@ model ProcessTypeEditor {
 		}
 
 		public ProcessEditor newProcess(required String processName) {
-			ProcessEditor newProcessEditor = new ProcessEditor::init(processModel,processType,parameters.processName,container) with (virtualModelInstanceName=parameters.processName);
+			log"Creating new process " + parameters.processName;
+			log "processModel=" + processModel;
+			log "processType=" + processType;
+			log "container=" + container;
+			ProcessEditor newProcessEditor = 
+				new ProcessEditor::init(processModel,processType,parameters.processName,container)
+				with (virtualModelInstanceName=parameters.processName,resourceCenter=this.resourceCenter);
 			return newProcessEditor;
 		}
 	}

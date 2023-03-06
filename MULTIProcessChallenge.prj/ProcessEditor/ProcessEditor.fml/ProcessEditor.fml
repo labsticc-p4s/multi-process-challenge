@@ -45,6 +45,7 @@ model ProcessEditor {
 			PaletteElementBinding:(call=new ActorGR::dropActorGRAtTopLevel(null), paletteElementId="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/Palette.palette#ActorGR")});
 
 	create::init(required MetaModel processModel, required ProcessType processType, required String processName, required ProcessTypeEditor processTypeEditor) {
+		log"Creating the process...";
 		diagram = DIAGRAM::CreateDiagram(resourceName=parameters.processType.name + "_" + parameters.processName,resourceCenter=this.resourceCenter,relativePath="/Diagrams");
 		processModel = parameters.processModel;
 		processTypeEditor = parameters.processTypeEditor;
