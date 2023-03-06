@@ -419,10 +419,11 @@ model ProcessTypeEditor {
 		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE9,exampleLabel="ArtefactType",label=artifactType.name);
 		ArtifactType artifactType with ConceptInstance(virtualModelInstance=processModel);
 		
-		ArtifactTypeGR dropArtifactTypeGRAtTopLevel(required String name, required ArtifactType artefactType) with DropScheme(targetType=ProcessTypeEditor) {
+		ArtifactTypeGR dropArtifactTypeGRAtTopLevel(required String name, required Concept<? extends ArtifactType> artefactTypeConcept) with DropScheme(targetType=ProcessTypeEditor) {
 			shape = DIAGRAM::AddShape(container=topLevel) in diagram;
-			artifactType = new ArtifactType(parameters.name);
-			artifactType.name = parameters.name;
+			List<?> arguments = new ArrayList();
+			arguments.add(parameters.name);
+			artifactType = FMLRT::NewInstance(conceptType=parameters.artefactTypeConcept,container=processModel,args=arguments);
 		}
 		
 		public delete() {
@@ -483,10 +484,11 @@ model ProcessTypeEditor {
 		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE10,exampleLabel="ActorType",label=actorType.name);
 		ActorType actorType with ConceptInstance(virtualModelInstance=processModel);
 
-		ActorTypeGR dropActorTypeGRAtTopLevel(required String name, required ActorType actorType) with DropScheme(targetType=ProcessTypeEditor) {
+		ActorTypeGR dropActorTypeGRAtTopLevel(required String name, required Concept<? extends ActorType> actorTypeConcept) with DropScheme(targetType=ProcessTypeEditor) {
 			shape = DIAGRAM::AddShape(container=topLevel) in diagram;
-			actorType = new ActorType(parameters.name);
-			actorType.name = parameters.name;
+			List<?> arguments = new ArrayList();
+			arguments.add(parameters.name);
+			actorType = FMLRT::NewInstance(conceptType=parameters.actorTypeConcept,container=processModel,args=arguments);
 		}
 		
 		public delete() {
