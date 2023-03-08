@@ -83,7 +83,7 @@ model ProcessTypeEditor {
 		if (parameters.taskType.conceptType.name == "End") {
 			return this.getEndGR(parameters.taskType);
 		}
-		return select unique TaskTypeGR from this;
+		return select unique TaskTypeGR from this where (selected.taskType == parameters.taskType);
 	}
 
 	/**
@@ -162,8 +162,7 @@ model ProcessTypeEditor {
 			log "processType=" + processType;
 			log "container=" + container;
 			ProcessEditor newProcessEditor = 
-				new ProcessEditor::init(processModel,processType,parameters.processName,container)
-				with (name=parameters.processName,rc=this.resourceCenter);
+				new ProcessEditor::init(processModel,processType,parameters.processName,container) with (name=parameters.processName,rc=this.resourceCenter);
 			return newProcessEditor;
 		}
 	}
