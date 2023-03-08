@@ -106,7 +106,7 @@ public model MetaModel {
 		 * Return from supplied Process the Task having supplied TaskType
 		 */
 		Task getTask(required TaskType taskType, Process process) {
-			return select unique Task from parameters.process where (selected.type==parameters.taskType);
+			return select unique Task from parameters.process where (selected.type == parameters.taskType);
 		}
 
 		/**
@@ -615,7 +615,7 @@ public model MetaModel {
 		}
 		
 		Task getTask(required TaskType taskType) {
-			return select unique Task from this where (selected.type==parameters.taskType);
+			return select unique Task from this where (selected.type == parameters.taskType);
 		}
 		
 		void completeProcess() {
@@ -881,7 +881,7 @@ public model MetaModel {
 	 * Return actor identified by supplied name
 	 */
 	Actor getActor(required String name) {
-		return select unique Actor from this where (selected.name==parameters.name);
+		return select unique Actor from this where (selected.name == parameters.name);
 	}
 
 
