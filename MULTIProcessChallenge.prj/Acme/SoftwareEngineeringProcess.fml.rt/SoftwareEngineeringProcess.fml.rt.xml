@@ -7,7 +7,7 @@
   </FlexoConceptInstance>
   <FlexoConceptInstance id="5" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#BeginGR" userID="SYL" flexoID="40">
     <ModelObjectActorReference id="6" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/SoftwareEngineeringProcessDiagram.diagram#SYL_4" roleName="shape" userID="SYL" flexoID="45" />
-    <ModelObjectActorReference id="7" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_45" roleName="begin" userID="SYL" flexoID="46" />
+    <ModelObjectActorReference id="7" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_45" roleName="beginEvent" userID="SYL" flexoID="46" />
   </FlexoConceptInstance>
   <FlexoConceptInstance id="8" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#TaskTypeGR" userID="SYL" flexoID="41">
     <ModelObjectActorReference id="9" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/SoftwareEngineeringProcessDiagram.diagram#SYL_5" roleName="shape" userID="SYL" flexoID="47" />
@@ -86,7 +86,7 @@
   <FlexoConceptInstance id="65" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#EndGR" userID="SYL" flexoID="97">
     <ModelObjectActorReference id="66" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/SoftwareEngineeringProcessDiagram.diagram#SYL_22" roleName="shape" userID="SYL" flexoID="102" />
     <ModelObjectActorReference id="67" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/SoftwareEngineeringProcessDiagram.diagram#SYL_23" roleName="inside" userID="SYL" flexoID="103" />
-    <ModelObjectActorReference id="68" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_104" roleName="end" userID="SYL" flexoID="104" />
+    <ModelObjectActorReference id="68" objectReference="http://www.openflexo.org/MULTIProcessChallenge/AcmeModel.fml.rt#SYL_104" roleName="endEvent" userID="SYL" flexoID="104" />
   </FlexoConceptInstance>
   <FlexoConceptInstance id="69" flexoConceptURI="http://www.openflexo.org/MULTIProcessChallenge/ProcessTypeEditor.fml#EndSequencingGR" userID="SYL" flexoID="98">
     <ModelObjectActorReference id="70" objectReference="http://www.openflexo.org/MULTIProcessChallenge/Diagrams/SoftwareEngineeringProcessDiagram.diagram#SYL_24" roleName="connector" userID="SYL" flexoID="105" />
