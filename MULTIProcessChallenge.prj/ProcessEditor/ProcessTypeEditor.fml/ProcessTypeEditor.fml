@@ -163,7 +163,7 @@ model ProcessTypeEditor {
 			log "container=" + container;
 			ProcessEditor newProcessEditor = 
 				new ProcessEditor::init(processModel,processType,parameters.processName,container)
-				with (virtualModelInstanceName=parameters.processName,resourceCenter=this.resourceCenter);
+				with (name=parameters.processName,rc=this.resourceCenter);
 			return newProcessEditor;
 		}
 	}
