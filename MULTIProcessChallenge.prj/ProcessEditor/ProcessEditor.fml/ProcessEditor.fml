@@ -98,34 +98,34 @@ model ProcessEditor {
 	}
 
 	ProcessGR getProcessGR(required Process process) {
-		return select unique ProcessGR from this;
+		return select unique ProcessGR from this where (selected.process == parameters.process);
 	}
 
-	BeginGR getTaskGR(required Task task) {
+	AbstractTaskGR getTaskGR(required Task task) {
 		if (parameters.task.type.conceptType.name == "Begin") {
 			return this.getBeginGR(parameters.task);
 		}
 		if (parameters.task.type.conceptType.name == "End") {
 			return this.getEndGR(parameters.task);
 		}
-		return select unique TaskGR from this;
+		return select unique TaskGR from this where (selected.task == parameters.task);
 	}
 
-	BeginGR getBeginGR(required Task task) {
-		return select unique BeginGR from this;
+	BeginEventGR getBeginGR(required Task task) {
+		return select unique BeginEventGR from this where (selected.task == parameters.task);
 	}
 
-	EndGR getEndGR(required Task task) {
-		return select unique EndGR from this;
+	EndEventGR getEndGR(required Task task) {
+		return select unique EndEventGR from this where (selected.task == parameters.task);
 	}
 
 	GatewayGR getGatewayGR(required Gateway gateway) {
-		return select unique GatewayGR from this;
+		return select unique GatewayGR from this where (selected.gateway == parameters.gateway);
 		return null;
 	}
 
 	ActorGR getActorGR(required Actor actor) {
-		return select unique ActorGR from this;
+		return select unique ActorGR from this where (selected.actor == parameters.actor);
 	}
 
 	concept ProcessGR {
@@ -150,7 +150,7 @@ model ProcessEditor {
 		}
 	}
 
-	concept BeginEventGR {
+	concept BeginEventGR extends AbstractTaskGR {
 		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE4,exampleLabel="");
 		Task task with ConceptInstance(virtualModelInstance=processModel);
 		public delete() {
@@ -168,7 +168,11 @@ model ProcessEditor {
 		}
 	}
 
-	concept TaskGR {
+	public abstract concept AbstractTaskGR {
+		abstract DiagramShape shape;
+	}
+
+	concept TaskGR extends AbstractTaskGR {
 		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE5,exampleLabel="");
 		Task task with ConceptInstance(virtualModelInstance=processModel);
 		DiagramShape title with ShapeRole(metamodelElement=DIAGRAM_SHAPE6,exampleLabel="Task",label=task.name);
@@ -196,7 +200,7 @@ model ProcessEditor {
 		}
 	}
 
-	concept EndEventGR {
+	concept EndEventGR extends AbstractTaskGR {
 		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE9,exampleLabel="");
 		Task task with ConceptInstance(virtualModelInstance=processModel);
 		public delete() {
@@ -238,8 +242,8 @@ model ProcessEditor {
 			sequencing = parameters.sequencing;
 			Task startTask = process.type.getTask(sequencing.inTaskType,process);
 			Task endTask = process.type.getTask(sequencing.outTaskType,process);
-			BeginGR startTaskGR = container.getTaskGR(startTask);
-			BeginGR endTaskGR = container.getTaskGR(endTask);
+			AbstractTaskGR startTaskGR = container.getTaskGR(startTask);
+			AbstractTaskGR endTaskGR = container.getTaskGR(endTask);
 			log "Start=" + startTaskGR;
 			log "End=" + endTaskGR;
 			connector = DIAGRAM::AddConnector(fromShape=startTaskGR.shape,toShape=endTaskGR.shape) in diagram;
@@ -253,12 +257,12 @@ model ProcessEditor {
 		create::representAndSplit(required AndSplit andSplit, Process process) {
 			andSplit = parameters.andSplit;
 			Task startTask = process.type.getTask(andSplit.inTaskType,process);
-			BeginGR startTaskGR = container.getTaskGR(startTask);
+			AbstractTaskGR startTaskGR = container.getTaskGR(startTask);
 			GatewayGR gatewayGR = container.getGatewayGR(parameters.andSplit);
 			inConnector = DIAGRAM::AddConnector(fromShape=startTaskGR.shape,toShape=gatewayGR.shape) in diagram;
 			for (TaskType taskType : andSplit.outTaskTypes) {
 				Task endTask = process.type.getTask(taskType,process);
-				BeginGR endTaskGR = container.getTaskGR(endTask);
+				AbstractTaskGR endTaskGR = container.getTaskGR(endTask);
 				outConnector = DIAGRAM::AddConnector(fromShape=gatewayGR.shape,toShape=endTaskGR.shape) in diagram;
 			}
 		}
@@ -271,12 +275,12 @@ model ProcessEditor {
 		create::representAndSplit(required AndJoin andJoin, Process process) {
 			andJoin = parameters.andJoin;
 			Task endTask = process.type.getTask(andJoin.outTaskType,process);
-			BeginGR endTaskGR = container.getTaskGR(endTask);
+			AbstractTaskGR endTaskGR = container.getTaskGR(endTask);
 			GatewayGR gatewayGR = container.getGatewayGR(parameters.andJoin);
 			outConnector = DIAGRAM::AddConnector(fromShape=gatewayGR.shape,toShape=endTaskGR.shape) in diagram;
 			for (TaskType taskType : andJoin.inTaskTypes) {
 				Task startTask = process.type.getTask(taskType,process);
-				BeginGR startTaskGR = container.getTaskGR(startTask);
+				AbstractTaskGR startTaskGR = container.getTaskGR(startTask);
 				inConnector = DIAGRAM::AddConnector(fromShape=startTaskGR.shape,toShape=gatewayGR.shape) in diagram;
 			}
 		}
@@ -310,7 +314,7 @@ model ProcessEditor {
 		}
 		create::representAssignation(required Actor actor, required Task task) {
 			ActorGR actorGR = container.getActorGR(parameters.actor);
-			BeginGR taskGR = container.getTaskGR(parameters.task);
+			AbstractTaskGR taskGR = container.getTaskGR(parameters.task);
 			connector = DIAGRAM::AddConnector(fromShape=actorGR.shape,toShape=taskGR.shape) in diagram;
 		}
 	}

@@ -90,14 +90,14 @@ model ProcessTypeEditor {
 	 * Utility method: return representation of supplied beginEvent
 	 */
 	BeginGR getBeginGR(required Begin beginEvent) {
-		return select unique BeginGR from this;
+		return select unique BeginGR from this where (selected.beginEvent == parameters.beginEvent);
 	}
 
 	/**
 	 * Utility method: return representation of supplied endEvent
 	 */
 	EndGR getEndGR(required End endEvent) {
-		return select unique EndGR from this;
+		return select unique EndGR from this where (selected.endEvent == parameters.endEvent);
 	}
 
 	/**
@@ -105,11 +105,11 @@ model ProcessTypeEditor {
 	 */
 	ShapeBasedGR getGatewayGR(required Gateway gateway) {
 		if (parameters.gateway.conceptType.name == "AndSplit") {
-			return select unique AndSplitGR from this;
+			return select unique AndSplitGR from this where (selected.andSplit == parameters.gateway);
 		}
 		else {
 			if (parameters.gateway.conceptType.name == "AndJoin") {
-				return select unique AndJoinGR from this;
+				return select unique AndJoinGR from this where (selected.andJoin == parameters.gateway);
 			}
 		}
 		return null;
@@ -119,7 +119,7 @@ model ProcessTypeEditor {
 	 * Utility method: return representation of supplied actor
 	 */
 	ActorGR getActorGR(required Actor actor) {
-		return select unique ActorGR from this;
+		return select unique ActorGR from this where (selected.actor == parameters.actor);
 	}
 
 	/**
