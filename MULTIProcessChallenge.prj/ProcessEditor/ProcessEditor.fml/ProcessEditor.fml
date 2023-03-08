@@ -138,7 +138,7 @@ model ProcessEditor {
 		create::instantiateProcess(required ProcessType processType, required String processName) {
 			process = new Process(parameters.processName,parameters.processType);
 			shape = DIAGRAM::AddShape(container=diagram) in diagram;
-			header = DIAGRAM::AddShape(container=diagram) in diagram;
+			header = DIAGRAM::AddShape(container=shape) in diagram;
 			ProcessTypeGR processTypeGR = processTypeEditor.getProcessTypeGR(parameters.processType);
 			shape.graphicalRepresentation.x = processTypeGR.shape.graphicalRepresentation.x;
 			shape.graphicalRepresentation.y = processTypeGR.shape.graphicalRepresentation.y;
@@ -181,10 +181,11 @@ model ProcessEditor {
 		create::representTask(required Task task) {
 			task = parameters.task;
 			shape = DIAGRAM::AddShape(container=container.getProcessGR(task.container).shape) in diagram;
-			title = DIAGRAM::AddShape(container=container.getProcessGR(task.container).shape) in diagram;
-			performingActors = DIAGRAM::AddShape(container=container.getProcessGR(task.container).shape) in diagram;
-			status = DIAGRAM::AddShape(container=container.getProcessGR(task.container).shape) in diagram;
+			title = DIAGRAM::AddShape(container=shape) in diagram;
+			performingActors = DIAGRAM::AddShape(container=shape) in diagram;
+			status = DIAGRAM::AddShape(container=shape) in diagram;
 			ShapeBasedGR taskTypeGR = processTypeEditor.getTaskTypeGR(parameters.task.type);
+			log "Pour la Task " + task + " x=" + taskTypeGR.shape.graphicalRepresentation.x + " y=" + taskTypeGR.shape.graphicalRepresentation.y + " width=" + taskTypeGR.shape.graphicalRepresentation.width + " height=" + taskTypeGR.shape.graphicalRepresentation.height;
 			shape.graphicalRepresentation.x = taskTypeGR.shape.graphicalRepresentation.x;
 			shape.graphicalRepresentation.y = taskTypeGR.shape.graphicalRepresentation.y;
 			shape.graphicalRepresentation.width = taskTypeGR.shape.graphicalRepresentation.width;
