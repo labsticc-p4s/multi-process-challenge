@@ -42,7 +42,7 @@ model ProcessEditor {
 		diagramSpecification=DIAGRAM_SPECIFICATION,
 		isRequired=true,
 		paletteElementBindings={
-			PaletteElementBinding:(call=new ActorGR::dropActorGRAtTopLevel(null), paletteElementId="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/Palette.palette#ActorGR")});
+			PaletteElementBinding:(call=new ActorInstanceGR::dropActorGRAtTopLevel(null), paletteElementId="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/Palette.palette#ActorGR")});
 
 	create::init(required MetaModel processModel, required ProcessType processType, required String processName, required ProcessTypeEditor processTypeEditor) {
 		log"Creating the process...";
@@ -124,8 +124,8 @@ model ProcessEditor {
 		return null;
 	}
 
-	ActorGR getActorGR(required Actor actor) {
-		return select unique ActorGR from this where (selected.actor == parameters.actor);
+	ActorInstanceGR getActorGR(required Actor actor) {
+		return select unique ActorInstanceGR from this where (selected.actor == parameters.actor);
 	}
 
 	concept ProcessGR {
@@ -308,12 +308,12 @@ model ProcessEditor {
 
 	concept ActorAssignationGR {
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR2,exampleLabel="Connector28");
-		ActorAssignationGR linkActorGRToTaskGR() with LinkScheme(fromType=ActorGR,toType=TaskGR) {
+		ActorAssignationGR linkActorGRToTaskGR() with LinkScheme(fromType=ActorInstanceGR,toType=TaskGR) {
 			connector = DIAGRAM::AddConnector(fromShape=fromTarget.shape,toShape=toTarget.shape) in diagram;
 			toTarget.task.addToPerformingActor(fromTarget.actor);
 		}
 		create::representAssignation(required Actor actor, required Task task) {
-			ActorGR actorGR = container.getActorGR(parameters.actor);
+			ActorInstanceGR actorGR = container.getActorGR(parameters.actor);
 			AbstractTaskGR taskGR = container.getTaskGR(parameters.task);
 			connector = DIAGRAM::AddConnector(fromShape=actorGR.shape,toShape=taskGR.shape) in diagram;
 		}
