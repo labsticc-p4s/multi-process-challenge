@@ -26,7 +26,8 @@ public model AcmeMetaModel extends MetaModel {
 			Coding returned = parameters.process.new Coding(parameters.name,this);
 			log "prout: " + language.conceptType.name;
 			if (language.conceptType.name == "COBOL") {
-				returned.addToPerformingActor(container.getActor("Ann Smith"));
+				Actor annSmith = container.getActor("Ann Smith");
+				returned.addToPerformingActor(annSmith);
 			}
 			return returned;
 		}
