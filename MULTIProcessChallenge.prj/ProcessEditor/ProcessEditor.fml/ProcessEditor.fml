@@ -136,7 +136,7 @@ model ProcessEditor {
 			@TextField(value="processName")
 		)
 		create::instantiateProcess(required ProcessType processType, required String processName) {
-			process = new Process(parameters.processName,parameters.processType);
+			process = /*processModel.*/new Process(parameters.processName,parameters.processType);
 			shape = DIAGRAM::AddShape(container=diagram) in diagram;
 			header = DIAGRAM::AddShape(container=shape) in diagram;
 			ProcessTypeGR processTypeGR = processTypeEditor.getProcessTypeGR(parameters.processType);
@@ -313,9 +313,9 @@ model ProcessEditor {
 			toTarget.task.addToPerformingActor(fromTarget.actor);
 		}
 		create::representAssignation(required Actor actor, required Task task) {
-			ActorInstanceGR actorGR = container.getActorGR(parameters.actor);
+			ActorInstanceGR actorInstanceGR = container.getActorGR(parameters.actor);
 			AbstractTaskGR taskGR = container.getTaskGR(parameters.task);
-			connector = DIAGRAM::AddConnector(fromShape=actorGR.shape,toShape=taskGR.shape) in diagram;
+			connector = DIAGRAM::AddConnector(fromShape=actorInstanceGR.shape,toShape=taskGR.shape) in diagram;
 		}
 	}
 }
