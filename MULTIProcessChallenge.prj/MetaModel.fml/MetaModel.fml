@@ -756,6 +756,7 @@ public model MetaModel {
 				isActive = false;
 				completed = true;
 				endDate = new Date();
+				notify "statusLabel";
 				container.executeGateways();
 				log "Finish abstract task " + this;
 			}
