@@ -704,6 +704,7 @@ public model MetaModel {
 					performingActors.add(parameters.actor);
 					notify "performingActorsLabel";
 					notify "statusLabel";
+					notify "isStartable()";
 				}
 				else {
 					log "This actor is NOT AUTHORIZED";
