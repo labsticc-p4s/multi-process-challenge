@@ -1,5 +1,7 @@
+DefaultDeletionScheme=DefaultDeletionScheme
 completeTask=CompleteTask
 dropActorGRAtTopLevel=DropActorGRAtTopLevel
+invalid_parameter=Invalid parameter
 linkActorGRToTaskGR=LinkActorGRToTaskGR
 start=Start
 startTask=StartTask
