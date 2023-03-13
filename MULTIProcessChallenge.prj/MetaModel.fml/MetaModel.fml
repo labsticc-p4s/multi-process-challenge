@@ -43,11 +43,12 @@ public model MetaModel {
 	/**
 	 * Represents a process definition, as a collection of TaskTypes linked using gateways
 	 */
+	/* MLM Challenge P1,P2 */
 	public concept ProcessType extends Type {
 		TaskType[0,*] taskTypes with ConceptInstance(virtualModelInstance=container);
 		Gateway[0,*] gateways with ConceptInstance(virtualModelInstance=container);
-		Begin initialTaskType with ConceptInstance(virtualModelInstance=container);
-		End[0,*] finalTaskTypes with ConceptInstance(virtualModelInstance=container);
+		Begin initialTaskType with ConceptInstance(virtualModelInstance=container); /* MLM Challenge P3 */
+		End[0,*] finalTaskTypes with ConceptInstance(virtualModelInstance=container); /* MLM Challenge P3 */
 
 		List<Sequencing> sequencingList  {
 			List<Sequencing> get() {
@@ -130,13 +131,13 @@ public model MetaModel {
 		 */
 		public concept TaskType extends Type {
 			
-			Actor creator with ConceptInstance();
-			ActorType[0,*] allowedActorTypes with ConceptInstance(virtualModelInstance=container.container);
-			Actor[0,*] allowedActors with ConceptInstance(virtualModelInstance=container.container);
-			ArtifactType[0,*] usedArtifactTypes with ConceptInstance(virtualModelInstance=container.container);
-			ArtifactType[0,*] producedArtifactTypes with ConceptInstance(virtualModelInstance=container.container);
-			int expectedDuration;
-			boolean isCritical;
+			Actor creator with ConceptInstance(); /* MLM Challenge P4 */
+			ActorType[0,*] allowedActorTypes with ConceptInstance(virtualModelInstance=container.container); /* MLM Challenge P5 */
+			Actor[0,*] allowedActors with ConceptInstance(virtualModelInstance=container.container); /* MLM Challenge P6 */
+			ArtifactType[0,*] usedArtifactTypes with ConceptInstance(virtualModelInstance=container.container); /* MLM Challenge P7 */
+			ArtifactType[0,*] producedArtifactTypes with ConceptInstance(virtualModelInstance=container.container); /* MLM Challenge P7 */
+			int expectedDuration; /* MLM Challenge P8 */
+			boolean isCritical; /* MLM Challenge P9 */
 			
 			create(String name) {
 				super(parameters.name);
@@ -246,6 +247,7 @@ public model MetaModel {
 		 *  Represents a gateway in a process definition (ProcessType)
 		 *  This concept is abstract
 		 */
+		/* MLM Challenge P2 */
 		public abstract concept Gateway extends Type {
 			
 			create(String name) {
