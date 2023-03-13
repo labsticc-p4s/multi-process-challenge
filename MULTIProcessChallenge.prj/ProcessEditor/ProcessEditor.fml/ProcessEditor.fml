@@ -42,7 +42,7 @@ model ProcessEditor {
 		diagramSpecification=DIAGRAM_SPECIFICATION,
 		isRequired=true,
 		paletteElementBindings={
-			PaletteElementBinding:(call=new ActorInstanceGR::dropActorGRAtTopLevel(null), paletteElementId="http://www.openflexo.org/MULTIProcessChallenge/ProcessEditor/Process/Palette.palette#ActorGR")});
+			PaletteElementBinding:(call=new ActorInstanceGR::dropActorGRAtTopLevel(null), paletteElementId="http://www.openflexo.org/MULTIProcessChallenge/Process/Palette.palette#ActorGR")});
 
 	create::init(required MetaModel processModel, required ProcessType processType, required String processName, required ProcessTypeEditor processTypeEditor) {
 		log"Creating the process...";
@@ -136,7 +136,9 @@ model ProcessEditor {
 			@TextField(value="processName")
 		)
 		create::instantiateProcess(required ProcessType processType, required String processName) {
-			process = /*processModel.*/new Process(parameters.processName,parameters.processType);
+			log "instantiateProcess " + parameters.processType;
+			log "processModel=" + processModel;
+			process = processModel.new Process(parameters.processName,parameters.processType);
 			shape = DIAGRAM::AddShape(container=diagram) in diagram;
 			header = DIAGRAM::AddShape(container=shape) in diagram;
 			ProcessTypeGR processTypeGR = processTypeEditor.getProcessTypeGR(parameters.processType);
@@ -310,8 +312,13 @@ model ProcessEditor {
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR2,exampleLabel="Connector28");
 		ActorAssignationGR linkActorGRToTaskGR() with LinkScheme(fromType=ActorInstanceGR,toType=TaskGR) {
 			log "Assigning " + fromTarget.actor + " to " + toTarget.task;
-			connector = DIAGRAM::AddConnector(fromShape=fromTarget.shape,toShape=toTarget.shape) in diagram;
-			toTarget.task.addToPerformingActors(fromTarget.actor);
+			if (toTarget.task.isAuthorizedActor(fromTarget.actor)) {
+				connector = DIAGRAM::AddConnector(fromShape=fromTarget.shape,toShape=toTarget.shape) in diagram;
+				toTarget.task.addToPerformingActors(fromTarget.actor);
+			}
+			else {
+				log "This actor is not authorized";
+			}
 		}
 		create::representAssignation(required Actor actor, required Task task) {
 			ActorInstanceGR actorInstanceGR = container.getActorGR(parameters.actor);
