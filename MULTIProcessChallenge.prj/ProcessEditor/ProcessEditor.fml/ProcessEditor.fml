@@ -306,6 +306,11 @@ model ProcessEditor {
 			shape.graphicalRepresentation.width = actorInProcessTypeGR.shape.graphicalRepresentation.width;
 			shape.graphicalRepresentation.height = actorInProcessTypeGR.shape.graphicalRepresentation.height;
 		}
+
+		public ActorType addActorType(required ActorType actorType) {
+			actor.addActorType(parameters.actorType);
+			return parameters.actorType;
+		}
 	}
 
 	concept ActorAssignationGR {
