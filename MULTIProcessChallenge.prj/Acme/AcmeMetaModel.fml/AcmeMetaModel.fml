@@ -22,18 +22,22 @@ public model AcmeMetaModel extends MetaModel {
 		delete() {
 		}
 
+		/* MLM Challenge S3, S7 */
 		Coding newTask(required String name, required Process process) {
 			Coding returned = parameters.process.new Coding(parameters.name,this);
-			log "prout: " + language.conceptType.name;
 			if (language.conceptType.name == "COBOL") {
 				Actor annSmith = container.getActor("Ann Smith");
 				returned.addToPerformingActors(annSmith);
 			}
 			return returned;
 		}
+		
+		/* MLM Challenge S3 */
 		boolean isValidActorType(required ActorType actorType) {
 			return parameters.actorType.conceptType.name == "Developer";
 		}
+		
+		/* MLM Challenge S3 */
 		boolean isValidProducedArtifactType(required ArtifactType artifactType) {
 			return parameters.artifactType.conceptType.name == "CodeArtifactType";
 		}
@@ -98,9 +102,9 @@ public model AcmeMetaModel extends MetaModel {
 	}
 
 	public concept SoftwareEngineeringArtifact extends Artifact {
-		
-		Actor responsible with ConceptInstance(virtualModelInstance=super.container);
-		int versionNumber;
+
+		Actor responsible with ConceptInstance(virtualModelInstance=super.container); /* MLM Challenge S10 */
+		int versionNumber; /* MLM Challenge S10 */
 
 		create(String name) {
 			super(parameters.name);
@@ -110,6 +114,7 @@ public model AcmeMetaModel extends MetaModel {
 		}
 	}
 
+	/* MLM Challenge S4 */
 	public concept Code extends SoftwareEngineeringArtifact {
 		
 		ProgrammingLanguage programmingLanguage with ConceptInstance(virtualModelInstance=container);
@@ -122,6 +127,7 @@ public model AcmeMetaModel extends MetaModel {
 		}
 	}
 
+	/* MLM Challenge S3 */
 	public concept Coding extends Task {
 		
 		ProgrammingLanguage[1,*] programmingLanguages with ConceptInstance(virtualModelInstance=container.container);
@@ -130,8 +136,8 @@ public model AcmeMetaModel extends MetaModel {
 			super(parameters.name,parameters.taskType);
 		}
 		
-		void isAuthorizedProducedArtifact(required Artifact artifact) {
-			boolean returned = super.isAuthorizedProducedArtifact(parameters.artifact);
+		boolean isAuthorizedProducedArtifact(required Artifact artifact) {
+			return super.isAuthorizedProducedArtifact(parameters.artifact);
 		}
 	}
 
