@@ -12,7 +12,7 @@ public model MetaModel {
 	 */
 	public abstract concept ModelingElement {
 		String name;
-		Date lastUpdated;
+		Date lastUpdated; /* MLM Challenge P19 */
 
 		create(String name) {
 			name = parameters.name;
@@ -138,6 +138,13 @@ public model MetaModel {
 			ArtifactType[0,*] producedArtifactTypes with ConceptInstance(virtualModelInstance=container.container); /* MLM Challenge P7 */
 			int expectedDuration; /* MLM Challenge P8 */
 			boolean isCritical; /* MLM Challenge P9 */
+
+			/* MLM Challenge P9 */
+			assert  (Actor actor : allowedActors) {
+				assert !isCritical || actor.isSenior onfailure: {
+					log "Non senior actor " + actor + " for a critical TaskType";
+				}
+			}
 			
 			create(String name) {
 				super(parameters.name);
@@ -223,6 +230,7 @@ public model MetaModel {
 				creator = parameters.creator;
 			}
 
+			/* MLM Challenge P17 */
 			boolean isAuthorizedActor(required Actor actor) {
 				for (ActorType allowedActorType : allowedActorTypes) {
 					if (parameters.actor.hasActorType(allowedActorType)) {
@@ -485,6 +493,7 @@ public model MetaModel {
 	 */
 	public concept ActorType extends Type {
 		
+		/* MLM Challenge P18 */
 		ActorType[0,*] parentActorTypes with ConceptInstance(virtualModelInstance=container);
 
 		create(String name) {
@@ -496,7 +505,8 @@ public model MetaModel {
 		public void addParentActorType(required ActorType actorType) {
 			parentActorTypes.add(parameters.actorType);
 		}
-		
+
+		/* MLM Challenge P18 */
 		boolean isOrSpecializesActorType(required ActorType actorType) {
 			if (parameters.actorType == this) {
 				return true;
@@ -545,6 +555,7 @@ public model MetaModel {
 	/**
 	 * Represents an actor, as a MultiInstance of multiple ActorTypes
 	 */
+	/* MLM Challenge P15 */
 	public concept Actor extends MultiInstance {
 		
 		ActorType[0,*] types with ConceptInstance(virtualModelInstance=container);
@@ -579,6 +590,7 @@ public model MetaModel {
 	/**
 	 * Represents a process beeing executed, as a Instance of a ProcessType
 	 */
+	/* MLM Challenge P10, P11 */
 	public concept Process extends Instance {
 		
 		ProcessType type with ConceptInstance(virtualModelInstance=container);
@@ -643,11 +655,11 @@ public model MetaModel {
 		public concept Task extends Instance {
 			
 			TaskType type with ConceptInstance(virtualModelInstance=container.container);
-			Date beginDate;
-			Date endDate;
-			Actor[0,*] performingActors with ConceptInstance(virtualModelInstance=container.container);
-			Artifact[0,*] usedArtifacts with ConceptInstance(virtualModelInstance=container.container);
-			Artifact[0,*] producedArtifacts with ConceptInstance(virtualModelInstance=container.container);
+			Date beginDate; /* MLM Challenge P12 */
+			Date endDate; /* MLM Challenge P12 */
+			Actor[0,*] performingActors with ConceptInstance(virtualModelInstance=container.container); /* MLM Challenge P13 */
+			Artifact[0,*] usedArtifacts with ConceptInstance(virtualModelInstance=container.container); /* MLM Challenge P13, P14 */
+			Artifact[0,*] producedArtifacts with ConceptInstance(virtualModelInstance=container.container); /* MLM Challenge P13, P14 */
 			boolean isActive;
 			boolean completed;
 			
@@ -700,7 +712,8 @@ public model MetaModel {
 			
 			delete() {
 			}
-			
+
+			/* MLM Challenge P17 */
 			boolean isAuthorizedActor(required Actor actor) {
 				return type.isAuthorizedActor(parameters.actor);
 			}
@@ -856,6 +869,7 @@ public model MetaModel {
 	/**
 	 * Represents an artifact, as a MultiInstance of multiple ArtifactType
 	 */
+	/* MLM Challenge P14, P16 */
 	public concept Artifact extends MultiInstance {
 		
 		ArtifactType[0,*] types with ConceptInstance(virtualModelInstance=container);
