@@ -147,7 +147,7 @@ model ProcessTypeEditor {
 
 		ProcessTypeGR dropProcessTypeGRAtTopLevel(required String name) with DropScheme(targetType=ProcessTypeEditor) {
 			shape = DIAGRAM::AddShape(container=topLevel) in diagram;
-			header = DIAGRAM::AddShape(container=container) in diagram;
+			header = DIAGRAM::AddShape() in diagram;
 			processType = new ProcessType(parameters.name);
 		}
 		
