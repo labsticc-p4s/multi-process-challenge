@@ -44,3 +44,4 @@ newProcess=newProcess
 processName=processName
 processTypeName=processTypeName
 taskType=taskType
+taskTypeConcept=taskTypeConcept
