@@ -702,6 +702,8 @@ public model MetaModel {
 				if (this.isAuthorizedActor(parameters.actor)) {
 					log "This actor is AUTHORIZED";
 					performingActors.add(parameters.actor);
+					notify "performingActorsLabel";
+					notify "statusLabel";
 				}
 				else {
 					log "This actor is NOT AUTHORIZED";
@@ -749,6 +751,7 @@ public model MetaModel {
 			public void startTask() {
 				beginDate = new Date();
 				isActive = true;
+				notify "statusLabel";
 				log "Start abstract task " + this;
 			}
 			
@@ -756,8 +759,8 @@ public model MetaModel {
 				isActive = false;
 				completed = true;
 				endDate = new Date();
-				notify "statusLabel";
 				container.executeGateways();
+				notify "statusLabel";
 				log "Finish abstract task " + this;
 			}
 			
@@ -765,9 +768,6 @@ public model MetaModel {
 				return performingActors.size > 0;
 			}
 			
-			void addToPerformingActor(required Actor actor) {
-				performingActors.add(parameters.actor);
-			}
 		}
 		
 		/**

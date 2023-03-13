@@ -173,7 +173,7 @@ model ProcessEditor {
 	}
 
 	concept TaskGR extends AbstractTaskGR {
-		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE5,exampleLabel="");
+		DiagramShape shape with ShapeRole(metamodelElement=DIAGRAM_SHAPE5,exampleLabel="",transparency=(task.isActive | task.completed ? 1.0 : (task.isStartable() ? 0.5 : 0.2)));
 		Task task with ConceptInstance(virtualModelInstance=processModel);
 		DiagramShape title with ShapeRole(metamodelElement=DIAGRAM_SHAPE6,exampleLabel="Task",label=task.name);
 		DiagramShape performingActors with ShapeRole(metamodelElement=DIAGRAM_SHAPE7,exampleLabel="Actors",label=task.performingActorsLabel);
@@ -309,8 +309,9 @@ model ProcessEditor {
 	concept ActorAssignationGR {
 		DiagramConnector connector with ConnectorRole(metamodelElement=DIAGRAM_CONNECTOR2,exampleLabel="Connector28");
 		ActorAssignationGR linkActorGRToTaskGR() with LinkScheme(fromType=ActorInstanceGR,toType=TaskGR) {
+			log "Assigning " + fromTarget.actor + " to " + toTarget.task;
 			connector = DIAGRAM::AddConnector(fromShape=fromTarget.shape,toShape=toTarget.shape) in diagram;
-			toTarget.task.addToPerformingActor(fromTarget.actor);
+			toTarget.task.addToPerformingActors(fromTarget.actor);
 		}
 		create::representAssignation(required Actor actor, required Task task) {
 			ActorInstanceGR actorInstanceGR = container.getActorGR(parameters.actor);
