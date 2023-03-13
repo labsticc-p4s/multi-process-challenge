@@ -233,6 +233,11 @@ public model MetaModel {
 						return this.isValidActor(allowedActor);
 					}
 				}
+				if (allowedActorTypes.size == 0) {
+					// A special case to allow an actor for a TaskType
+					// defining no allowed ActorType (demo only)
+					return true;
+				}
 				return false;
 			}
 		}
