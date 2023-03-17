@@ -77,11 +77,11 @@ model ProcessTypeEditor {
 	 * Utility method: return representation of supplied taskType
 	 */
 	ShapeBasedGR getTaskTypeGR(required TaskType taskType) {
-		if (parameters.taskType.conceptType.name == "Begin") {
-			return this.getBeginGR(parameters.taskType);
+		if (parameters.taskType instanceof Begin) {
+			return this.getBeginGR((Begin)parameters.taskType);
 		}
-		if (parameters.taskType.conceptType.name == "End") {
-			return this.getEndGR(parameters.taskType);
+		if (parameters.taskType instanceof End) {
+			return this.getEndGR((End)parameters.taskType);
 		}
 		return select unique TaskTypeGR from this where (selected.taskType == parameters.taskType);
 	}
