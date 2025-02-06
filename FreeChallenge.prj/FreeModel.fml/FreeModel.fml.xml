@@ -474,7 +474,7 @@
       <GenericBehaviourParameter id="BEU-480" widget="TEXT_FIELD" defaultValue="&quot;ProcessEnactment&quot;" name="conceptName" type="java.lang.String" userID="BEU" flexoID="480" />
     </DropScheme>
   </FlexoConcept>
-  <UseModelSlotDeclaration id="0" modelSlotClass="org.openflexo.foundation.fml.rt.FMLRTVirtualModelInstanceModelSlot" userID="BEU" flexoID="-1" />
+  <UseModelSlotDeclaration id="0" modelSlotClass="org.openflexo.foundation.fml.rt.FMLRTModelSlot" userID="BEU" flexoID="-1" />
   <UseModelSlotDeclaration id="1" modelSlotClass="org.openflexo.technologyadapter.diagram.TypedDiagramModelSlot" userID="BEU" flexoID="-1" />
   <Inspector id="BEU-2" inspectorTitle="FreeModel" userID="BEU" flexoID="2" />
   <FMLRTVirtualModelInstanceModelSlot id="BEU-3" virtualModelURI="http://www.openflexo.org/projects/2021/3/FreeChallenge_1615905469243.prj/ConceptualModel.fml" isRequired="true" cloningStrategy="Reference" cardinality="ZeroOne" name="sampleData" userID="BEU" flexoID="3" />

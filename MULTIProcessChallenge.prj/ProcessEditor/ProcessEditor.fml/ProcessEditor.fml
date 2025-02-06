@@ -1,7 +1,7 @@
 namespace "http://www.openflexo.org/MULTIProcessChallenge" as MULTIPROCESSCHALLENGE;
 
 use org.openflexo.technologyadapter.diagram.TypedDiagramModelSlot as DIAGRAM;
-use org.openflexo.foundation.fml.rt.FMLRTVirtualModelInstanceModelSlot as FMLRT;
+use org.openflexo.foundation.fml.rt.FMLRTModelSlot as FMLRT;
 
 import org.openflexo.technologyadapter.diagram.model.DiagramShape;
 import org.openflexo.technologyadapter.diagram.model.Diagram;

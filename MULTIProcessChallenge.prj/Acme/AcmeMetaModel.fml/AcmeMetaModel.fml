@@ -1,6 +1,6 @@
 namespace "http://www.openflexo.org/MULTIProcessChallenge" as MULTIPROCESSCHALLENGE;
 
-use org.openflexo.foundation.fml.rt.FMLRTVirtualModelInstanceModelSlot as FMLRT;
+use org.openflexo.foundation.fml.rt.FMLRTModelSlot as FMLRT;
 
 import [MULTIPROCESSCHALLENGE + "/MetaModel.fml"] as MetaModel;
 
